@@ -2,10 +2,12 @@
 title: How to define a Bash function
 link_title: Bash function
 subtitle: Reusable shell commands
-category: Command line recipes
+logo: { src: /assets/logos/bash.svg }
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-24
+tier: t3
 links:
   - title: Bash shell functions
     url: https://www.gnu.org/software/bash/manual/html_node/Shell-Functions.html

@@ -94,7 +94,7 @@
     &.attr-value,
     &.boolean,
     &.regex {
-      color: var(--highlight);
+      color: var(--highlight-text);
     }
 
     &.function,

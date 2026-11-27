@@ -2,13 +2,17 @@
 title: How to loop over a Bash array
 link_title: Bash array loop
 subtitle: Iterate arrays safely
-category: Command line recipes
+logo: { src: /assets/logos/bash.svg }
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-23
+tier: t3
 links:
   - title: Bash arrays
     url: https://www.gnu.org/software/bash/manual/html_node/Arrays.html
+  - title: Bash for loop
+    url: /bash-for-loop
 ---
 
 ## Looping

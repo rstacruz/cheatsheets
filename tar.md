@@ -1,18 +1,21 @@
 ---
 title: tar
 subtitle: Archive utility
+logo: { set: icon-park-outline, name: file-zip }
 category: CLI
-updated: 2022-08-11
+tier: t3
+last_verified_with: "GNU tar 1.35."
+updated: 2026-11-26
 intro: Concatenate, Deflate, Inflate files
 links:
   - title: GNU tar manual
     url: https://www.gnu.org/software/tar/manual/
 ---
+
 ## Reference
 
-<!-- {:.-two-column} -->
-
 ### Deflate / Inflate / Concatenate
+
 ```shell
 # Deflate / Compress
 tar -czf archive.tar.gz /path/files
@@ -34,8 +37,8 @@ tar -xzf archive.tar.gz -C /target/directory
 ```
 
 ```shell
-# Append a file to an existing archive
-tar -zu archive.tar.gz -C /target/file
+# append a file to an uncompressed archive
+tar -rf archive.tar -C /target file.txt
 ```
 
 ```shell
@@ -43,6 +46,8 @@ tar -zu archive.tar.gz -C /target/file
 # Add -v for additional details
 tar -tzf archive.tar.gz
 ```
+
+See: [Create, list and extract](https://www.gnu.org/software/tar/manual/html_node/create.html)
 
 ### Common options
 
@@ -53,7 +58,10 @@ tar -tzf archive.tar.gz
 | `u`    | append files which are newer than the corresponding copy in the archive |
 | `f`    | filename of the archive                                                 |
 | `v`    | verbose, display what is inflated or deflated                           |
-| `a`    | unlike of `z`, determine compression based on file extension            |
+| `a`    | infer compression from the archive suffix                              |
+<!-- {: .-headers} -->
+
+See: [Option summary](https://www.gnu.org/software/tar/manual/html_node/Option-Summary.html)
 
 ## Also see
 

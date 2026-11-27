@@ -1,7 +1,11 @@
 ---
 title: "Ansible quickstart"
 subtitle: First-playbook walkthrough
+logo: { src: /assets/logos/ansible.svg }
 category: Ansible
+last_verified_with: "ansible-core 2.22."
+updated: 2026-11-25
+tier: t3
 description: |
   A quick guide to getting started with your first Ansible playbook.
 ---
@@ -72,7 +76,7 @@ See: [Intro to Playbooks](https://docs.ansible.com/projects/ansible/latest/playb
 
 ## Running
 
-### Running ansible-playbook
+### List the project files
 
 ```
 ~/setup$ ls
@@ -80,22 +84,26 @@ hosts
 playbook.yml
 ```
 
-#### Running the playbook
+See: [Getting started](https://docs.ansible.com/projects/ansible/latest/getting_started/index.html)
+
+### Running ansible-playbook
 
 ```
 ~/setup$ ansible-playbook -i hosts playbook.yml
-PLAY [all] ********************************************************************
+PLAY [all] **************************************************
 
-GATHERING FACTS ***************************************************************
+GATHERING FACTS *********************************************
 ok: [127.0.0.1]
 
-TASK: [install nginx] *********************************************************
+TASK: [install nginx] ****************************************
 ok: [127.0.0.1]
 
-TASK: start nginx every bootup] ***********************************************
+TASK: start nginx every bootup] ******************************
 ok: [127.0.0.1]
 ...
 ```
+
+See: [Running playbooks](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html#running-playbooks)
 
 ## Read more
 

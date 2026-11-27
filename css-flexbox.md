@@ -1,8 +1,10 @@
 ---
 title: CSS flexbox
 subtitle: One-dimensional layout system
+logo: { set: icon-park-outline, name: layout-one }
 category: CSS
 updated: 2026-11-23
+tier: t3
 last_verified_with: "CSS Flexible Box Layout Module Level 1."
 prism_languages: [css]
 weight: -3
@@ -26,6 +28,8 @@ weight: -3
 }
 ```
 
+See: [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+
 ### Container
 
 #### Opening brace
@@ -34,7 +38,7 @@ weight: -3
 .container {
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight=".container"} -->
 
 #### Display
 
@@ -42,6 +46,7 @@ weight: -3
   display: flex;
   display: inline-flex;
 ```
+<!-- {: data-highlight="display: flex"} -->
 
 #### Direction
 
@@ -85,7 +90,7 @@ weight: -3
 }
 ```
 
-<!-- {: .-setup} -->
+See: [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 
 ### Child
 
@@ -95,7 +100,7 @@ weight: -3
 .container > div {
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight=".container > div"} -->
 
 #### Flex shorthand
 
@@ -121,6 +126,7 @@ weight: -3
   align-self: flex-start;  /* left */
   margin-left: auto;       /* right */
 ```
+<!-- {: data-highlight="align-self: flex-start"} -->
 
 #### Closing brace
 
@@ -128,7 +134,7 @@ weight: -3
 }
 ```
 
-<!-- {: .-setup} -->
+See: [flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
 
 
 ## Tricks
@@ -147,6 +153,8 @@ weight: -3
 }
 ```
 
+See: [Aligning items in a flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+
 ### Vertical center (2)
 
 ```css
@@ -156,6 +164,8 @@ weight: -3
   justify-content: center; /* horizontal */
 }
 ```
+
+See: [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
 
 ### Reordering
 
@@ -168,6 +178,8 @@ weight: -3
  order: 2;
 }
 ```
+
+See: [order](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
 
 ### Mobile layout
 
@@ -189,6 +201,8 @@ weight: -3
 
 A fixed-height top bar and a dynamic-height content area.
 
+See: [flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
+
 ### Table-like
 
 ```css
@@ -205,6 +219,8 @@ A fixed-height top bar and a dynamic-height content area.
 This creates columns that have different widths, but size accordingly according
 to the circumstances.
 
+See: [Controlling ratios of flex items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+
 ### Vertical
 
 
@@ -216,12 +232,16 @@ to the circumstances.
 
 Vertically-center all items.
 
+See: [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
+
 ### Left and right
 
 ```css
 .menu > .left  { align-self: flex-start; }
 .menu > .right { align-self: flex-end; }
 ```
+
+See: [align-self](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
 
 ## References
 

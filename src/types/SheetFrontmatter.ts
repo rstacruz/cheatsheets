@@ -11,6 +11,31 @@ export const SheetLinkSchema = z.object({
 
 export type SheetLink = z.infer<typeof SheetLinkSchema>
 
+export const SheetLogoSchema = z.union([
+  z.object({
+    set: z.enum(['logos', 'simple-icons', 'devicon', 'icon-park-outline']),
+    name: z.string().trim().min(1).describe('Icon name within the set.'),
+    mono: z
+      .boolean()
+      .optional()
+      .describe('Dark artwork on a transparent canvas; inverted in dark mode.')
+  }),
+  z.object({
+    src: z
+      .string()
+      .regex(/^\/assets\/logos\/[a-z0-9-]+\.svg$/, {
+        message: 'Logo src must be an SVG under /assets/logos/'
+      })
+      .describe('SVG path under `/assets/logos/`.'),
+    mono: z
+      .boolean()
+      .optional()
+      .describe('Dark artwork on a transparent canvas; inverted in dark mode.')
+  })
+])
+
+export type SheetLogo = z.infer<typeof SheetLogoSchema>
+
 export const SheetFrontmatterSchema = z
   .object({
     title: z
@@ -38,11 +63,15 @@ export const SheetFrontmatterSchema = z
       .optional()
       .describe('One-line description shown under the title (max 5 words).'),
 
+    logo: SheetLogoSchema.optional().describe(
+      'Square mark shown on homepage cards. Use `{ set, name }` for an Iconify mark or `{ src }` for an SVG under `/assets/logos/`; add `mono: true` for fixed-dark artwork.'
+    ),
+
     category: z
       .string()
       .optional()
       .describe(
-        'Nav group. `Hidden` unlists the sheet. Every group except `Others` holds 3-16 sheets; `Others` holds at most 12.'
+        'Nav group. `Hidden` unlists the sheet. Every group except `Others` holds 3-16 non-snippet sheets; `Others` holds at most 12.'
       ),
     weight: z.number().optional().describe('Sorts higher in the "top" lists.'),
     tags: z

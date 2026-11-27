@@ -1,6 +1,7 @@
 ---
 title: Vimscript functions
 subtitle: Built-in function reference
+logo: { set: icon-park-outline, name: code-brackets }
 category: Vim
 last_verified_with: "Vim 9.2."
 updated: 2026-11-24

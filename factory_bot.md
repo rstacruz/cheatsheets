@@ -3,9 +3,12 @@ title: Factory Bot
 seo_title: Factory Bot cheatsheet — associations, traits
 description: "Factory Bot factories: define associations, traits, hooks and sequences. Reference."
 subtitle: Ruby test data factory library
+logo: { set: icon-park-outline, name: box }
 category: Ruby libraries
 weight: -3
-updated: 2020-07-06
+last_verified_with: "factory_bot 6.6."
+updated: 2026-11-25
+tier: t3
 keywords:
   - "FactoryBot.define do"
   - "factory :user"
@@ -63,6 +66,8 @@ factory :user, aliases: [:author] do
 end
 ```
 
+See: [Aliases](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Aliases)
+
 ### Using
 
 #### Build a model
@@ -74,10 +79,10 @@ FactoryBot.build(:user)
 #### Other ways
 
 ```ruby
-build(:user)           # → model (not saved)
+build(:user)           # → unsaved model
 create(:user)          # → model (saved)
 attributes_for(:user)  # → hash
-build_stubbed(:user)   # stubbed out attributes
+build_stubbed(:user)   # stubbed attrs
 ```
 
 #### With options
@@ -92,6 +97,8 @@ build(:user, name: 'John')
 create_list(:user, 3)
 build_list(:user, 3)
 ```
+
+See: [Build strategies](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Build_strategies)
 
 ## Associations
 
@@ -114,6 +121,8 @@ factory :post do
 end
 ```
 
+See: [Associations](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Associations)
+
 ### After-create hooks
 
 ```ruby
@@ -126,6 +135,8 @@ end
 ```
 
 <!-- {: data-highlight="create"} -->
+
+See: [Callbacks](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Callbacks)
 
 ## Other features
 
@@ -142,6 +153,8 @@ end
 ```
 
 <!-- {: data-highlight="trait"} -->
+
+#### Use a trait
 
 ```ruby
 create :user, :admin
@@ -164,6 +177,8 @@ end
 
 <!-- {: data-highlight="::"} -->
 
+#### Create the factory
+
 ```ruby
 create :sample_user
 ```
@@ -178,6 +193,8 @@ factory :user do
 end
 ```
 
+#### Define the child
+
 ```ruby
 factory :sample_user, parent: :user do
   first_name { FFaker::Name.first_name }
@@ -186,11 +203,15 @@ end
 
 <!-- {: data-highlight=":sample_user"} -->
 
+#### Create
+
 ```ruby
 create :sample_user
 ```
 
 Works the same as nested factories.
+
+See: [Assigning parent explicitly](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Assigning_parent_explicitly)
 
 ### Options (transients)
 
@@ -208,6 +229,8 @@ end
 
 <!-- {: data-highlight="transient"} -->
 
+#### Pass an option
+
 ```ruby
 create(user, upcased: true)
 ```
@@ -224,7 +247,7 @@ See: [Transient attributes](http://www.rubydoc.info/gems/factory_bot/file/GETTIN
 
 Place your factories in these locations.
 
-<!-- {: .-setup} -->
+See: [Definition file paths](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Definition_file_paths)
 
 ## See also
 

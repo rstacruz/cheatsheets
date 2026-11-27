@@ -3,9 +3,12 @@ title: Fish shell
 seo_title: Fish shell cheatsheet — syntax, variables, functions
 description: "Fish shell syntax: variables, functions, control flow and history. Reference."
 subtitle: Interactive shell with autosuggestions
+logo: { src: /assets/logos/fishshell.svg }
 category: Shell
 prism_languages: [fish]
+last_verified_with: "fish 4.9."
 updated: 2026-11-14
+tier: t3
 weight: -1
 intro: |
   fish ships with autosuggestions, syntax highlighting, and tab completions for
@@ -132,8 +135,6 @@ set count (math $count + 1)
 echo (math '2 ^ 10')
 ```
 
-`math` prints the result; capture it with `(...)`.
-
 #### Operators
 
 | Operator | Performs       |
@@ -145,6 +146,8 @@ echo (math '2 ^ 10')
 | `%`      | Modulo         |
 | `^`      | Exponentiation |
 
+`math` prints the result; capture it with `(...)`.
+
 See: [math](https://fishshell.com/docs/current/cmds/math.html)
 
 ## Strings
@@ -155,8 +158,6 @@ See: [math](https://fishshell.com/docs/current/cmds/math.html)
 string match --regex --entire 'Fish' 'Hello from Fish!'
 string match --quiet 'Fish*' 'Hello from Fish!'
 ```
-
-`--quiet` sets `$status` instead of printing.
 
 #### Patterns
 
@@ -175,6 +176,8 @@ string match --quiet 'Fish*' 'Hello from Fish!'
 | `\d`      | Digit character           |
 | `\W`      | Not word character        |
 | `\D`      | Not digit character       |
+
+`--quiet` sets `$status` instead of printing.
 
 See: [string match](https://fishshell.com/docs/current/cmds/string.html#match-subcommand)
 
@@ -240,8 +243,6 @@ test -d /tmp; and echo 'directory'
 test -f /nope; or echo 'missing'
 ```
 
-`and` and `or` run the next command based on `$status`; `&&` and `||` work too.
-
 #### Numbers
 
 | Operator | Meaning               |
@@ -269,6 +270,8 @@ test -f /nope; or echo 'missing'
 | `-r`     | Exists and readable   |
 | `-w`     | Exists and writable   |
 | `-x`     | Exists and executable |
+
+`and` and `or` run the next command based on `$status`; `&&` and `||` work too.
 
 See: [Conditions](https://fishshell.com/docs/current/language.html#conditions)
 
@@ -445,8 +448,6 @@ complete --command mycommand --short-option h --long-option help
 complete --command mycommand --erase
 ```
 
-`complete` registers options for tab completion.
-
 #### Completion options
 
 | Option           | Description                        |
@@ -458,6 +459,8 @@ complete --command mycommand --erase
 | `--force-files`  | Suggest files                      |
 | `--condition`    | Only suggest under a condition     |
 | `--description`  | Description in the pager           |
+
+`complete` registers options for tab completion.
 
 See: [complete](https://fishshell.com/docs/current/cmds/complete.html)
 

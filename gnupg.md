@@ -1,9 +1,12 @@
 ---
 title: GnuPG
 subtitle: OpenPGP encryption suite
+logo: { set: icon-park-outline, name: key }
 category: CLI
 tags: []
-updated: 2017-10-22
+updated: 2026-11-25
+tier: t3
+last_verified_with: "GnuPG 2.5.24."
 weight: 0
 intro: |
   [GnuPG](https://gnupg.org/) is a complete and free implementation of the OpenPGP standard.
@@ -12,22 +15,19 @@ links:
     url: https://gnupg.org/
 ---
 
-Basics
----------------
+## Basics
 
 ### Exporting keys
 
 ```bash
 gpg -o key.gpg --export <KEY ID>
+gpg -o key.asc --armor --export <KEY ID>  # ASCII
 ```
+<!-- {: data-highlight="--export"} -->
 
-__Export key in ASCII:__
+Omit `-o` to print the key to `stdout`.
 
-```bash
-gpg -o key.asc --armor --export <KEY ID>
-```
-
-__Note:__ Omitting the `-o|--output` option will print the key to `stdout`.
+See: [Export keys](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-export)
 
 ### Importing keys
 
@@ -35,73 +35,84 @@ __Note:__ Omitting the `-o|--output` option will print the key to `stdout`.
 gpg --import key.gpg
 gpg --import key.asc
 ```
+<!-- {: data-highlight="--import"} -->
 
-Only merge updates for keys already in key-ring:
+#### Merge only
 
 ```bash
 gpg --import key.asc --import-options merge-only
 ```
+<!-- {: data-highlight="--import-options merge-only"} -->
+
+See: [Import keys](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-import)
 
 ### Managing your keyring
 
-Generate a new key:
-
-<!-- {: .-setup} -->
+#### Generate a key
 
 ```bash
 gpg --gen-key
 # or, generate a new key with dialogs for all options
 gpg --full-gen-key
 ```
+<!-- {: data-highlight="--gen-key; --full-gen-key"} -->
 
-List public keys:
+#### List public keys
 
 ```bash
 gpg -k
 gpg --list-keys
 ```
+<!-- {: data-highlight="--list-keys"} -->
 
-List secret keys:
+#### List secret keys
 
 ```bash
 gpg -K
 gpg --list-secret-keys
 ```
+<!-- {: data-highlight="--list-secret-keys"} -->
 
+See: [Key management](https://gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html)
 
 ### Using a keyserver
 
-Import keys from keyserver:
-
-<!-- {: .-setup} -->
+#### Import
 
 ```bash
 gpg --receive-keys <KEY IDS>
 ```
+<!-- {: data-highlight="--receive-keys"} -->
 
-Upload keys to keyserver:
+#### Upload
 
 ```bash
 gpg --send-keys <KEY IDS>
 ```
+<!-- {: data-highlight="--send-keys"} -->
 
-Request updates from keyserver for keys already in your keyring:
+#### Refresh
 
 ```bash
 gpg --refresh-keys
 ```
+<!-- {: data-highlight="--refresh-keys"} -->
 
-Search keys from keyserver:
+#### Search
 
 ```bash
 gpg --search-keys "<SEARCH STRING>"
 ```
+<!-- {: data-highlight="--search-keys"} -->
 
-Override keyserver from `~/.gnupg/gpg.conf`
+#### Override server
 
 ```bash
 gpg --keyserver <URL> ...
 ```
+<!-- {: data-highlight="--keyserver"} -->
+
+See: [Keyserver commands](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-receive_002dkeys)
 
 ### Trusting a key
 
@@ -111,37 +122,42 @@ gpg --edit-key <KEY ID>
 gpg> trust
 gpg> save
 ```
+<!-- {: data-highlight="--edit-key; trust"} -->
 
 __NOTE:__ You can use the owner's email or name (or part thereof) instead of the key ID for `--edit-key`
 
+See: [Trust in `--edit-key`](https://gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#index-keyedit_003atrust)
 
-Encrypting
----------
-
+## Encrypting and decrypting
 <!-- {: .-two-column} -->
 
 ### Public key encryption
+
 This will produce an encrypted file, `secret.txt.gpg`, that can only be decrypted by the recipient:
 
 ```bash
 gpg -e -o secret.txt.gpg -r <RECIPIENT> secret.txt
 ```
+<!-- {: data-highlight="-e"} -->
 
-For `<RECIPIENT>` you can use their key ID, their email, or their name (or part thereof).
+#### Recipient forms
 
 ```bash
 gpg -e -r <KEY ID> ...
 gpg -e -r "Bez" ...
 gpg -e -r "bezalelhermoso@gmail.com" ...
 ```
+<!-- {: data-highlight="-r"} -->
 
-Specifying multiple recipients
+#### Multiple recipients
 
 ```bash
 gpg -e -r <RECIPIENT> -r <ANOTHER RECIPIENT> ... secret.txt
 ```
 
-__NOTE__: Omitting `-o|--output` will produce an encrypted file named `<ORIGINAL FILENAME>.gpg` by default.
+Omit `-o` to get `<ORIGINAL FILENAME>.gpg`.
+
+See: [Encrypt files](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-encrypt)
 
 ### Symmetric encryption
 
@@ -152,25 +168,22 @@ gpg --symmetric secret.txt
 # or
 gpg -c secret.txt
 ```
+<!-- {: data-highlight="--symmetric; -c"} -->
 
-Decrypting
----------
-
-<!-- {: .-one-column} -->
+See: [Symmetric encryption](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-symmetric)
 
 ### Decrypting a file
 
 ```bash
 gpg -d -o secret.txt secret.txt.gpg
 ```
+<!-- {: data-highlight="gpg -d"} -->
 
-If the file is encrypted via symmetric encryption, you will be prompted for the passphrase.
+Symmetric files prompt for a passphrase; omit `-o` to print to `stdout`.
 
-__NOTE__: Omitting `-o|--output` will print the unencrypted contents to `stdout`
+See: [Decrypt files](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-decrypt)
 
-Signing & Verifying
----------
-
+## Signing & verifying
 <!-- {: .-two-column} -->
 
 ### Signing
@@ -178,59 +191,71 @@ Signing & Verifying
 ```bash
 gpg -o signed-file.txt.gpg -s file.txt
 ```
+<!-- {: data-highlight="-s"} -->
 
-This can be used during encryption to also sign encrypted files:
+#### Sign and encrypt
 
 ```bash
 gpg -s -o secret.txt.gpg \
   -r <RECIPIENT> secret.txt
 ```
 
+See: [Sign files](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-sign)
+
 ### Verifying a signature
 
 ```bash
 gpg --verify file.txt.gpg
 ```
+<!-- {: data-highlight="--verify"} -->
+
+See: [Verify signatures](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-verify)
 
 ### Viewing content of signed file
 
 ```bash
 gpg -d signed-file.txt.gpg
 ```
+<!-- {: data-highlight="-d"} -->
 
-Miscellaneous
-----------
+See: [GPG examples](https://gnupg.org/documentation/manuals/gnupg/GPG-Examples.html)
 
+## Miscellaneous
 <!-- {: .-two-column} -->
 
 ### Components
 
-List all components:
-
-<!-- {: .-setup} -->
+#### List components
 
 ```bash
 gpgconf --list-components
 ```
+<!-- {: data-highlight="--list-components"} -->
 
-Kill a component:
+#### Kill a component
 
 ```bash
 gpgconf --kill <COMPONENT> # i.e. gpgconf --kill dirmngr
 ```
+<!-- {: data-highlight="--kill <COMPONENT>"} -->
 
-Kill all components:
+#### Kill all
+
 ```bash
 gpgconf --kill all
 ```
+<!-- {: data-highlight="--kill all"} -->
+
+See: [Listing components](https://gnupg.org/documentation/manuals/gnupg/Listing-components.html#Listing-components)
 
 ### Parsing keyring data
 
-Use `--with-colons` to produce an output that can easily be parsed i.e. with `awk`, `grep`. Fields are colon-separated.
+`--with-colons` emits colon-separated fields for tools like `awk` and `grep`.
 
 ```bash
 gpg -k --with-colons
 ```
+<!-- {: data-highlight="--with-colons"} -->
 
 Field Quick Reference:
 
@@ -260,6 +285,4 @@ Field Quick Reference:
 | 19      | Last update timestamp |
 | 20      | Origin |
 
-See [GnuPG Details](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS) for more details.
-
-
+See: [GnuPG Details](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS)

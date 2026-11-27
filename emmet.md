@@ -3,9 +3,12 @@ title: Emmet
 seo_title: Emmet cheatsheet — abbreviations, HTML, CSS
 description: "Emmet abbreviations: HTML and CSS nesting, numbering and attributes. Reference."
 subtitle: HTML abbreviation expander
+logo: { src: /assets/logos/emmet.svg }
 category: Markup
 prism_languages: [html, css]
-updated: 2020-07-03
+last_verified_with: "Emmet 2.4."
+updated: 2026-11-25
+tier: t3
 intro: |
   Emmet is a markup language for expanding CSS rules into HTML
 links:
@@ -18,7 +21,7 @@ links:
 ```css
 nav>ul>li
 ```
-Expands to
+#### Expands to
 ```html
 <nav>
   <ul>
@@ -28,12 +31,14 @@ Expands to
 ```
 
 
+See: [Child](https://docs.emmet.io/abbreviations/syntax/#child-)
+
 ### Sibling: +
 
 ```css
 section>p+p+p
 ```
-Expands to
+#### Expands to
 ```html
 <section>
   <p></p>
@@ -42,12 +47,14 @@ Expands to
 </section>
 ```
 
+See: [Sibling](https://docs.emmet.io/abbreviations/syntax/#sibling-)
+
 ### Climb Up: ^
 
 ```css
 section>header>h1^footer
 ```
-Expands to
+#### Expands to
 ```html
 <section>
   <header>
@@ -57,12 +64,14 @@ Expands to
 </section>
 ```
 
+See: [Climb up](https://docs.emmet.io/abbreviations/syntax/#climb-up-)
+
 ### Grouping: ()
 
 ```css
 section>(header>nav>ul>li)+footer>p
 ```
-Expands to
+#### Expands to
 ```html
 <section>
   <header>
@@ -78,12 +87,14 @@ Expands to
 </section>
 ```
 
+See: [Grouping](https://docs.emmet.io/abbreviations/syntax/#grouping-)
+
 ### Multiplication: \*
 
 ```css
 ul>li*3
 ```
-Expands to
+#### Expands to
 ```html
 <ul>
   <li></li>
@@ -92,12 +103,14 @@ Expands to
 </ul>
 ```
 
+See: [Multiplication](https://docs.emmet.io/abbreviations/syntax/#multiplication-)
+
 ### IDs and Classes: . #
 
 ```css
 ul.menu>li.menu__item+li#id_item+li.menu__item#id_2
 ```
-Expands to
+#### Expands to
 ```html
 <ul class="menu">
   <li class="menu__item"></li>
@@ -105,6 +118,8 @@ Expands to
   <li class="menu__item" id="id_2"></li>
 </ul>
 ```
+
+See: [ID and class](https://docs.emmet.io/abbreviations/syntax/#id-and-class)
 
 ### Numbering: $
 
@@ -114,7 +129,7 @@ ul>li.item$$*3
 ul>li.item$@-*3
 ul>li.item$@3*5
 ```
-Expands to
+#### Expands to
 ```html
 <ul>
   <li class="item1"></li>
@@ -145,27 +160,33 @@ Expands to
 </ul>
 ```
 
+See: [Item numbering](https://docs.emmet.io/abbreviations/syntax/#item-numbering-)
+
 ### Attributes: []
 
 ```css
 input[type="text"]
 div[data-attr="test"]
 ```
-Expands to
+#### Expands to
 ```html
 <input type="text" />
 <div data-attr="test"></div>
 ```
+
+See: [Custom attributes](https://docs.emmet.io/abbreviations/syntax/#custom-attributes)
 
 ### Text: {}
 
 ```css
 p{Lorem ipsum}
 ```
-Expands to
+#### Expands to
 ```html
 <p>Lorem ipsum</p>
 ```
+
+See: [Text](https://docs.emmet.io/abbreviations/syntax/#text-)
 
 ### Implicit tags
 
@@ -175,7 +196,7 @@ em>.default-inline
 ul>.default-list
 table>.default-table-row>.default-table-column
 ```
-Expands to
+#### Expands to
 ```html
 <div class="default-block"></div>
 <em><span class="default-inline"></span></em>
@@ -188,3 +209,5 @@ Expands to
   </tr>
 </table>
 ```
+
+See: [Implicit tag names](https://docs.emmet.io/abbreviations/implicit-names/)

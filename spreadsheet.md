@@ -2,6 +2,7 @@
 title: Spreadsheet functions
 category: Others
 subtitle: Spreadsheet formula reference
+logo: { set: icon-park-outline, name: table }
 last_verified_with: "LibreOffice Calc 26.8.3, Google Sheets."
 updated: 2026-11-24
 tier: t3

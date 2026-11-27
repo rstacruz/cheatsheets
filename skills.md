@@ -1,6 +1,7 @@
 ---
 title: Agent skills
 subtitle: On-demand agent instructions
+logo: { set: icon-park-outline, name: layers }
 category: Agents
 tags: [Featured]
 updated: 2026-11-11

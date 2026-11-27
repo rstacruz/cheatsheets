@@ -1,6 +1,7 @@
 ---
 title: Vim
 subtitle: Modal text editor
+logo: { src: /assets/logos/vim.svg }
 category: Vim
 tags: [Featured]
 updated: 2026-11-11

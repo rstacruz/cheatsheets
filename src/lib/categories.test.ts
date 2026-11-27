@@ -35,8 +35,10 @@ const MAX_PER_CATEGORY = 16
 const MAX_OTHERS = 12
 
 describe('category sizes', () => {
-  test('listed sheets stay within the size bounds', async () => {
-    const grouped = getPagesByCategory(await getPages())
+  test('listed non-snippet sheets stay within the size bounds', async () => {
+    const grouped = getPagesByCategory(await getPages(), {
+      excludeSnippets: true
+    })
     const findings: string[] = []
 
     const others = grouped['Others']?.pages.length ?? 0

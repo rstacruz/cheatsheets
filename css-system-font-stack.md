@@ -2,10 +2,12 @@
 title: How to use system fonts in CSS
 link_title: CSS system fonts
 subtitle: Native font stacks
+logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "CSS Fonts Module Level 4."
 updated: 2026-11-24
+tier: t3
 links:
   - title: MDN font-family
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/font-family

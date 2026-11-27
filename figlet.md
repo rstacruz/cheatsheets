@@ -2,7 +2,10 @@
 title: Figlet
 category: Media tools
 subtitle: ASCII art text renderer
-updated: 2018-06-14
+logo: { set: icon-park-outline, name: text }
+last_verified_with: "figlet 2.2.5."
+updated: 2026-11-25
+tier: t3
 introduction: |
   [Figlet] renders text as ASCII art. Here's a list of Figlet fonts for Figlet 2.2.5.
   [Figlet]: http://www.figlet.org/
@@ -47,6 +50,8 @@ introduction: |
 echo "Hamburger" | figlet -f cybermedium
 ```
 
+#### Output
+
 ```
 _  _ ____ _  _ ___  _  _ ____ ____ ____ ____ 
 |__| |__| |\/| |__] |  | |__/ | __ |___ |__/ 
@@ -57,6 +62,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 Run `figlet` with `-f <font>` to use a font.
 
+See: [figlet manual](http://www.figlet.org/figlet-man.html)
+
 ### Toilet fonts
 
 ```bash
@@ -65,6 +72,8 @@ echo "Hello" | \
 ```
 
 Figlet comes with support for Toilet fonts, which are in `{share}/figlet`. This is not the default font dir, so you'll have to use `-d <path>` to access it.
+
+See: [toilet manual](https://manpages.debian.org/toilet/toilet.1.en.html)
 
 ## Rico's favorites
 
@@ -75,6 +84,8 @@ Figlet comes with support for Toilet fonts, which are in `{share}/figlet`. This 
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### stampatello
 
@@ -89,6 +100,8 @@ Figlet comes with support for Toilet fonts, which are in `{share}/figlet`. This 
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### cybermedium
 
 ```
@@ -99,6 +112,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### cyberlarge
 
 ```
@@ -108,6 +123,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### thin
 
@@ -121,6 +138,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### smbraille
 
 ```
@@ -129,6 +148,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### rectangles
 
@@ -142,6 +163,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### bell
 
 ```
@@ -154,6 +177,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ## Figlet fonts
 
@@ -172,6 +197,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### 3x5
 
 ```
@@ -184,6 +211,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### 5lineoblique
 
 ```
@@ -195,6 +224,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### acrobatic
 
@@ -215,6 +246,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### alligator
 
 ```
@@ -228,6 +261,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### alligator2
 
@@ -243,6 +278,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### alphabet
 
 ```
@@ -257,6 +294,8 @@ H  H aaa m m m bbb   uuu r   ggg ee  r
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### avatar
 
 ```
@@ -268,6 +307,8 @@ H  H aaa m m m bbb   uuu r   ggg ee  r
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### banner
 
@@ -282,6 +323,8 @@ H  H aaa m m m bbb   uuu r   ggg ee  r
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### banner3-D
 
@@ -298,6 +341,8 @@ H  H aaa m m m bbb   uuu r   ggg ee  r
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### banner3
 
 ```
@@ -312,6 +357,8 @@ H  H aaa m m m bbb   uuu r   ggg ee  r
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### banner4
 
 ```
@@ -325,6 +372,8 @@ H  H aaa m m m bbb   uuu r   ggg ee  r
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### barbwire
 
@@ -341,6 +390,8 @@ H  H aaa m m m bbb   uuu r   ggg ee  r
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### basic
 
 ```
@@ -354,6 +405,8 @@ YP   YP YP   YP YP  YP  YP Y8888P' ~Y8888P' 88   YD  Y888P  Y88888P 88   YD
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### bell
 
 ```
@@ -366,6 +419,8 @@ YP   YP YP   YP YP  YP  YP Y8888P' ~Y8888P' 88   YD  Y888P  Y88888P 88   YD
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### big
 
@@ -382,6 +437,8 @@ YP   YP YP   YP YP  YP  YP Y8888P' ~Y8888P' 88   YD  Y888P  Y88888P 88   YD
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### bigchief
 
 ```
@@ -397,6 +454,8 @@ _/____/____(___(_/_/__/_(___/_(___(__/_____(___/_(___ _/_____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### binary
 
 ```
@@ -404,6 +463,8 @@ _/____/____(___(_/_/__/_(___/_(___(__/_____(___/_(___ _/_____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### block
 
@@ -418,6 +479,8 @@ _|    _|    _|_|_|  _|    _|    _|  _|_|_|      _|_|_|  _|          _|_|_|    _|
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### broadway
 
@@ -437,6 +500,8 @@ _|    _|    _|_|_|  _|    _|    _|  _|_|_|      _|_|_|  _|          _|_|_|    _|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### bubble
 
 ```
@@ -448,6 +513,8 @@ _|    _|    _|_|_|  _|    _|    _|  _|_|_|      _|_|_|  _|          _|_|_|    _|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### bulbhead
 
 ```
@@ -458,6 +525,8 @@ _|    _|    _|_|_|  _|    _|    _|  _|_|_|      _|_|_|  _|          _|_|_|    _|
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### calgphy2
 
@@ -485,6 +554,8 @@ _|    _|    _|_|_|  _|    _|    _|  _|_|_|      _|_|_|  _|          _|_|_|    _|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### calligraphy
 
 ```
@@ -511,6 +582,8 @@ _|    _|    _|_|_|  _|    _|    _|  _|_|_|      _|_|_|  _|          _|_|_|    _|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### catwalk
 
 ```
@@ -526,6 +599,8 @@ _//     _//  _// _///_///  _/  _//_// _//    _//_//_///        _//   _////   _//
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### chunky
 
 ```
@@ -537,6 +612,8 @@ _//     _//  _// _///_///  _/  _//_// _//    _//_//_///        _//   _////   _//
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### coinstak
 
@@ -552,6 +629,8 @@ O))     O))  O)) O)))O)))  O)  O))O)) O))    O))O))O)))        O))   O))))   O))
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### colossal
 
@@ -571,6 +650,8 @@ O))     O))  O)) O)))O)))  O)  O))O)) O))    O))O))O)))        O))   O))))   O))
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### computer
 
 ```
@@ -584,6 +665,8 @@ O))     O))  O)) O)))O)))  O)  O))O)) O))    O))O))O)))        O))   O))))   O))
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### contessa
 
 ```
@@ -594,6 +677,8 @@ O))     O))  O)) O)))O)))  O)  O))O)) O))    O))O))O)))        O))   O))))   O))
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### contrast
 
@@ -608,6 +693,8 @@ O))     O))  O)) O)))O)))  O)  O))O)) O))    O))O))O)))        O))   O))))   O))
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### cosmic
 
 ```
@@ -621,6 +708,8 @@ O))     O))  O)) O)))O)))  O)  O))O)) O))    O))O))O)))        O))   O))))   O))
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### cosmike
 
 ```
@@ -633,6 +722,8 @@ O))     O))  O)) O)))O)))  O)  O))O)) O))    O))O))O)))        O))   O))))   O))
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### crawford
 
@@ -648,6 +739,8 @@ l__j__jl__j__jl___j___jl_____j \__,_jl__j\_jl___,_jl_____jl__j\_j
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### cricket
 
 ```
@@ -662,6 +755,8 @@ l__j__jl__j__jl___j___jl_____j \__,_jl__j\_jl___,_jl_____jl__j\_j
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### cursive
 
 ```
@@ -675,6 +770,8 @@ l__j__jl__j__jl___j___jl_____j \__,_jl__j\_jl___,_jl_____jl__j\_j
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### cyberlarge
 
 ```
@@ -684,6 +781,8 @@ l__j__jl__j__jl___j___jl_____j \__,_jl__j\_jl___,_jl_____jl__j\_j
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### cybermedium
 
@@ -695,6 +794,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### cybersmall
 
 ```
@@ -704,6 +805,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### decimal
 
 ```
@@ -711,6 +814,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### diamond
 
@@ -727,6 +832,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### digital
 
 ```
@@ -736,6 +843,8 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### doh
 
@@ -768,6 +877,8 @@ HHHHHHHHH     HHHHHHHHH  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmmbbbbbbbbbbbbbbb
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### doom
 
 ```
@@ -782,6 +893,8 @@ HHHHHHHHH     HHHHHHHHH  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmmbbbbbbbbbbbbbbb
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### dotmatrix
 
@@ -800,6 +913,8 @@ HHHHHHHHH     HHHHHHHHH  aaaaaaaaaa  aaaammmmmm   mmmmmm   mmmmmmbbbbbbbbbbbbbbb
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### double
 
 ```
@@ -810,6 +925,8 @@ __  __ ___ ___  _______ __ ______   ___  ________
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### drpepper
 
@@ -822,6 +939,8 @@ __  __ ___ ___  _______ __ ______   ___  ________
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### dwhistled
 
@@ -838,6 +957,8 @@ Hamburger
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### eftichess
 
 ```
@@ -849,6 +970,8 @@ Hamburger
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### eftifont
 
@@ -862,6 +985,8 @@ Hamburger
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### eftipiti
 
 ```
@@ -869,6 +994,8 @@ Hamburger
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### eftirobot
 
@@ -883,6 +1010,8 @@ Hamburger
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### eftitalic
 
 ```
@@ -895,6 +1024,8 @@ Hamburger
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### eftiwall
 
 ```
@@ -906,6 +1037,8 @@ ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### eftiwater
 
 ```
@@ -916,6 +1049,8 @@ ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### epic
 
@@ -932,6 +1067,8 @@ ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### fender
 
 ```
@@ -946,6 +1083,8 @@ ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### fourtops
 
 ```
@@ -956,6 +1095,8 @@ ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### fraktur
 
@@ -979,6 +1120,8 @@ ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### fuzzy
 
 ```
@@ -993,6 +1136,8 @@ ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### goofy
 
 ```
@@ -1005,6 +1150,8 @@ ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### gothic
 
@@ -1021,6 +1168,8 @@ _-_-                     ,,
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### graceful
 
 ```
@@ -1031,6 +1180,8 @@ _-_-                     ,,
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### gradient
 
@@ -1047,6 +1198,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### graffiti
 
 ```
@@ -1060,6 +1213,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### hex
 
 ```
@@ -1067,6 +1222,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### hollywood
 
@@ -1085,6 +1242,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### invita
 
 ```
@@ -1097,6 +1256,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### isometric1
 
@@ -1116,6 +1277,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### isometric2
 
 ```
@@ -1133,6 +1296,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### isometric3
 
@@ -1152,6 +1317,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### isometric4
 
 ```
@@ -1170,6 +1337,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### italic
 
 ```
@@ -1179,6 +1348,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### ivrit
 
@@ -1192,6 +1363,8 @@ eee..eee..eeeeee..eee......eee.eeeeeee..eee..eee.eeeeeee...eeeeee..eeeeee.eeeeee
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### jazmine
 
@@ -1209,6 +1382,8 @@ o8oooo8 .oPYo. ooYoYo. 8oPYo. o    o oPYo. .oPYo. .oPYo. oPYo.
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### jerusalem
 
 ```
@@ -1221,6 +1396,8 @@ o8oooo8 .oPYo. ooYoYo. 8oPYo. o    o oPYo. .oPYo. .oPYo. oPYo.
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### katakana
 
@@ -1236,6 +1413,8 @@ o8oooo8 .oPYo. ooYoYo. 8oPYo. o    o oPYo. .oPYo. .oPYo. oPYo.
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### kban
 
 ```
@@ -1249,6 +1428,8 @@ o8oooo8 .oPYo. ooYoYo. 8oPYo. o    o oPYo. .oPYo. .oPYo. oPYo.
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### l4me
 
 ```
@@ -1256,6 +1437,8 @@ o8oooo8 .oPYo. ooYoYo. 8oPYo. o    o oPYo. .oPYo. .oPYo. oPYo.
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### larry3d
 
@@ -1273,6 +1456,8 @@ o8oooo8 .oPYo. ooYoYo. 8oPYo. o    o oPYo. .oPYo. .oPYo. oPYo.
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### lcd
 
 ```
@@ -1284,6 +1469,8 @@ o8oooo8 .oPYo. ooYoYo. 8oPYo. o    o oPYo. .oPYo. .oPYo. oPYo.
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### lean
 
@@ -1299,6 +1486,8 @@ _/    _/    _/_/_/  _/    _/    _/  _/_/_/      _/_/_/  _/          _/_/_/    _/
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### letters
 
 ```
@@ -1312,6 +1501,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### linux
 
 ```
@@ -1321,6 +1512,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### lockergnome
 
@@ -1333,6 +1526,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### madrid
 
 ```
@@ -1343,6 +1538,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### marquee
 
@@ -1359,6 +1556,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### maxfour
 
 ```
@@ -1370,6 +1569,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### mike
 
 ```
@@ -1380,6 +1581,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### mini
 
 ```
@@ -1389,6 +1592,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### mirror
 
@@ -1403,6 +1608,8 @@ HH   HH  aaa aa mmm  mm  mm bbbbbb   uuuu u rr          gg  eeeee rr
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### mnemonic
 
 ```
@@ -1411,6 +1618,8 @@ Hamburger
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### morse
 
 ```
@@ -1418,6 +1627,8 @@ Hamburger
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### moscow
 
@@ -1431,6 +1642,8 @@ Hamburger
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### mshebrew210
 
 ```
@@ -1440,6 +1653,8 @@ Hamburger
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### nancyj-fancy
 
@@ -1456,6 +1671,8 @@ MMMMMMMMMMMM                                                     .88
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### nancyj-underlined
 
 ```
@@ -1470,6 +1687,8 @@ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo~~~~.88~ooooooooooooo
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### nancyj
 
@@ -1486,6 +1705,8 @@ dP     dP  `88888P8 dP  dP  dP 88Y8888' `88888P' dP       `8888P88 `88888P' dP
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### nipples
 
 ```
@@ -1501,6 +1722,8 @@ dP     dP  `88888P8 dP  dP  dP 88Y8888' `88888P' dP       `8888P88 `88888P' dP
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### ntgreek
 
 ```
@@ -1515,6 +1738,8 @@ dP     dP  `88888P8 dP  dP  dP 88Y8888' `88888P' dP       `8888P88 `88888P' dP
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### nvscript
 
@@ -1539,6 +1764,8 @@ Yb, `88       88                                 IP'`Yb
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### o8
 
 ```
@@ -1552,6 +1779,8 @@ o888o o888o 88ooo88 8o o888o888o888o o888ooo88    888o88 8o o888o       888     
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### octal
 
 ```
@@ -1559,6 +1788,8 @@ o888o o888o 88ooo88 8o o888o888o888o o888ooo88    888o88 8o o888o       888     
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### ogre
 
@@ -1573,6 +1804,8 @@ o888o o888o 88ooo88 8o o888o888o888o o888ooo88    888o88 8o o888o       888     
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### os2
 
 ```
@@ -1586,6 +1819,8 @@ ____________________________________________________ooooo__________________
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### pawp
 
@@ -1602,6 +1837,8 @@ ____________________________________________________ooooo__________________
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### peaks
 
 ```
@@ -1616,6 +1853,8 @@ ____________________________________________________ooooo__________________
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### pebbles
 
@@ -1634,6 +1873,8 @@ o      O `OoO'o  O  o  o `OoO' `OoO'o  o     `OoOo `OoO'  o
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### pepper
 
 ```
@@ -1643,6 +1884,8 @@ o      O `OoO'o  O  o  o `OoO' `OoO'o  o     `OoOo `OoO'  o
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### poison
 
@@ -1661,6 +1904,8 @@ o      O `OoO'o  O  o  o `OoO' `OoO'o  o     `OoOo `OoO'  o
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### puffy
 
 ```
@@ -1676,6 +1921,8 @@ o      O `OoO'o  O  o  o `OoO' `OoO'o  o     `OoOo `OoO'  o
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### pyramid
 
 ```
@@ -1685,6 +1932,8 @@ o      O `OoO'o  O  o  o `OoO' `OoO'o  o     `OoOo `OoO'  o
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### rectangles
 
@@ -1697,6 +1946,8 @@ o      O `OoO'o  O  o  o `OoO' `OoO'o  o     `OoOo `OoO'  o
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### relief
 
@@ -1712,6 +1963,8 @@ ________________________________________________________________________/~~\____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### relief2
 
 ```
@@ -1725,6 +1978,8 @@ ________________________________________________________________________/~~\____
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### rev
 
@@ -1744,6 +1999,8 @@ ________________________________________________________________________/~~\____
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### roman
 
 ```
@@ -1760,6 +2017,8 @@ o888o   o888o `Y888""8o o888o o888o o888o  `Y8bod8P'  `V88V"V8P' d888b    `8oooo
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### rot13
 
 ```
@@ -1767,6 +2026,8 @@ Unzohetre
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### rounded
 
@@ -1782,6 +2043,8 @@ Unzohetre
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### rowancap
 
 ```
@@ -1793,6 +2056,8 @@ dMP dMP dMP dMP dMP dMP dMPdMMMMP"  VMMMP" dMP dMP  VMMMP" dMMMMMP dMP dMP
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### rozzo
 
@@ -1808,6 +2073,8 @@ dMP dMP dMP dMP dMP dMP dMPdMMMMP"  VMMMP" dMP dMP  VMMMP" dMMMMMP dMP dMP
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### runic
 
 ```
@@ -1820,6 +2087,8 @@ dMP dMP dMP dMP dMP dMP dMPdMMMMP"  VMMMP" dMP dMP  VMMMP" dMMMMMP dMP dMP
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### runyc
 
@@ -1834,6 +2103,8 @@ dMP dMP dMP dMP dMP dMP dMPdMMMMP"  VMMMP" dMP dMP  VMMMP" dMMMMMP dMP dMP
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### sblood
 
 ```
@@ -1845,6 +2116,8 @@ dMP dMP dMP dMP dMP dMP dMPdMMMMP"  VMMMP" dMP dMP  VMMMP" dMMMMMP dMP dMP
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### script
 
@@ -1860,6 +2133,8 @@ dMP dMP dMP dMP dMP dMP dMPdMMMMP"  VMMMP" dMP dMP  VMMMP" dMMMMMP dMP dMP
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### serifcap
 
 ```
@@ -1870,6 +2145,8 @@ dMP dMP dMP dMP dMP dMP dMPdMMMMP"  VMMMP" dMP dMP  VMMMP" dMMMMMP dMP dMP
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### shadow
 
@@ -1883,6 +2160,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### short
 
 ```
@@ -1892,6 +2171,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### slant
 
@@ -1906,6 +2187,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### slide
 
 ```
@@ -1918,6 +2201,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### slscript
 
@@ -1932,6 +2217,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### small
 
 ```
@@ -1943,6 +2230,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### smisome1
 
@@ -1958,6 +2247,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### smkeyboard
 
 ```
@@ -1968,6 +2259,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### smscript
 
@@ -1981,6 +2274,8 @@ _|  _|\__,_|_|  _|  _|_.__/ \__,_|_|  \__, |\___|_|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### smshadow
 
 ```
@@ -1991,6 +2286,8 @@ _| _|\__,_|_|_|_|_.__/\_,_|_|\__, |\___|_|
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### smslant
 
@@ -2004,6 +2301,8 @@ _| _|\__,_|_|_|_|_.__/\_,_|_|\__, |\___|_|
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### smtengwar
 
 ```
@@ -2013,6 +2312,8 @@ _| _|\__,_|_|_|_|_.__/\_,_|_|\__, |\___|_|
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### speed
 
@@ -2027,6 +2328,8 @@ _  __  / / /_/ /_  / / / / /  /_/ / /_/ /_  /   _  /_/ //  __/  /
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### stacey
 
 ```
@@ -2039,6 +2342,8 @@ __________________________________________________________________
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### stampatello
 
@@ -2053,6 +2358,8 @@ __________________________________________________________________
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### standard
 
 ```
@@ -2066,6 +2373,8 @@ __________________________________________________________________
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### starwars
 
 ```
@@ -2078,6 +2387,8 @@ __________________________________________________________________
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### stellar
 
@@ -2094,6 +2405,8 @@ __________________________________________________________________
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### stop
 
 ```
@@ -2108,6 +2421,8 @@ __________________________________________________________________
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### straight
 
 ```
@@ -2117,6 +2432,8 @@ __________________________________________________________________
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### tanja
 
@@ -2132,6 +2449,8 @@ H)    hh  a)AAAA m)      MM b)BBBB   u)UUU  r)       g)GGGG  e)EEEE r)
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### tengwar
 
@@ -2150,6 +2469,8 @@ H)    hh  a)AAAA m)      MM b)BBBB   u)UUU  r)       g)GGGG  e)EEEE r)
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### term
 
 ```
@@ -2157,6 +2478,8 @@ Hamburger
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### thick
 
@@ -2170,6 +2493,8 @@ Hamburger
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### thin
 
 ```
@@ -2182,6 +2507,8 @@ Hamburger
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### threepoint
 
 ```
@@ -2191,6 +2518,8 @@ Hamburger
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### ticks
 
@@ -2205,6 +2534,8 @@ _______________________________________________________________________________/
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### ticksslant
 
 ```
@@ -2217,6 +2548,8 @@ _______________________________________________________________________________/
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### tinker-toy
 
@@ -2232,6 +2565,8 @@ o  o o-o-o o o o-o  o--o o   o--O o-o o
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### tombstone
 
 ```
@@ -2242,6 +2577,8 @@ o  o o-o-o o o o-o  o--o o   o--O o-o o
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### trek
 
@@ -2255,6 +2592,8 @@ o  o o-o-o o o o-o  o--o o   o--O o-o o
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### tsalagi
 
 ```
@@ -2267,6 +2606,8 @@ o  o o-o-o o o o-o  o--o o   o--O o-o o
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### twopoint
 
 ```
@@ -2275,6 +2616,8 @@ o  o o-o-o o o o-o  o--o o   o--O o-o o
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### univers
 
@@ -2293,6 +2636,8 @@ o  o o-o-o o o o-o  o--o o   o--O o-o o
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### usaflag
 
 ```
@@ -2305,6 +2650,8 @@ o  o o-o-o o o o-o  o--o o   o--O o-o o
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### weird
 
 ```
@@ -2316,6 +2663,8 @@ o  o o-o-o o o o-o  o--o o   o--O o-o o
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### whimsy
 
@@ -2333,6 +2682,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 
 ## Toilet fonts
@@ -2352,6 +2703,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### ascii9
 
 ```
@@ -2365,6 +2718,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### bigascii12
 
@@ -2388,6 +2743,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### bigascii9
 
 ```
@@ -2407,6 +2764,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### bigmono12
 
@@ -2430,6 +2789,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### bigmono9
 
 ```
@@ -2450,6 +2811,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### circle
 
 ```
@@ -2457,6 +2820,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### emboss
 
@@ -2468,6 +2833,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### emboss2
 
 ```
@@ -2478,6 +2845,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### future
 
 ```
@@ -2487,6 +2856,8 @@ d88'   88b`?88P'`88bd88' d88'  88bd88'`?88P'`?88P'?8bd88'     `?88P'`88b`?888P'd
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### letter
 
@@ -2499,6 +2870,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### mono12
 
@@ -2515,6 +2888,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### mono9
 
 ```
@@ -2529,6 +2904,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### pagga
 
 ```
@@ -2538,6 +2915,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### smascii12
 
@@ -2554,6 +2933,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### smascii9
 
 ```
@@ -2568,6 +2949,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### smblock
 
 ```
@@ -2579,6 +2962,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### smbraille
 
 ```
@@ -2587,6 +2972,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 
 ### smmono12
 
@@ -2603,6 +2990,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### smmono9
 
 ```
@@ -2617,6 +3006,8 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 
 <!-- {: .-figlet} -->
 
+<!-- see: none: font sample -->
+
 ### wideterm
 
 ```
@@ -2624,4 +3015,6 @@ H   H A   A M   M BBBB   UUU  R   R  GGG  EEEEE R   R
 ```
 
 <!-- {: .-figlet} -->
+
+<!-- see: none: font sample -->
 

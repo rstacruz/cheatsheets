@@ -1,6 +1,7 @@
 ---
 title: assert
 subtitle: Assertion testing module
+logo: { set: icon-park-outline, name: check-correct }
 category: Node.js
 last_verified_with: "Node.js 26.13.1."
 updated: 2026-11-24

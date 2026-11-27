@@ -1,8 +1,11 @@
 ---
 title: Git revisions
 subtitle: Revision syntax reference
+logo: { set: icon-park-outline, name: list }
 category: Git
+last_verified_with: "Git 2.56.0."
 updated: 2026-11-22
+tier: t3
 description: ""
 intro: |
   A list of revision specifications you can use with `git log` and many other Git commands. Summarized from `gitrevisions(7)` man page.
@@ -24,6 +27,8 @@ links:
 
 The 3rd argument in each of these commands is a `gitrevision`. These gitrevisions can be passed to many Git commands.
 
+See: [Specifying revisions](https://git-scm.com/docs/gitrevisions#_specifying_revisions)
+
 ### Common git revisions
 
 | Reference                    | Description                                     |
@@ -44,6 +49,8 @@ The 3rd argument in each of these commands is a `gitrevision`. These gitrevision
 
 These are just the common ones, there's a lot more below! (These work in many other commands, not just `git show`.)
 
+See: [Specifying revisions](https://git-scm.com/docs/gitrevisions#_specifying_revisions)
+
 ## Reference
 
 ### Commits
@@ -53,6 +60,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 | _`git checkout`_ `dae68e1` | sha1 |
 
 <!-- {: .-mute-em} -->
+
+See: [Specifying revisions](https://git-scm.com/docs/gitrevisions#_specifying_revisions)
 
 ### References
 
@@ -66,6 +75,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 | _`git checkout`_ `heads/master`  | aka, *refs/heads/master*          |
 
 <!-- {: .-mute-em} -->
+
+See: [Specifying revisions](https://git-scm.com/docs/gitrevisions#_specifying_revisions)
 
 ### Searching back
 
@@ -87,12 +98,16 @@ These are just the common ones, there's a lot more below! (These work in many ot
 
 <!-- {: .-mute-em} -->
 
+See: [Specifying revisions](https://git-scm.com/docs/gitrevisions#_specifying_revisions)
+
 ### Other
 
 | Example | Description |
 | --- | --- |
 | `HEAD:README` | ...          |
 | `0:README`    | (0 to 3) ... |
+
+See: [Specifying revisions](https://git-scm.com/docs/gitrevisions#_specifying_revisions)
 
 ## Ranges
 
@@ -109,6 +124,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 | _`git log`_ `HEAD^{:/fix}` | search previous *HEAD*s matching criteria       |
 
 <!-- {: .-mute-em} -->
+
+See: [Specifying ranges](https://git-scm.com/docs/gitrevisions#_specifying_ranges)
 
 ### Ranges illustration
 
@@ -130,6 +147,8 @@ flowchart LR
 | _`git log`_ `master...fix` | BCD and EFG |
 
 <!-- {: .-mute-em} -->
+
+See: [Specifying ranges](https://git-scm.com/docs/gitrevisions#_specifying_ranges)
 
 ## References
 

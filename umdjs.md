@@ -1,14 +1,27 @@
 ---
 title: Universal JS module loader
 subtitle: Universal module definition pattern
+logo: { set: icon-park-outline, name: puzzle }
 category: Build tools
+intro: |
+  UMD is a pattern for JavaScript modules that work in browsers, CommonJS, and AMD environments. This sheet collects the common templates.
+links:
+  - title: UMD repository
+    url: https://github.com/umdjs/umd
+  - title: UMD templates
+    url: https://github.com/umdjs/umd/tree/master/templates
+tier: t3
+last_verified_with: "UMD templates (umdjs/umd master)."
+updated: 2026-11-26
 ---
 
-### Reference
+## Reference
 
- * <https://github.com/umdjs/umd>
+- [UMD repository](https://github.com/umdjs/umd)
 
-### [With dependency](https://github.com/umdjs/umd/blob/master/amdWebGlobal.js)
+## Patterns
+
+### With dependency
 
 ~~~ js
 ;(function (root, factory) {
@@ -25,6 +38,8 @@ category: Build tools
   return {};
 }));
 ~~~
+
+See: [returnExports.js template](https://github.com/umdjs/umd/blob/master/templates/returnExports.js)
 
 ### No dependencies
 
@@ -44,7 +59,9 @@ category: Build tools
 }));
 ~~~
 
-### [Supports circular references](https://github.com/umdjs/umd/blob/master/commonjsStrict.js)
+See: [Regular module patterns](https://github.com/umdjs/umd#regular-module)
+
+### Supports circular references
 
 ~~~ js
 (function (root, factory) {
@@ -61,3 +78,5 @@ category: Build tools
   exports.action = function () {};
 }));
 ~~~
+
+See: [commonjsStrict.js template](https://github.com/umdjs/umd/blob/master/templates/commonjsStrict.js)

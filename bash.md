@@ -1,6 +1,7 @@
 ---
 title: Bash scripting
 subtitle: Shell scripting language
+logo: { src: /assets/logos/bash.svg }
 category: Shell
 tags: [Featured]
 updated: 2026-11-24
@@ -381,6 +382,9 @@ done
 <!-- {: data-highlight="for i in /etc/rc.*"} -->
 
 See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
+
+[Bash for loop cheatsheet](./bash-for-loop)
+<!-- {: .-crosslink} -->
 
 ### C-like for loop
 
@@ -1226,6 +1230,7 @@ See: [GNU grep manual](https://www.gnu.org/software/grep/manual/grep.html)
 
 <!-- {: .-one-column} -->
 
+- [Bash for loop cheatsheet](./bash-for-loop)
 - [Bash strict mode cheatsheet](./bash-strict-mode)
 - [Bash array loop cheatsheet](./bash-array-loop)
 - [Bash arrays cheatsheet](./bash-arrays)

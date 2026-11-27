@@ -1,12 +1,16 @@
 ---
 title: RSpec
 subtitle: Ruby testing library
+logo: { set: icon-park-outline, name: experiment }
 category: Ruby
 intro: |
   RSpec is a Ruby library for testing.
 links:
   - title: https://rspec.info/
     url: https://rspec.info/
+tier: t3
+last_verified_with: "RSpec 3.13, rspec-mocks 3.13.8."
+updated: 2026-11-26
 ---
 
 ### Invoking tests
@@ -19,8 +23,13 @@ rake spec         # Run all
 rake spec/models/mymodel_spec.rb
 rake spec/models/mymodel_spec.rb:27
 ```
+<!-- {: data-highlight="rake spec"} -->
+
+See: [Rake task](https://rspec.info/features/3-13/rspec-core/command-line/rake-task/)
 
 ## Writing tests
+
+### Describe blocks
 
 ```rb
 describe "A User (in general)" do
@@ -39,6 +48,9 @@ describe "A User (in general)" do
   end
 end
 ```
+<!-- {: data-highlight="describe"} -->
+
+See: [Basic structure](https://rspec.info/features/3-13/rspec-core/example-groups/basic-structure/)
 
 ### Before/after
 
@@ -51,10 +63,13 @@ before :all do
   # before this suite
 end
 
-after : all do
+after :all do
   # after this suite
 end
 ```
+<!-- {: data-highlight="before :each; before :all; after :all"} -->
+
+See: [Before and after hooks](https://rspec.info/features/3-13/rspec-core/hooks/before-and-after-hooks/)
 
 ### Subjects
 
@@ -64,8 +79,13 @@ it { is_expected.to be_empty }
 
 # also names: subject(:account) { ... }
 ```
+<!-- {: data-highlight="subject { CheckingAccount.new }"} -->
+
+See: [Subject](https://rspec.info/features/3-13/rspec-core/subject/)
 
 ## Expectations
+
+### Syntax
 
 ```rb
 target.should eq 1
@@ -74,24 +94,31 @@ target.should_not eq 1
 expect(target).to eq 1
 expect(target).not_to eq 1
 ```
+<!-- {: data-highlight="expect(target).to eq 1"} -->
+
+See: [Expectations](https://rspec.info/features/3-13/rspec-expectations/)
 
 ### Numeric
 
 ```rb
 expect(5).to be < 6
-expect(5).to == 5
+expect(5).to eq 5
 expect(5).to equal value
 expect(5).to be_between(1, 10)
 expect(5).to be_within(0.05).of value
 ```
+<!-- {: data-highlight="be_between; be_within"} -->
+
+See: [Comparisons](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/comparisons/)
 
 ### Compound expectations
 
 ```rb
 expect(1).to (be < 2).or be > 5
 ```
+<!-- {: data-highlight=".or"} -->
 
-Use `or`/`and` to string multiple matchers together. See: [Compound expectations](https://relishapp.com/rspec/rspec-expectations/docs/compound-expectations)
+See: [Compound expectations](https://rspec.info/features/3-13/rspec-expectations/compound-expectations/)
 
 ### Comparison
 
@@ -100,14 +127,20 @@ expect(x).to be value
 expect(x).to satisfy { |arg| ... }
 expect(x).to match /regexp/
 ```
+<!-- {: data-highlight="satisfy"} -->
+
+See: [satisfy](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/satisfy/)
 
 ### Predicate
 
 ```rb
-expect(x).to be_zero    # FixNum#zero?
+expect(x).to be_zero    # Integer#zero?
 expect(x).to be_empty   # Array#empty?
 expect(x).to have_key   # Hash#has_key?
 ```
+<!-- {: data-highlight="be_zero; be_empty; have_key"} -->
+
+See: [Predicates](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/predicates/)
 
 ### Objects
 
@@ -116,6 +149,9 @@ expect(obj).to be_an_instance_of MyClass
 expect(obj).to be_a_kind_of MyClass
 expect(obj).to respond_to :save!
 ```
+<!-- {: data-highlight="be_an_instance_of; be_a_kind_of"} -->
+
+See: [Types](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/types/)
 
 ### Control flow
 
@@ -124,21 +160,27 @@ expect { user.save! }.to raise_error
 expect { user.save! }.to raise_error(ExceptionName, /msg/)
 expect { user.save! }.to throw :symbol
 ```
+<!-- {: data-highlight="raise_error; throw"} -->
+
+See: [Raise error](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/raise-error/)
 
 ### Enumerables/arrays
 
 ```rb
 expect(list).to include(<object>)
 
-expect(list).to have(1).things
-expect(list).to have_at_least(2).things
-expect(list).to have_at_most(3).things
+expect(list.size).to eq 1
+expect(list.size).to be >= 2
+expect(list.size).to be <= 3
 
-expect(list).to have(2).errors_on(:field)
+expect(list.errors[:field].size).to eq 2
 
 expect(list).to contain_exactly(1, 2)
 expect(list).to match_array([1, 2])
 ```
+<!-- {: data-highlight="contain_exactly"} -->
+
+See: [Contain exactly](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/contain-exactly/)
 
 ### Change
 
@@ -152,13 +194,21 @@ expect { thing.destroy }.to \
   change(Thing, :count)
   .by(-1)
 ```
+<!-- {: data-highlight="change"} -->
+
+See: [Change](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/change/)
 
 ## Doubles
+
+### Creating doubles
 
 ```rb
 book = double('book')
 book = instance_double('Book', pages: 250)
 ```
+<!-- {: data-highlight="double; instance_double"} -->
+
+See: [Test doubles](https://rspec.info/features/3-13/rspec-mocks/basics/test-doubles/)
 
 ### Method stubs
 
@@ -179,7 +229,7 @@ expect(die).to receive(:roll)
   .with(hash_excluding(a: 1))
   .with(array_including(:a, :b))
   .with(array_excluding(:a, :b))
-  .with(instance_of(Fixnum))
+  .with(instance_of(Integer))
   .with(kind_of(Numeric))
   .with(<matcher>)
 
@@ -193,10 +243,13 @@ expect(die).to receive(:roll)
   .at_most(:twice)
   .at_most(n).times
 ```
+<!-- {: data-highlight="allow(die).to receive(:roll)"} -->
 
-<https://relishapp.com/rspec/rspec-mocks/docs>
+See: [Expecting messages](https://rspec.info/features/3-13/rspec-mocks/basics/expecting-messages/)
 
 ## Spec helpers
+
+### Helper modules
 
 ```rb
 module UserSpecHelper
@@ -207,6 +260,11 @@ module UserSpecHelper
   end
 end
 ```
+<!-- {: data-highlight="UserSpecHelper"} -->
+
+See: [Modules](https://rspec.info/features/3-13/rspec-core/helper-methods/modules/)
+
+### Including helpers
 
 ```rb
 describe User do
@@ -215,3 +273,6 @@ describe User do
   ...
 end
 ```
+<!-- {: data-highlight="include UserSpecHelper"} -->
+
+See: [Helper methods](https://rspec.info/features/3-13/rspec-core/helper-methods/)

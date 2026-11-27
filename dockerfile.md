@@ -1,9 +1,12 @@
 ---
 title: Dockerfile
 subtitle: Container image build file
-category: Devops
+logo: { src: /assets/logos/docker.svg }
+category: Containers
 prism_languages: [docker]
-updated: 2026-11-14
+last_verified_with: "Docker Engine 29.10."
+updated: 2026-11-25
+tier: t3
 intro: |
   A Dockerfile lists the instructions that build a container image; BuildKit, the default builder since Docker 23, runs them in parallel. This reference covers multi-stage builds, cache mounts, secrets, and the instructions you reach for most.
 links:
@@ -218,7 +221,7 @@ FROM alpine:3.22
 
 The first line pulls the latest stable frontend, so new syntax works on an older daemon.
 
-See: [Dockerfile frontend](https://docs.docker.com/build/buildkit/dockerfile-frontend/)
+See: [Dockerfile frontend](https://docs.docker.com/build/buildkit/frontend/)
 
 ### Cache mounts
 
@@ -226,18 +229,20 @@ See: [Dockerfile frontend](https://docs.docker.com/build/buildkit/dockerfile-fro
 RUN --mount=type=cache,target=/root/.npm npm ci
 ```
 
-A cache mount survives between builds even when the layer is invalidated, so only new packages download.
-
 #### Cache paths
 
-| Tool | Path |
-| --- | --- |
-| npm | `/root/.npm` |
-| pnpm | `/root/.local/share/pnpm/store` |
-| pip | `/root/.cache/pip` |
-| Go | `/go/pkg/mod` |
-| Cargo | `/usr/local/cargo/registry` |
-| apt | `/var/cache/apt` and `/var/lib/apt` |
+| Path                                | Tool   |
+| ---                                 | ---    |
+| `/root/.npm`                        | npm    |
+| `/root/.local/share/pnpm/store`     | pnpm   |
+| `/root/.cache/pip`                  | pip    |
+| `/go/pkg/mod`                       | Go     |
+| `/usr/local/cargo/registry`         | Cargo  |
+| `/var/cache/apt` and `/var/lib/apt` | apt    |
+
+<!-- {: .-headers.-left-align} -->
+
+A cache mount survives between builds even when the layer is invalidated, so only new packages download.
 
 Apt needs `sharing=locked`, because concurrent builds must not touch the same index files.
 
@@ -260,6 +265,8 @@ See: [Bind mounts](https://docs.docker.com/build/cache/optimize/#use-bind-mounts
 RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
     npm ci
 ```
+
+#### Build command
 
 ```bash
 docker build --secret id=npmrc,src=$HOME/.npmrc .

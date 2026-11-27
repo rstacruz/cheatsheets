@@ -1,6 +1,7 @@
 ---
 title: Git worktrees
 subtitle: Parallel checkouts from one repository
+logo: { set: icon-park-outline, name: folder }
 category: Git
 tier: t2
 fragments:
@@ -292,5 +293,6 @@ See: [git-worktree](https://git-scm.com/docs/git-worktree)
 ## Also see
 
 - [Git branches cheatsheet](./git-branch)
+- [Git stash cheatsheet](./git-stash)
 - [Git tricks cheatsheet](./git-tricks)
 - [git log cheatsheet](./git-log)

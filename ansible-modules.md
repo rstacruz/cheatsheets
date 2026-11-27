@@ -1,9 +1,12 @@
 ---
 title: Ansible modules
 subtitle: Module reference for playbooks
+logo: { set: icon-park-outline, name: puzzle }
 category: Ansible
 prism_languages: [yaml]
+last_verified_with: "ansible-core 2.22."
 updated: 2026-11-22
+tier: t3
 keywords:
   - "ansible.builtin.apt"
   - "ansible.builtin.copy"

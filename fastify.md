@@ -1,8 +1,11 @@
 ---
 title: Fastify
 subtitle: Fast Node.js web framework
-category: Node.js
-updated: 2026-11-14
+logo: { src: /assets/logos/fastify.svg, mono: true }
+category: Node.js libraries
+last_verified_with: "Fastify 5.12."
+updated: 2026-11-26
+tier: t3
 intro: |
   [Fastify](https://fastify.dev) is a Node.js web framework with a fast router, JSON-schema validation, and a pino logger. This reference targets Fastify v5.
 links:
@@ -153,6 +156,8 @@ async function routes (app, opts) {
 export default routes
 ```
 
+#### Register
+
 ```js
 await app.register(routes, { name: 'world' })
 ```
@@ -172,7 +177,7 @@ app.register(async (scope) => {
 
 Decorators and hooks stay inside the plugin that added them. Sibling plugins cannot see `db`, and routes added outside the plugin cannot either.
 
-See: [Encapsulation](https://fastify.dev/docs/latest/Reference/Plugins/#encapsulation)
+See: [Encapsulation](https://fastify.dev/docs/latest/Reference/Encapsulation/)
 
 ### fastify-plugin
 
@@ -365,6 +370,8 @@ app.decorateRequest('user', null)
 app.decorateReply('cache', null)
 ```
 
+#### Populate users
+
 ```js
 app.addHook('preHandler', async (request) => {
   request.user = await request.server.db.findUser(request)
@@ -379,6 +386,8 @@ See: [Decorators](https://fastify.dev/docs/latest/Reference/Decorators/)
 
 ### Setup
 
+#### Pretty logging
+
 ```js
 const app = Fastify({
   logger: {
@@ -388,7 +397,7 @@ const app = Fastify({
 })
 ```
 
-A custom instance goes in `loggerInstance`; v5 stopped accepting one in `logger`.
+#### Custom logger
 
 ```js
 import pino from 'pino'
@@ -396,7 +405,7 @@ import pino from 'pino'
 const app = Fastify({ loggerInstance: pino({ level: 'warn' }) })
 ```
 
-`pino-pretty` is a dev dependency, not bundled.
+A custom instance goes in `loggerInstance`; v5 stopped accepting one in `logger`. `pino-pretty` is a dev dependency, not bundled.
 
 See: [Logging](https://fastify.dev/docs/latest/Reference/Logging/)
 
@@ -469,3 +478,7 @@ test('GET /', async (t) => {
 Call the same `build()` helper the server calls, so tests exercise the real plugin tree.
 
 See: [Testing](https://fastify.dev/docs/latest/Guides/Testing/)
+
+## Also see
+
+- [Express cheatsheet](./express)

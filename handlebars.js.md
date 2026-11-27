@@ -1,6 +1,7 @@
 ---
 title: Handlebars.js
 subtitle: JavaScript templating engine
+logo: { src: /assets/logos/handlebars.svg, mono: true }
 category: JavaScript libraries
 weight: -1
 updated: 2026-11-24

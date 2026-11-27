@@ -2,13 +2,17 @@
 title: How to enable Bash strict mode
 link_title: Bash strict mode
 subtitle: Fail fast in shell scripts
-category: Command line recipes
+logo: { src: /assets/logos/bash.svg }
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-23
+tier: t3
 links:
   - title: Bash set builtin
     url: https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+  - title: Bash for loop
+    url: /bash-for-loop
 ---
 
 ## Strict mode

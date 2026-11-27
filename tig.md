@@ -1,23 +1,40 @@
 ---
 title: Tig
 subtitle: Terminal Git repository browser
+logo: { set: icon-park-outline, name: view-list }
 category: Git
-updated: 2026-11-23
+intro: |
+  Tig is a terminal browser for Git repositories and history.
+links:
+  - title: Tig website
+    url: https://jonas.github.io/tig/
+  - title: Tig manual
+    url: https://jonas.github.io/tig/doc/manual.html
+  - title: tigrc configuration
+    url: https://jonas.github.io/tig/doc/tigrc.5.html
+updated: 2026-11-26
 last_verified_with: "tig 2.6.1."
 weight: -3
+tier: t3
 ---
+
+## Getting started
 
 ### Installing
 
-```bash
-# MacOS + Homebrew
-$ brew install tig --HEAD
-```
+#### macOS
 
 ```bash
-# Ubuntu
-$ sudo apt install tig
+brew install tig --HEAD
 ```
+
+#### Ubuntu
+
+```bash
+sudo apt install tig
+```
+
+See: [Installation and news](https://jonas.github.io/tig/#_installation_and_news)
 
 ### Invocation
 
@@ -38,6 +55,8 @@ $ sudo apt install tig
 | `tig stash`         | Stashes                                      |
 
 You can substitute `git log` → `tig`.
+
+See: [tig(1) examples](https://jonas.github.io/tig/doc/tig.1.html#_examples), [revision specification](https://jonas.github.io/tig/doc/manual.html#refspec)
 
 ## Shortcut keys
 
@@ -65,6 +84,8 @@ You can substitute `git log` → `tig`.
 
 <!-- {: .-shortcuts} -->
 
+See: [View switching](https://jonas.github.io/tig/doc/manual.html#view-switching)
+
 ### All views
 
 | Shortcut  | Description                  |
@@ -78,6 +99,8 @@ You can substitute `git log` → `tig`.
 | `,`       | Move to parent               |
 
 <!-- {: .-shortcuts} -->
+
+See: [View manipulation](https://jonas.github.io/tig/doc/manual.html#view-manipulation)
 
 ### Cursor navigation
 
@@ -94,6 +117,8 @@ You can substitute `git log` → `tig`.
 | `-`       | Page up                      |
 
 <!-- {: .-shortcuts} -->
+
+See: [Cursor navigation](https://jonas.github.io/tig/doc/manual.html#cursor-nav)
 
 ### Option toggles
 
@@ -112,6 +137,8 @@ You can substitute `git log` → `tig`.
 
 <!-- {: .-shortcuts} -->
 
+See: [Miscellaneous keys](https://jonas.github.io/tig/doc/manual.html#misc-keys)
+
 ### `m` - Main view
 
 | Shortcut  | Description                  |
@@ -120,6 +147,8 @@ You can substitute `git log` → `tig`.
 | `H`       | Go to HEAD                   |
 
 <!-- {: .-shortcuts} -->
+
+See: [View-specific actions](https://jonas.github.io/tig/doc/manual.html#view-actions)
 
 ### `s` - Status view
 
@@ -131,6 +160,8 @@ You can substitute `git log` → `tig`.
 | `M`       | Merge with external tool           |
 
 <!-- {: .-shortcuts} -->
+
+See: [View-specific actions](https://jonas.github.io/tig/doc/manual.html#view-actions)
 
 ### `c` - Stage view
 
@@ -144,6 +175,8 @@ You can substitute `git log` → `tig`.
 
 <!-- {: .-shortcuts} -->
 
+See: [View-specific actions](https://jonas.github.io/tig/doc/manual.html#view-actions)
+
 ### `d` - Diff view
 
 | Shortcut  | Description                        |
@@ -151,6 +184,8 @@ You can substitute `git log` → `tig`.
 | `[` `]`   | Increase/decrease the diff context |
 
 <!-- {: .-shortcuts} -->
+
+See: [View-specific actions](https://jonas.github.io/tig/doc/manual.html#view-actions)
 
 ### `y` - Stash view
 
@@ -160,5 +195,8 @@ bind stash A !git stash apply %(stash)
 bind stash P !git stash pop %(stash)
 bind stash ! !git stash drop %(stash)
 ```
+<!-- {: data-highlight="bind stash"} -->
 
-Tig already binds `A`/`P`/`!` to apply, pop, and drop with a confirmation prompt; the bindings below skip that prompt.
+Tig already binds `A`/`P`/`!` to apply, pop, and drop with a confirmation prompt; these bindings skip that prompt.
+
+See: [bind command](https://jonas.github.io/tig/doc/tigrc.5.html#_bind_command)

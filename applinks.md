@@ -1,6 +1,7 @@
 ---
 title: Applinks
 subtitle: Deep-link metadata standard
+logo: { set: icon-park-outline, name: deeplink }
 category: HTML
 last_verified_with: "App Links 1.0 metadata spec."
 updated: 2026-11-24

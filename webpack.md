@@ -1,8 +1,8 @@
 ---
 title: Webpack
 subtitle: Asset and module bundler
+logo: { src: /assets/logos/webpack.svg }
 category: Build tools
-updated: 2026-11-14
 intro: |
   [Webpack](https://webpack.js.org) bundles JavaScript, CSS, and other assets into files a browser can load. This reference targets webpack 5 and webpack-cli 7.
 links:
@@ -10,6 +10,9 @@ links:
     url: https://webpack.js.org/concepts/
   - title: GitHub repository
     url: https://github.com/webpack/webpack
+tier: t3
+last_verified_with: "webpack 5.113.0, webpack-cli 7.3.1."
+updated: 2026-11-26
 ---
 
 ## Getting started
@@ -19,6 +22,7 @@ links:
 ```bash
 npm install --save-dev webpack webpack-cli
 ```
+<!-- {: data-highlight="webpack; webpack-cli"} -->
 
 `webpack` is the library; `webpack-cli` provides the `webpack` command.
 
@@ -40,6 +44,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="module.exports"} -->
 
 `output.path` must be absolute. Name the file `webpack.config.mjs`, or set `"type": "module"` in `package.json`, to use `export default`.
 
@@ -54,8 +59,7 @@ See: [Configuration](https://webpack.js.org/configuration/)
 | `webpack --watch` | Rebuild on change |
 | `webpack serve` | Start the dev server |
 | `webpack configtest` | Validate the config |
-
-<!-- {: .-shortcuts} -->
+<!-- {: .-headers} -->
 
 See: [CLI](https://webpack.js.org/api/cli/)
 
@@ -71,6 +75,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="entry"} -->
 
 An entry can also be an array (bundled together) or an object with `import` and `dependOn`, which shares modules between chunks.
 
@@ -87,6 +92,7 @@ output: {
   publicPath: '/'
 }
 ```
+<!-- {: data-highlight="output"} -->
 
 #### Filename tokens
 
@@ -113,8 +119,9 @@ module.exports = {
   mode: 'production'
 }
 ```
+<!-- {: data-highlight="mode"} -->
 
-`mode` is shorthand for three defaults:
+#### Default values
 
 ```js
 mode: 'development'  // => NODE_ENV=development, devtool: 'eval'
@@ -122,7 +129,7 @@ mode: 'production'   // => NODE_ENV=production, minified
 mode: 'none'         // => no defaults, NODE_ENV untouched
 ```
 
-Production mode also turns on tree shaking and deterministic module IDs. Never hardcode the mode twice; read it from an env var.
+Production mode also turns on tree shaking and deterministic module IDs. `mode` selects one of three default configurations; read it from an env var rather than hardcoding it twice.
 
 See: [Mode](https://webpack.js.org/configuration/mode/)
 
@@ -140,8 +147,9 @@ module.exports = {
   ]
 }
 ```
+<!-- {: data-highlight="webpack.DefinePlugin; webpack.ProgressPlugin"} -->
 
-Plugins hook into the compiler; most are classes you instantiate with `new`. Since 5.109 webpack writes HTML itself (`experiments.html`), retiring `html-webpack-plugin`.
+Plugins hook into the compiler; most are classes you instantiate with `new`. Since 5.109 webpack handles HTML natively through an HTML entry or `output.html`, replacing `html-webpack-plugin`.
 
 See: [Plugins](https://webpack.js.org/concepts/plugins/)
 
@@ -149,10 +157,13 @@ See: [Plugins](https://webpack.js.org/concepts/plugins/)
 
 ### Babel
 
+#### Install
+
 ```bash
 npm install --save-dev babel-loader @babel/core
 npm install --save-dev @babel/preset-env
 ```
+<!-- {: data-highlight="babel-loader"} -->
 
 #### webpack.config.js
 
@@ -186,9 +197,13 @@ See: [babel-loader](https://webpack.js.org/loaders/babel-loader/)
 
 ### CSS
 
+#### Install
+
 ```bash
 npm install --save-dev style-loader css-loader
 ```
+
+#### webpack.config.js
 
 ```js
 module.exports = {
@@ -202,6 +217,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="style-loader; css-loader"} -->
 
 `css-loader` resolves `@import` and `url()`; `style-loader` injects the result with a `<style>` tag. Use `mini-css-extract-plugin` to emit a real `.css` file instead.
 
@@ -219,6 +235,7 @@ See: [css-loader](https://webpack.js.org/loaders/css-loader/)
   ]
 }
 ```
+<!-- {: data-highlight="postcss-loader"} -->
 
 #### postcss.config.js
 
@@ -252,6 +269,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="asset/resource; asset/inline; asset/source; asset"} -->
 
 #### Types
 
@@ -273,9 +291,13 @@ See: [Asset modules](https://webpack.js.org/guides/asset-modules/)
 
 ### Setup
 
+#### Install
+
 ```bash
 npm install --save-dev webpack-dev-server
 ```
+
+#### webpack.config.js
 
 ```js
 module.exports = {
@@ -287,6 +309,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="devServer"} -->
 
 Run it with `npx webpack serve`. `static` replaces the removed `contentBase` option.
 
@@ -306,6 +329,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="proxy"} -->
 
 Requests to `/api` go to the backend; the rest are served by webpack. Options come from `http-proxy-middleware`.
 
@@ -326,6 +350,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="[contenthash]; runtimeChunk"} -->
 
 A `[contenthash]` filename changes only when that file changes. Splitting the runtime into its own chunk stops boilerplate churn from renaming every bundle.
 
@@ -346,6 +371,7 @@ optimization: {
   }
 }
 ```
+<!-- {: data-highlight="splitChunks"} -->
 
 Third-party code changes less often than your own, so it deserves its own long-lived bundle.
 
@@ -361,6 +387,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="filesystem"} -->
 
 The default cache is in memory, and production mode turns it off. The filesystem cache persists in `node_modules/.cache/webpack` between runs.
 
@@ -393,6 +420,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="fallback"} -->
 
 Webpack 5 stopped bundling polyfills for Node core modules. Add a browser package and route the import with `resolve.fallback`, or use `node-polyfill-webpack-plugin`.
 

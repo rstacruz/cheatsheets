@@ -1,7 +1,10 @@
 ---
 title: Parsley.js
 subtitle: Frontend form validation
-updated: 2018-12-06
+logo: { set: icon-park-outline, name: form }
+updated: 2026-11-25
+tier: t3
+last_verified_with: "Parsley.js 2.9.2."
 weight: -1
 category: JavaScript libraries
 keywords:
@@ -21,16 +24,18 @@ links:
 ---
 
 ## Parsley
-
 <!-- {: .-three-column} -->
 
-### Installing via NPM
+### Installing via npm
 
-```
+```sh
 npm install --save parsleyjs
 ```
+<!-- {: data-highlight="npm install --save parsleyjs"} -->
 
 [parsleyjs](https://www.npmjs.com/package/parsleyjs) is the Parsley form validator. ('parsley' is a different package)
+
+See: [Download](https://parsleyjs.org/doc/download.html)
 
 ### Enabling
 
@@ -38,16 +43,21 @@ npm install --save parsleyjs
 
 ```html
 <form data-parsley-validate>
-<!-- ✗ not preferred -->
+  <input required>
+</form>
 ```
+<!-- {: data-highlight="data-parsley-validate"} -->
 
 #### via JavaScript
 
 ```js
 $('#form').parsley(/* options */)
 ```
+<!-- {: data-highlight="parsley"} -->
 
 It's preferable to explicitly call `$.fn.parsley()`.
+
+See: [Javascript installation](https://parsleyjs.org/doc/index.html#installation-javascript)
 
 ### API
 
@@ -60,6 +70,7 @@ $('#myform').parsley()
   .reset()
   .destroy()
 ```
+<!-- {: data-highlight=".isValid; .validate; .reset; .destroy"} -->
 
 #### Input
 
@@ -68,6 +79,9 @@ $('#myform input').parsley()
   .isValid()
   .validate() // returns errors
 ```
+<!-- {: data-highlight="isValid"} -->
+
+See: [Form API](https://parsleyjs.org/doc/index.html#usage-form)
 
 ### Validators
 
@@ -80,17 +94,16 @@ $('#myform input').parsley()
 ```html
   required
 ```
+<!-- {: data-highlight="required"} -->
 
 #### Types
 
 ```html
   type='email'
-```
-
-```html
   type='url'
   data-parsley-type='url'
 ```
+<!-- {: data-highlight="email; url"} -->
 
 #### Length
 
@@ -100,35 +113,32 @@ $('#myform input').parsley()
   minlength='10'
   data-parsley-minlength='10'
 ```
+<!-- {: data-highlight="data-parsley-maxlength; data-parsley-minlength"} -->
 
 #### Numeric
 
 ```html
   pattern='\d+'
   data-parsley-pattern='\d+'
-```
-
-```html
   type='number'
   data-parsley-type='number'
   data-parsley-type='integer'
   data-parsley-type='digits'
   data-parsley-type='alphanum'
 ```
+<!-- {: data-highlight="pattern; number"} -->
 
 #### Range
 
 ```html
   type='range'
-  data-parsley=range='[6, 10]'
-```
-
-```html
+  data-parsley-range='[6, 10]'
   max='10'
   data-parsley-max='10'
   min='6'
   data-parsley-min='6'
 ```
+<!-- {: data-highlight="range; max; min"} -->
 
 #### Checkboxes
 
@@ -137,99 +147,96 @@ $('#myform input').parsley()
   data-parsley-maxcheck='3'
   data-parsley-check='[1, 3]'
 ```
+<!-- {: data-highlight="data-parsley-mincheck; data-parsley-maxcheck; data-parsley-check"} -->
 
 #### Confirmation
 
 ```html
   data-parsley-equalto='#confirm'
 ```
+<!-- {: data-highlight="data-parsley-equalto"} -->
+
+See: [Built-in validators](https://parsleyjs.org/doc/index.html#validators)
 
 ## Options
 
 ### Form options
 
-```js
-// Supported & excluded inputs by default
-  inputs: 'input, textarea, select'
-  excluded: 'input[type=button], input[type=submit], ' +
-    'input[type=reset], input[type=hidden]'
-```
+#### Inputs
 
 ```js
-// Stop validating field on highest priority failing constraint
-  priorityEnabled: true
+// Supported and excluded inputs by default
+inputs: 'input, textarea, select'
+excluded: 'input[type=button], input[type=submit], ' +
+  'input[type=reset], input[type=hidden]'
 ```
+<!-- {: data-highlight="inputs"} -->
+
+#### Priority
+
+```js
+// Stop validating on the highest priority failing constraint
+priorityEnabled: true
+```
+<!-- {: data-highlight="priorityEnabled"} -->
 
 See: [Options](http://parsleyjs.org/doc/annotated-source/defaults.html)
 
 ### Field options
 
-```js
-// identifier used to group together inputs
-// (e.g. radio buttons…)
-  multiple: null
-```
+#### Multiple
 
 ```js
-// identifier (or array of identifiers) used to
-// validate only a select group of inputs
-  group: null
+// Identifier that groups inputs, e.g. radio buttons
+multiple: null
 ```
+<!-- {: data-highlight="multiple"} -->
+
+#### Group
+
+```js
+// Identifier (or list) of the inputs to validate
+group: null
+```
+<!-- {: data-highlight="group"} -->
 
 These options are only available for fields.
 
-### UI Options
+See: [Field-only options](https://parsleyjs.org/doc/annotated-source/defaults.html#field-only)
+
+### UI options
 
 ```js
-// Enable/disable error messages
-  uiEnabled: true
+// Enable or disable error messages
+uiEnabled: true
+
+// Key events before validation runs
+validationThreshold: 3
+
+// Field focused on validation error: 'first' | 'last' | 'none'
+focus: 'first'
+
+// $.Event() that triggers validation, e.g. keyup or change
+trigger: false
+
+// Classes added to every failing field
+errorClass: 'parsley-error'
+successClass: 'parsley-success'
+
+// Element that receives the classes above; a selector works too
+classHandler: function (ParsleyField) {}
+
+// Element where errors are appended; a selector works too
+errorsContainer: function (ParsleyField) {}
+
+// ul element that receives the error list
+errorsWrapper: '<ul class="parsley-errors-list"></ul>'
+
+// li element that receives each error message
+errorTemplate: '<li></li>'
 ```
 
-```js
-// Key events threshold before validation
-  validationThreshold: 3
-```
-
-```js
-// Focused field on form validation error. ‘first’|’last’|’none’
-  focus: 'first'
-```
-
-```js
-// $.Event() that will trigger validation. eg: keyup, change…
-  trigger: false
-```
-
-```js
-// Class that would be added on every failing validation
-// Parsley field
-  errorClass: 'parsley-error'
-  successClass: 'parsley-success'
-```
-
-```js
-// Return the $element that will receive these above
-// success or error classes. Could also be (and given
-// directly from DOM) a valid selector like '#div'
-  classHandler: function (ParsleyField) {}
-```
-
-```js
-// Return the $element where errors will be appended.
-// Could also be (and given directly from DOM) a valid
-// selector like '#div'
-  errorsContainer: function (ParsleyField) {}
-```
-
-```js
-// ul elem that would receive errors’ list
-  errorsWrapper: '<ul class="parsley-errors-list"></ul>'
-```
-
-```js
-// li elem that would receive error message
-  errorTemplate: '<li></li>'
-```
+See: [UI options](https://parsleyjs.org/doc/annotated-source/defaults.html#ui)
 
 ## Examples
 
@@ -242,8 +249,11 @@ $('[data-parsley]').parsley({
   }
 })
 ```
+<!-- {: data-highlight="errorsContainer"} -->
 
 Appends the error to the closest `.block` or `.control`.
+
+See: [UI for field](https://parsleyjs.org/doc/index.html#ui-for-field)
 
 ### Custom markup
 
@@ -256,8 +266,9 @@ $('[data-parsley]').parsley({
   errorTemplate: '<li class="parsley-error"></li>'
 })
 ```
+<!-- {: data-highlight="errorClass; successClass; errorsWrapper; errorTemplate"} -->
 
-Uses custom markup.
+See: [Classes and templates](https://parsleyjs.org/doc/index.html#ui-classes)
 
 ### Custom fields
 
@@ -271,8 +282,11 @@ $('[data-parsley]').parsley({
   }
 })
 ```
+<!-- {: data-highlight="classHandler"} -->
 
 Applies the `errorClass` and `successClass` to the closest `.input-group`, if available.
+
+See: [UI for field](https://parsleyjs.org/doc/index.html#ui-for-field)
 
 ### Custom validator
 
@@ -281,6 +295,7 @@ Applies the `errorClass` and `successClass` to the closest `.input-group`, if av
 ```html
 <input type='text' data-parsley-multiple-of='3' />
 ```
+<!-- {: data-highlight="data-parsley-multiple-of"} -->
 
 #### JavaScript
 
@@ -300,8 +315,9 @@ window.Parsley
     }
   })
 ```
+<!-- {: data-highlight="addValidator"} -->
 
-See: [Custom validators](http://parsleyjs.org/doc/index.html#custom)
+See: [Custom validators](https://parsleyjs.org/doc/index.html#custom)
 
 ## Also see
 

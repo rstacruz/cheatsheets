@@ -1,8 +1,8 @@
 ---
 title: Visual Studio Code
 subtitle: Extensible code editor
+logo: { src: /assets/logos/vscode.svg }
 category: Apps
-updated: 2026-11-14
 weight: -5
 keywords:
   - "⇧⌘P: Command palette"
@@ -18,6 +18,9 @@ links:
     url: https://code.visualstudio.com/docs/configure/keybindings
   - title: Command line interface
     url: https://code.visualstudio.com/docs/configure/command-line
+tier: t3
+last_verified_with: "Visual Studio Code 1.148."
+updated: 2026-11-26
 ---
 
 ## Basics

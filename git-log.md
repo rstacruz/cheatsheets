@@ -1,8 +1,10 @@
 ---
 title: git log
 subtitle: Commit history viewer
+logo: { set: icon-park-outline, name: history }
 category: Git
 updated: 2026-11-23
+tier: t3
 last_verified_with: "Git 2.56.0."
 ---
 
@@ -44,6 +46,8 @@ See [gitrevisions](./git-revisions).
     --committer="Rico"
 ```
 
+See: [Commit limiting](https://git-scm.com/docs/git-log#_commit_limiting)
+
 ### Search
 
 #### By message or code
@@ -60,6 +64,8 @@ See [gitrevisions](./git-revisions).
     --invert-grep
     --all-match                   # AND in multi --grep
 ```
+
+See: [Commit limiting](https://git-scm.com/docs/git-log#_commit_limiting)
 
 ### Limiting
 
@@ -84,12 +90,16 @@ See [gitrevisions](./git-revisions).
     --remotes="origin"
 ```
 
+See: [Commit limiting](https://git-scm.com/docs/git-log#_commit_limiting)
+
 ### Simplification
 
 ```bash
 git log -- app/file.rb          # only file
     --simplify-by-decoration    # tags and branches
 ```
+
+See: [History simplification](https://git-scm.com/docs/git-log#_history_simplification)
 
 ### Ordering
 
@@ -100,6 +110,8 @@ git log -- app/file.rb          # only file
     --reverse
 ```
 
+See: [Commit ordering](https://git-scm.com/docs/git-log#_commit_ordering)
+
 ### Formatting
 
 ```bash
@@ -107,6 +119,8 @@ git log -- app/file.rb          # only file
     --oneline
     --graph
 ```
+
+See: [Commit formatting](https://git-scm.com/docs/git-log#_commit_formatting)
 
 ### Custom formats
 

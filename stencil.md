@@ -1,9 +1,11 @@
 ---
 title: Stencil
 subtitle: Web component compiler
+logo: { src: /assets/logos/stencil.svg }
 category: Build tools
-updated: 2026-11-23
+updated: 2026-11-26
 last_verified_with: "Stencil 4.45.5."
+tier: t3
 keywords:
   - "@Component"
   - "@Prop()"
@@ -79,7 +81,7 @@ export class MyComponent {
 }
 ```
 
-<!-- {: data-highlight="event"} -->
+<!-- {: data-highlight="onChange"} -->
 
 Stencil uses DOM events.
 
@@ -96,7 +98,7 @@ render () {
 }
 ```
 
-<!-- {: data-highlight="multiple"} -->
+<!-- {: data-highlight="return ["} -->
 
 `render()` can return an array of elements.
 
@@ -116,7 +118,7 @@ export class MyComponent {
 }
 ```
 
-<!-- {: data-highlight="this.isVisible"} -->
+<!-- {: data-highlight="@State()"} -->
 
 Just do assignments. You can't do mutations though, see next section.
 
@@ -145,13 +147,13 @@ See: [Updating arrays](https://stenciljs.com/docs/reactive-data#updating-arrays)
 
 ### Using slot
 
+#### HTML
+
 ```html
 <my-component>
   <span>Hello, friends</span>
 </my-component>
 ```
-
-<!-- {: data-highlight="friends"} -->
 
 #### Component
 
@@ -169,6 +171,8 @@ See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 
 ### Multiple slots
 
+#### HTML
+
 ```html
 <my-component>
   <p slot='my-header'>Hello</p>
@@ -176,7 +180,7 @@ See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 </my-component>
 ```
 
-<!-- {: data-highlight="'my-header'"} -->
+<!-- {: data-highlight="slot='my-header'; slot='my-footer'"} -->
 
 #### Component
 
@@ -189,7 +193,7 @@ render () {
 }
 ```
 
-<!-- {: data-highlight="'my-footer'"} -->
+<!-- {: data-highlight="name='my-header'; name='my-footer'"} -->
 
 See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 
@@ -219,6 +223,8 @@ export class MyComponent {
   }
 }
 ```
+
+See: [componentWillUpdate()](https://stenciljs.com/docs/component-lifecycle#componentwillupdate)
 
 ## References
 

@@ -2,9 +2,12 @@
 title: When to use cut vs awk
 link_title: cut vs awk
 subtitle: Pick fields from text
-category: Command line recipes
+logo: { set: icon-park-outline, name: terminal }
+category: CLI
 layout: snippet
+last_verified_with: "GNU coreutils 9.12, GNU Awk 5.4."
 updated: 2026-11-23
+tier: t3
 links:
   - title: GNU cut manual
     url: https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html
@@ -61,7 +64,7 @@ alice
 bob
 ```
 
-**Extracts whitespace-separated fields.** `awk` collapses runs of whitespace and handles conditions, arithmetic, and formatting; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).
+**Extracts whitespace-separated fields.** `awk` collapses runs of whitespace and handles conditions, arithmetic, and formatting; see [Fields](https://www.gnu.org/software/gawk/manual/html_node/Fields.html).
 
 ### awk by delimiter
 <!-- {: .-snippet} -->
@@ -85,4 +88,4 @@ alice
 bob
 ```
 
-**Extracts fields with a custom delimiter.** `-F` sets the separator, so awk fits once splitting needs logic; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).
+**Extracts fields with a custom delimiter.** `-F` sets the separator, so awk fits once splitting needs logic; see [Field separators](https://www.gnu.org/software/gawk/manual/html_node/Field-Separators.html).

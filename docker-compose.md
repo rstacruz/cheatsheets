@@ -1,7 +1,8 @@
 ---
 title: docker-compose
 subtitle: Multi-container app definition
-category: Devops
+logo: { src: /assets/logos/docker.svg }
+category: Containers
 prism_languages: [yaml]
 weight: -1
 updated: 2026-11-11

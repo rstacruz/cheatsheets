@@ -2,6 +2,19 @@
 title: Less.js
 category: CSS
 subtitle: CSS preprocessor
+logo: { src: /assets/logos/less.svg, mono: true }
+last_verified_with: "Less 4.9.1."
+updated: 2026-11-25
+tier: t3
+intro: |
+  [Less](https://lesscss.org/) is a CSS preprocessor that extends CSS with
+  variables, mixins, and functions. This sheet covers built-in functions and
+  conditional rules.
+links:
+  - title: Less documentation
+    url: https://lesscss.org/
+  - title: Functions reference
+    url: https://lesscss.org/functions/
 ---
 
 ### Functions
@@ -37,6 +50,8 @@ spin(@color, degrees)
 mix(@a, @b, amount)
 ```
 
+See: [Less functions](https://lesscss.org/functions/)
+
 ### Conditionals
 
 ```
@@ -45,4 +60,6 @@ mix(@a, @b, amount)
 .image when (default()) {}
 .image when (e(@shape) = 'circle') { }
 ```
+<!-- {: data-highlight="when"} -->
 
+See: [CSS guards](https://lesscss.org/features/#css-guards-feature)

@@ -2,6 +2,7 @@
 title: Unicode symbols
 category: Others
 subtitle: Reference for symbol codepoints
+logo: { src: /assets/logos/unicode.svg }
 updated: 2026-11-24
 last_verified_with: "Unicode 18.0.0 charts."
 tier: t3

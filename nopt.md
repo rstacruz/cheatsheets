@@ -1,13 +1,21 @@
 ---
 title: Nopt
 subtitle: Option parsing library
-category: Node.js
+logo: { set: icon-park-outline, name: config }
+category: Node.js libraries
+last_verified_with: "nopt 10.0.1."
+updated: 2026-11-25
+tier: t3
 links:
   - title: https://www.npmjs.org/package/nopt
     url: https://www.npmjs.org/package/nopt
+intro: |
+  [nopt](https://github.com/npm/nopt) parses command-line options with type definitions and shorthands from npm. This sheet covers option schemas and help handling.
 ---
 
 ### Example
+
+#### Parsing arguments
 
 ```js
 var args = require('nopt')({
@@ -33,16 +41,19 @@ args == {
   }
 }
 ```
+<!-- {: data-highlight="require('nopt')"} -->
+
+#### Handling help flags
 
 ```js
 if (args.help) {
   console.log([
-      'Usage:',
-      '  hicat [options] [file]',
-      '',
-      'Options:',
-      '  -h, --help         print usage information',
-      '  -v, --version      show version info and exit',
+    'Usage:',
+    '  hicat [options] [file]',
+    '',
+    'Options:',
+    '  -h, --help         print usage information',
+    '  -v, --version      show version info and exit',
   ].join('\n'));
   process.exit(0);
 }
@@ -52,3 +63,6 @@ if (args.version) {
   process.exit(0);
 }
 ```
+<!-- {: data-highlight="args.help; args.version"} -->
+
+See: [nopt README](https://github.com/npm/nopt#readme)

@@ -1,6 +1,7 @@
 ---
 title: Promises
 subtitle: Asynchronous JavaScript API
+logo: { set: icon-park-outline, name: cooperative-handshake }
 category: JavaScript
 intro: |
   A quick reference to the JavaScript [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
@@ -9,11 +10,13 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
   - title: Promise documentation
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+tier: t3
+last_verified_with: "ECMAScript 2026."
+updated: 2026-11-25
 ---
 
 ## Reference
-
-<!-- {:.-three-column} -->
+<!-- {: .-three-column} -->
 
 ### Creating promises
 
@@ -28,8 +31,9 @@ new Promise((resolve, reject) => {
   })
 })
 ```
+<!-- {: data-highlight="new Promise"} -->
 
-Use [new Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Constructor) to create new promises.
+Use [new Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#constructor) to create new promises.
 
 ### Consuming promises
 
@@ -42,14 +46,22 @@ promise
     /* failure */
   })
 ```
+<!-- {: data-highlight=".then; .catch"} -->
 
 [then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) runs a function when a promise resolves. [catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) runs when a promise fails.
 
 ### Multiple promises
 
+#### Setup
+
 ```js
-const promises = [promise1(), promise2() /* ... */]
+const promises = [
+  promise1(),
+  promise2() /* ... */
+]
 ```
+
+#### Promise.all
 
 ```js
 // Succeeds when all succeed
@@ -57,6 +69,9 @@ Promise.all(promises).then((results) => {
   /* ... */
 })
 ```
+<!-- {: data-highlight="Promise.all"} -->
+
+#### Promise.race
 
 ```js
 // Succeeds when one finishes first
@@ -64,6 +79,9 @@ Promise.race(promises).then((result) => {
   /* ... */
 })
 ```
+<!-- {: data-highlight="Promise.race"} -->
+
+See: [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all), [Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
 
 ### Converting other promises
 
@@ -78,5 +96,8 @@ Promise.resolve(result).then(() => {
   /* ... */
 })
 ```
+<!-- {: data-highlight="Promise.resolve; Promise.reject"} -->
 
 `Promise.resolve(val)` will return a promise that resolves to the value given to it.
+
+See: [Promise.resolve()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)

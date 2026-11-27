@@ -1,6 +1,7 @@
 ---
 title: chmod
 subtitle: Change file permissions
+logo: { set: icon-park-outline, name: lock }
 category: Linux
 tier: t2
 updated: 2026-11-23

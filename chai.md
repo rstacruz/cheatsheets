@@ -2,9 +2,11 @@
 title: Chai.js
 seo_title: Chai cheatsheet — expect, should, assert
 subtitle: JavaScript assertion library
+logo: { src: /assets/logos/chai.svg, mono: true }
 category: JavaScript testing
 weight: -3
 updated: 2026-11-22
+tier: t3
 last_verified_with: "Chai 6.3.0 ESM; verified on Node 26.13.1 with chai-jquery 2.1.0 and jQuery 3.7.1 in a browser-like jsdom harness."
 intro: |
   [Chai](https://www.chaijs.com/) is a JavaScript assertion library with expect, should, and assert styles. Examples target Chai 6 and use ESM imports.

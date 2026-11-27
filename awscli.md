@@ -1,7 +1,11 @@
 ---
 title: AWS CLI
 subtitle: Command-line interface for AWS
+logo: { set: icon-park-outline, name: terminal }
 category: Devops
+last_verified_with: "AWS CLI 2.42."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### EC2
@@ -12,6 +16,8 @@ aws ec2 start-instances --instance-ids i-12345678c
 aws ec2 terminate-instances --instance-ids i-12345678c
 ```
 
+See: [EC2 reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/index.html)
+
 ### S3
 
 ```
@@ -20,6 +26,8 @@ aws s3 rm s3://mybucket/folder --recursive
 aws s3 cp myfolder s3://mybucket/folder --recursive
 aws s3 sync myfolder s3://mybucket/folder --exclude *.tmp
 ```
+
+See: [S3 reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html)
 
 ### ECS
 
@@ -31,6 +39,8 @@ aws ecs create-cluster
 aws ecs create-service
 ```
 
+See: [ECS reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/index.html)
+
 ### Homebrew
 
 ```
@@ -38,12 +48,16 @@ brew install awscli
 aws configure
 ```
 
+See: [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
 ### Configuration profiles
 
 ```
 aws configure --profile project1
 aws configure --profile project2
 ```
+
+See: [Using named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-using-profiles)
 
 ## Elastic Beanstalk
 
@@ -56,12 +70,49 @@ aws configure --profile project2
 eb config
 ```
 
-See: <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>
+See: [Elastic Beanstalk configuration options](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html)
+
+### Deployments
+
+```bash
+eb list
+eb use my-env
+eb deploy
+eb logs
+```
+
+`eb deploy` uploads the working directory to the environment selected by `eb use`.
+
+See: [EB CLI commands](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb3-cmd-commands.html)
 
 ## ebextensions
 
-* <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html>
-* <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html>
+### Settings
+
+```yaml
+option_settings:
+  aws:elasticbeanstalk:application:environment:
+    NODE_ENV: production
+```
+
+Config files live in `.ebextensions/` at the repo root and are applied in filename order.
+
+See: <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html>
+
+### Packages and commands
+
+```yaml
+packages:
+  yum:
+    git: []
+commands:
+  say_hello:
+    command: echo "hello"
+```
+
+These keys install packages and run commands as the instance is provisioned.
+
+See: <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html>
 
 ## Also see
 

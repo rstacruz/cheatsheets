@@ -1,6 +1,7 @@
 ---
 title: Beancount
 subtitle: Plain-text double-entry accounting
+logo: { set: icon-park-outline, name: book-open }
 category: Plain-text accounting
 tier: t2
 last_verified_with: "Beancount 3.2.3."

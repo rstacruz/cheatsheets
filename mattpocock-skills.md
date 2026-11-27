@@ -1,6 +1,7 @@
 ---
 title: Matt Pocock skills
 subtitle: Spec-to-PR agent workflow
+logo: { set: icon-park-outline, name: toolkit }
 category: Agents
 tier: t2
 updated: 2026-11-23

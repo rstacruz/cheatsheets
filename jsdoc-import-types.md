@@ -2,10 +2,14 @@
 title: How to import JSDoc types
 link_title: JSDoc import types
 subtitle: Type-only imports for JSDoc
+logo: { set: icon-park-outline, name: file-code }
 category: JavaScript
 layout: snippet
-last_verified_with: "TypeScript 5.5."
+last_verified_with: "TypeScript 7.0.2."
 updated: 2026-11-23
+tier: t3
+intro: |
+  TypeScript's [JSDoc import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types) bring type-only references into JavaScript files. This sheet shows `@typedef` aliases and `@import` syntaxes.
 links:
   - title: JSDoc-supported types
     url: https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types
@@ -46,4 +50,4 @@ links:
 ```
 <!-- {: data-highlight="default as"} -->
 
-**Imports the default export as an alias.** Use this when you need a named type. See [import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).
+**Imports the default export as an alias.** Use this when you need a named type. The alias is type-only and creates no runtime binding. See [import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).

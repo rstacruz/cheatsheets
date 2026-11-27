@@ -2,10 +2,12 @@
 title: When to use fd vs find
 link_title: fd vs find
 subtitle: Find files from the CLI
-category: Command line recipes
+logo: { set: icon-park-outline, name: file-search }
+category: CLI
 layout: snippet
-last_verified_with: "fd 10.4.2."
+last_verified_with: "fd 10.5.1."
 updated: 2026-11-23
+tier: t3
 links:
   - title: fd repository
     url: https://github.com/sharkdp/fd

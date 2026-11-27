@@ -1,6 +1,7 @@
 ---
 title: Jinja
 subtitle: Python templating engine
+logo: { src: /assets/logos/jinja.svg, mono: true }
 category: Python
 last_verified_with: "Jinja 3.1.6."
 updated: 2026-11-24

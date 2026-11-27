@@ -1,6 +1,7 @@
 ---
 title: Travis.yml
 subtitle: Travis CI YAML configuration
+logo: { src: /assets/logos/travisci.svg }
 category: Devops
 prism_languages: [yaml]
 intro: |
@@ -8,11 +9,14 @@ intro: |
 links:
   - title: Travis CI documentation
     url: https://docs.travis-ci.com/
+tier: t3
+last_verified_with: "Travis CI build config schema."
+updated: 2026-11-26
 ---
 
 ## Reference
 
-<!-- {:.-three-column} -->
+<!-- {: .-three-column} -->
 
 ### Node.js
 
@@ -23,6 +27,8 @@ node_js:
 ```
 
 Defaults install to `npm install`, and defaults test to `npm test`.
+
+See: [Node.js builds](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#specify-nodejs-versions)
 
 ### Ruby
 
@@ -35,6 +41,8 @@ rvm:
 ```
 
 Defaults install to `bundle install`, defaults test to `rake`.
+
+See: [Ruby builds](https://docs.travis-ci.com/user/languages/ruby/#specify-ruby-versions-and-implementations)
 
 ### Build lifecycle
 
@@ -53,6 +61,8 @@ Defaults install to `bundle install`, defaults test to `rake`.
 | `deploy` (optional)                |
 | `after_deploy` (optional)          |
 
+See: [Job lifecycle](https://docs.travis-ci.com/user/job-lifecycle/#job-lifecycle-phases)
+
 ### Branches
 
 ```yaml
@@ -61,6 +71,8 @@ branches:
   only: ['master']
 ```
 
+See: [Build specific branches](https://docs.travis-ci.com/user/customizing-the-build/#build-specific-branches)
+
 ### Environment vars
 
 ```yaml
@@ -68,6 +80,8 @@ env:
   - 'rack=master'
   - 'rack=1.3.4'
 ```
+
+See: [Environment variables](https://docs.travis-ci.com/user/environment-variables/#define-public-variables)
 
 ### Custom test command
 
@@ -81,7 +95,9 @@ before_script:
   - make pretest2
 ```
 
-### Branches
+See: [Customize the build phase](https://docs.travis-ci.com/user/job-lifecycle/#customize-the-build-phase)
+
+### Branch patterns
 
 ```yaml
 branches:
@@ -93,6 +109,8 @@ branches:
     - /^deploy/
 ```
 
+See: [Regular expressions](https://docs.travis-ci.com/user/customizing-the-build/#regular-expressions)
+
 ### Apt packages
 
 ```yaml
@@ -101,7 +119,7 @@ before_install:
   - sudo apt-get install gcc-4.8 -y
 ```
 
-<https://docs.travis-ci.com/user/installing-dependencies/>
+See: [Installing dependencies](https://docs.travis-ci.com/user/installing-dependencies/#install-packages-on-standard-infrastructure)
 
 ### Etc
 
@@ -111,8 +129,12 @@ gemfile:
   - gemfiles/Gemfile.rails-3.0.x
 ```
 
+See: [Custom Gemfile locations](https://docs.travis-ci.com/user/languages/ruby/#custom-bundler-arguments-and-gemfile-locations)
+
 ### References
 
 - <https://docs.travis-ci.com/user/customizing-the-build/>
 - <https://docs.travis-ci.com/user/languages/javascript-with-nodejs/>
 - <https://docs.travis-ci.com/user/languages/ruby/>
+
+See: [Build config reference](https://config.travis-ci.com/)

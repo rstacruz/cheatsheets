@@ -2,10 +2,12 @@
 title: How to compare strings in Bash
 link_title: Compare strings
 subtitle: Test strings in shell scripts
-category: Command line recipes
+logo: { src: /assets/logos/bash.svg }
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-24
+tier: t3
 links:
   - title: Bash conditional expressions
     url: https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html

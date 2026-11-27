@@ -10,6 +10,7 @@ import {
 } from '~/lib/page/queries'
 import TopNav from '~/components/TopNav.astro'
 import BaseLayout from '~/components/BaseLayout.astro'
+import Logo from '~/components/Logo.astro'
 import PageListItem from '~/components/V2017Home/PageListItem.astro'
 import FeaturedPages from '~/components/V2017Home/FeaturedPages.astro'
 import Announcements from '~/components/V2017Home/Announcements.astro'
@@ -142,6 +143,11 @@ const headingStyles = {
           <div class={styles.snippetList}>
             {snippetPages.map((page) => (
               <a href={`/${page.slug}`} class={styles.snippetItem}>
+                <Logo
+                  logo={page.frontmatter.logo}
+                  size={20}
+                  class="self-center"
+                />
                 <span class={styles.snippetTitle}>
                   {page.frontmatter.link_title ??
                     page.frontmatter.title ??

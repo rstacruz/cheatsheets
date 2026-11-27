@@ -2,10 +2,25 @@
 title: How to run OpenAI Codex headless
 link_title: OpenAI Codex headless tasks
 subtitle: Run Codex from scripts
-category: Task automation
+logo: { src: /assets/logos/codex.svg, mono: true }
+category: Agents
 layout: snippet
 last_verified_with: "codex-cli 0.171.0."
 updated: 2026-11-23
+tier: t1
+fragments:
+  - "codex exec"
+  - "--json"
+  - "-o summary.md"
+  - "git diff |"
+  - "review this diff"
+  - "--sandbox"
+  - "workspace-write"
+  - "summary.md"
+  - "codex"
+  - "summarize"
+  - "failing tests"
+  - "exec"
 links:
   - title: Codex non-interactive mode
     url: https://learn.chatgpt.com/docs/non-interactive-mode

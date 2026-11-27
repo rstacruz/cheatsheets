@@ -1,6 +1,7 @@
 ---
 title: SQL joins
 subtitle: Combine rows across tables
+logo: { set: icon-park-outline, name: database-network }
 category: Databases
 weight: -1
 updated: 2026-11-23

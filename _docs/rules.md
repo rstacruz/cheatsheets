@@ -137,7 +137,7 @@ bat -d --diff-context=1 notes.txt
 
 🤖 Check: `code/data-highlight-in-block`.
 
-Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour; tint the command name only when the command itself is the lesson. One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
+Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour; tint the command name only when the command itself is the lesson. Tint the complete token the card teaches (`caps-type()`, `border-radius`), never a half token (`caps`, `-radius`). One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
 
 ````md
 ```python
@@ -194,11 +194,23 @@ select.select_by_index(2)
 
 🤖 Check: `code/vary-highlights`.
 
-Don't repeat the same highlight token across code blocks in a sheet. A tint that keeps landing on `sort` stops marking what makes a card different. Keep the command highlight on the card where the command is the lesson, then use flags or values on the rest.
+Don't repeat the same highlight token across cards in a sheet: a tint that keeps landing on `sort` stops marking what makes a card different. A define/use pair inside one card may repeat the full API name, since both blocks teach that same subject. Keep the command highlight on the card where the command is the lesson, then use flags or values on the rest.
 
 **Good:** the "Sort lines" card tints `sort`; the field cards tint `-k2,2n` and `-k3,3`.
 
 **Bad:** every sort card tints `sort`, so the tint says nothing about the card being read.
+
+### content/omit-deprecated-apis
+
+Omit APIs the upstream project marks deprecated. They mislead readers and age faster than a cheatsheet. Replace the card with the current API, or link to the project's migration guide when the deprecated API is the sheet's subject. Keep deprecated versions only in explicitly versioned sheets.
+
+### content/no-github-actions
+
+Don't add GitHub Actions workflow YAML to a sheet unless the sheet is about GitHub Actions. Deployment steps belong in the host's docs. Show the build command and output directory, then link the host's deploy guide.
+
+**Good:** a VitePress sheet shows `pnpm docs:build` and links the deploy page.
+
+**Bad:** the same sheet embeds a 30-line `deploy.yml` for GitHub Pages.
 
 ### code/highlight-parallel-set
 
@@ -232,6 +244,25 @@ echo "${name:0:2}"
 
 Long reference lists with no single lesson need no highlight; the card's
 `See:` line already points to the full reference.
+
+### code/highlight-card-title
+
+When an H3 names several operations, tint each one: "Start and end of unit" marks `startOf` and `endOf`; "Min and max" marks both helpers. The title is the reader's checklist, so a method named there should be visible in the block. This is the title-driven case of `code/highlight-parallel-set`.
+
+### code/highlight-call-site
+
+🤖 Check: `code/highlight-call-site`.
+
+A bare-identifier highlight should land on the call, not the import. When a block imports a helper, tint `helper(` or `.helper(` rather than `helper`, or the tint stops on the setup line. A block that only imports has no call site and is left alone.
+
+````md
+```js
+import { isBetween } from 'dayjs/plugin/isBetween'
+
+d.isBetween(start, end)
+```
+<!-- {: data-highlight=".isBetween("} -->
+````
 
 ### code/data-highlight-in-block
 
@@ -553,6 +584,48 @@ Separate tables of 8+ rows with H4 groups or `| --- |` rows.
 | `llll`  | Thu, Aug 2 1985 08:30 PM         |
 ````
 
+### tables/row-limit
+
+🤖 Check: `tables/row-limit`.
+
+Keep a card's tables to 20 data rows in total. A reference table past that reads as a wall; split it into several H3 cards by subject, or start a new H2.
+
+````markdown
+### Date tokens
+
+| Token  | Output |
+| ------ | ------ |
+| `yyyy` | `2014`  |
+
+### Time tokens
+
+| Token | Output |
+| ----- | ------ |
+| `HH`  | `09`   |
+````
+
+### tables/label-multiple
+
+🤖 Check: `tables/label-multiple`.
+
+When a card holds two or more tables, give each one an H4 label above it. A reader who lands mid-card should know which table they are reading without counting from the top.
+
+````markdown
+### Tokens
+
+#### Date
+
+| Token  | Meaning |
+| ------ | ------- |
+| `yyyy` | Year    |
+
+#### Time
+
+| Token | Meaning |
+| ----- | ------- |
+| `HH`  | Hour    |
+````
+
 ### prose/omit-redundant
 
 Omit redundant prose. When the code is self-explanatory, add no trailing paragraph.
@@ -578,6 +651,10 @@ When the example already shows the detail, skip the note.
 key = "value" # trailing comment
 quoted = "# not a comment"
 ````
+
+### prose/no-marketing
+
+A reference sheet describes its own tool. Leave out bundle-size comparisons, competitor tables and "why choose us" claims: they date quickly and read as marketing. Put a library comparison in its own snippet (eg `dayjs-vs-moment`) or link the upstream project's status page.
 
 ### frontmatter/seo-descriptions
 
@@ -707,6 +784,40 @@ git clean -fd
 
 A comment should say what the command changes, not restate it: `# switch to a branch` above `git switch feat/login` adds nothing. Use trailing comments only for results and equivalents; see `code/inline-comments`.
 
+### code/space-between-examples
+
+🤖 Check: `code/space-between-examples`.
+
+Separate statement-and-result groups with a blank line. Keep result comments on their own line, and leave a blank line before the next statement so the block reads as a sequence of examples instead of one run-on transcript.
+
+A call and its result may share a line when the combined line stays under 40 characters; longer results go on their own line.
+
+````md
+```js
+nth(1)   // → '1st'
+nth(2)   // → '2nd'
+nth(11)  // → '11th'
+nth(23)  // → '23rd'
+```
+````
+
+````md
+```js
+Duration.fromObject({ hours: 2, minutes: 30 }).toHuman()
+// "2 hours, 30 minutes"
+
+Duration.fromObject({ hours: 2, minutes: 30 })
+  .toHuman({ listStyle: 'long' })
+// "2 hours and 30 minutes"
+```
+````
+
+### headings/unique
+
+🤖 Check: `headings/unique`.
+
+Two H2 or H3 headings with the same title in one sheet produce the same anchor, so the second link jumps to the first. Rename the later card, usually with the topic it belongs to, instead of repeating the word.
+
 ### frontmatter/h3-links
 
 🤖 Check: `frontmatter/h3-links`.
@@ -729,6 +840,16 @@ If no authoritative page covers the section, use a linkless `See:` line instead 
 ````md
 See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
 See: `:help motion.txt`
+````
+
+### crosslinks/directly-related
+
+Use `.-crosslink` only between sheets that belong to the same family: an index and its members, a version and its successor, or a retired sheet and its replacement. A neighbouring tool or an alternative gets a regular link instead; the large arrow claims a relationship the pages do not have.
+
+````md
+## Also see
+
+- [Fastify cheatsheet](./fastify)
 ````
 
 ### snippet/title-is-a-query

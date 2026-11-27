@@ -3,7 +3,8 @@ title: Docker CLI
 seo_title: Docker cheatsheet — commands, flags, examples
 description: "Docker commands: flags, containers, images, volumes and logs. Copy-paste reference with examples."
 subtitle: Container engine CLI
-category: Devops
+logo: { src: /assets/logos/docker.svg }
+category: Containers
 tier: t2
 last_verified_with: "Docker 29.9.2."
 fragments:

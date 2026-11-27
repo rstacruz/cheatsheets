@@ -2,10 +2,25 @@
 title: How to run Claude Code headless
 link_title: Claude Code headless tasks
 subtitle: Run Claude Code from scripts
-category: Task automation
+logo: { src: /assets/logos/claude.svg }
+category: Agents
 layout: snippet
 last_verified_with: "Claude Code 2.1.330."
 updated: 2026-11-23
+tier: t1
+fragments:
+  - "claude -p"
+  - "-p"
+  - "--output-format"
+  - "json"
+  - "--allowedTools"
+  - "Read,Edit,Bash"
+  - "git diff |"
+  - "review this diff"
+  - "summarize"
+  - "fix the lint"
+  - "failing tests"
+  - "claude"
 links:
   - title: Claude Code headless mode
     url: https://code.claude.com/docs/en/headless

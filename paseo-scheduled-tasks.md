@@ -2,10 +2,29 @@
 title: How to schedule Paseo tasks
 link_title: Paseo scheduled tasks
 subtitle: Run agents on a schedule
-category: Task automation
+logo: { set: icon-park-outline, name: schedule }
+category: Agents
 layout: snippet
-last_verified_with: "Paseo 0.17.0."
+tier: t1
+last_verified_with: "Paseo 0.17.4."
 updated: 2026-11-23
+fragments:
+  - "paseo schedule"
+  - "schedule create"
+  - "--every 30m"
+  - "--cwd ~/dev/app"
+  - "--cron"
+  - "0 9 * * 1-5"
+  - "--run-now"
+  - "schedule logs"
+  - "<id>"
+  - "fix the failing"
+  - "triage new"
+  - "schedule ls"
+  - "schedule pause"
+  - "resume <id>"
+intro: |
+  Paseo schedules run coding agents on a cron or interval cadence. This sheet covers creating, inspecting, pausing, and resuming scheduled tasks from the CLI.
 links:
   - title: Paseo schedules CLI
     url: https://paseo.sh/docs/schedules-cli

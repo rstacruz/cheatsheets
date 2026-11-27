@@ -2,8 +2,10 @@
 title: rbenv
 seo_title: rbenv cheatsheet — install, versions, global
 subtitle: Ruby version manager
+logo: { set: icon-park-outline, name: toolkit }
 category: Ruby
-updated: 2026-11-23
+tier: t3
+updated: 2026-11-26
 last_verified_with: "rbenv 1.3.2, ruby-build 20261119."
 weight: -1
 description: "rbenv versions: install, global, local and rehash commands. Ruby version manager reference."
@@ -23,18 +25,21 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 git clone https://github.com/rbenv/ruby-build.git \
   ~/.rbenv/plugins/ruby-build
 ```
+<!-- {: data-highlight="git clone"} -->
 
 #### Set up your shell
 
 ```bash
 ~/.rbenv/bin/rbenv init bash
 ```
+<!-- {: data-highlight="rbenv init"} -->
 
 #### Verify installation
 
 ```bash
 type rbenv   # → "rbenv is a function"
 ```
+<!-- {: data-highlight="type rbenv"} -->
 
 These are generic instructions; your OS may provide an rbenv package. You can also add `eval "$(rbenv init - bash)"` to your shell profile yourself.
 
@@ -55,6 +60,8 @@ See: [Installation](https://github.com/rbenv/rbenv#installation)
 | `rbenv which <NAME>`    | Display path to executable  |
 | `rbenv rehash`          | Create shims (automatic)    |
 
+See: [Command reference](https://github.com/rbenv/rbenv#command-reference)
+
 ## Using versions
 
 <!-- {: .-three-column} -->
@@ -68,6 +75,8 @@ See: [Installation](https://github.com/rbenv/rbenv#installation)
 
 Application-specific version numbers are stored in `.ruby-version`.
 
+See: [rbenv local](https://github.com/rbenv/rbenv#rbenv-local)
+
 ### Globally
 
 | Command                | Description               |
@@ -77,6 +86,8 @@ Application-specific version numbers are stored in `.ruby-version`.
 
 Global version numbers are stored in `~/.rbenv/version`.
 
+See: [rbenv global](https://github.com/rbenv/rbenv#rbenv-global)
+
 ### Shell
 
 | Command               | Description               |
@@ -85,6 +96,8 @@ Global version numbers are stored in `~/.rbenv/version`.
 | `rbenv shell --unset` | Undo above                |
 
 Shell-local version numbers are stored as environment variables.
+
+See: [rbenv shell](https://github.com/rbenv/rbenv#rbenv-shell)
 
 ## References
 

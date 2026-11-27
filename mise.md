@@ -1,6 +1,7 @@
 ---
 title: mise
 subtitle: Dev tool version manager
+logo: { src: /assets/logos/mise.svg, mono: true }
 category: Package managers
 updated: 2026-11-11
 last_verified_with: "mise v2026.11.1 APIs."

@@ -1,15 +1,8 @@
 [
-  "backbone#Methods#2",
   "circle#Sample#1",
-  "css-grid#Child#1",
-  "css-grid#Container#1",
-  "ffaker#Faker::Lorem#1",
-  "html-meta#Meta tags#1",
   "jshint#Enforcing#1",
   "jshint#Relaxing#1",
   "modernizr#Detections#1",
-  "parsley#UI Options#1",
-  "rails-models#Validation#1",
   "superagent#Response object#1",
   "vim-digraphs#Greek#1",
   "vim-digraphs#Symbols#1"

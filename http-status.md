@@ -1,6 +1,7 @@
 ---
 title: HTTP Status
 subtitle: Three-digit response code list
+logo: { set: icon-park-outline, name: info }
 category: API
 tier: t2
 fragments:

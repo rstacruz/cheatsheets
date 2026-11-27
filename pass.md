@@ -1,6 +1,7 @@
 ---
 title: Pass
 subtitle: Command-line password store
+logo: { set: icon-park-outline, name: lock }
 category: CLI
 updated: 2026-11-24
 last_verified_with: "pass 1.7.4, pass-otp 1.2.0."

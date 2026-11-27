@@ -1,6 +1,7 @@
 ---
 title: Git
 subtitle: Everyday version control
+logo: { src: /assets/logos/git.svg }
 category: Git
 tags: [Featured]
 weight: -10
@@ -413,6 +414,9 @@ git stash drop
 `pop` applies and deletes; `apply` keeps the entry.
 
 See: [git stash](https://git-scm.com/docs/git-stash)
+
+[Git stash cheatsheet](./git-stash)
+<!-- {: .-crosslink} -->
 
 ## History
 <!-- {: .-three-column} -->

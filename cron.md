@@ -3,8 +3,10 @@ title: Cron
 seo_title: Cron cheatsheet — syntax, crontab, examples
 description: "Cron syntax: the five-field format, operators, special strings and crontab examples. Reference."
 subtitle: Unix job scheduler
+logo: { set: icon-park-outline, name: time }
 category: CLI
 updated: 2026-11-23
+tier: t3
 last_verified_with: "cronie 1.7.2."
 weight: -3
 ---
@@ -15,24 +17,12 @@ weight: -3
 
 ### Format
 
-#### Fields
-
-```
-Min  Hour Day  Mon  Weekday
-```
-
-#### Example
-
-<!-- {: .-setup} -->
-
-```
-*    *    *    *    *  command to be executed
-```
-
-#### Field ranges
-
 <!-- Deliberately kept as ASCII art: the aligned columns are the illustration. -->
 ```
+Min  Hour Day  Mon  Weekday
+
+*    *    *    *    *  command to be executed
+
 ┬    ┬    ┬    ┬    ┬
 │    │    │    │    └─  Weekday  (0-7, 0/7=Sun)
 │    │    │    └──────  Month    (1..12)
@@ -41,8 +31,9 @@ Min  Hour Day  Mon  Weekday
 └─────────────────────  Minute   (0..59)
 ```
 
-<!-- {: .-setup.-box-chars} -->
-<!-- End illustration; keep this diagram as-is. -->
+<!-- {: .-box-chars data-highlight="command to be executed"} -->
+
+See: [Crontab format](https://man7.org/linux/man-pages/man5/crontab.5.html#DESCRIPTION)
 
 ### Operators
 
@@ -52,6 +43,8 @@ Min  Hour Day  Mon  Weekday
 | `,`      | separate individual values |
 | `-`      | a range of values          |
 | `/`      | divide a value into steps  |
+
+See: [Crontab format](https://man7.org/linux/man-pages/man5/crontab.5.html#DESCRIPTION)
 
 ### Special strings
 
@@ -67,6 +60,8 @@ Min  Hour Day  Mon  Weekday
 | `@yearly`    | once every year - same as `0 0 1 1 *`  |
 | `@annually`  | same as `@yearly`                      |
 
+See: [Extensions](https://man7.org/linux/man-pages/man5/crontab.5.html#EXTENSIONS)
+
 ### Examples
 
 | Example        | Description                 |
@@ -77,6 +72,8 @@ Min  Hour Day  Mon  Weekday
 | `0 18 * * 1-6` | every week Mon-Sat at 6pm   |
 | `10 2 * * 6,7` | every Sat and Sun on 2:10am |
 | `0 0 * * 0`    | every Sunday midnight       |
+
+See: [Example cron file](https://man7.org/linux/man-pages/man5/crontab.5.html#EXAMPLE_CRON_FILE)
 
 ### Crontab
 
@@ -99,3 +96,5 @@ crontab -l [-u user]
 # Delete crontab file - optional for another user
 crontab -r [-u user]
 ```
+
+See: [crontab(1)](https://man7.org/linux/man-pages/man1/crontab.1.html#OPTIONS)

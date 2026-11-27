@@ -1,6 +1,7 @@
 ---
 title: SQL
 subtitle: Relational query language
+logo: { set: icon-park-outline, name: data }
 category: Databases
 weight: -10
 updated: 2026-11-23

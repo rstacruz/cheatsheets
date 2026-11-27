@@ -1,7 +1,8 @@
 ---
 title: Intl.RelativeTimeFormat
 subtitle: Locale-aware relative time
-category: Browser APIs
+logo: { set: icon-park-outline, name: time }
+category: Internationalization
 tier: t2
 updated: 2026-11-18
 last_verified_with: "Node 26.13 (full ICU), Chromium 157."

@@ -2,10 +2,12 @@
 title: How to write a Bash case statement
 link_title: Bash case statement
 subtitle: Match values with glob patterns
-category: Command line recipes
+logo: { src: /assets/logos/bash.svg }
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-24
+tier: t3
 links:
   - title: Bash conditional constructs
     url: https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html

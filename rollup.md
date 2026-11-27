@@ -1,6 +1,7 @@
 ---
 title: Rollup.js
 subtitle: JavaScript module bundler with tree-shaking
+logo: { src: /assets/logos/rollup.svg }
 category: Build tools
 updated: 2026-11-18
 authors:

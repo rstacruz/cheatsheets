@@ -2,15 +2,19 @@
 title: How to read a file in Node.js
 link_title: Node.js read file
 subtitle: Read text, JSON, and streams
+logo: { src: /assets/logos/nodejs.svg }
 category: Node.js
 layout: snippet
 last_verified_with: "Node.js 26.13.1."
 updated: 2026-11-23
+tier: t3
 links:
   - title: Node.js fs
     url: https://nodejs.org/api/fs.html
   - title: Node.js readline
     url: https://nodejs.org/api/readline.html
+intro: |
+  Read files in Node.js with `fs` promises, callbacks, synchronous helpers, or streams. This sheet covers text, JSON, and line-by-line reads.
 ---
 
 ## Reading

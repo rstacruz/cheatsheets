@@ -1,16 +1,23 @@
 ---
 title: Backbone.js
 subtitle: Frontend MVC library
+logo: { src: /assets/logos/backbone.svg, mono: true }
+last_verified_with: "Backbone.js 1.6."
 updated: 2018-12-06
+tier: t3
 category: JavaScript libraries
 ---
 
 ### Binding events
 
+#### Single event
+
 ```js
 .on('event', callback)
 .on('event', callback, context)
 ```
+
+#### Multiple events
 
 ```js
 .on({
@@ -19,34 +26,48 @@ category: JavaScript libraries
 })
 ```
 
+#### All events
+
 ```js
 .on('all', callback)
 ```
 
+#### Once
+
 ```js
 .once('event', callback)   // Only happens once
 ```
+
+See: [Events-on](https://backbonejs.org/#Events-on)
 
 ### Unbinding events
 
 ```js
 object.off('change', onChange)    // just the `onChange` callback
 object.off('change')              // all 'change' callbacks
-object.off(null, onChange)        // `onChange` callback for all events
-object.off(null, null, context)   // all callbacks for `context` all events
+object.off(null, onChange)        // onChange for all events
+object.off(null, null, context)   // all callbacks for context
 object.off()                      // all
 ```
 
+See: [Events-off](https://backbonejs.org/#Events-off)
+
 ### Events
+
+#### Trigger
 
 ```js
 object.trigger('event')
 ```
 
+#### Listening
+
 ```js
 view.listenTo(object, event, callback)
 view.stopListening()
 ```
+
+See: [Events-trigger](https://backbonejs.org/#Events-trigger)
 
 ### List of events
 
@@ -66,6 +87,9 @@ view.stopListening()
   * Router:
     * `route:[name]` (params)
     * `route` (router, route, params)
+
+See: [Catalog of events](https://backbonejs.org/#Events-catalog)
+
 ## Views
 
 ### Defining
@@ -74,32 +98,23 @@ view.stopListening()
 // All attributes are optional
 var View = Backbone.View.extend({
   model: doc,
-```
-
-```js
   tagName: 'div',
   className: 'document-item',
   id: "document-" + doc.id,
   attributes: { href: '#' },
-```
-
-```js
   el: 'body',
-```
-
-```js
   events: {
     'click button.save': 'save',
     'click .cancel': function() { ··· },
     'click': 'onclick'
   },
-```
-
-```js
   constructor: function() { ··· },
   render: function() { ··· }
 })
 ```
+
+See: [View-extend](https://backbonejs.org/#View-extend)
+
 ### Instantiating
 
 ```js
@@ -107,21 +122,21 @@ view = new View()
 view = new View({ el: ··· })
 ```
 
+See: [View-constructor](https://backbonejs.org/#View-constructor)
+
 ### Methods
 
 ```js
 view.$el.show()
 view.$('input')
-```
 
-```js
 view.remove()
-```
 
-```js
 view.delegateEvents()
 view.undelegateEvents()
 ```
+
+See: [View](https://backbonejs.org/#View)
 
 ## Models
 
@@ -138,54 +153,54 @@ var Model = Backbone.Model.extend({
 })
 ```
 
+See: [Model-extend](https://backbonejs.org/#Model-extend)
+
 ### Instantiating
 
 ```js
 var obj = new Model({ title: 'Lolita', author: 'Nabokov' })
-```
-
-```js
 var obj = new Model({ collection: ··· })
 ```
+
+See: [Model-constructor](https://backbonejs.org/#Model-constructor)
 
 ### Methods
 
 ```js
 obj.id
 obj.cid   // → 'c38' (client-side ID)
-```
 
-```js
 obj.clone()
-```
 
-```js
 obj.hasChanged('title')
 obj.changedAttributes()  // false, or hash
 obj.previousAttributes() // false, or hash
 obj.previous('title')
-```
 
-```js
 obj.isNew()
 ```
 
-```js
-obj.set({ title: 'A Study in Pink' })
-obj.set({ title: 'A Study in Pink' }, { validate: true, silent: true })
-obj.unset('title')
-```
+See: [Model](https://backbonejs.org/#Model)
+
+### Setting and getting
 
 ```js
+obj.set({ title: 'A Study in Pink' })
+obj.set({ title: 'A Study in Pink' },
+  { validate: true, silent: true })
+obj.unset('title')
+
 obj.get('title')
 obj.has('title')
 obj.escape('title')     /* Like .get() but HTML-escaped */
-```
 
-```js
 obj.clear()
 obj.clear({ silent: true })
 ```
+
+See: [Model-set](https://backbonejs.org/#Model-set)
+
+### Saving and fetching
 
 ```js
 obj.save()
@@ -194,26 +209,24 @@ obj.save(null, {
   silent: true, patch: true, wait: true,
   success: callback, error: callback
 })
-```
 
-```js
 obj.destroy()
 obj.destroy({
   wait: true,
   success: callback, error: callback
 })
-```
 
-```js
 obj.toJSON()
-```
 
-```js
 obj.fetch()
 obj.fetch({ success: callback, error: callback })
 ```
 
+See: [Model-save](https://backbonejs.org/#Model-save)
+
 ### Validation
+
+#### Define
 
 ```js
 var Model = Backbone.Model.extend({
@@ -227,17 +240,23 @@ var Model = Backbone.Model.extend({
 
 <!-- {: data-highlight="validate"} -->
 
+#### Inspect
+
 ```js
 obj.validationError  //=> "Can't end before it starts"
 obj.isValid()
 obj.on('invalid', function (model, error) { ··· })
 ```
 
+#### Triggered on
+
 ```js
 // Triggered on:
 obj.save()
 obj.set({ ··· }, { validate: true })
 ```
+
+See: [Model-validate](https://backbonejs.org/#Model-validate)
 
 ### Custom URLs
 
@@ -246,19 +265,21 @@ var Model = Backbone.Model.extend({
   // Single URL (string or function)
   url: '/account',
   url: function() { return '/account' },
-```
 
-```js
   // Both of these two work the same way
   url: function() { return '/books/' + this.id }),
   urlRoot: '/books'
 })
 ```
 
+#### Instantiate
+
 ```js
 var obj = new Model({ url: ··· })
 var obj = new Model({ urlRoot: ··· })
 ```
+
+See: [Model-url](https://backbonejs.org/#Model-url)
 
 ## References
 

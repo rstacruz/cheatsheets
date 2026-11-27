@@ -1,18 +1,20 @@
 ---
 title: Vimdiff
 subtitle: Vim diff comparison mode
+logo: { set: icon-park-outline, name: difference-set }
 category: Vim
-updated: 2018-12-06
+updated: 2026-11-26
 weight: -10
 intro: |
-  [Vim](https://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.
+  Vim is a very efficient text editor. This reference follows Vim 9.2.
 links:
   - title: Vim
     url: https://www.vim.org/
+tier: t3
+last_verified_with: "Vim 9.2."
 ---
 
-Getting started
----------------
+## Getting started
 
 <!-- {: .-three-column} -->
 
@@ -27,6 +29,8 @@ Getting started
 
 <!-- {: .-shortcuts} -->
 
+See: [Jump to differences](https://vimhelp.org/diff.txt.html#jumpto-diffs)
+
 ### Editing
 
 | Shortcut | Description                         |
@@ -38,6 +42,8 @@ Getting started
 | `ZQ`           | Quit without checking changes    |
 
 <!-- {: .-shortcuts} -->
+
+See: [Copying diffs](https://vimhelp.org/diff.txt.html#copy-diffs), [diffupdate](https://vimhelp.org/diff.txt.html#%3Adiffupdate)
 
 ### Folds
 
@@ -59,9 +65,9 @@ Getting started
 
 <!-- {: .-shortcuts} -->
 
+See: [Fold commands](https://vimhelp.org/fold.txt.html#fold-commands)
 
-Also see
---------
+## Also see
 
 - [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
 - [Vim documentation](https://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_

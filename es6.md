@@ -1,8 +1,11 @@
 ---
 title: ES2015+
 subtitle: Modern JavaScript features
+logo: { set: icon-park-outline, name: lightning }
 category: JavaScript
-updated: 2019-11-14
+last_verified_with: "ECMAScript 2018."
+updated: 2026-11-25
+tier: t3
 weight: -10
 intro: |
   A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.
@@ -139,6 +142,8 @@ const byte = 2 ** 8
 
 <!-- {: data-highlight="**"} -->
 
+See: [Exponentiation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+
 Promises
 --------
 
@@ -169,6 +174,8 @@ promise
 <!-- {: data-highlight="=>"} -->
 
 
+See: [Promise.prototype.then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
+
 ### Using promises with finally
 
 ```js
@@ -183,6 +190,8 @@ promise
 The handler is called when the promise is fulfilled or rejected.
 
 
+See: [Promise.prototype.finally](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
+
 ### Promise functions
 
 ```js
@@ -191,6 +200,8 @@ Promise.race(···)
 Promise.reject(···)
 Promise.resolve(···)
 ```
+
+See: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ### Async-await
 
@@ -244,12 +255,16 @@ const scores = [22, 33]
 const [math = 50, sci = 50, arts = 50] = scores
 ```
 
+#### Result
+
 ```js
 // Result:
 // math === 22, sci === 33, arts === 50
 ```
 
 Default values can be assigned while destructuring arrays or objects.
+
+See: [Destructuring default values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value)
 
 ### Function arguments
 
@@ -261,11 +276,15 @@ function greet({ name, greeting }) {
 
 <!-- {: data-highlight="greeting"} -->
 
+#### Call the function
+
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
 
 Destructuring of objects and arrays can also be done in function arguments.
+
+See: [Destructuring function arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#unpacking_properties_from_objects_passed_as_a_function_parameter)
 
 ### Default values
 
@@ -277,10 +296,14 @@ function greet({ name = 'Rauno' } = {}) {
 
 <!-- {: data-highlight="'Rauno'"} -->
 
+#### Call with defaults
+
 ```js
 greet() // Hi Rauno!
 greet({ name: 'Larry' }) // Hi Larry!
 ```
+
+See: [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 
 ### Reassigning keys
 
@@ -292,11 +315,15 @@ function printCoordinates({ left: x, top: y }) {
 
 <!-- {: data-highlight="printCoordinates"} -->
 
+#### Call the function
+
 ```js
 printCoordinates({ left: 25, top: 90 })
 ```
 
 This example assigns `x` to the value of the `left` key.
+
+See: [Assigning to new variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#assigning_to_new_variable_names)
 
 ### Loops
 
@@ -311,6 +338,8 @@ for (let {title, artist} of songs) {
 The assignment expressions work in loops, too.
 
 
+See: [Destructuring in for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#for_of_iteration_and_destructuring)
+
 ### Object destructuring
 
 ```js
@@ -321,6 +350,8 @@ const { id, ...detail } = song;
 
 Extract some keys individually and remaining keys in the object using rest (...) operator
 
+
+See: [Rest properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#rest_properties_and_rest_elements)
 
 Spread
 ------
@@ -348,7 +379,7 @@ const options = Object.assign(
 
 The Object spread operator lets you build new objects from other objects.
 
-See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals)
 
 ### Array spread
 
@@ -374,7 +405,7 @@ const users = admins
 
 The spread operator lets you build new arrays in the same way.
 
-See: [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+See: [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals)
 
 Functions
 ---------
@@ -525,6 +556,8 @@ Object.entries(fatherJS)
 <!-- {: data-highlight="Object.entries"} -->
 
 
+See: [Object.entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+
 Modules
 -------
 
@@ -535,20 +568,28 @@ import 'helpers'
 // aka: require('···')
 ```
 
+#### Default imports
+
 ```js
 import Express from 'express'
 // aka: const Express = require('···').default || require('···')
 ```
+
+#### Named imports
 
 ```js
 import { indent } from 'helpers'
 // aka: const indent = require('···').indent
 ```
 
+#### Namespace imports
+
 ```js
 import * as Helpers from 'helpers'
 // aka: const Helpers = require('···')
 ```
+
+#### Renamed imports
 
 ```js
 import { indentSpaces as indent } from 'helpers'
@@ -565,10 +606,14 @@ export default function () { ··· }
 // aka: module.exports.default = ···
 ```
 
+#### Named exports
+
 ```js
 export function mymethod () { ··· }
 // aka: module.exports.mymethod = ···
 ```
+
+#### Constants
 
 ```js
 export const pi = 3.14159
@@ -589,6 +634,8 @@ function* idMaker () {
   while (true) { yield id++ }
 }
 ```
+
+#### Consume the generator
 
 ```js
 let gen = idMaker()

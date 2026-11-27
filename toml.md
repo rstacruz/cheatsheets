@@ -1,6 +1,7 @@
 ---
 title: TOML
 subtitle: Minimal config file format
+logo: { src: /assets/logos/toml.svg, mono: true }
 category: Markup
 tier: t2
 fragments:

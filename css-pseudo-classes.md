@@ -2,10 +2,12 @@
 title: How to use CSS pseudo-classes
 link_title: CSS pseudo-classes
 subtitle: Style elements by state
+logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "Selectors Level 4."
 updated: 2026-11-24
+tier: t3
 links:
   - title: MDN pseudo-classes
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes

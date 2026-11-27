@@ -5,9 +5,9 @@ import SocialList from './SocialList.astro'
 import ThemeToggle from './ThemeToggle.astro'
 import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
+import logoSvg from '~/assets/devhints.svg?raw'
 
 export type Props = {
-  noBack?: boolean
   noShare?: boolean
   noEdit?: boolean
   page?: SheetPage
@@ -17,27 +17,31 @@ const props = Astro.props as Props
 const t = {
   title: 'Devhints.io',
   editOnGitHub: 'Edit on GitHub',
-  edit: 'Edit',
-  backToHome: 'Back to home'
+  edit: 'Edit'
 }
 
 const styles = {
-  root: 'TopNav__root relative mb-[8px] h-[48px] border-b border-b-border-strong py-[8px] text-center leading-[64px] min-[481px]:mb-0 min-[481px]:h-[64px] min-[481px]:border-b-0 min-[481px]:py-0',
-  inner:
-    'TopNav__inner relative mx-auto flex h-[32px] max-w-content items-center px-[16px] leading-[32px] min-[481px]:mt-0 min-[481px]:h-[64px] min-[481px]:leading-[64px]',
-  left: 'TopNav__left flex-none leading-[32px] min-[481px]:absolute min-[481px]:left-[16px] min-[481px]:top-[16px]',
-  back: cx(
-    'TopNav__back',
-    'grid size-[32px] place-items-center rounded-full text-center text-muted-foreground no-underline transition-colors duration-100 ease-linear',
-    'hover:bg-primary-solid hover:text-primary-foreground hover:opacity-100 focus-visible:bg-primary-solid focus-visible:text-primary-foreground',
-    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
-    'min-[481px]:size-[48px] min-[1232px]:relative min-[1232px]:-left-[16px]',
-    '[&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-foreground hover:[&>svg]:text-primary-foreground focus-visible:[&>svg]:text-primary-foreground'
+  root: cx(
+    'TopNav__root',
+    '[--brand-ink:light-dark(var(--foreground),#fff)]',
+    'relative mb-[8px] h-[48px] border-b border-b-border-strong py-[8px] text-center leading-[64px] min-[481px]:mb-0 min-[481px]:h-[64px] min-[481px]:border-b-0 min-[481px]:py-0'
   ),
-  brand:
-    'TopNav__brand inline-block flex-auto text-xs font-bold leading-[32px] tracking-caps text-foreground uppercase no-underline hover:text-primary max-[481px]:hidden min-[481px]:leading-[64px]',
+  inner:
+    'TopNav__inner relative flex h-[32px] items-center px-[32px] leading-[32px] min-[481px]:mt-0 min-[481px]:h-[64px] min-[481px]:leading-[64px]',
+  brand: cx(
+    'TopNav__brand',
+    'group relative block h-[10.9px] w-[108px] flex-none no-underline',
+    'before:absolute before:-inset-x-[16px] before:-inset-y-[16px] before:content-[""]',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring'
+  ),
+  brandMark: cx(
+    'TopNav__brandMark',
+    'block size-full text-[var(--brand-ink)]',
+    '[&>svg]:block [&>svg]:size-full',
+    'group-hover:text-primary group-focus-visible:text-primary'
+  ),
   actions:
-    'TopNav__actions flex flex-none items-center gap-[8px] max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[16px] min-[481px]:top-[16px]',
+    'TopNav__actions flex flex-none items-center gap-[8px] max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[32px] min-[481px]:top-[16px]',
   socialList:
     'TopNav__socialList m-0 flex h-[32px] list-none items-center gap-[8px] p-0',
   pageActions:
@@ -45,7 +49,7 @@ const styles = {
   editItem: 'TopNav__editItem m-0 flex! p-0',
   editLink: cx(
     'TopNav__editLink',
-    'inline-flex h-[32px] items-center gap-[8px] rounded-full border border-border-strong px-[16px] text-xs font-medium whitespace-nowrap text-foreground no-underline transition-colors duration-100 ease-linear',
+    'inline-flex h-[32px] items-center gap-[8px] rounded-full border border-border-strong px-[16px] text-xs font-medium whitespace-nowrap text-[var(--brand-ink)] no-underline transition-colors duration-100 ease-linear',
     'hover:border-primary-solid hover:bg-primary-solid hover:text-primary-foreground',
     'focus-visible:border-primary-solid focus-visible:bg-primary-solid focus-visible:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
     '[&>svg]:shrink-0'
@@ -58,16 +62,8 @@ const editLink = getEditLink(props.page)
 
 <nav class={styles.root} data-js-no-preview role="navigation">
   <div class={styles.inner}>
-    {props.noBack !== true ? (
-      <div class={styles.left}>
-        <a class={styles.back} href="/" aria-label={t.backToHome}>
-          <Icon name="md-arrow-back" size={24} />
-        </a>
-      </div>
-    ) : null}
-
-    <a class={styles.brand} href="/">
-      {t.title}
+    <a class={styles.brand} href="/" aria-label={t.title}>
+      <span class={styles.brandMark} set:html={logoSvg} />
     </a>
 
     <div class={styles.actions}>

@@ -32,7 +32,7 @@ starlight({
 
 **Adds a language picker.** With a `root` locale, pages for it stay in `src/content/docs/`; see [i18n](https://starlight.astro.build/guides/i18n/).
 
-### Add a translated page
+### Copy a page into a locale
 <!-- {: .-snippet} -->
 
 ```bash

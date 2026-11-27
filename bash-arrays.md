@@ -13,6 +13,8 @@ links:
     url: https://www.gnu.org/software/bash/manual/html_node/Arrays.html
   - title: Bash array loop
     url: /bash-array-loop
+  - title: Bash for loop
+    url: /bash-for-loop
 ---
 
 ## Arrays

@@ -11,6 +11,8 @@ tier: t3
 links:
   - title: Bash arrays
     url: https://www.gnu.org/software/bash/manual/html_node/Arrays.html
+  - title: Bash for loop
+    url: /bash-for-loop
 ---
 
 ## Looping

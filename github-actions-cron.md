@@ -63,7 +63,7 @@ on:
   workflow_dispatch:
 ```
 
-**Lets you test the job on demand.** A scheduled run cannot be retried with its original trigger; dispatch one instead. See [workflow_dispatch](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch).
+**Lets you test the job on demand.** A manual run uses the branch you pick; a scheduled run always uses the default branch. See [workflow_dispatch](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch).
 
 ### Check why a schedule never ran
 <!-- {: .-snippet} -->

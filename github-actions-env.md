@@ -40,7 +40,7 @@ jobs:
         env:
           DEBUG: '1'
 ```
-<!-- {: data-highlight="DEBUG: '1'"} -->
+<!-- {: data-highlight="CI: true; DEBUG: '1'"} -->
 
 **More specific wins.** Step env beats job env, which beats workflow env. See [env](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#env).
 

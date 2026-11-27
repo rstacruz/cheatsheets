@@ -253,7 +253,7 @@ See: [concurrency](https://docs.github.com/en/actions/reference/workflows-and-ac
   with:
     fetch-depth: 0
 ```
-<!-- {: data-highlight="fetch-depth: 0"} -->
+<!-- {: data-highlight="actions/checkout@v7"} -->
 
 Clones the repository into `GITHUB_WORKSPACE`. `fetch-depth: 0` fetches all history for changelogs and versioning tools.
 
@@ -265,7 +265,7 @@ See: [actions/checkout](https://github.com/actions/checkout)
 - run: npm ci
 - run: npm test -- --coverage
 ```
-<!-- {: data-highlight="--coverage"} -->
+<!-- {: data-highlight="run:"} -->
 
 Each `run` is one shell command, and a non-zero exit fails the step.
 
@@ -278,7 +278,7 @@ See: [steps.run](https://docs.github.com/en/actions/reference/workflows-and-acti
   with:
     node-version: 24
 ```
-<!-- {: data-highlight="node-version: 24"} -->
+<!-- {: data-highlight="uses: actions/setup-node@v7"} -->
 
 `uses` names the action and `with` passes its inputs.
 
@@ -431,7 +431,7 @@ See: [permissions](https://docs.github.com/en/actions/reference/workflows-and-ac
 
 | Label | Image |
 | --- | --- |
-| `ubuntu-latest` | Ubuntu 26.04, x64 |
+| `ubuntu-latest` | Newest Ubuntu, x64 |
 | `ubuntu-26.04` | Ubuntu 26.04, x64 |
 | `ubuntu-24.04` | Ubuntu 24.04, x64 |
 | `ubuntu-22.04` | Ubuntu 22.04, x64 |
@@ -440,7 +440,7 @@ See: [permissions](https://docs.github.com/en/actions/reference/workflows-and-ac
 | `ubuntu-26.04-arm` | Ubuntu 26.04, arm64 |
 | --- | --- |
 | `windows-latest` | Windows Server 2025, x64 |
-| `macos-latest` | macOS 26, arm64 |
+| `macos-latest` | Newest macOS, arm64 |
 | `macos-15-intel` | macOS 15, x64 |
 <!-- {: .-headers} -->
 
@@ -556,7 +556,7 @@ See: [Cache key matching](https://docs.github.com/en/actions/reference/workflows
 ```
 <!-- {: data-highlight="if:"} -->
 
-`if` is evaluated by GitHub before the job runs, so it sees contexts, not shell variables.
+Step `if` is evaluated when the step is reached, so it sees contexts and earlier step outputs, not shell variables.
 
 See: [Evaluate expressions](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions)
 
@@ -636,7 +636,7 @@ jobs:
       node: 24
     secrets: inherit
 ```
-<!-- {: data-highlight="secrets: inherit"} -->
+<!-- {: data-highlight="with:; secrets: inherit"} -->
 
 `with` passes inputs, and `secrets: inherit` forwards every secret the caller can see.
 
@@ -724,7 +724,12 @@ See: [Job summaries](https://docs.github.com/en/actions/reference/workflows-and-
 ### Inspect a run
 
 ```bash
+# list recent runs for a workflow
 gh run list --workflow=ci.yml
+```
+
+```bash
+# print only the failed step logs
 gh run view --log-failed
 ```
 <!-- {: data-highlight="--log-failed"} -->

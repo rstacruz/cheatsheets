@@ -66,8 +66,8 @@ gh workflow run ci.yml -f level=debug
 <!-- {: .-snippet} -->
 
 ```bash
-gh run watch --workflow=ci.yml
+gh run watch --compact
 ```
 <!-- {: data-highlight="gh run watch"} -->
 
-**Follows the newest run until it finishes.** See [gh run watch](https://cli.github.com/manual/gh_run_watch).
+**Shows only relevant steps while the latest run finishes.** Pass a run ID to watch a specific run. See [gh run watch](https://cli.github.com/manual/gh_run_watch).

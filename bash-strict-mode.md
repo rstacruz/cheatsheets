@@ -11,6 +11,8 @@ tier: t3
 links:
   - title: Bash set builtin
     url: https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+  - title: Bash for loop
+    url: /bash-for-loop
 ---
 
 ## Strict mode

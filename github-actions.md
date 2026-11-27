@@ -58,6 +58,14 @@ See: [Workflow syntax](https://docs.github.com/en/actions/reference/workflows-an
 
 ### Workflow file path
 
+```text
+my-repo/
+└── .github/workflows/
+    ├── ci.yml
+    └── release.yaml
+```
+<!-- {: data-highlight=".github/workflows/"} -->
+
 Workflow files live in `.github/workflows/` and end in `.yml` or `.yaml`. Push and PR runs use the file at the event ref; scheduled runs use the default branch copy, and manual runs the selected ref.
 
 See: [About workflows](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows)
@@ -146,6 +154,11 @@ Only runs when the pull request touches these paths. A skipped required check st
 See: [paths](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpushpull_requestpull_request_targetpathspaths-ignore)
 
 ### Skip a run
+
+```bash
+git commit -m "fix: typo [skip ci]"
+```
+<!-- {: data-highlight="[skip ci]"} -->
 
 Add `[skip ci]` to a commit message to skip the push and pull request workflows for that commit.
 
@@ -245,6 +258,7 @@ Keeps one run per group and cancels the older one, so deploys never stack up.
 See: [concurrency](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#concurrency)
 
 ## Steps
+<!-- {: .-three-column} -->
 
 ### Check out code
 
@@ -287,11 +301,11 @@ See: [steps.uses](https://docs.github.com/en/actions/reference/workflows-and-act
 ### Step outputs
 
 ```yaml
-- id: version
-  run: echo "tag=v1.2.3" >> "$GITHUB_OUTPUT"
-- run: echo "${{ steps.version.outputs.tag }}"
+- id: ver
+  run: echo "tag=v1" >> "$GITHUB_OUTPUT"
+- run: echo "${{ steps.ver.outputs.tag }}"
 ```
-<!-- {: data-highlight="steps.version.outputs.tag"} -->
+<!-- {: data-highlight="steps.ver.outputs.tag"} -->
 
 An `id` makes a step's outputs readable by later steps in the job.
 

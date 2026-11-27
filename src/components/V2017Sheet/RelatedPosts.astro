@@ -121,8 +121,8 @@ const styles = {
           <h3 class={styles.heading}>{categoryHeading}</h3>
         </div>
         <ul class={styles.list}>
-          {relatedPages.map((page, index) => (
-            <RelatedPostItem page={page} featured={index === 0} />
+          {relatedPages.map((page) => (
+            <RelatedPostItem page={page} />
           ))}
         </ul>
       </div>
@@ -133,8 +133,8 @@ const styles = {
           <h3 class={styles.heading}>{t.group.top}</h3>
         </div>
         <ul class={styles.list}>
-          {topPages.map((page, index) => (
-            <RelatedPostItem page={page} featured={index === 0} />
+          {topPages.map((page) => (
+            <RelatedPostItem page={page} />
           ))}
         </ul>
       </div>

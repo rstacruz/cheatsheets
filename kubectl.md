@@ -1,6 +1,7 @@
 ---
 title: kubectl
 subtitle: Kubernetes cluster CLI
+logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 tier: t2
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."

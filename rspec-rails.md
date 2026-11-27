@@ -1,6 +1,7 @@
 ---
 title: Rspec-rails
 subtitle: Rails testing integration
+logo: { set: icon-park-outline, name: experiment }
 category: Ruby
 intro: |
   RSpec is a Ruby library for testing. rspec-rails is its Rails integration.

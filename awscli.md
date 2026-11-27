@@ -1,6 +1,7 @@
 ---
 title: AWS CLI
 subtitle: Command-line interface for AWS
+logo: { set: icon-park-outline, name: terminal }
 category: Devops
 last_verified_with: "AWS CLI 2.42."
 updated: 2026-11-25

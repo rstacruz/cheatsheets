@@ -1,6 +1,7 @@
 ---
 title: docker-compose
 subtitle: Multi-container app definition
+logo: { src: /assets/logos/docker.svg }
 category: Containers
 prism_languages: [yaml]
 weight: -1

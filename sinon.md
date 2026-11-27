@@ -1,6 +1,7 @@
 ---
 title: Sinon
 subtitle: Test double library for JavaScript
+logo: { src: /assets/logos/sinon.svg }
 category: JavaScript testing
 weight: -1
 tier: t3

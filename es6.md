@@ -1,6 +1,7 @@
 ---
 title: ES2015+
 subtitle: Modern JavaScript features
+logo: { set: icon-park-outline, name: lightning }
 category: JavaScript
 last_verified_with: "ECMAScript 2018."
 updated: 2026-11-25

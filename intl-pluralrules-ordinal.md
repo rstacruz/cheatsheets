@@ -2,6 +2,7 @@
 title: How to format ordinal numbers in JavaScript
 link_title: Ordinal numbers
 subtitle: 1st, 2nd, and 3rd
+logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

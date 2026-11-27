@@ -2,6 +2,7 @@
 title: How to get the difference between two dates in Day.js
 link_title: Day.js date difference
 subtitle: Days, hours and months
+logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."

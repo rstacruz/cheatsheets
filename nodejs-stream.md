@@ -1,6 +1,7 @@
 ---
 title: Node.js streams
 subtitle: Streaming data API
+logo: { set: icon-park-outline, name: transfer-data }
 category: Node.js
 weight: -1
 intro: |

@@ -12,6 +12,7 @@ import CarbonBox from './V2017/CarbonBox.astro'
 import { getSEOPropsForPage } from '~/lib/seo/seo'
 import { getJSONLDsForPage } from '~/lib/seo/jsonLd'
 import SEO from '~/components/SEO/SEO.astro'
+import Logo from './Logo.astro'
 import NoticeBox from './V2017Sheet/NoticeBox.astro'
 import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
@@ -50,6 +51,7 @@ const meta = [
   lastVerified && `Verified with ${lastVerified}`
 ].filter((part): part is string => Boolean(part))
 const title: string = page.frontmatter.title ?? page.slug
+const logo = page.frontmatter.logo
 const archived: string | null = page.frontmatter.archived
   ? `<p>${snarkdown(page.frontmatter.archived)}</p>`
   : null
@@ -77,6 +79,7 @@ const headingStyles = {
   ),
   spacer: cx('MainHeading__spacer', 'mt-12'),
   titleBlock: cx('MainHeading__titleBlock', 'min-w-0 flex-1'),
+  logo: cx('MainHeading__logo', 'mb-5 flex justify-center md:justify-start'),
   h1: cx(
     'MainHeading__h1',
     typeStyles.manrope,
@@ -107,6 +110,11 @@ const headingStyles = {
   <div class={styles.body}>
     <header class={headingStyles.root} role="banner">
       <div class={headingStyles.titleBlock}>
+        {logo && (
+          <div class={headingStyles.logo}>
+            <Logo logo={logo} size={48} />
+          </div>
+        )}
         <h1 class={headingStyles.h1}>
           <span class={headingStyles.title}>{title}</span>
           {snippetLayout ? null : (

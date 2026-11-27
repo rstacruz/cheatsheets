@@ -2,6 +2,7 @@
 title: How to handle forms in SvelteKit
 link_title: SvelteKit form actions
 subtitle: Validate and submit forms
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2."

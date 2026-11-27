@@ -1,6 +1,7 @@
 ---
 title: Immutable.js
 subtitle: Persistent data structure library
+logo: { set: icon-park-outline, name: layers }
 category: JavaScript libraries
 updated: 2026-11-24
 last_verified_with: "Immutable 5.2.1, verified on Node 26.13.1."

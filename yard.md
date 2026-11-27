@@ -1,6 +1,7 @@
 ---
 title: YARD
 subtitle: Ruby documentation generator
+logo: { src: /assets/logos/yard.svg }
 category: Markup
 intro: |
   Quick reference for YARD tags in Ruby documentation.

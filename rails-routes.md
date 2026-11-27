@@ -1,6 +1,7 @@
 ---
 title: Routes
 subtitle: URL routing reference
+logo: { set: icon-park-outline, name: router }
 category: Rails
 intro: |
   Rails routes map URLs to controller actions.

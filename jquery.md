@@ -1,6 +1,7 @@
 ---
 title: jQuery
 subtitle: DOM manipulation library
+logo: { src: /assets/logos/jquery.svg, mono: true }
 category: JavaScript libraries
 tags: [WIP]
 weight: -1

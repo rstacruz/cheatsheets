@@ -2,6 +2,7 @@
 title: How to round a number to 2 decimal places in JavaScript
 link_title: Round to 2 decimals
 subtitle: Fixed fraction digits
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

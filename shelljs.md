@@ -1,6 +1,7 @@
 ---
 title: Shell.js
 subtitle: Unix commands for Node
+logo: { set: icon-park-outline, name: keyboard }
 category: Node.js
 tier: t3
 last_verified_with: "ShellJS 0.10.0."

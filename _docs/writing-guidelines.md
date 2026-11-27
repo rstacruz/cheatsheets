@@ -20,6 +20,7 @@ updated: 2024-01-01
 - **Last verified with:** required for tiered sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
 - **Tier:** `t1` for sheets that move often, `t2` for slower ones, `t3` for best-effort sheets that still get the tiered checks; see [review tiers](tiers.md). Omit it for sheets that need no checks.
 - **Layout:** `snippet` uses the two-column snippet cards and drops "cheatsheet" from the H1. See [snippet layout](#snippet-layout).
+- **Logo:** optional square mark for homepage cards. Use `{ src }` for an image under `assets/logos/`, `{ set, name }` for a glyph, and see [Icons](icons.md) for sourcing and validation. See also [Logos](#logos).
 
 ```yaml
 last_verified_with: "Conventional Commits 1.0.0, curl 8.23.0."
@@ -59,6 +60,25 @@ fragments:
 - Order for visual rhythm, not importance.
 
 Untiered and `t3` sheets may omit fragments. `pnpm test` enforces presence and length.
+
+### Logos
+
+Featured sheets need a `logo`; other sheets may add one. It renders under the card's subtitle, and sheets without one get a chevron.
+
+```yaml
+logo: { set: logos, name: react }
+logo: { set: icon-park-outline, name: layers }
+logo: { src: /assets/logos/herdr.svg, mono: true }
+```
+
+- Prefer a local image under `public/assets/logos/` over an Iconify set mark.
+- Keep the brand image on the primary sheet; related sheets use glyphs. No mark may appear on more than 3 non-snippet cheatsheets; snippets are exempt.
+- For non-brand topics, pick a fitting `icon-park-outline` glyph.
+- If a set is unavoidable, `set` is `logos`, `simple-icons`, `devicon`, or `icon-park-outline`.
+- Prefer square marks; no wordmarks.
+- `mono: true` inverts fixed-dark artwork in dark mode.
+
+See [Icons](icons.md) for the full sourcing workflow, squareness rule, and validation command. `pnpm test` checks that marks resolve, files exist, are square, and that every t1/t2/t3 and featured sheet has one.
 
 ## Categories
 

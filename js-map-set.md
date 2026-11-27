@@ -1,6 +1,7 @@
 ---
 title: JavaScript Map and Set
 subtitle: Keyed and unique-value collections
+logo: { set: icon-park-outline, name: map-two }
 category: JavaScript
 weight: -3
 updated: 2026-11-25

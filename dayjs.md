@@ -3,6 +3,7 @@ title: Day.js
 seo_title: Day.js cheatsheet — format, diff, time zones
 description: "Day.js reference: parsing, formatting, diff, plugins, UTC, time zones and durations."
 subtitle: Lightweight date library
+logo: { set: icon-park-outline, name: time }
 category: Date libraries
 tier: t2
 fragments:

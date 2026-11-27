@@ -2,6 +2,7 @@
 title: How to use CSS pseudo-classes
 link_title: CSS pseudo-classes
 subtitle: Style elements by state
+logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "Selectors Level 4."

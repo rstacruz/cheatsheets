@@ -1,6 +1,7 @@
 ---
 title: Next.js
 subtitle: React framework for the web
+logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 tier: t2
 updated: 2026-11-27

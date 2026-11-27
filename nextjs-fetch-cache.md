@@ -2,6 +2,7 @@
 title: How to cache data in Next.js
 link_title: Next.js caching
 subtitle: Fetch options and use cache
+logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6."

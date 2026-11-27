@@ -1,6 +1,7 @@
 ---
 title: JavaScript speech synthesis
 subtitle: Speech synthesis API
+logo: { set: icon-park-outline, name: voice }
 category: Browser APIs
 weight: -1
 updated: 2026-11-25

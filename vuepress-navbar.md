@@ -2,6 +2,7 @@
 title: How to configure the VuePress navbar
 link_title: Configure VuePress navbar
 subtitle: Links and dropdowns
+logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."

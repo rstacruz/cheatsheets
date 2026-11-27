@@ -2,6 +2,7 @@
 title: How to compare strings ignoring accents in JavaScript
 link_title: Ignore accents
 subtitle: Compare résumé with resume
+logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

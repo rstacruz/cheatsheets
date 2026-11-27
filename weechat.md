@@ -1,6 +1,7 @@
 ---
 title: Weechat
 subtitle: Terminal IRC client
+logo: { src: /assets/logos/weechat.svg, mono: true }
 category: Apps
 intro: |
   WeeChat is a terminal IRC client.

@@ -1,6 +1,7 @@
 ---
 title: Input tag
 subtitle: Type and attribute reference
+logo: { set: icon-park-outline, name: textarea }
 category: HTML
 updated: 2026-11-23
 tier: t3

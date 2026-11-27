@@ -1,6 +1,7 @@
 ---
 title: Homebrew
 subtitle: Package manager for macOS
+logo: { src: /assets/logos/homebrew.svg }
 weight: -3
 updated: 2026-11-25
 tier: t3

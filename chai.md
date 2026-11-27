@@ -2,6 +2,7 @@
 title: Chai.js
 seo_title: Chai cheatsheet — expect, should, assert
 subtitle: JavaScript assertion library
+logo: { src: /assets/logos/chai.svg, mono: true }
 category: JavaScript testing
 weight: -3
 updated: 2026-11-22

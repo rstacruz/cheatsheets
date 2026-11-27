@@ -1,6 +1,7 @@
 ---
 title: Dockerfile
 subtitle: Container image build file
+logo: { src: /assets/logos/docker.svg }
 category: Containers
 prism_languages: [docker]
 last_verified_with: "Docker Engine 29.10."

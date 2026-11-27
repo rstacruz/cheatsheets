@@ -1,6 +1,7 @@
 ---
 title: Ansi codes
 subtitle: ANSI terminal color codes
+logo: { set: icon-park-outline, name: color-card }
 category: Shell
 intro: |
   Quick reference to ANSI color codes.

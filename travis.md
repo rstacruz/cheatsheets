@@ -1,6 +1,7 @@
 ---
 title: Travis.yml
 subtitle: Travis CI YAML configuration
+logo: { src: /assets/logos/travisci.svg }
 category: Devops
 prism_languages: [yaml]
 intro: |

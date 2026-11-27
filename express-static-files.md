@@ -2,6 +2,7 @@
 title: How to serve static files in Express
 link_title: Serve static files
 subtitle: Serve a folder with express.static
+logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
 updated: 2026-11-26

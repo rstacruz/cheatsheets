@@ -2,6 +2,7 @@
 title: How to show 24-hour time in JavaScript
 link_title: 24-hour time
 subtitle: Force a 24-hour clock
+logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

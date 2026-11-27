@@ -1,6 +1,7 @@
 ---
 title: ReStructuredText
 subtitle: ReStructuredText markup language
+logo: { set: icon-park-outline, name: book }
 category: Markup
 intro: |
   ReStructuredText is a markup language for writing documents.

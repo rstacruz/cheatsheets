@@ -1,6 +1,7 @@
 ---
 title: JavaScript Date
 subtitle: Date and time API
+logo: { set: icon-park-outline, name: calendar-dot }
 category: JavaScript
 weight: -3
 updated: 2026-11-25

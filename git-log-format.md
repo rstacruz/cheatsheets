@@ -1,6 +1,7 @@
 ---
 title: Git log format string
 subtitle: Log format placeholder reference
+logo: { set: icon-park-outline, name: format }
 category: Git
 updated: 2026-11-23
 tier: t3

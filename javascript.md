@@ -1,6 +1,7 @@
 ---
 title: JavaScript
 subtitle: Core scripting language
+logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 weight: -10
 updated: 2026-11-11

@@ -2,6 +2,7 @@
 title: How to parse a JSON body in Express
 link_title: Parse JSON body
 subtitle: Read req.body with express.json
+logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
 updated: 2026-11-26

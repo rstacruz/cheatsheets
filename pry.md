@@ -1,6 +1,7 @@
 ---
 title: Pry
 subtitle: Runtime console for Ruby
+logo: { set: icon-park-outline, name: bug }
 category: Ruby libraries
 intro: |
   Pry is a runtime development console for Ruby.

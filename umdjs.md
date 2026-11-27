@@ -1,6 +1,7 @@
 ---
 title: Universal JS module loader
 subtitle: Universal module definition pattern
+logo: { set: icon-park-outline, name: puzzle }
 category: Build tools
 intro: |
   UMD is a pattern for JavaScript modules that work in browsers, CommonJS, and AMD environments. This sheet collects the common templates.

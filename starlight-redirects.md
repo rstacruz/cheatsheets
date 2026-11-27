@@ -2,6 +2,7 @@
 title: How to add redirects in Starlight
 link_title: Starlight redirects
 subtitle: Move pages safely
+logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
 updated: 2026-11-27

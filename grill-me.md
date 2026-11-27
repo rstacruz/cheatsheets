@@ -1,6 +1,7 @@
 ---
 title: Grill me
 subtitle: Relentless design interview
+logo: { set: icon-park-outline, name: people-speak }
 category: Agents
 tier: t2
 updated: 2026-11-22

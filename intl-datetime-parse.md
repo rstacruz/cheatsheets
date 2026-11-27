@@ -2,6 +2,7 @@
 title: How to parse a date string in JavaScript
 link_title: Parse a date string
 subtitle: ISO strings without surprises
+logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

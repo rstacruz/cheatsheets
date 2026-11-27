@@ -2,6 +2,7 @@
 title: How to add import aliases in Vite
 link_title: Vite import aliases
 subtitle: Shorten import paths
+logo: { src: /assets/logos/vite.svg }
 category: Build tools
 layout: snippet
 last_verified_with: "Vite 8.3.8, Node 26.13.1."

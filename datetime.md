@@ -4,6 +4,7 @@ seo_title: Date format cheatsheet — ISO 8601, strftime, SQL
 description: "Date format tokens: ISO 8601, strftime, Moment, Java, SQL, JavaScript and Unix time. Reference with examples."
 category: Others
 subtitle: Date format codes by tool
+logo: { set: icon-park-outline, name: calendar }
 weight: -5
 updated: 2026-11-18
 last_verified_with: "strftime, JavaScript, PHP, Go, Java, Swift and C# date APIs."

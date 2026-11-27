@@ -2,6 +2,7 @@
 title: How to stash untracked files
 link_title: Stash untracked files
 subtitle: Include new files
+logo: { src: /assets/logos/git.svg }
 category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."

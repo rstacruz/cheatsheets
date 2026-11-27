@@ -2,6 +2,7 @@
 title: How to format a date in another time zone in JavaScript
 link_title: Date in another time zone
 subtitle: Display dates in another zone
+logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

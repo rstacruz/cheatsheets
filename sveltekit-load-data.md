@@ -2,6 +2,7 @@
 title: How to load data in SvelteKit
 link_title: SvelteKit load data
 subtitle: Fetch data before rendering
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2."

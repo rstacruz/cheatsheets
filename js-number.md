@@ -1,6 +1,7 @@
 ---
 title: JavaScript Numbers
 subtitle: Floating-point number reference
+logo: { set: icon-park-outline, name: calculator }
 category: JavaScript
 weight: -3
 updated: 2026-11-25

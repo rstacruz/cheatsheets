@@ -1,6 +1,7 @@
 ---
 title: CIDR
 subtitle: IP address range notation
+logo: { set: icon-park-outline, name: globe }
 category: Networking
 last_verified_with: "RFC 4632."
 updated: 2018-05-14

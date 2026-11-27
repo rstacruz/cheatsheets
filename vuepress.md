@@ -1,6 +1,7 @@
 ---
 title: VuePress
 subtitle: Markdown documentation site generator
+logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 tier: t2
 updated: 2026-11-27

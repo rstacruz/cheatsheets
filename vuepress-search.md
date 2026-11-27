@@ -2,6 +2,7 @@
 title: How to add search to VuePress
 link_title: Add VuePress search
 subtitle: Local search for docs
+logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/plugin-search 2.0.0-rc.142."

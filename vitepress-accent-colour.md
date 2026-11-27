@@ -2,6 +2,7 @@
 title: How to change the VitePress accent colour
 link_title: VitePress accent colour
 subtitle: Brand tokens in custom CSS
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 layout: snippet
 tier: t3

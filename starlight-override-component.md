@@ -2,6 +2,7 @@
 title: How to override a Starlight component
 link_title: Starlight component override
 subtitle: Replace built-in UI
+logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
 updated: 2026-11-27

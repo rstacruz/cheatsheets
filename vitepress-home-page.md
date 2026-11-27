@@ -2,6 +2,7 @@
 title: How to build a VitePress home page
 link_title: VitePress home page
 subtitle: Hero, actions and feature cards
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 layout: snippet
 tier: t3

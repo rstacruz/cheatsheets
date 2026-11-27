@@ -1,6 +1,7 @@
 ---
 title: Yarn
 subtitle: JavaScript package manager
+logo: { src: /assets/logos/yarn.svg }
 category: Package managers
 weight: -3
 updated: 2026-11-26

@@ -1,6 +1,7 @@
 ---
 title: Vagrantfile
 subtitle: Vagrant configuration file
+logo: { src: /assets/logos/vagrant.svg }
 category: Devops
 intro: |
   A Vagrantfile defines boxes, networking, providers, and provisioning for Vagrant development environments.

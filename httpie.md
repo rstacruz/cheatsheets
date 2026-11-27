@@ -1,6 +1,7 @@
 ---
 title: httpie
 subtitle: Human-friendly HTTP client
+logo: { src: /assets/logos/httpie.svg }
 category: Networking
 weight: -3
 updated: 2026-11-23

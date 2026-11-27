@@ -1,6 +1,7 @@
 ---
 title: composer
 subtitle: PHP package manager
+logo: { src: /assets/logos/composer.svg, mono: true }
 category: Package managers
 weight: -1
 authors:

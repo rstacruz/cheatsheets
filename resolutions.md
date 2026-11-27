@@ -2,6 +2,7 @@
 title: Screen resolutions
 category: Others
 subtitle: Screen resolution and density table
+logo: { set: icon-park-outline, name: monitor }
 intro: |
   A table of common screen resolutions, pixel densities, device pixel ratios, and physical sizes, with W3C resolution units.
 links:

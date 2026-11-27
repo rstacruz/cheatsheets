@@ -1,6 +1,7 @@
 ---
 title: Elixir metaprogramming
 subtitle: Macro-based code generation
+logo: { src: /assets/logos/elixir.svg, mono: true }
 category: Elixir
 last_verified_with: "Elixir 1.20.5."
 updated: 2026-11-24

@@ -1,6 +1,7 @@
 ---
 title: CSS
 subtitle: Stylesheet language
+logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 updated: 2026-11-26
 last_verified_with: "CSS Backgrounds 3, CSS Animations 1 (MDN), Chrome 158, Firefox 160."

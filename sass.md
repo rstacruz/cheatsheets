@@ -1,6 +1,7 @@
 ---
 title: Sass
 subtitle: Mature CSS preprocessor
+logo: { src: /assets/logos/sass.svg }
 category: CSS
 updated: 2026-11-26
 weight: -5

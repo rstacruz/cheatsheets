@@ -2,6 +2,7 @@
 title: Phusion Passenger
 category: Rails
 subtitle: Ruby application server
+logo: { set: icon-park-outline, name: server }
 tags: [WIP]
 tier: t3
 last_verified_with: "Passenger 6.2.2."

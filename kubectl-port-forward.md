@@ -2,6 +2,7 @@
 title: How to port-forward a Kubernetes service
 link_title: Kubernetes port-forward
 subtitle: Tunnel pod ports to localhost
+logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."

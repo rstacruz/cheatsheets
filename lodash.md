@@ -1,6 +1,7 @@
 ---
 title: Lodash
 subtitle: JavaScript utility library
+logo: { src: /assets/logos/lodash.svg }
 category: JavaScript libraries
 weight: -3
 description: |

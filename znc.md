@@ -2,6 +2,7 @@
 title: ZNC bouncer
 category: Networking
 subtitle: IRC bouncer
+logo: { set: icon-park-outline, name: connection }
 intro: |
   A quick reference to the ZNC IRC bouncer's common commands.
 links:

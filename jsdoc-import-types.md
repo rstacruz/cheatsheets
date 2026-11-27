@@ -2,6 +2,7 @@
 title: How to import JSDoc types
 link_title: JSDoc import types
 subtitle: Type-only imports for JSDoc
+logo: { set: icon-park-outline, name: file-code }
 category: JavaScript
 layout: snippet
 last_verified_with: "TypeScript 7.0.2."

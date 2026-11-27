@@ -2,6 +2,7 @@
 title: How to list a locale's plural categories
 link_title: Plural categories
 subtitle: Forms each locale needs
+logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

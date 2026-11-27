@@ -1,6 +1,7 @@
 ---
 title: Emacs
 subtitle: Extensible text editor
+logo: { src: /assets/logos/emacs.svg, mono: true }
 category: Apps
 last_verified_with: "GNU Emacs 31.1."
 updated: 2026-11-25

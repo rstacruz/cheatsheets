@@ -1,6 +1,7 @@
 ---
 title: JavaScript Objects
 subtitle: Key-value object reference
+logo: { set: icon-park-outline, name: data-all }
 category: JavaScript
 weight: -3
 updated: 2026-11-25

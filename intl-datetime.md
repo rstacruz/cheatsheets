@@ -1,6 +1,7 @@
 ---
 title: Intl.DateTimeFormat
 subtitle: Locale-aware date formatter
+logo: { set: icon-park-outline, name: globe }
 category: Internationalization
 tags: [Featured]
 tier: t2

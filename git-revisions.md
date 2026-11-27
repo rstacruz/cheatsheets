@@ -1,6 +1,7 @@
 ---
 title: Git revisions
 subtitle: Revision syntax reference
+logo: { set: icon-park-outline, name: list }
 category: Git
 last_verified_with: "Git 2.56.0."
 updated: 2026-11-22

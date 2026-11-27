@@ -1,6 +1,7 @@
 ---
 title: Jekyll
 subtitle: Static site generator
+logo: { src: /assets/logos/jekyll.svg, mono: true }
 jekyll_escape: true
 prism_languages: [bash, yaml, ruby]
 category: Markup

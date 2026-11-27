@@ -2,6 +2,7 @@
 title: How to structure a Next.js App Router project
 link_title: App Router files
 subtitle: Route and layout files
+logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6."

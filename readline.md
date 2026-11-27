@@ -1,6 +1,7 @@
 ---
 title: Readline
 subtitle: Line editing for CLI prompts
+logo: { set: icon-park-outline, name: enter-key }
 category: Shell
 tier: t2
 last_verified_with: "GNU Readline 8.3."

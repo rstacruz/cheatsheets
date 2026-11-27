@@ -2,6 +2,7 @@
 title: How to use system fonts in CSS
 link_title: CSS system fonts
 subtitle: Native font stacks
+logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "CSS Fonts Module Level 4."

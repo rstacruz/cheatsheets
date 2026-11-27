@@ -1,0 +1,45 @@
+---
+import { resolveLogo } from '~/lib/logo-render'
+import type { SheetLogo } from '~/types/SheetFrontmatter'
+
+export type Props = {
+  logo?: SheetLogo
+  size?: number
+  class?: string
+}
+
+const { logo: source, size = 56, class: className } = Astro.props as Props
+const logo = resolveLogo(source ?? null)
+
+const styles = {
+  root: 'inline-flex flex-none items-center justify-center',
+  mono: 'logo-mono',
+  media: 'h-auto w-auto max-h-full max-w-full'
+}
+---
+
+{logo && (
+  <span
+    class:list={[styles.root, source?.mono && styles.mono, className]}
+    style={`width:${size}px;height:${size}px`}
+    aria-hidden="true"
+  >
+    {logo.kind === 'svg' ? (
+      <svg {...logo.attributes} set:html={logo.body} class={styles.media} />
+    ) : (
+      <img src={logo.src} alt="" class={styles.media} />
+    )}
+  </span>
+)}
+
+<style>
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .logo-mono {
+      filter: invert(1);
+    }
+  }
+
+  :global(:root[data-theme='dark']) .logo-mono {
+    filter: invert(1);
+  }
+</style>

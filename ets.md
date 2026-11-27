@@ -1,6 +1,7 @@
 ---
 title: Erlang ETS
 subtitle: In-memory key-value store
+logo: { set: icon-park-outline, name: data }
 category: Elixir
 weight: -1
 last_verified_with: "Erlang/OTP 29.1.2 (stdlib 8.1.1)."

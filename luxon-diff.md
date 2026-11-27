@@ -2,6 +2,7 @@
 title: How to get the difference between two dates in Luxon
 link_title: Luxon date difference
 subtitle: Days, hours and months
+logo: { src: /assets/logos/luxon.svg }
 category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."

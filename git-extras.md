@@ -1,6 +1,7 @@
 ---
 title: Git extras
 subtitle: Collection of Git utilities
+logo: { set: icon-park-outline, name: puzzle }
 category: Git
 intro: |
   Quick reference to some utilities in the [git-extras](https://github.com/tj/git-extras) utilities.

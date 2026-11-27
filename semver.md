@@ -2,6 +2,7 @@
 title: Semver
 category: Others
 subtitle: Version numbering convention
+logo: { set: icon-park-outline, name: tag }
 intro: |
   Semantic versioning rules and node-semver range syntax, from exact versions to tilde, caret, hyphen, and prerelease ranges.
 links:

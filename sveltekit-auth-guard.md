@@ -2,6 +2,7 @@
 title: How to protect routes in SvelteKit
 link_title: SvelteKit auth guard
 subtitle: Guard pages with hooks
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."

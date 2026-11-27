@@ -2,6 +2,7 @@
 title: How to add a second language to VuePress
 link_title: VuePress i18n
 subtitle: Locales and language menus
+logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."

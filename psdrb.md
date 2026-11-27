@@ -1,6 +1,7 @@
 ---
 title: PSD.rb
 subtitle: Photoshop file parser
+logo: { set: icon-park-outline, name: picture }
 category: Ruby libraries
 intro: |
   PSD.rb parses Photoshop documents in Ruby.

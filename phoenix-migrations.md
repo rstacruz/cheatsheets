@@ -1,6 +1,7 @@
 ---
 title: "Phoenix: Ecto migrations"
 subtitle: Database migration tasks
+logo: { set: icon-park-outline, name: database-sync }
 category: Elixir
 weight: -1
 updated: 2026-11-23

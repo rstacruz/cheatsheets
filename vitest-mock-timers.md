@@ -2,6 +2,7 @@
 title: How to mock timers in Vitest
 link_title: Mock Vitest timers
 subtitle: Control time in tests
+logo: { src: /assets/logos/vitest.svg }
 category: JavaScript testing
 layout: snippet
 last_verified_with: "Vitest 5.1.2."

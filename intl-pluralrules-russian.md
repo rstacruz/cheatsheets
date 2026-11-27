@@ -2,6 +2,7 @@
 title: How to pluralize Russian nouns in JavaScript
 link_title: Russian plurals
 subtitle: One, few, and many
+logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

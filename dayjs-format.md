@@ -2,6 +2,7 @@
 title: How to format a date with Day.js
 link_title: Day.js format
 subtitle: Format dates as strings
+logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."

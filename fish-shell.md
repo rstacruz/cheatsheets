@@ -3,6 +3,7 @@ title: Fish shell
 seo_title: Fish shell cheatsheet — syntax, variables, functions
 description: "Fish shell syntax: variables, functions, control flow and history. Reference."
 subtitle: Interactive shell with autosuggestions
+logo: { src: /assets/logos/fishshell.svg }
 category: Shell
 prism_languages: [fish]
 last_verified_with: "fish 4.9."

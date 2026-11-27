@@ -1,6 +1,7 @@
 ---
 title: Inkscape
 subtitle: Vector graphics editor
+logo: { src: /assets/logos/inkscape.svg, mono: true }
 category: Apps
 tags: [WIP]
 updated: 2026-11-25

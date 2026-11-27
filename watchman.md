@@ -2,6 +2,7 @@
 title: Watchman
 category: Build tools
 subtitle: File watching service
+logo: { src: /assets/logos/watchman.svg }
 updated: 2026-11-24
 last_verified_with: "Watchman 2026.11.23.00."
 weight: -1

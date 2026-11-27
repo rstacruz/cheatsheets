@@ -2,6 +2,7 @@
 title: How to format a date as YYYY-MM-DD in JavaScript
 link_title: Date as YYYY-MM-DD
 subtitle: ISO date output
+logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

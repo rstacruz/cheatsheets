@@ -1,6 +1,7 @@
 ---
 title: Mako
 subtitle: Python template compiler
+logo: { set: icon-park-outline, name: code }
 category: Python
 last_verified_with: "Mako 1.4.3."
 updated: 2026-11-24

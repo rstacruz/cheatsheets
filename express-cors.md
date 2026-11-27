@@ -2,6 +2,7 @@
 title: How to enable CORS in Express
 link_title: Express CORS
 subtitle: Cross-origin requests with cors
+logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
 updated: 2026-11-26

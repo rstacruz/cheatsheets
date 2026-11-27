@@ -1,6 +1,7 @@
 ---
 title: CSS Grid
 subtitle: Two-dimensional layout system
+logo: { set: icon-park-outline, name: grid-two }
 category: CSS
 last_verified_with: "CSS Grid Layout Module Levels 1 and 2."
 updated: 2026-11-25

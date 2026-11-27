@@ -1,6 +1,7 @@
 ---
 title: Web workers
 subtitle: Browser background threads
+logo: { set: icon-park-outline, name: cpu }
 category: Browser APIs
 keywords:
   - Worker

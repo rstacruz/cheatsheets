@@ -2,6 +2,7 @@
 title: How to switch the Kubernetes namespace
 link_title: Kubernetes switch namespace
 subtitle: Namespaces per command or default
+logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."

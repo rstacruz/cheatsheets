@@ -2,6 +2,7 @@
 title: How to join tables in SQLite
 link_title: Join tables in SQLite
 subtitle: Combine rows from two tables
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

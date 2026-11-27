@@ -1,6 +1,7 @@
 ---
 title: OS X
 subtitle: Mac administration commands
+logo: { src: /assets/logos/apple.svg, mono: true }
 category: Apps
 last_verified_with: "macOS 27.2.1."
 updated: 2026-11-24

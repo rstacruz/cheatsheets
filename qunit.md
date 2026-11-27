@@ -1,6 +1,7 @@
 ---
 title: Qunit
 subtitle: JavaScript test framework
+logo: { src: /assets/logos/qunit.svg }
 category: JavaScript testing
 intro: |
   A quick reference for the QUnit testing library in JavaScript.

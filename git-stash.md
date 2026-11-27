@@ -1,6 +1,7 @@
 ---
 title: Git stash
 subtitle: Shelve work in progress
+logo: { set: icon-park-outline, name: inbox }
 category: Git
 tier: t2
 fragments:

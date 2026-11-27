@@ -2,6 +2,7 @@
 title: How to copy files to and from a Kubernetes pod
 link_title: Kubernetes copy files
 subtitle: Move files with kubectl cp
+logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."

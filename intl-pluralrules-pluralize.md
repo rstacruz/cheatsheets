@@ -2,6 +2,7 @@
 title: How to pluralize a word in JavaScript
 link_title: Pluralize a word
 subtitle: Count-aware word forms
+logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

@@ -1,6 +1,7 @@
 ---
 title: Nopt
 subtitle: Option parsing library
+logo: { set: icon-park-outline, name: config }
 category: Node.js libraries
 last_verified_with: "nopt 10.0.1."
 updated: 2026-11-25

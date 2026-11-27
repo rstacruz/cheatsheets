@@ -1,6 +1,7 @@
 ---
 title: Hledger
 subtitle: Ledger-compatible accounting tool
+logo: { set: icon-park-outline, name: book }
 category: Plain-text accounting
 updated: 2026-11-25
 tier: t3

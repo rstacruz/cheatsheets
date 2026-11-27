@@ -1,6 +1,7 @@
 ---
 title: Slim
 subtitle: Ruby template engine
+logo: { src: /assets/logos/slim.svg }
 category: Ruby libraries
 prism_languages: [jade]
 weight: -1

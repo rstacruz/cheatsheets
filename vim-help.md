@@ -1,6 +1,7 @@
 ---
 title: Vim helpfiles
 subtitle: Help file authoring reference
+logo: { set: icon-park-outline, name: help }
 category: Vim
 intro: |
   Vim helpfiles document plugins and features in `:help`.

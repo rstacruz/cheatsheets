@@ -2,6 +2,7 @@
 title: How to use a dictionary in C#
 link_title: C# dictionary
 subtitle: Read and write keys
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

@@ -2,6 +2,7 @@
 title: How to format numbers for a locale in JavaScript
 link_title: Locale number formats
 subtitle: Decimal marks and grouping
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

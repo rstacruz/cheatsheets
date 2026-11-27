@@ -1,6 +1,7 @@
 ---
 title: Vim-rails
 subtitle: Rails navigation plugin
+logo: { set: icon-park-outline, name: train }
 category: Vim
 html_class: key-codes
 last_verified_with: "vim-rails 5.4."

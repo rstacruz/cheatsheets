@@ -1,6 +1,7 @@
 ---
 title: AppleScript
 subtitle: Mac automation language
+logo: { set: icon-park-outline, name: code }
 last_verified_with: "AppleScript 2.8."
 updated: 2018-12-06
 tier: t3

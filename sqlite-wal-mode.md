@@ -2,6 +2,7 @@
 title: How to enable WAL mode in SQLite
 link_title: Enable WAL mode
 subtitle: Improve read and write concurrency
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

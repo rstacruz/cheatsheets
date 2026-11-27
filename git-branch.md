@@ -1,6 +1,7 @@
 ---
 title: Git branches
 subtitle: Branch management workflow
+logo: { set: icon-park-outline, name: branch }
 category: Git
 updated: 2026-11-23
 tier: t3

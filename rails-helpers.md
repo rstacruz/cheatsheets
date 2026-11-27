@@ -1,6 +1,7 @@
 ---
 title: Rails helpers
 subtitle: View helper reference
+logo: { set: icon-park-outline, name: tool }
 category: Rails
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-24

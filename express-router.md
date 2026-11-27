@@ -2,6 +2,7 @@
 title: How to split Express routes into files
 link_title: Express router
 subtitle: Group routes with Router
+logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
 updated: 2026-11-26

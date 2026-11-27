@@ -1,6 +1,7 @@
 ---
 title: StimulusReflex
 subtitle: Rails reactive page updates
+logo: { src: /assets/logos/stimulus-reflex.svg }
 category: Ruby
 intro: |
   StimulusReflex updates Rails pages reactively over WebSockets using server-side reflexes and morphs.

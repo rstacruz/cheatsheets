@@ -3,6 +3,7 @@ title: Luxon
 seo_title: Luxon cheatsheet — format, diff, time zones
 description: "Luxon reference: DateTime, Duration and Interval, with formatting, time zones and DST."
 subtitle: Date and time library
+logo: { src: /assets/logos/luxon.svg }
 category: Date libraries
 tier: t2
 fragments:

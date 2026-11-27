@@ -2,6 +2,7 @@
 title: How to write Express middleware
 link_title: Express middleware
 subtitle: Functions that run before routes
+logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
 updated: 2026-11-26

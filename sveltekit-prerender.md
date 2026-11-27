@@ -2,6 +2,7 @@
 title: How to prerender pages and disable SSR in SvelteKit
 link_title: SvelteKit prerender
 subtitle: Static HTML at build time
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."

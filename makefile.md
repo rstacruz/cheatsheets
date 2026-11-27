@@ -1,6 +1,7 @@
 ---
 title: Makefile
 subtitle: Build automation file
+logo: { set: icon-park-outline, name: tool }
 prism_languages: [makefile]
 category: Build tools
 last_verified_with: "GNU Make 4.4.1."

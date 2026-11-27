@@ -2,6 +2,7 @@
 title: How to format a date in the user's locale in JavaScript
 link_title: Date in the user's locale
 subtitle: Locale-aware date output
+logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

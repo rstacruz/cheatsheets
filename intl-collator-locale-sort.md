@@ -2,6 +2,7 @@
 title: How to sort strings by locale in JavaScript
 link_title: Locale sort
 subtitle: Swedish, German, and Spanish order
+logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

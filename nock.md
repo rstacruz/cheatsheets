@@ -1,6 +1,7 @@
 ---
 title: Nock
 subtitle: HTTP mocking library
+logo: { set: icon-park-outline, name: api }
 category: JavaScript testing
 last_verified_with: "nock 15.0.6."
 updated: 2026-11-24

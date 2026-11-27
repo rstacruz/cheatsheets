@@ -1,6 +1,7 @@
 ---
 title: RSpec
 subtitle: Ruby testing library
+logo: { set: icon-park-outline, name: experiment }
 category: Ruby
 intro: |
   RSpec is a Ruby library for testing.

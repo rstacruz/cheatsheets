@@ -1,6 +1,7 @@
 ---
 title: Ractive.js
 subtitle: Template-driven UI library
+logo: { src: /assets/logos/ractive.svg }
 category: JavaScript libraries
 updated: 2026-11-26
 intro: |

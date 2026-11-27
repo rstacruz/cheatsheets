@@ -1,6 +1,7 @@
 ---
 title: JavaScript Temporal
 subtitle: Modern date and time API
+logo: { set: icon-park-outline, name: calendar }
 category: JavaScript
 weight: -2
 updated: 2026-11-24

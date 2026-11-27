@@ -2,6 +2,7 @@
 title: PlantUML
 category: Markup
 subtitle: Diagram markup language
+logo: { src: /assets/logos/plantuml.svg }
 intro: |
   PlantUML is a markup language for creating diagrams.
 links:

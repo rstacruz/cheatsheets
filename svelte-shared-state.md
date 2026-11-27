@@ -2,6 +2,7 @@
 title: How to share state between Svelte components
 link_title: Share Svelte state
 subtitle: Modules, context, and stores
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

@@ -1,6 +1,7 @@
 ---
 title: Vim scripting
 subtitle: Scripting language for Vim
+logo: { set: icon-park-outline, name: source-code }
 category: Vim
 intro: |
   Vimscript is Vim's built-in language for variables, functions, loops, and custom commands. This sheet is a quick reference to Vim's scripting documentation.

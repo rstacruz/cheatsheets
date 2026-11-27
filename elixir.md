@@ -1,6 +1,7 @@
 ---
 title: Elixir
 subtitle: Functional language on BEAM
+logo: { src: /assets/logos/elixir.svg, mono: true }
 category: Elixir
 tags: [New]
 last_verified_with: "Elixir 1.20."

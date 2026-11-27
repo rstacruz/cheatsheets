@@ -2,6 +2,7 @@
 title: How to handle errors in Express
 link_title: Express error handling
 subtitle: Error handlers and 404s
+logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
 updated: 2026-11-26

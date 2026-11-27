@@ -2,6 +2,7 @@
 title: How to key an each block in Svelte
 link_title: Key an each block
 subtitle: Identity in list rendering
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

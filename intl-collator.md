@@ -1,6 +1,7 @@
 ---
 title: Intl.Collator
 subtitle: Locale-aware string comparison
+logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 tier: t2
 updated: 2026-11-26

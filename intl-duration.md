@@ -1,6 +1,7 @@
 ---
 title: Intl.DurationFormat
 subtitle: Locale-aware duration formatter
+logo: { set: icon-park-outline, name: stopwatch }
 category: Internationalization
 tier: t2
 updated: 2026-11-18

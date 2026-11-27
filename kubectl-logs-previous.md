@@ -2,6 +2,7 @@
 title: How to see a Kubernetes pod's previous logs
 link_title: Kubernetes previous logs
 subtitle: Logs from a crashed container
+logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."

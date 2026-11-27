@@ -1,6 +1,7 @@
 ---
 title: Org Mode
 subtitle: Emacs note organizer
+logo: { set: icon-park-outline, name: notes }
 tags: [WIP]
 category: Apps
 updated: 2026-11-23

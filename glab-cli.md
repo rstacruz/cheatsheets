@@ -3,6 +3,7 @@ title: GitLab CLI
 seo_title: GitLab CLI cheatsheet — glab commands and flags
 description: "GitLab CLI reference: authenticate, clone projects, open merge requests, triage issues, watch CI/CD pipelines, and script with glab api and jq."
 subtitle: GitLab from the terminal
+logo: { src: /assets/logos/gitlab.svg }
 category: Git
 updated: 2026-11-25
 last_verified_with: "glab 1.130.0."

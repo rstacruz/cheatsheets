@@ -2,6 +2,7 @@
 title: How to run tasks in parallel in C#
 link_title: C# parallel tasks
 subtitle: Await tasks concurrently
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

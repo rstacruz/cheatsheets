@@ -1,6 +1,7 @@
 ---
 title: Ledger periods
 subtitle: Period expression syntax
+logo: { set: icon-park-outline, name: timeline }
 category: Plain-text accounting
 last_verified_with: "Ledger 3.4.1."
 updated: 2026-11-25

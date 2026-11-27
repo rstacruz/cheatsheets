@@ -1,6 +1,7 @@
 ---
 title: Mocha.js
 subtitle: BDD test runner
+logo: { src: /assets/logos/mocha.svg }
 category: JavaScript testing
 last_verified_with: "Mocha 12.0.3."
 updated: 2026-11-25

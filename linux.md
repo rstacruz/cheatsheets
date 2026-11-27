@@ -1,6 +1,7 @@
 ---
 title: Linux
 subtitle: Unix-like operating system
+logo: { src: /assets/logos/linux.svg }
 category: Linux
 last_verified_with: "GNU coreutils 9.12, procps-ng 4.0.7, util-linux 2.42.4, sudo 1.9.17p2."
 updated: 2026-11-24

@@ -2,6 +2,7 @@
 title: How to define a Bash function
 link_title: Bash function
 subtitle: Reusable shell commands
+logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."

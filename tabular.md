@@ -1,6 +1,7 @@
 ---
 title: Tabular
 subtitle: Vim text alignment plugin
+logo: { set: icon-park-outline, name: table }
 category: Vim
 tier: t3
 last_verified_with: "Tabular 1.0.0."

@@ -2,6 +2,7 @@
 title: How to write a switch expression in C#
 link_title: C# switch expression
 subtitle: Pattern-based branching
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

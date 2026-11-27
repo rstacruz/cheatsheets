@@ -1,6 +1,7 @@
 ---
 title: Go
 subtitle: Compiled language for services
+logo: { src: /assets/logos/go.svg }
 prism_languages: [go, bash]
 weight: -3
 category: C-like

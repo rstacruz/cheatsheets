@@ -2,6 +2,7 @@
 title: How to read a file in Node.js
 link_title: Node.js read file
 subtitle: Read text, JSON, and streams
+logo: { src: /assets/logos/nodejs.svg }
 category: Node.js
 layout: snippet
 last_verified_with: "Node.js 26.13.1."

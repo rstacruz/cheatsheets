@@ -2,6 +2,7 @@
 title: How to convert time zones with Day.js
 link_title: Day.js time zones
 subtitle: utc and timezone plugins
+logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."

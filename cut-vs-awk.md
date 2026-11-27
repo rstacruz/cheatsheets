@@ -2,6 +2,7 @@
 title: When to use cut vs awk
 link_title: cut vs awk
 subtitle: Pick fields from text
+logo: { set: icon-park-outline, name: terminal }
 category: CLI
 layout: snippet
 last_verified_with: "GNU coreutils 9.12, GNU Awk 5.4."

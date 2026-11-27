@@ -1,6 +1,7 @@
 ---
 title: Browsersync
 subtitle: Live-reload dev server
+logo: { set: icon-park-outline, name: refresh }
 category: Build tools
 intro: |
   `npm i -g browser-sync`

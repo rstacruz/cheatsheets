@@ -1,6 +1,7 @@
 ---
 title: Bolt
 subtitle: Puppet task and plan runner
+logo: { src: /assets/logos/puppet.svg }
 category: Devops
 updated: 2026-11-22
 tier: t3

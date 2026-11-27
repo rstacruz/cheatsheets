@@ -2,6 +2,7 @@
 title: How to find elements with XPath in Selenium
 link_title: XPath in Selenium
 subtitle: Locate and wait for elements
+logo: { set: icon-park-outline, name: code }
 category: JavaScript testing
 layout: snippet
 last_verified_with: "Selenium 4.54.0, Playwright 1.65.1."

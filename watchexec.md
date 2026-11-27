@@ -1,6 +1,7 @@
 ---
 title: Watchexec
 subtitle: Runs commands when files change
+logo: { src: /assets/logos/watchexec.svg, mono: true }
 category: CLI
 weight: -1
 keywords:

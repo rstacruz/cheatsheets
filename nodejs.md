@@ -1,6 +1,7 @@
 ---
 title: Node.js API
 subtitle: Server-side JavaScript API
+logo: { src: /assets/logos/nodejs.svg }
 category: Node.js
 updated: 2026-11-26
 last_verified_with: "Node.js 26.13.1."

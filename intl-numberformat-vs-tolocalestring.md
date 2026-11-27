@@ -2,6 +2,7 @@
 title: When to use Intl.NumberFormat vs toLocaleString
 link_title: NumberFormat vs toLocaleString
 subtitle: Which number API to use
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

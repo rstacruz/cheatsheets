@@ -2,6 +2,7 @@
 title: How to POST JSON with curl
 link_title: curl POST JSON
 subtitle: Send JSON request bodies
+logo: { src: /assets/logos/curl.svg, mono: true }
 category: Networking
 layout: snippet
 last_verified_with: "curl 8.23.0."

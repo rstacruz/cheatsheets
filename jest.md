@@ -1,6 +1,7 @@
 ---
 title: Jest
 subtitle: JavaScript test runner
+logo: { src: /assets/logos/jest.svg, mono: true }
 category: JavaScript testing
 updated: 2026-11-25
 last_verified_with: "Jest 30.5.2."

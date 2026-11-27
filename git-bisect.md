@@ -1,6 +1,7 @@
 ---
 title: Git bisect
 subtitle: Find the first bad commit
+logo: { set: icon-park-outline, name: bug }
 category: Git
 tier: t2
 updated: 2026-11-21

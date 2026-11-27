@@ -2,6 +2,7 @@
 title: How to make a Next.js component client-side
 link_title: Client components
 subtitle: Interactive components with state
+logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6, React 19.3.1."

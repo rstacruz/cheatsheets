@@ -2,6 +2,7 @@
 title: How to read route params in SvelteKit
 link_title: SvelteKit route params
 subtitle: Dynamic segments and matchers
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."

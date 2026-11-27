@@ -2,6 +2,7 @@
 title: How to read query params in Express
 link_title: Express query params
 subtitle: Read strings from req.query
+logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
 updated: 2026-11-26

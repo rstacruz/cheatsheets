@@ -1,6 +1,7 @@
 ---
 title: Man
 subtitle: Manual page viewer
+logo: { set: icon-park-outline, name: help }
 category: CLI
 last_verified_with: "man-pages 6.20."
 updated: 2026-11-25

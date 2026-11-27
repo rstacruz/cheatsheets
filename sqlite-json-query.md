@@ -2,6 +2,7 @@
 title: How to query JSON in SQLite
 link_title: Query JSON in SQLite
 subtitle: Extract values from JSON columns
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

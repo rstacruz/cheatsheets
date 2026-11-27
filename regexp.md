@@ -1,6 +1,7 @@
 ---
 title: regexp
 subtitle: Regular expression syntax
+logo: { set: icon-park-outline, name: find }
 category: Others
 intro: |
   A reference for regular expression syntax: character classes, anchors, groups, quantifiers, and lookarounds in JavaScript and PCRE2.

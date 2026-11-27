@@ -1,6 +1,7 @@
 ---
 title: Git worktrees
 subtitle: Parallel checkouts from one repository
+logo: { set: icon-park-outline, name: folder }
 category: Git
 tier: t2
 fragments:

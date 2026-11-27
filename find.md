@@ -1,6 +1,7 @@
 ---
 title: Find
 subtitle: File search utility
+logo: { set: icon-park-outline, name: file-search }
 category: CLI
 last_verified_with: "GNU findutils 4.11."
 updated: 2026-10-31

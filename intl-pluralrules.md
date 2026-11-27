@@ -1,6 +1,7 @@
 ---
 title: Intl.PluralRules
 subtitle: Locale-aware plural rules
+logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 tier: t2
 updated: 2026-11-26

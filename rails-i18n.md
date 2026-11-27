@@ -1,6 +1,7 @@
 ---
 title: Rails i18n
 subtitle: Translation and localization
+logo: { set: icon-park-outline, name: translate }
 category: Rails
 intro: |
   Rails I18n provides translations, localization, and formatting helpers.

@@ -3,6 +3,7 @@ title: Python
 seo_title: Python cheatsheet — lists, dicts, strings
 description: "Python lists: dicts, strings, iteration, comprehensions and file handling. Reference."
 subtitle: Readable language for scripting
+logo: { src: /assets/logos/python.svg }
 category: Python
 intro: |
   Python is a general-purpose language for scripting and applications.

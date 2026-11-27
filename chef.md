@@ -1,6 +1,7 @@
 ---
 title: Chef
 subtitle: Infrastructure automation platform
+logo: { src: /assets/logos/chef.svg }
 category: Devops
 last_verified_with: "Chef Infra Client 19.4."
 updated: 2026-11-25

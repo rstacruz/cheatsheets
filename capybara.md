@@ -1,6 +1,7 @@
 ---
 title: Capybara
 subtitle: Browser test automation for Ruby
+logo: { set: icon-park-outline, name: bug }
 category: Ruby libraries
 weight: -5
 last_verified_with: "Capybara 3.40."

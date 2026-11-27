@@ -1,6 +1,7 @@
 ---
 title: FFaker
 subtitle: Fake data generator
+logo: { set: icon-park-outline, name: magic }
 category: Ruby libraries
 last_verified_with: "ffaker 2.25."
 updated: 2026-11-25

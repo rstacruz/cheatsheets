@@ -36,6 +36,8 @@ The dev server runs at <http://localhost:4321>.
 
 Run a single unit test with `pnpm vitest run <path>`.
 
+Playwright picks a deterministic port (10000-19999) from the worktree path, so parallel worktrees do not collide. Override it with `PORT=<port> pnpm test:playwright`; use the same port with `pnpm dev -- --port <port>` to reuse a running server.
+
 Site code lives in `src/`; cheatsheets are the Markdown files in the repository root.
 
 ## CSS classes

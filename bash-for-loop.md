@@ -50,7 +50,7 @@ done
 ```
 <!-- {: data-highlight="apple banana cherry"} -->
 
-The words after `in` become the list, one iteration each.
+Each word after `in` becomes one iteration.
 
 See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
 
@@ -71,6 +71,7 @@ See: [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
 
 ```bash
 words="apple banana cherry"
+
 for word in $words; do
   echo "$word"
 done
@@ -170,13 +171,14 @@ See: [Arithmetic evaluation](https://www.gnu.org/software/bash/manual/html_node/
 
 ```bash
 files=("a.txt" "b c.txt")
+
 for f in "${files[@]}"; do
   echo "$f"
 done
 ```
 <!-- {: data-highlight='"${files[@]}"'} -->
 
-Quoted, `"${files[@]}"` gives one iteration per element.
+Quoting `"${files[@]}"` gives one iteration per element.
 
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 

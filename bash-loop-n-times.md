@@ -28,13 +28,14 @@ done
 ```
 <!-- {: data-highlight="{1..5}"} -->
 
-**Runs the body five times.** The underscores are ignored, so use the loop when the number itself does not matter; see [looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html).
+**Runs the body five times.** `_` is a conventional throwaway name when the number itself is not needed; see [looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html).
 
 ### A variable count
 <!-- {: .-snippet} -->
 
 ```bash
 n=5
+
 for i in $(seq 1 "$n"); do
   echo "$i"
 done
@@ -48,6 +49,7 @@ done
 
 ```bash
 n=5
+
 for ((i = 0; i < n; i++)); do
   echo "$i"
 done

@@ -37,6 +37,13 @@ const fragments =
 const featured = props.variant === 'featured'
 const markSize = featured ? 28 : 20
 const logo = page.frontmatter.logo
+const markTone = logo
+  ? featured
+    ? 'text-primary-foreground'
+    : 'text-heading'
+  : featured
+    ? '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
+    : 'text-primary-subtle'
 const styles = {
   link: cx(
     'PageListItem__link',
@@ -60,12 +67,7 @@ const styles = {
     'flex-none rounded-full bg-overlay-soft px-[7px] py-px font-handjet text-base leading-[18px] tracking-chip whitespace-nowrap',
     '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
   ),
-  mark: cx(
-    'PageListItem__mark mt-auto flex items-center pt-[10px]',
-    featured
-      ? '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
-      : 'text-primary-subtle'
-  ),
+  mark: cx('PageListItem__mark mt-auto flex items-center pt-[10px]', markTone),
   title: cx(
     'PageListItem__title',
     featured

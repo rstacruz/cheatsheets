@@ -30,10 +30,13 @@ Description=Hello user service
 [Service]
 Type=simple
 ExecStart=/usr/bin/sleep infinity
+
+[Install]
+WantedBy=default.target
 ```
 <!-- {: data-highlight="ExecStart"} -->
 
-**Defines a service for your own user manager.** No `[Install]` section is needed for a service started explicitly; see [systemd.unit(5)](https://man7.org/linux/man-pages/man5/systemd.unit.5.html).
+**Defines a service for your own user manager.** `WantedBy=default.target` lets `enable` start it at login; see [systemd.unit(5)](https://man7.org/linux/man-pages/man5/systemd.unit.5.html).
 
 ### Start and enable
 <!-- {: .-snippet} -->

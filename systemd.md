@@ -18,6 +18,7 @@ links:
 ---
 
 ## Services
+<!-- {: .-three-column} -->
 
 ### Status
 <!-- {: .-prime} -->
@@ -298,6 +299,7 @@ Prints the normalized expression and next elapse; nothing is started.
 See: [systemd-analyze(1)](https://man7.org/linux/man-pages/man1/systemd-analyze.1.html)
 
 ## Logs
+<!-- {: .-three-column} -->
 
 ### Recent entries
 

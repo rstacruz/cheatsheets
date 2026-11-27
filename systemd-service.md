@@ -52,6 +52,7 @@ sudo systemctl enable hello.service
 # start now
 sudo systemctl start hello.service
 ```
+<!-- {: data-highlight="systemctl start"} -->
 
 **Makes the service run on boot and right now.** Use `enable --now` to do both in one step; see [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
@@ -86,6 +87,7 @@ systemctl status hello.service --no-pager
 ```bash
 journalctl -u hello.service -n 20 --no-pager
 ```
+<!-- {: data-highlight="journalctl"} -->
 
 **Shows whether the service is running and why it failed.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 

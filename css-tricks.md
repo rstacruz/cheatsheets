@@ -1,7 +1,7 @@
 ---
 title: CSS tricks
 subtitle: Assorted CSS snippets
-logo: { src: /assets/logos/css.svg, mono: true }
+logo: { set: icon-park-outline, name: magic-wand }
 category: CSS
 last_verified_with: "CSS Snapshot 2026."
 updated: 2026-11-25

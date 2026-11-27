@@ -1,7 +1,7 @@
 ---
 title: Promises
 subtitle: Asynchronous JavaScript API
-logo: { src: /assets/logos/javascript.svg }
+logo: { set: icon-park-outline, name: cooperative-handshake }
 category: JavaScript
 intro: |
   A quick reference to the JavaScript [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).

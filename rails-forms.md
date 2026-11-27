@@ -1,7 +1,7 @@
 ---
 title: Rails form helpers
 subtitle: Form builder field reference
-logo: { src: /assets/logos/rails.svg }
+logo: { set: icon-park-outline, name: form }
 category: Rails
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-24

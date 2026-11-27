@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { getPages } from '../page'
-import { isListed } from '../page/accessors'
+import { isListed, isSnippet } from '../page/accessors'
 import { resolveLogo } from '../logo-render'
 import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
@@ -83,6 +83,29 @@ test('every t1/t2 sheet has a logo', async () => {
       page.frontmatter.logo,
       `${page.slug} is ${page.frontmatter.tier} but has no logo`
     ).toBeDefined()
+  }
+})
+
+test('no mark appears on more than three cheatsheets', async () => {
+  const pages = Object.values(await getPages()).filter(
+    (page) => isListed(page) && !isSnippet(page) && page.frontmatter.logo
+  )
+  const byMark = new Map<string, string[]>()
+
+  for (const page of pages) {
+    const logo = page.frontmatter.logo!
+    const key =
+      'src' in logo
+        ? `src:${logo.src}${logo.mono ? ':mono' : ''}`
+        : `set:${logo.set}:${logo.name}${logo.mono ? ':mono' : ''}`
+    byMark.set(key, [...(byMark.get(key) ?? []), page.slug])
+  }
+
+  for (const [mark, slugs] of byMark) {
+    expect(
+      slugs.length,
+      `${mark} appears on ${slugs.length} cheatsheets: ${slugs.join(', ')}`
+    ).toBeLessThanOrEqual(3)
   }
 })
 

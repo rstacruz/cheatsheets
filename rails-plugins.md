@@ -1,7 +1,7 @@
 ---
 title: Rails plugins
 subtitle: Engine plugin authoring
-logo: { src: /assets/logos/rails.svg }
+logo: { set: icon-park-outline, name: components }
 category: Rails
 intro: |
   Rails plugins extend the framework through gems and engines.

@@ -1,7 +1,7 @@
 ---
 title: Vim Easyalign
 subtitle: Interactive alignment plugin
-logo: { src: /assets/logos/vim.svg }
+logo: { set: icon-park-outline, name: align-horizontally }
 html_class: key-codes
 hljs_languages: [vim]
 category: Vim

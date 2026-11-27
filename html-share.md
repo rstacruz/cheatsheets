@@ -1,7 +1,7 @@
 ---
 title: Share links
 subtitle: Social share link markup
-logo: { src: /assets/logos/html.svg }
+logo: { set: icon-park-outline, name: share }
 category: HTML
 updated: 2026-11-24
 last_verified_with: "X intent, Facebook sharer.php, LinkedIn share-offsite, wa.me, t.me."

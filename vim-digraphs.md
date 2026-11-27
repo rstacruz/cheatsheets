@@ -1,7 +1,7 @@
 ---
 title: Vim digraphs
 subtitle: Special character input reference
-logo: { src: /assets/logos/vim.svg }
+logo: { set: icon-park-outline, name: text-style }
 category: Vim
 intro: |
   Vim digraphs let you type characters not available on your keyboard with Ctrl-K followed by two keys.

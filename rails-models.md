@@ -1,7 +1,7 @@
 ---
 title: Rails models
 subtitle: ActiveRecord model reference
-logo: { src: /assets/logos/rails.svg }
+logo: { set: icon-park-outline, name: data }
 category: Rails
 intro: |
   Rails models wrap database tables with Active Record: associations, validations, queries, callbacks, and persistence.

@@ -1,7 +1,7 @@
 ---
 title: RDoc
 subtitle: Ruby documentation markup
-logo: { src: /assets/logos/ruby.svg }
+logo: { set: icon-park-outline, name: book }
 category: Markup
 intro: |
   Quick reference for RDoc markup and directives. For YARD tags such as `@param`, see the YARD cheatsheet.

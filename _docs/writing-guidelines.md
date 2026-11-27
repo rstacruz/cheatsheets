@@ -72,6 +72,7 @@ logo: { src: /assets/logos/herdr.svg, mono: true }
 ```
 
 - Prefer a local image under `public/assets/logos/` over an Iconify set mark.
+- Keep the brand image on the primary sheet; related sheets use glyphs. No mark may appear on more than 3 non-snippet cheatsheets; snippets are exempt.
 - For non-brand topics, pick a fitting `icon-park-outline` glyph.
 - If a set is unavoidable, `set` is `logos`, `simple-icons`, `devicon`, or `icon-park-outline`.
 - Prefer square marks; no wordmarks.

@@ -1,7 +1,7 @@
 ---
 title: Ansible roles
 subtitle: Role directory structure
-logo: { src: /assets/logos/ansible.svg }
+logo: { set: icon-park-outline, name: user-business }
 category: Ansible
 last_verified_with: "ansible-core 2.22."
 updated: 2026-11-25

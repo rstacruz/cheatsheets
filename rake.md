@@ -1,7 +1,7 @@
 ---
 title: Rake
 subtitle: Ruby build task runner
-logo: { src: /assets/logos/ruby.svg }
+logo: { set: icon-park-outline, name: hammer-and-anvil }
 category: Ruby
 intro: |
   Rake is a Ruby task runner for defining and invoking build tasks.

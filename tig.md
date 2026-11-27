@@ -1,7 +1,7 @@
 ---
 title: Tig
 subtitle: Terminal Git repository browser
-logo: { src: /assets/logos/git.svg }
+logo: { set: icon-park-outline, name: view-list }
 category: Git
 intro: |
   Tig is a terminal browser for Git repositories and history.

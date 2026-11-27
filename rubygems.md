@@ -1,7 +1,7 @@
 ---
 title: Rubygems
 subtitle: Ruby gem package manager
-logo: { src: /assets/logos/ruby.svg }
+logo: { set: icon-park-outline, name: mail-package }
 category: Ruby
 intro: |
   A quick reference to common rubygems CLI commands.

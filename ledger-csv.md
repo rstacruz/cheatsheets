@@ -1,7 +1,7 @@
 ---
 title: Ledger CSV format
 subtitle: Ledger CSV export format
-logo: { set: icon-park-outline, name: book-open }
+logo: { set: icon-park-outline, name: file-excel }
 category: Plain-text accounting
 updated: 2026-11-24
 last_verified_with: "Ledger 3.4.1."

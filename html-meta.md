@@ -1,7 +1,7 @@
 ---
 title: HTML meta tags
 subtitle: Document metadata tags
-logo: { src: /assets/logos/html.svg }
+logo: { set: icon-park-outline, name: label }
 category: HTML
 updated: 2026-11-25
 tier: t3

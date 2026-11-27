@@ -61,6 +61,18 @@ Marks are square, not wordmarks. A mark's `viewBox` aspect ratio must be between
 - If a mark is wide, find a square variant, crop to the square mark, or use a
   glyph.
 
+## Variety
+
+A mark may appear on at most **3 non-snippet cheatsheets**.
+
+- Keep a brand image on the primary sheet only: `javascript` for `javascript.svg`,
+  `rails` for `rails.svg`, `git` for `git.svg`.
+- Give related sheets a fitting glyph instead: `js-array`, `git-stash`,
+  `rails-models`.
+- Snippet pages (`layout: snippet`) are exempt and may reuse the family mark.
+- Generic glyphs may serve up to 3 sheets; split a larger family across
+  different glyphs.
+
 ## Validation
 
 ```bash
@@ -69,7 +81,8 @@ pnpm vitest run src/lib/sheetValidation/logos.test.ts
 
 The check verifies that every declared mark resolves, every file exists and has
 a `viewBox`, every `viewBox` is between `0.8` and `1.25`, every t1/t2 sheet has
-a mark, and every featured sheet has one. `pnpm build` also resolves every mark.
+a mark, every featured sheet has one, and no mark appears on more than 3
+non-snippet cheatsheets. `pnpm build` also resolves every mark.
 
 ## Examples
 

@@ -1,7 +1,7 @@
 ---
 title: Node.js path API
 subtitle: Path manipulation module
-logo: { src: /assets/logos/nodejs.svg }
+logo: { set: icon-park-outline, name: map-road }
 category: Node.js
 last_verified_with: "Node.js 26.13.1."
 updated: 2026-11-25

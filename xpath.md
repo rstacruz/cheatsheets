@@ -3,7 +3,7 @@ title: XPath
 seo_title: XPath cheatsheet — syntax, contains(), axes
 description: "XPath syntax: contains(), text(), axes, predicates and browser console examples. Reference."
 subtitle: Query language for XML
-logo: { set: icon-park-outline, name: code }
+logo: { set: icon-park-outline, name: tree }
 category: HTML
 tier: t2
 fragments:

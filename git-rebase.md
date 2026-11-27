@@ -1,7 +1,7 @@
 ---
 title: Git rebase
 subtitle: Replay and rewrite commits
-logo: { src: /assets/logos/git.svg }
+logo: { set: icon-park-outline, name: refresh }
 category: Git
 tier: t2
 fragments:

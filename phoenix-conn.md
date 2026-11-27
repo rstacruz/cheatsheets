@@ -1,7 +1,7 @@
 ---
 title: "Phoenix: Plug.Conn"
 subtitle: Plug connection struct
-logo: { src: /assets/logos/phoenix.svg }
+logo: { set: icon-park-outline, name: plug }
 category: Elixir
 weight: -5
 tier: t3

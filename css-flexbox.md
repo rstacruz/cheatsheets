@@ -1,7 +1,7 @@
 ---
 title: CSS flexbox
 subtitle: One-dimensional layout system
-logo: { src: /assets/logos/css.svg, mono: true }
+logo: { set: icon-park-outline, name: layout-one }
 category: CSS
 updated: 2026-11-23
 tier: t3

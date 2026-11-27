@@ -4,7 +4,7 @@ seo_title: strftime cheatsheet — format codes, examples
 description: "strftime format codes: date and time presets, examples and tokens for Ruby and Unix date."
 category: Others
 subtitle: Date format reference
-logo: { set: icon-park-outline, name: calendar }
+logo: { set: icon-park-outline, name: format }
 weight: -5
 tier: t3
 last_verified_with: "POSIX.1-2024 strftime, Ruby 3.4, GNU coreutils 9.12."

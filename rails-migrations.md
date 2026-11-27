@@ -1,7 +1,7 @@
 ---
 title: Rails migrations
 subtitle: Database schema migrations
-logo: { src: /assets/logos/rails.svg }
+logo: { set: icon-park-outline, name: update-rotation }
 category: Rails
 intro: |
   Rails migrations evolve a database schema through versioned Ruby files.

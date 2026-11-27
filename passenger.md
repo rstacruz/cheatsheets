@@ -1,10 +1,14 @@
 ---
 title: Phusion Passenger
-category: Rails
+category: Hidden
 subtitle: Ruby application server
 logo: { set: icon-park-outline, name: server }
-tags: [WIP]
-tier: t3
+# Unfinished stub: one Nginx server block, no installation or app setup.
+tags: [Archived]
+archived: |
+  This unfinished page shows only `passenger_enabled` in a sample Nginx
+  server block. Use
+  [Passenger's documentation](https://www.phusionpassenger.com/docs/).
 last_verified_with: "Passenger 6.2.2."
 updated: 2026-11-25
 intro: |

@@ -2,7 +2,11 @@
 title: Absinthe
 subtitle: GraphQL server framework for Elixir
 category: Hidden
-tags: [WIP]
+# Unfinished since 2017; only a narrow slice of Absinthe's schema API.
+tags: [Archived]
+archived: |
+  This unfinished 2017 draft covers only a slice of Absinthe's schema API.
+  Use the [Absinthe documentation](https://hexdocs.pm/absinthe/) instead.
 updated: 2017-10-10
 intro: |
   [Absinthe](http://absinthe-graphql.org/) allows you to write GraphQL servers in Elixir.

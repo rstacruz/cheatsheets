@@ -2,14 +2,17 @@
 title: Ruby
 subtitle: Object-oriented scripting language
 logo: { src: /assets/logos/ruby.svg }
-category: Ruby
-tags: [WIP]
+category: Hidden
+# Unfinished stub: a single global-variable table.
+tags: [Archived]
+archived: |
+  This unfinished page contains only a global-variable table, not a Ruby
+  reference. Use the [Ruby documentation](https://docs.ruby-lang.org/en/).
 intro: |
   Quick reference to some features of the Ruby programming language.
 links:
   - title: Ruby documentation
     url: https://docs.ruby-lang.org/en/
-tier: t3
 last_verified_with: "Ruby 4.1.0."
 updated: 2026-11-26
 ---

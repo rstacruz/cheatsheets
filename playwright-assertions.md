@@ -40,7 +40,7 @@ await expect(page).toHaveURL(/login/)
 
 **Checks the page itself, not a single element.** See [page assertions](https://playwright.dev/docs/api/class-pageassertions).
 
-### Count and attributes
+### Count and values
 <!-- {: .-snippet} -->
 
 ```js

@@ -76,7 +76,7 @@ await page.getByTestId('cart')
 ```
 <!-- {: data-highlight=".getByRole("} -->
 
-**Scopes a search to the first locator.** Every locator method is chainable. See [locators](https://playwright.dev/docs/locators#locating-elements).
+**Scopes a search to the first locator.** Locator methods that return a locator can be chained. See [locators](https://playwright.dev/docs/locators#locating-elements).
 
 ### Inside frames
 <!-- {: .-snippet} -->

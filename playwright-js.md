@@ -12,13 +12,13 @@ fragments:
   - "getByLabel("
   - "getByTestId("
   - "toBeVisible()"
-  - "toHaveText("
+  - "toHaveURL("
   - "page.route("
   - "route.fulfill("
   - "webServer"
   - "expect.soft("
   - "--project="
-  - "test.describe("
+  - "test("
   - "page.goto("
   - "devices["
 keywords:
@@ -49,10 +49,9 @@ npx playwright install chromium
 ```
 <!-- {: data-highlight="npm install"} -->
 
-The install command downloads browser binaries; on Linux,
-`npx playwright install --with-deps` also adds system libraries.
+Running `npx playwright install` downloads browser binaries; on Linux, add `--with-deps` for system libraries.
 
-See: [Installation](https://playwright.dev/docs/intro#installation)
+See: [Installation](https://playwright.dev/docs/intro#installing-playwright)
 
 ### Write a test
 
@@ -64,11 +63,11 @@ test('has a title', async ({ page }) => {
   await expect(page).toHaveTitle(/Playwright/)
 })
 ```
-<!-- {: data-highlight="toHaveTitle"} -->
+<!-- {: data-highlight="test("} -->
 
 Tests live in `tests/` by default and each gets an isolated page.
 
-See: [First test](https://playwright.dev/docs/intro#first-test)
+See: [First test](https://playwright.dev/docs/intro#running-the-example-test)
 
 ### Run tests
 
@@ -80,8 +79,7 @@ npx playwright test --project=chromium
 ```
 <!-- {: data-highlight="npx playwright test"} -->
 
-UI mode shows a time-travel view of each step. Add `--headed` to watch the
-browser run.
+UI mode shows a time-travel view of each step. Add `--headed` to watch the browser run.
 
 See: [Command line](https://playwright.dev/docs/test-cli)
 
@@ -200,8 +198,9 @@ See: [Page assertions](https://playwright.dev/docs/api/class-pageassertions)
 await expect(page.getByRole('listitem'))
   .toHaveCount(3)
 
-await expect(page.getByRole('link'))
-  .toHaveAttribute('href', '/docs')
+await expect(page.getByRole('link', {
+  name: 'Docs'
+})).toHaveAttribute('href', '/docs')
 ```
 <!-- {: data-highlight="toHaveCount(; toHaveAttribute("} -->
 
@@ -342,13 +341,16 @@ import type { Page } from '@playwright/test'
 export const test = base.extend<{ loggedIn: Page }>({
   loggedIn: async ({ page }, use) => {
     await page.goto('/login')
+    await page.getByLabel('Email').fill('ada@example.com')
+    await page.getByRole('button', { name: 'Sign in' }).click()
     await use(page)
+    await page.getByRole('button', { name: 'Sign out' }).click()
   }
 })
 ```
 <!-- {: data-highlight="base.extend<{ loggedIn: Page }>("} -->
 
-Code after `use()` is teardown, so setup and cleanup stay together.
+Setup runs before `use()` and teardown after it, so both stay in one place.
 
 See: [Fixtures](https://playwright.dev/docs/test-fixtures#creating-a-fixture)
 
@@ -369,6 +371,8 @@ See: [Authentication](https://playwright.dev/docs/test-authentication)
 
 ## Network mocking
 
+<!-- {: .-three-column} -->
+
 ### Fulfill a response
 
 ```js
@@ -385,9 +389,10 @@ See: [Network mocking](https://playwright.dev/docs/network#network-mocking)
 ### Block requests
 
 ```js
-await page.route('**/*.{png,jpg}', route => (
-  route.abort()
-))
+await page.route('**/*.{png,jpg}',
+  route => (
+    route.abort()
+  ))
 ```
 <!-- {: data-highlight="route.abort("} -->
 
@@ -398,11 +403,16 @@ See: [Abort requests](https://playwright.dev/docs/network#abort-requests)
 ### Modify a response
 
 ```js
-await page.route('**/title.html', async route => {
-  const res = await route.fetch()
-  const body = (await res.text()).replace('Hi', 'Hello')
-  await route.fulfill({ response: res, body })
-})
+await page.route('**/title',
+  async route => {
+    const res = await route.fetch()
+    const body = (await res.text())
+      .replace('Hi', 'Hello')
+    await route.fulfill({
+      response: res,
+      body
+    })
+  })
 ```
 <!-- {: data-highlight="route.fetch("} -->
 
@@ -413,11 +423,12 @@ See: [Modify responses](https://playwright.dev/docs/network#modify-responses)
 ### Wait for a response
 
 ```js
-const responsePromise = page.waitForResponse(
-  '**/api/save'
-)
+const responsePromise =
+  page.waitForResponse('**/api/save')
 
-await page.getByRole('button', { name: 'Save' }).click()
+await page.getByRole('button', {
+  name: 'Save'
+}).click()
 const response = await responsePromise
 ```
 <!-- {: data-highlight="waitForResponse("} -->
@@ -429,8 +440,10 @@ See: [Network events](https://playwright.dev/docs/network#network-events)
 ### Inspect traffic
 
 ```js
-page.on('request', req => console.log(req.url()))
-page.on('response', res => console.log(res.status()))
+page.on('request', req =>
+  console.log(req.url()))
+page.on('response', res =>
+  console.log(res.status()))
 ```
 <!-- {: data-highlight="page.on("} -->
 
@@ -439,6 +452,8 @@ Events see every request and response, including XHR and fetch calls.
 See: [Network events](https://playwright.dev/docs/network#network-events)
 
 ## CI
+
+<!-- {: .-three-column} -->
 
 ### Install browsers
 
@@ -460,13 +475,15 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: [['line'], ['html', { open: 'never' }]]
+  reporter: [
+    ['line'],
+    ['html', { open: 'never' }]
+  ]
 })
 ```
 <!-- {: data-highlight="forbidOnly:"} -->
 
-One worker gives each test the whole machine; `forbidOnly` blocks stray
-focused tests.
+One worker gives each test the whole machine; `forbidOnly` blocks stray focused tests.
 
 See: [CI configuration](https://playwright.dev/docs/ci#workers)
 
@@ -478,8 +495,7 @@ npx playwright test --shard=2/4
 ```
 <!-- {: data-highlight="--shard="} -->
 
-Sharding splits the suite across jobs; upload each HTML report as an
-artifact.
+Sharding splits the suite across jobs; upload each HTML report as an artifact.
 
 See: [Sharding](https://playwright.dev/docs/test-sharding)
 

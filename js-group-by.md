@@ -70,19 +70,19 @@ Object.fromEntries(counts)
 
 ```js
 const day = new Date('2026-11-28')
-const other = new Date('2026-11-29')
+const duplicate = new Date('2026-11-28')
 const events = [
   { day, name: 'standup' },
-  { day: other, name: 'review' }
+  { day: duplicate, name: 'review' }
 ]
 
 const byDay = Map.groupBy(events, e => e.day)
-byDay.get(other).map(e => e.name)
+byDay.get(duplicate).map(e => e.name)
 // ['review']
 ```
 <!-- {: data-highlight="Map.groupBy"} -->
 
-**Keeps object keys intact.** `Map.groupBy` compares keys by identity, unlike `Object.groupBy`; see [Map.groupBy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy).
+**Keeps object keys intact.** `Map.groupBy` treats equal-valued `Date` objects as distinct keys; `Object.groupBy` would merge them as strings. See [Map.groupBy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy).
 
 ### Fallback for older runtimes
 <!-- {: .-snippet} -->

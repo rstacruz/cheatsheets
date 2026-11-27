@@ -125,7 +125,9 @@ ages.has('Bob') // → true
 ### Set
 
 ```js
-const seen = new Set([1, 2, 2]) // → Set {1, 2}
+const seen = new Set([1, 2, 2])
+// → Set {1, 2}
+
 seen.add(3) // → Set {1, 2, 3}
 seen.has(2) // → true
 seen.size // → 3
@@ -143,10 +145,13 @@ seen.size // → 3
 
 ```js
 const now = new Date()
-now.toISOString() // → ISO timestamp, UTC
+now.toISOString()
+// → ISO timestamp, UTC
+
 now.getFullYear() // → 2026
 Date.now() // → ms since epoch
-new Date('2026-11-05') // → UTC midnight
+new Date('2026-11-05')
+// → UTC midnight
 ```
 <!-- {: data-highlight="toISOString; getFullYear; Date.now"} -->
 
@@ -159,8 +164,12 @@ new Date('2026-11-05') // → UTC midnight
 ```js
 const d = Temporal.PlainDate.from('2026-11-05')
 d.add({ months: 1 }) // → 2026-12-05
-Temporal.Now.instant() // → current instant
-Temporal.Duration.from('P2D') // → 2 days
+
+Temporal.Now.instant()
+// → current instant
+
+Temporal.Duration.from('P2D')
+// → 2 days
 ```
 <!-- {: data-highlight="Temporal.PlainDate.from; Temporal.Now; Temporal.Duration.from"} -->
 
@@ -204,7 +213,9 @@ promise
   .then(v => v * 2)
   .catch(console.error)
 
-await Promise.all([a(), b()]) // → results
+await Promise.all([a(), b()])
+// → results
+
 await Promise.allSettled([a(), b()])
 // → every result, never rejects
 
@@ -306,7 +317,8 @@ await Promise.try(() => JSON.parse('{"ok":true}'))
 
 const gen = (async function* () { yield 1; yield 2 })()
 await Array.fromAsync(gen) // → [1, 2]
-[1, 2].values().map(n => n * 2).toArray() // → [2, 4]
+[1, 2].values().map(n => n * 2).toArray()
+// → [2, 4]
 ```
 <!-- {: data-highlight="Promise.withResolvers; Promise.try; Array.fromAsync; .toArray()"} -->
 

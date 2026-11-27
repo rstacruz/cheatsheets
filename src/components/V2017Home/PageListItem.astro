@@ -1,6 +1,8 @@
 ---
 import cx from 'clsx'
+import Icon from '~/components/Icon.astro'
 import Logo from '~/components/Logo.astro'
+import { getSheetLogo } from '~/lib/logos'
 import type { SheetPage } from '../../lib/page'
 
 const CARD_FRAGMENT_COUNT = 22
@@ -34,6 +36,7 @@ const fragments =
     : undefined
 
 const featured = props.variant === 'featured'
+const markSize = featured ? 24 : 18
 const styles = {
   link: cx(
     'PageListItem__link',
@@ -44,7 +47,7 @@ const styles = {
           'h-[220px] overflow-hidden px-[18px] pt-[16px] pb-[18px]',
           tones[props.tone ?? 'primary']
         )
-      : 'bg-secondary px-[14px] pt-[12px] pb-16 hover:bg-accent focus:bg-accent'
+      : 'min-h-32 bg-secondary px-[14px] pt-[12px] pb-[14px] hover:bg-accent focus:bg-accent'
   ),
   fragments: cx(
     'PageListItem__fragments',
@@ -57,10 +60,14 @@ const styles = {
     'flex-none rounded-full bg-overlay-soft px-[7px] py-px font-handjet text-base leading-[18px] tracking-chip whitespace-nowrap',
     '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
   ),
-  heading: 'PageListItem__heading flex min-w-0 items-start gap-[8px]',
-  cornerLogo: 'PageListItem__cornerLogo absolute top-[14px] right-[14px] flex',
+  mark: cx(
+    'PageListItem__mark mt-auto flex items-center pt-[10px]',
+    featured
+      ? '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
+      : 'text-primary-subtle'
+  ),
   title: cx(
-    'PageListItem__title min-w-0',
+    'PageListItem__title',
     featured
       ? 'font-manrope text-lg leading-[1.25] font-extrabold wrap-break-word text-primary-foreground'
       : 'font-manrope font-semibold wrap-break-word text-heading group-hover:text-primary group-focus:text-primary'
@@ -82,14 +89,13 @@ const styles = {
       ))}
     </span>
   )}
-  {featured && (
-    <span class={styles.cornerLogo}>
-      <Logo slug={page.slug} size={32} />
-    </span>
-  )}
-  <span class={styles.heading}>
-    {!featured && <Logo slug={page.slug} size={18} class="mt-px" />}
-    <span class={styles.title}>{title}</span>
-  </span>
+  <span class={styles.title}>{title}</span>
   {subtitle && <span class={styles.subtitle}>{subtitle}</span>}
+  <span class={styles.mark}>
+    {getSheetLogo(page.slug) ? (
+      <Logo slug={page.slug} size={markSize} />
+    ) : (
+      <Icon name="chevron-forward" size={markSize} />
+    )}
+  </span>
 </a>

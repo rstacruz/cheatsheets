@@ -48,7 +48,7 @@ links:
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash  # native
 brew install --cask claude-code                 # Homebrew
-npm install -g @anthropic-ai/claude-code@latest        # npm, Node 22+
+npm install -g @anthropic-ai/claude-code@latest # npm, Node 22+
 claude install stable                           # stable channel
 ```
 
@@ -118,8 +118,8 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | ------------------------- | --------------------------------- |
 | `-c, --continue`          | Continue most recent conversation |
 | `-r, --resume`            | Resume a session by ID or name    |
-| `--agent my-agent`       | Use a named subagent             |
-| `--allowedTools "Read"`  | Pre-approve listed tools         |
+| `--agent my-agent`        | Use a named subagent              |
+| `--allowedTools "Read"`   | Pre-approve listed tools          |
 | ------------------------- | --------------------------------- |
 | `--model sonnet`          | Choose the model                  |
 | `--effort high`           | Set reasoning effort              |
@@ -142,8 +142,8 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | --- | --- |
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
 | `--safe-mode`                    | Start with customizations off     |
-| `--tools "Bash,Edit,Read"`      | Restrict built-in tools           |
-| `--mcp-config mcp.json`         | Load MCP servers for a session    |
+| `--tools "Bash,Edit,Read"`       | Restrict built-in tools           |
+| `--mcp-config mcp.json`          | Load MCP servers for a session    |
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
@@ -338,10 +338,10 @@ CLAUDE.md             # project instructions, committed
 CLAUDE.local.md       # personal notes, not committed
 .claude/rules/*.md    # topic rules, optionally path-scoped
 ~/.claude/CLAUDE.md   # instructions for all your projects
-~/.claude/projects/<project>/memory/MEMORY.md # auto memory
+~/.claude/projects/<project>/memory/MEMORY.md
 ```
 
-`/init` generates a project CLAUDE.md; `/memory` edits memory files and auto memory. Import files with `@path/to/file.md`. See: [Memory](https://code.claude.com/docs/en/memory)
+`/init` generates a project CLAUDE.md; `/memory` edits memory files. Auto memory lives at `~/.claude/projects/<project>/memory/MEMORY.md`. Import files with `@path/to/file.md`. See: [Memory](https://code.claude.com/docs/en/memory)
 
 ### Permission modes
 

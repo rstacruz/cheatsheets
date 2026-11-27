@@ -127,7 +127,9 @@ herdr     # launch, or reattach to a session
 claude    # run an agent; Herdr detects it
 ```
 
-Herdr is mouse-native: click panes, tabs, and workspaces, drag borders, and right-click for menus; keyboard control is optional. Split with `prefix+v`, open a tab with `prefix+c`, and detach with `prefix+q`; panes and agents keep running.
+Herdr is mouse-native: click panes, tabs, and workspaces, drag borders, and right-click for menus.
+
+Keyboard control is optional. Split with `prefix+v`, open a tab with `prefix+c`, and detach with `prefix+q`; panes and agents keep running.
 
 See: [Quick start](https://herdr.dev/tui/docs/quick-start/)
 
@@ -195,7 +197,7 @@ See: [Agents](https://herdr.dev/tui/docs/agents/)
 
 | Command | Purpose |
 | --- | --- |
-| `herdr server` | Headless server; stop, reload config, agent manifests |
+| `herdr server` | Headless server; stop, reload config, manage agent manifests |
 | `herdr status` | Show client and server state |
 <!-- {: .-shortcuts} -->
 
@@ -249,7 +251,7 @@ See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)
 mouse_capture = false
 ```
 
-Herdr is mouse-native by default. Setting `mouse_capture = false` passes clicks to the outer terminal and pane apps and turns off Herdr's mouse UI.
+With `mouse_capture = false`, Herdr's mouse UI is off and clicks reach the outer terminal and pane apps.
 
 See: [Concepts](https://herdr.dev/tui/docs/concepts/)
 

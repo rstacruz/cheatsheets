@@ -98,7 +98,7 @@ See: [Format selection](https://github.com/yt-dlp/yt-dlp#format-selection)
 ### Sort formats
 
 ```bash
-yt-dlp -S "res:1080" URL              # prefer up to 1080p
+yt-dlp -S "res:1080" URL              # highest at or below 1080p
 yt-dlp -S "res:720,fps" URL           # 720p, then fps
 yt-dlp -S "+size" URL                 # smallest first
 yt-dlp -S "vcodec:h264,acodec:aac" URL

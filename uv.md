@@ -269,7 +269,7 @@ See: [Syncing](https://docs.astral.sh/uv/concepts/projects/sync/)
 | `--locked` | Require an up-to-date lockfile |
 | `--frozen` | Use the lockfile without checking it |
 | `--dry-run` | Report changes without applying |
-| `--check` | Check environment matches the project |
+| `--check` | Report whether environment matches project |
 | `--no-dev` | Skip the dev group |
 | `--group docs` | Include one group |
 | `-U` | Upgrade locked packages |

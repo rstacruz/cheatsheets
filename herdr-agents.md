@@ -49,7 +49,7 @@ links:
 
 ```bash
 # needs an interactive shell at its prompt; never moves layout
-# returns once ready; timeout >3000 to 300000 ms (default 30000)
+# returns when ready; timeout >3000 to 300000 ms (default 30000)
 herdr agent start reviewer --kind codex --pane w1:p2
 herdr agent start reviewer --kind codex --pane w1:p2 --timeout 30000
 herdr agent start reviewer --kind claude --pane w1:p2 \

@@ -390,7 +390,11 @@ See: [Agents](https://opencode.ai/docs/agents)
 
 <!-- {: data-highlight='"git push *"'} -->
 
-Last match wins and unmatched actions ask; defaults allow everything except `.env` and `.env.*` reads (`.env.example` stays allowed); actions include `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, `external_directory`, and MCP tools; v1's `permission`, `bash`, `task` names are retired.
+Last match wins; unmatched actions ask. Defaults allow everything except `.env` and `.env.*` reads (`.env.example` stays allowed).
+
+Actions include `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, `external_directory`, and MCP tools.
+
+v1's `permission`, `bash`, and `task` names are retired.
 
 See: [Permissions](https://opencode.ai/docs/permissions)
 

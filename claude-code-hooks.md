@@ -278,7 +278,7 @@ See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 | --- | --- |
 | `PreToolUse` | Before a tool call; can block |
 | `PermissionRequest` | A tool needs a decision |
-| `PermissionDenied` | Auto mode denies a call; `retry: true` may allow retry |
+| `PermissionDenied` | Auto mode denies; `retry: true` tells the model it may retry |
 | `PostToolUse` | Tool call succeeds |
 | --- | --- |
 | `PostToolUseFailure` | Tool call fails |

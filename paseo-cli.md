@@ -87,9 +87,7 @@ paseo run --new-workspace worktree --worktree-mode branch-off \
   --new-branch feature/x --base origin/main "implement feature X"
 ```
 
-A bare `run` creates a local workspace in the current directory;
-`--workspace` uses an existing one. `--no-wait` returns early;
-`--output-schema` cannot combine with `--no-wait`.
+A bare `run` creates a local workspace in the current directory; `--workspace` uses an existing one. `--no-wait` returns early; `--output-schema` cannot combine with `--no-wait`.
 
 See: [Running agents](https://paseo.sh/docs/cli#running-agents)
 
@@ -130,8 +128,7 @@ paseo send <id> --behavior steer "continue on this path"
 paseo send <id> --no-wait "run this task"
 ```
 
-Agent sends queue until the running turn ends; `--behavior steer`
-joins that turn. From a person, the default is `interrupt`.
+Agent sends queue until the running turn ends; `--behavior steer` joins that turn. Human sends default to `interrupt`.
 
 See: [Sending messages](https://paseo.sh/docs/cli#sending-messages)
 
@@ -329,8 +326,7 @@ paseo schedule update <id> --no-archive-on-finish
 paseo schedule delete <id>
 ```
 
-Each run starts a fresh agent and archives its workspace by default;
-`--no-archive-on-finish` keeps run workspaces active.
+Each run starts a fresh agent and archives its workspace by default; `--no-archive-on-finish` keeps run workspaces active.
 
 See: [Manage](https://paseo.sh/docs/schedules-cli#manage)
 

@@ -293,7 +293,7 @@ See: [Claude Code on the web](https://code.claude.com/docs/en/claude-code-on-the
 | `/plugin-authoring`         | Load plugin mod reference      |
 | `/workflow-authoring`       | Load workflow script reference |
 
-Type `/` to browse the commands and skills available to you.
+Type `/` to browse available commands and skills.
 
 See: [Skills](https://code.claude.com/docs/en/skills)
 

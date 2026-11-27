@@ -226,7 +226,7 @@ agent -p --output-format stream-json "fix the tests"
 
 `stream-json` emits `system`, `user`, `assistant`, `tool_call`, and `result` events.
 
-Add `--stream-partial-output` for text deltas; skip assistant events carrying `model_call_id` or no `timestamp_ms`.
+Add `--stream-partial-output` for text deltas; skip assistant events with `model_call_id` or without `timestamp_ms`.
 
 See: [Output format](https://cursor.com/docs/cli/reference/output-format)
 
@@ -517,6 +517,7 @@ $CURSOR_CONFIG_DIR/cli-config.json  # custom directory
 <!-- {: data-highlight="version; vimMode; permissions"} -->
 
 `version`, `editor.vimMode`, and `permissions.allow`/`deny` are required. The CLI repairs missing fields and backs up broken files as `.bad`. Project files set only permissions.
+
 See: [Configuration](https://cursor.com/docs/cli/reference/configuration)
 
 ### Options

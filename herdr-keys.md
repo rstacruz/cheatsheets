@@ -3,7 +3,7 @@ title: Herdr keys
 subtitle: Terminal keyboard shortcuts
 logo: { src: /assets/logos/herdr.svg, mono: true }
 category: Agents
-updated: 2026-11-05
+updated: 2026-11-28
 last_verified_with: "herdr 0.9.5."
 tier: t1
 fragments:
@@ -50,7 +50,7 @@ prefix = "ctrl+a"   # or "f12"
 ```
 <!-- {: data-highlight="ctrl+a"} -->
 
-Herdr reserves one key instead of dozens. Press it (default `ctrl+b`), release, then press an action key: `prefix+c` is `ctrl+b`, then `c`. `prefix+?` lists every active binding; `/` filters that list.
+Herdr reserves one key instead of dozens. Press it (default `ctrl+b`), release, then press an action key: `prefix+c` is `ctrl+b`, then `c`. `prefix+?` lists every active binding; `/` filters that list and `ctrl+u` clears it.
 
 [Herdr cheatsheet](./herdr)
 <!-- {: .-crosslink} -->
@@ -173,12 +173,26 @@ See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)
 | `1..9` | Switch workspace |
 | `enter` | Open the selected workspace |
 | `esc`, `ctrl+[` | Leave navigate mode |
-
 <!-- {: .-shortcuts} -->
 
 Its keys win while it is open, independent of `focus_pane_*`. `esc`, `enter`, `tab`/`shift+tab`, `left`/`right`, and `1..9` stay reserved; `navigate_*` config fields take other plain keys.
 
 See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)
+
+### Goto picker
+
+| Key | Action |
+| --- | --- |
+| `prefix+g` | Open the picker of agents and terminals |
+| `/` | Search names, branches, or paths |
+| `up` / `down`, `j` / `k` | Move through results |
+| `b` / `w` / `i` / `d` | Filter blocked, working, idle, done |
+| `a` | Show all terminals again |
+| `enter` | Jump to the selected destination |
+
+<!-- {: .-shortcuts} -->
+
+See: [Keyboard](https://herdr.dev/tui/docs/keyboard/#the-rest-by-task)
 
 ## Copy mode
 

@@ -36,9 +36,12 @@ beforeAll(() => {
 
 afterAll(() => rmSync(root, { recursive: true, force: true }))
 
-it.each([[], ['--json'], ['--date', DATE]])('requires --tier: %j', (...args) => {
-  expect(() => parseOptions(args)).toThrow(/--tier is required/)
-})
+it.each([[], ['--json'], ['--date', DATE]])(
+  'requires --tier: %j',
+  (...args) => {
+    expect(() => parseOptions(args)).toThrow(/--tier is required/)
+  }
+)
 
 it.each([
   ['t1', '2026-11-14'],
@@ -58,9 +61,7 @@ test('t2 uses a 42-day cadence', () => {
 })
 
 test('limits the oldest-first result', () => {
-  const slugs = dueRows(['--tier', 't1', '--limit', '1']).map(
-    (row) => row.slug
-  )
+  const slugs = dueRows(['--tier', 't1', '--limit', '1']).map((row) => row.slug)
   expect(slugs).toEqual(['oldest'])
 })
 
@@ -147,7 +148,11 @@ test('listing never edits sheets', () => {
 
 test('discovers the same sheets as getPages', async () => {
   const slugs = Object.keys(await getPages())
-  expect(listSheetFiles().map((path) => path.replace(/\.md$/, '')).sort()).toEqual(slugs.sort())
+  expect(
+    listSheetFiles()
+      .map((path) => path.replace(/\.md$/, ''))
+      .sort()
+  ).toEqual(slugs.sort())
 })
 
 function dueRows(args: string[], excluded = new Set<string>()): DueSheet[] {

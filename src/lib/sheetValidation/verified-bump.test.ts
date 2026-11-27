@@ -81,7 +81,14 @@ const CURRENT = {
 
 it.each([
   ['no stamp', {}, 'bump last_verified_at'],
-  ['the same stamp', { last_verified_with: 'Bash 5.4.', last_verified_at: new Date('2026-11-28') }, 'bump last_verified_at'],
+  [
+    'the same stamp',
+    {
+      last_verified_with: 'Bash 5.4.',
+      last_verified_at: new Date('2026-11-28')
+    },
+    'bump last_verified_at'
+  ],
   [
     'an older stamp',
     {

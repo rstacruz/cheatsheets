@@ -52,14 +52,16 @@ await expect(page.getByLabel('Email'))
 ```
 <!-- {: data-highlight="toHaveCount(; toHaveValue("} -->
 
-**Checks against the live DOM with retries.** See [locator assertions](https://playwright.dev/docs/api/class-locatorassertions).
+**Verifies list size and input value with retries.** See [locator assertions](https://playwright.dev/docs/api/class-locatorassertions).
 
 ### Poll an async value
 <!-- {: .-snippet} -->
 
 ```js
 await expect.poll(async () => {
-  const res = await page.request.get(url)
+  const res = await page.request.get(
+    'https://api.example.com/status'
+  )
   return res.status()
 }).toBe(200)
 ```

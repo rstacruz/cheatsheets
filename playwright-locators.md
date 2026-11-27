@@ -39,7 +39,7 @@ await page.getByLabel('Password')
 ```
 <!-- {: data-highlight="getByLabel("} -->
 
-**Finds a form control by its label.** See [label locators](https://playwright.dev/docs/locators#locate-by-label).
+**Matches a control through its associated label.** See [label locators](https://playwright.dev/docs/locators#locate-by-label).
 
 ### By text
 <!-- {: .-snippet} -->
@@ -88,4 +88,4 @@ await page.frameLocator('#checkout')
 ```
 <!-- {: data-highlight="frameLocator("} -->
 
-**Searches inside an iframe.** See [FrameLocator](https://playwright.dev/docs/api/class-framelocator).
+**Searches inside an iframe with a chained locator.** See [FrameLocator](https://playwright.dev/docs/api/class-framelocator).

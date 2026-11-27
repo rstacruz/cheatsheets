@@ -35,11 +35,11 @@ npx playwright codegen \
 ```bash
 npx playwright codegen \
   --target=python \
-  demo.playwright.dev/todomvc
+  https://demo.playwright.dev/todomvc
 ```
 <!-- {: data-highlight="--target="} -->
 
-**Generates code in another language or runner.** See [codegen options](https://playwright.dev/docs/codegen#running-codegen).
+**Generates code in another language.** See [codegen options](https://playwright.dev/docs/codegen#running-codegen).
 
 ### Pick a locator
 <!-- {: .-snippet} -->
@@ -69,7 +69,7 @@ npx playwright codegen \
 ```bash
 npx playwright codegen \
   --save-storage=auth.json \
-  github.com
+  https://github.com
 ```
 <!-- {: data-highlight="--save-storage="} -->
 

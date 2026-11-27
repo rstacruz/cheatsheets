@@ -76,10 +76,11 @@ npx playwright test
 npx playwright test --ui
 npx playwright test login.spec.ts
 npx playwright test --project=chromium
+npx playwright test --headed
 ```
 <!-- {: data-highlight="npx playwright test"} -->
 
-UI mode shows a time-travel view of each step. Add `--headed` to watch the browser run.
+UI mode shows a time-travel view of each step. Add `--headed` to watch the browser run. To record actions as test code, use `npx playwright codegen`.
 
 See: [Command line](https://playwright.dev/docs/test-cli)
 
@@ -212,7 +213,9 @@ See: [Locator assertions](https://playwright.dev/docs/api/class-locatorassertion
 
 ```js
 await expect.poll(async () => {
-  const res = await page.request.get(url)
+  const res = await page.request.get(
+    'https://api.example.com/status'
+  )
   return res.status()
 }).toBe(200)
 ```
@@ -390,9 +393,7 @@ See: [Network mocking](https://playwright.dev/docs/network#network-mocking)
 
 ```js
 await page.route('**/*.{png,jpg}',
-  route => (
-    route.abort()
-  ))
+  route => route.abort())
 ```
 <!-- {: data-highlight="route.abort("} -->
 
@@ -501,5 +502,10 @@ See: [Sharding](https://playwright.dev/docs/test-sharding)
 
 ## Also see
 
+- [Playwright locators](./playwright-locators)
+- [Playwright assertions](./playwright-assertions)
+- [Playwright config](./playwright-config)
+- [Playwright network mocking](./playwright-network)
+- [Playwright codegen](./playwright-codegen)
 - [Jest cheatsheet](./jest)
 - [Selenium cheatsheet](./selenium)

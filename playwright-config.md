@@ -75,7 +75,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="webServer:"} -->
 
-**Starts the app before the tests run.** See [web server](https://playwright.dev/docs/test-webserver).
+**Starts the app before the tests and reuses a running server locally.** See [web server](https://playwright.dev/docs/test-webserver).
 
 ### Retries and timeouts
 <!-- {: .-snippet} -->

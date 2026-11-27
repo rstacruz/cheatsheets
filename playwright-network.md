@@ -54,7 +54,7 @@ await page.route('**/*', async route => {
 ```
 <!-- {: data-highlight="route.continue("} -->
 
-**Changes the outgoing request before it is sent.** See [modify requests](https://playwright.dev/docs/network#modify-requests).
+**Changes the request headers with `route.continue()`.** See [modify requests](https://playwright.dev/docs/network#modify-requests).
 
 ### Modify a response
 <!-- {: .-snippet} -->

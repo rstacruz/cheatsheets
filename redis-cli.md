@@ -64,5 +64,5 @@ redis-cli -n 2 DBSIZE
 ```
 <!-- {: data-highlight="-n 2"} -->
 
-**Runs the command against database index 2.** Indices start at 0. See [SELECT](https://redis.io/docs/latest/commands/select/).
+**Runs the command against database index 2.** Indices start at 0. See [redis-cli options](https://redis.io/docs/latest/develop/tools/cli/).
 

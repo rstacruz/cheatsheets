@@ -129,10 +129,10 @@ redis-cli GET greeting
 
 See: [redis-cli](https://redis.io/docs/latest/develop/tools/cli/)
 
-## Keys and strings
+## Data types
 <!-- {: .-three-column} -->
 
-### Set and get
+### Strings
 
 ```bash
 SET user:1 Ada
@@ -146,24 +146,6 @@ GET user:1
 Strings hold text, numbers, or binary data.
 
 See: [SET](https://redis.io/docs/latest/commands/set/)
-
-### Check and delete
-
-```bash
-EXISTS user:1
-# (integer) 1
-
-DEL user:1
-# (integer) 1
-
-EXISTS user:1
-# (integer) 0
-```
-<!-- {: data-highlight="EXISTS; DEL"} -->
-
-Both commands return the number of keys found or removed.
-
-See: [DEL](https://redis.io/docs/latest/commands/del/)
 
 ### Counters
 
@@ -180,51 +162,6 @@ INCR views
 `INCR` parses the value as an integer and increments it atomically.
 
 See: [INCR](https://redis.io/docs/latest/commands/incr/)
-
-### Find keys
-
-```bash
-KEYS 'user:*'
-SCAN 0 MATCH 'user:*' COUNT 100
-```
-<!-- {: data-highlight="SCAN"} -->
-
-`KEYS` walks the whole keyspace and blocks the server; use `SCAN` in production.
-
-See: [SCAN](https://redis.io/docs/latest/commands/scan/)
-
-### Many keys
-
-```bash
-MSET app:a 1 app:b 2
-# OK
-
-MGET app:a app:b
-# 1) "1"
-# 2) "2"
-```
-<!-- {: data-highlight="MSET; MGET"} -->
-
-Multi-key commands cut round trips without using transactions.
-
-See: [MGET](https://redis.io/docs/latest/commands/mget/)
-
-### Inspect a key
-
-```bash
-TYPE app:a
-# string
-
-DBSIZE
-```
-<!-- {: data-highlight="TYPE"} -->
-
-`TYPE` reports the value type; `DBSIZE` counts keys in the current database.
-
-See: [TYPE](https://redis.io/docs/latest/commands/type/)
-
-## Collections
-<!-- {: .-three-column} -->
 
 ### Lists
 
@@ -320,6 +257,69 @@ Streams keep append-only entries with generated IDs and field-value pairs.
 
 See: [Streams](https://redis.io/docs/latest/data-types/streams/)
 
+## Keys
+<!-- {: .-three-column} -->
+
+### Check and delete
+
+```bash
+EXISTS user:1
+# (integer) 1
+
+DEL user:1
+# (integer) 1
+
+EXISTS user:1
+# (integer) 0
+```
+<!-- {: data-highlight="EXISTS; DEL"} -->
+
+Both commands return the number of keys found or removed.
+
+See: [DEL](https://redis.io/docs/latest/commands/del/)
+
+### Find keys
+
+```bash
+KEYS 'user:*'
+SCAN 0 MATCH 'user:*' COUNT 100
+```
+<!-- {: data-highlight="SCAN"} -->
+
+`KEYS` walks the whole keyspace and blocks the server; use `SCAN` in production.
+
+See: [SCAN](https://redis.io/docs/latest/commands/scan/)
+
+### Many keys
+
+```bash
+MSET app:a 1 app:b 2
+# OK
+
+MGET app:a app:b
+# 1) "1"
+# 2) "2"
+```
+<!-- {: data-highlight="MSET; MGET"} -->
+
+Multi-key commands cut round trips without using transactions.
+
+See: [MGET](https://redis.io/docs/latest/commands/mget/)
+
+### Inspect a key
+
+```bash
+TYPE app:a
+# string
+
+DBSIZE
+```
+<!-- {: data-highlight="TYPE"} -->
+
+`TYPE` reports the value type; `DBSIZE` counts keys in the current database.
+
+See: [TYPE](https://redis.io/docs/latest/commands/type/)
+
 ## Expiration
 <!-- {: .-three-column} -->
 
@@ -338,7 +338,7 @@ TTL session:1
 
 See: [SET](https://redis.io/docs/latest/commands/set/)
 
-### Expire later
+### Add a TTL later
 
 ```bash
 EXPIRE session:1 30
@@ -353,7 +353,7 @@ Returns 1 when the timeout was set, 0 when the key is missing or unchanged.
 
 See: [EXPIRE](https://redis.io/docs/latest/commands/expire/)
 
-### Check remaining time
+### Check time remaining
 
 | Command    | Unit         |
 | ---------- | ------------ |

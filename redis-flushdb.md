@@ -18,16 +18,26 @@ links:
 ## Delete keys
 <!-- {: .-snippets} -->
 
+### Check the key count
+<!-- {: .-snippet} -->
+
+```bash
+redis-cli DBSIZE
+```
+<!-- {: data-highlight="DBSIZE"} -->
+
+**Counts keys in the current database before deleting.** See [DBSIZE](https://redis.io/docs/latest/commands/dbsize/).
+
 ### Empty the current database
 <!-- {: .-snippet} -->
 
 ```bash
-redis-cli FLUSHDB
+redis-cli -n 2 FLUSHDB
 # OK
 ```
 <!-- {: data-highlight="FLUSHDB"} -->
 
-**Deletes every key in the selected database.** Use `-n <db>` to choose a database first. See [FLUSHDB](https://redis.io/docs/latest/commands/flushdb/).
+**Deletes every key in the selected database, irreversibly.** Use `-n <db>` to choose a database first. See [FLUSHDB](https://redis.io/docs/latest/commands/flushdb/).
 
 ### Avoid blocking the server
 <!-- {: .-snippet} -->
@@ -48,15 +58,5 @@ redis-cli FLUSHALL ASYNC
 ```
 <!-- {: data-highlight="FLUSHALL"} -->
 
-**Deletes keys from all databases on the server.** This is destructive and has no undo. See [FLUSHALL](https://redis.io/docs/latest/commands/flushall/).
-
-### Check the key count
-<!-- {: .-snippet} -->
-
-```bash
-redis-cli DBSIZE
-```
-<!-- {: data-highlight="DBSIZE"} -->
-
-**Counts keys in the current database before deleting.** See [DBSIZE](https://redis.io/docs/latest/commands/dbsize/).
+**Deletes keys from all databases on the server.** This is also irreversible. See [FLUSHALL](https://redis.io/docs/latest/commands/flushall/).
 

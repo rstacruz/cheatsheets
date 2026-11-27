@@ -89,4 +89,4 @@ docker start redis
 ```
 <!-- {: data-highlight="docker stop; docker start"} -->
 
-**Restarts the same container and its volume.** `docker rm` removes the container but keeps the volume. See [docker stop](https://docs.docker.com/reference/cli/docker/container/stop/).
+**The volume survives stop and start.** `docker rm` removes the container but keeps the volume. See [docker stop](https://docs.docker.com/reference/cli/docker/container/stop/).

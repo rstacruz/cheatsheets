@@ -5,6 +5,8 @@ import SocialList from './SocialList.astro'
 import ThemeToggle from './ThemeToggle.astro'
 import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 export type Props = {
   noShare?: boolean
@@ -12,6 +14,10 @@ export type Props = {
   page?: SheetPage
 }
 const props = Astro.props as Props
+const brandMarkup = readFileSync(
+  resolve(process.cwd(), 'public/assets/devhints.svg'),
+  'utf8'
+)
 
 const t = {
   title: 'Devhints.io',
@@ -29,11 +35,15 @@ const styles = {
     'TopNav__inner relative flex h-[32px] items-center px-[32px] leading-[32px] min-[481px]:mt-0 min-[481px]:h-[64px] min-[481px]:leading-[64px]',
   brand: cx(
     'TopNav__brand',
-    'block h-[10.9px] w-[108px] flex-none bg-[var(--brand-ink)]',
-    '[--brand-logo:url(/assets/devhints.svg)]',
-    '[mask:var(--brand-logo)_center/contain_no-repeat]',
-    '[-webkit-mask:var(--brand-logo)_center/contain_no-repeat]',
-    'forced-color-adjust-none hover:bg-primary focus:bg-primary'
+    'group relative block h-[10.9px] w-[108px] flex-none no-underline',
+    'before:absolute before:-inset-x-[16px] before:-inset-y-[16px] before:content-[""]',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring'
+  ),
+  brandMark: cx(
+    'TopNav__brandMark',
+    'block size-full text-[var(--brand-ink)]',
+    '[&>svg]:block [&>svg]:size-full',
+    'group-hover:text-primary group-focus-visible:text-primary'
   ),
   actions:
     'TopNav__actions flex flex-none items-center gap-[8px] max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[32px] min-[481px]:top-[16px]',
@@ -59,7 +69,9 @@ const editLink = getEditLink(props.page)
 
 <nav class={styles.root} data-js-no-preview role="navigation">
   <div class={styles.inner}>
-    <a class={styles.brand} href="/" aria-label={t.title}></a>
+    <a class={styles.brand} href="/" aria-label={t.title}>
+      <span class={styles.brandMark} set:html={brandMarkup} />
+    </a>
 
     <div class={styles.actions}>
       <ThemeToggle />

@@ -1,6 +1,7 @@
 ---
 title: VitePress
 subtitle: Static site generator for docs
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 tier: t2
 updated: 2026-11-27

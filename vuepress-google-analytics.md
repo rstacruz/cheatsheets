@@ -2,6 +2,7 @@
 title: How to add Google Analytics to VuePress
 link_title: VuePress Google Analytics
 subtitle: Track page views with GA4
+logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/plugin-google-analytics 2.0.0-rc.142."

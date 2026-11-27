@@ -2,6 +2,7 @@
 title: How to change Starlight theme colors
 link_title: Starlight theme colors
 subtitle: Restyle the accent
+logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
 updated: 2026-11-27

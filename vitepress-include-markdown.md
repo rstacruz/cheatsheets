@@ -2,6 +2,7 @@
 title: How to reuse Markdown in VitePress
 link_title: VitePress Markdown includes
 subtitle: Includes and code imports
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 layout: snippet
 tier: t3

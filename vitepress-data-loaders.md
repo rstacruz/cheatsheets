@@ -2,6 +2,7 @@
 title: How to load data at build time in VitePress
 link_title: VitePress data loaders
 subtitle: Fetch once, render statically
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 layout: snippet
 tier: t3

@@ -2,6 +2,7 @@
 title: How to order a Starlight sidebar
 link_title: Starlight sidebar order
 subtitle: Sort sidebar links
+logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
 updated: 2026-11-27

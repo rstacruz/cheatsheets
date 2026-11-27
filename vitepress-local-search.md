@@ -2,6 +2,7 @@
 title: How to enable search in VitePress
 link_title: VitePress search
 subtitle: Local index without a service
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 layout: snippet
 tier: t3

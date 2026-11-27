@@ -2,6 +2,7 @@
 title: How to format code blocks in VuePress
 link_title: VuePress code blocks
 subtitle: Titles, highlights, and line numbers
+logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."

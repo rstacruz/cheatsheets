@@ -2,6 +2,7 @@
 title: How to use Starlight components in MDX
 link_title: Starlight MDX components
 subtitle: Steps, tabs and trees
+logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
 updated: 2026-11-27

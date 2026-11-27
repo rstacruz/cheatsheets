@@ -2,6 +2,7 @@
 title: How to deploy VuePress to GitHub Pages
 link_title: VuePress GitHub Pages
 subtitle: Publish docs from Actions
+logo: { src: /assets/logos/vue.svg }
 category: Devops
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."

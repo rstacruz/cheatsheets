@@ -2,6 +2,7 @@
 title: How to add translations to VitePress
 link_title: VitePress translations
 subtitle: Locale folders and labels
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 layout: snippet
 tier: t3

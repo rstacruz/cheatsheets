@@ -2,6 +2,7 @@
 title: How to configure the VuePress sidebar
 link_title: Configure VuePress sidebar
 subtitle: Per-page navigation menus
+logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."

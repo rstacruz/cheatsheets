@@ -2,6 +2,7 @@
 title: How to use Vue components in VitePress Markdown
 link_title: VitePress Vue components
 subtitle: Interactive widgets inside pages
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 layout: snippet
 tier: t3

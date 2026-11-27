@@ -2,6 +2,7 @@
 title: How to configure Starlight search
 link_title: Starlight search
 subtitle: Tune Pagefind
+logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
 updated: 2026-11-27

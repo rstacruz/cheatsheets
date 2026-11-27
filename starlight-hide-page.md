@@ -2,6 +2,7 @@
 title: How to hide a page in Starlight
 link_title: Starlight hide page
 subtitle: Unlist docs pages
+logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
 updated: 2026-11-27

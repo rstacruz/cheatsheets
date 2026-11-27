@@ -2,6 +2,7 @@
 title: How to configure the VitePress sidebar
 link_title: VitePress sidebar
 subtitle: Sections, groups and per-page rules
+logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 layout: snippet
 tier: t3

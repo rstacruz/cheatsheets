@@ -32,16 +32,17 @@ links:
 ---
 
 ## Everyday values
+<!-- {: .-three-column} -->
 
 ### Strings
 
 ```js
 const name = 'Ada'
-`Hello, ${name}!`          // → "Hello, Ada!"
-'  hi  '.trim()            // → "hi"
-'hello'.includes('ell')    // → true
-'a,b,c'.split(',')         // → ["a", "b", "c"]
-'hello'.slice(1, 3)        // → "el"
+`Hello, ${name}!` // → "Hello, Ada!"
+'  hi  '.trim() // → "hi"
+'hello'.includes('ell') // → true
+'a,b,c'.split(',') // → ["a", "b", "c"]
+'hello'.slice(1, 3) // → "el"
 ```
 <!-- {: data-highlight="trim; includes; split; slice"} -->
 
@@ -52,11 +53,13 @@ const name = 'Ada'
 ### Numbers
 
 ```js
-parseInt('42px', 10)       // → 42
-(1234.5).toFixed(2)        // → "1234.50"
-(1234).toLocaleString('en-US')  // → "1,234"
-Math.max(1, 2, 3)          // → 3
-Number.isInteger(2.5)      // → false
+parseInt('42px', 10) // → 42
+(1234.5).toFixed(2) // → "1234.50"
+(1234).toLocaleString('en-US')
+// → "1,234"
+
+Math.max(1, 2, 3) // → 3
+Number.isInteger(2.5) // → false
 ```
 <!-- {: data-highlight="parseInt; toFixed; toLocaleString; Number.isInteger"} -->
 
@@ -68,11 +71,11 @@ Number.isInteger(2.5)      // → false
 
 ```js
 const list = [1, 2, 3]
-list.map(n => n * 2)       // → [2, 4, 6]
-list.filter(n => n > 1)    // → [2, 3]
-list.find(n => n > 1)      // → 2
-list.includes(2)           // → true
-[...list, 4]               // → [1, 2, 3, 4]
+list.map(n => n * 2) // → [2, 4, 6]
+list.filter(n => n > 1) // → [2, 3]
+list.find(n => n > 1) // → 2
+list.includes(2) // → true
+[...list, 4] // → [1, 2, 3, 4]
 ```
 <!-- {: data-highlight="map; filter; find; ...list"} -->
 
@@ -84,12 +87,17 @@ list.includes(2)           // → true
 
 ```js
 const user = { name: 'Ada', age: 36 }
-user.name                        // → "Ada"
-user['age']                      // → 36
-Object.keys(user)                // → ["name", "age"]
-Object.entries(user)             // → [["name", "Ada"], ["age", 36]]
-const { name, ...rest } = user   // rest → { age: 36 }
-({ ...user, age: 37 })           // → { name: "Ada", age: 37 }
+user.name // → "Ada"
+user['age'] // → 36
+Object.keys(user) // → ["name", "age"]
+Object.entries(user)
+// → [["name", "Ada"], ["age", 36]]
+
+const { name, ...rest } = user
+// rest → { age: 36 }
+
+({ ...user, age: 37 })
+// → { name: "Ada", age: 37 }
 ```
 <!-- {: data-highlight="Object.keys; Object.entries"} -->
 
@@ -163,6 +171,7 @@ Node.js 26 provides `Temporal` globally; browser support is still limited.
 <!-- {: .-crosslink} -->
 
 ## Async work
+<!-- {: .-three-column} -->
 
 ### Async and await
 
@@ -170,13 +179,17 @@ Node.js 26 provides `Temporal` globally; browser support is still limited.
 const res = await fetch('/data.json')
 const data = await res.json()
 
-const results = await Promise.all([a(), b()])
+const results = await Promise.all([
+  a(), b()
+])
 try {
   await risky()
 } catch (err) {
   console.error(err)
 }
-await new Promise(r => setTimeout(r, 1000))
+await new Promise(r =>
+  setTimeout(r, 1000)
+)
 ```
 <!-- {: data-highlight="await; Promise.all"} -->
 
@@ -187,12 +200,22 @@ await new Promise(r => setTimeout(r, 1000))
 ### Promises
 
 ```js
-new Promise((resolve, reject) => { resolve(1) })
-promise.then(v => v * 2).catch(console.error)
-await Promise.all([a(), b()])         // → all results, fails fast
-await Promise.allSettled([a(), b()])  // → every result, never rejects
-await Promise.race([a(), b()])        // → first settled, either way
-await Promise.any([a(), b()])         // → first fulfilled
+new Promise((resolve, reject) => {
+  resolve(1)
+})
+promise
+  .then(v => v * 2)
+  .catch(console.error)
+
+await Promise.all([a(), b()]) // → results
+await Promise.allSettled([a(), b()])
+// → every result, never rejects
+
+await Promise.race([a(), b()])
+// → first settled, either way
+
+await Promise.any([a(), b()])
+// → first fulfilled
 ```
 <!-- {: data-highlight="allSettled; race; any; then"} -->
 
@@ -204,12 +227,15 @@ await Promise.any([a(), b()])         // → first fulfilled
 
 ```js
 const res = await fetch('/data.json')
-res.status                        // → 200
-res.ok                            // → true (200-299)
-await res.json()                  // → parsed JSON body
+res.status // → 200
+res.ok // → true (200-299)
+await res.json() // → parsed body
+
 await fetch('/save', {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+  headers: {
+    'Content-Type': 'application/json'
+  },
   body: JSON.stringify(data)
 })
 ```

@@ -1,6 +1,7 @@
 ---
 title: jq
 subtitle: JSON processor
+logo: { set: icon-park-outline, name: terminal }
 category: CLI
 tier: t2
 updated: 2026-11-18

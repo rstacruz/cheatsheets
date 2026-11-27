@@ -1,6 +1,7 @@
 ---
 title: SSH
 subtitle: Encrypted remote shell client
+logo: { set: icon-park-outline, name: link }
 category: Networking
 tier: t2
 updated: 2026-11-23

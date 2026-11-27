@@ -3,6 +3,7 @@ title: C#
 seo_title: C# cheatsheet — syntax, LINQ, records
 description: "C# reference: syntax, types, nullables, collections, LINQ, async, records, patterns and generics."
 subtitle: Modern .NET language
+logo: { src: /assets/logos/csharp.svg, mono: true }
 category: C-like
 updated: 2026-11-26
 last_verified_with: "C# 15, .NET 11.0.100."

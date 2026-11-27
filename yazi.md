@@ -1,6 +1,7 @@
 ---
 title: Yazi
 subtitle: Terminal file manager
+logo: { set: icon-park-outline, name: folder-open }
 category: CLI
 tier: t2
 fragments:

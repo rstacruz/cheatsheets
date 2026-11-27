@@ -1,6 +1,7 @@
 ---
 title: Intl.RelativeTimeFormat
 subtitle: Locale-aware relative time
+logo: { set: icon-park-outline, name: time }
 category: Internationalization
 tier: t2
 updated: 2026-11-18

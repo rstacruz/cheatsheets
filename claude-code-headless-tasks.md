@@ -2,7 +2,7 @@
 title: How to run Claude Code headless
 link_title: Claude Code headless tasks
 subtitle: Run Claude Code from scripts
-logo: { set: logos, name: claude-icon }
+logo: { src: /assets/logos/claude.svg }
 category: Agents
 layout: snippet
 last_verified_with: "Claude Code 2.1.330."

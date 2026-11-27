@@ -1,7 +1,7 @@
 ---
 title: Cursor CLI
 subtitle: Cursor terminal agent
-logo: { set: logos, name: cursor-icon }
+logo: { src: /assets/logos/cursor.svg, mono: true }
 category: Agents
 updated: 2026-11-15
 last_verified_with: "Cursor CLI commands and flags from the official CLI docs."

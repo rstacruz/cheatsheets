@@ -1,7 +1,7 @@
 ---
 title: Hermes CLI
 subtitle: Terminal AI agent CLI
-logo: { set: simple-icons, name: hermes }
+logo: { src: /assets/logos/hermes.svg }
 category: Agents
 tier: t1
 fragments:

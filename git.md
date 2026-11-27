@@ -1,7 +1,7 @@
 ---
 title: Git
 subtitle: Everyday version control
-logo: { set: logos, name: git-icon }
+logo: { src: /assets/logos/git.svg }
 category: Git
 weight: -10
 tier: t2

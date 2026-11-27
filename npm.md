@@ -1,7 +1,7 @@
 ---
 title: npm
 subtitle: Node.js package manager
-logo: { set: logos, name: npm-icon }
+logo: { src: /assets/logos/npm.svg }
 category: Package managers
 weight: -1
 updated: 2026-11-11

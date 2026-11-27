@@ -1,6 +1,7 @@
 ---
 title: Obsidian Markdown
 subtitle: Wikilink, callout, and embed syntax
+logo: { src: /assets/logos/obsidian.svg }
 category: Apps
 tier: t2
 last_verified_with: "Obsidian 1.15.1."

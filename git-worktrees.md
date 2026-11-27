@@ -1,6 +1,7 @@
 ---
 title: Git worktrees
 subtitle: Parallel checkouts from one repository
+logo: { src: /assets/logos/git.svg }
 category: Git
 tier: t2
 fragments:

@@ -1,6 +1,7 @@
 ---
 title: Conventional Commits
 subtitle: Structured messages that drive releases
+logo: { set: icon-park-outline, name: message }
 category: Git
 tier: t2
 last_verified_with: "Conventional Commits 1.0.0."

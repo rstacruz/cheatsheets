@@ -1,7 +1,7 @@
 ---
 title: Vite
 subtitle: Frontend dev server and bundler
-logo: { set: logos, name: vitejs }
+logo: { src: /assets/logos/vite.svg }
 category: Build tools
 updated: 2026-11-26
 last_verified_with: "Vite 8.3.8, Node 26.13.1."

@@ -1,6 +1,7 @@
 ---
 title: Packs (ruby)
 subtitle: Modular packaging for Ruby apps
+logo: { src: /assets/logos/ruby.svg }
 category: Ruby libraries
 updated: 2026-11-18
 last_verified_with: "packs 0.3.0."

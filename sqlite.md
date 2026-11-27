@@ -1,6 +1,7 @@
 ---
 title: SQLite
 subtitle: Embedded SQL database
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 tier: t2
 updated: 2026-11-27

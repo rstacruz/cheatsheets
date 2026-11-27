@@ -1,7 +1,7 @@
 ---
 title: OpenCode
 subtitle: Open-source coding agent
-logo: { set: simple-icons, name: opencode }
+logo: { src: /assets/logos/opencode.svg, mono: true }
 category: Agents
 updated: 2026-11-14
 last_verified_with: "OpenCode v2 APIs."

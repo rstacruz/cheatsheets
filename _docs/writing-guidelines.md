@@ -71,10 +71,11 @@ logo: { set: icon-park-outline, name: layers }
 logo: { src: /assets/logos/herdr.svg, mono: true }
 ```
 
-- `set` is `logos`, `simple-icons`, `devicon`, or `icon-park-outline`.
+- Prefer a local image under `public/assets/logos/` over an Iconify set mark.
+- For non-brand topics, pick a fitting `icon-park-outline` glyph.
+- If a set is unavoidable, `set` is `logos`, `simple-icons`, `devicon`, or `icon-park-outline`.
 - Prefer square marks; no wordmarks.
 - `mono: true` inverts fixed-dark artwork in dark mode.
-- File marks must live under `public/assets/logos/`.
 
 `pnpm test` checks that marks resolve, files exist, and featured sheets have one.
 

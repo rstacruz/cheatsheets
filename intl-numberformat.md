@@ -1,6 +1,7 @@
 ---
 title: Intl.NumberFormat
 subtitle: Locale-aware number formatter
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 tier: t2
 updated: 2026-11-18

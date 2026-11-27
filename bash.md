@@ -1,7 +1,7 @@
 ---
 title: Bash scripting
 subtitle: Shell scripting language
-logo: { set: logos, name: bash-icon }
+logo: { src: /assets/logos/bash.svg }
 category: Shell
 tags: [Featured]
 updated: 2026-11-24

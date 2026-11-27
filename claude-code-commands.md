@@ -1,7 +1,7 @@
 ---
 title: Claude Code commands
 subtitle: Slash command reference
-logo: { set: logos, name: claude-icon }
+logo: { src: /assets/logos/claude.svg }
 category: Agents
 updated: 2026-11-18
 last_verified_with: "Claude Code slash commands from the official commands reference."

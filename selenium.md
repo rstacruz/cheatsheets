@@ -2,6 +2,7 @@
 title: Selenium
 seo_title: Selenium cheatsheet — Python WebDriver, waits, locators
 subtitle: Browser automation library
+logo: { src: /assets/logos/selenium.svg }
 description: "Selenium WebDriver in Python: locators, waits, actions, options, screenshots and WebDriver BiDi. One-page reference."
 category: JavaScript testing
 tier: t2

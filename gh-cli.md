@@ -3,7 +3,7 @@ title: GitHub CLI
 seo_title: GitHub CLI cheatsheet — gh commands and flags
 description: "GitHub CLI reference: authenticate, clone repos, create and review pull requests, manage issues, watch Actions runs, and script with --json and gh api."
 subtitle: GitHub from the terminal
-logo: { set: logos, name: github-icon }
+logo: { src: /assets/logos/github.svg, mono: true }
 category: Git
 updated: 2026-11-24
 last_verified_with: "gh 2.104.0."

@@ -1,6 +1,7 @@
 ---
 title: Git stash
 subtitle: Shelve work in progress
+logo: { src: /assets/logos/git.svg }
 category: Git
 tier: t2
 fragments:

@@ -1,7 +1,7 @@
 ---
 title: AWS S3
 subtitle: Object storage service
-logo: { set: logos, name: aws-s3 }
+logo: { src: /assets/logos/s3.svg }
 category: Devops
 updated: 2026-11-11
 last_verified_with: "AWS CLI S3 APIs."

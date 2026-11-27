@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { getPages } from '../page'
 import { isListed } from '../page/accessors'
@@ -69,12 +69,21 @@ test('every featured sheet has a logo', async () => {
 
 test('logo marks are not wide wordmarks', async () => {
   for (const page of await pagesWithLogos()) {
-    const resolved = resolveLogo(page.frontmatter.logo!)
-    if (resolved?.kind !== 'svg') continue
+    const logo = page.frontmatter.logo!
+    const resolved = resolveLogo(logo)
+    if (!resolved) continue
 
-    const [, , width, height] = resolved.attributes.viewBox
-      .split(' ')
-      .map(Number)
+    const viewBox =
+      resolved.kind === 'svg'
+        ? resolved.attributes.viewBox
+        : readFileSync(
+            join(process.cwd(), 'public', resolved.src.replace(/^\//, '')),
+            'utf8'
+          ).match(/viewBox="([^"]+)"/)?.[1]
+
+    if (!viewBox) continue
+
+    const [, , width, height] = viewBox.split(/[ ,]+/).map(Number)
     const ratio = width / height
 
     expect(

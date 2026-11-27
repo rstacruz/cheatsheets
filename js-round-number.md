@@ -1,7 +1,7 @@
 ---
 title: How to round a number
 link_title: Round a number
-subtitle: Nearest, floor, ceil, decimals
+subtitle: Nearest and decimal places
 logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 layout: snippet
@@ -15,6 +15,8 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
   - title: Intl.NumberFormat
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+  - title: JavaScript cheatsheet
+    url: /javascript
 ---
 
 ## Rounding
@@ -24,8 +26,8 @@ links:
 <!-- {: .-snippet} -->
 
 ```js
-Math.round(4.6)  // → 5
-Math.round(4.4)  // → 4
+Math.round(4.6) // → 5
+Math.round(4.4) // → 4
 ```
 <!-- {: data-highlight="Math.round"} -->
 
@@ -35,10 +37,10 @@ Math.round(4.4)  // → 4
 <!-- {: .-snippet} -->
 
 ```js
-Math.ceil(4.1)   // 5
-Math.floor(4.9)  // 4
-Math.trunc(4.9)  // 4
-Math.trunc(-4.9) // -4
+Math.ceil(4.1) // → 5
+Math.floor(4.9) // → 4
+Math.trunc(4.9) // → 4
+Math.trunc(-4.9) // → -4
 ```
 <!-- {: data-highlight="Math.ceil; Math.floor; Math.trunc"} -->
 
@@ -50,10 +52,10 @@ Math.trunc(-4.9) // -4
 ```js
 const n = 4.567
 Math.round((n + Number.EPSILON) * 100) / 100
-// 4.57
+// → 4.57
 
 n.toFixed(2)
-// '4.57'
+// → '4.57'
 ```
 <!-- {: data-highlight="toFixed"} -->
 
@@ -66,7 +68,7 @@ n.toFixed(2)
 new Intl.NumberFormat('en-US', {
   minimumFractionDigits: 2
 }).format(4.5)
-// '4.50'
+// → '4.50'
 ```
 <!-- {: data-highlight="Intl.NumberFormat"} -->
 

@@ -1,7 +1,7 @@
 ---
 title: How to flatten an array
 link_title: Flatten an array
-subtitle: One level or all levels
+subtitle: Shallow or recursive flattening
 logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 layout: snippet
@@ -15,6 +15,8 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
   - title: Array.prototype.flatMap
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
+  - title: JavaScript cheatsheet
+    url: /javascript
 ---
 
 ## Flattening

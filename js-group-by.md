@@ -15,6 +15,8 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy
   - title: Map.groupBy
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy
+  - title: JavaScript cheatsheet
+    url: /javascript
 ---
 
 ## Grouping
@@ -27,14 +29,15 @@ links:
 const people = [
   { name: 'Ada', team: 'A' },
   { name: 'Bob', team: 'B' },
-  { name: 'Cy', team: 'A' }
+  { name: 'Cy', team: 'A' },
+  { name: 'Dee', team: 'B' }
 ]
 
 const byTeam = Object.groupBy(
   people, person => person.team
 )
-Object.keys(byTeam)
-// ['A', 'B']
+byTeam.A.map(p => p.name)
+// ['Ada', 'Cy']
 ```
 <!-- {: data-highlight="Object.groupBy"} -->
 
@@ -67,11 +70,15 @@ Object.fromEntries(counts)
 
 ```js
 const day = new Date('2026-11-28')
-const events = [{ day, name: 'standup' }]
+const other = new Date('2026-11-29')
+const events = [
+  { day, name: 'standup' },
+  { day: other, name: 'review' }
+]
 
 const byDay = Map.groupBy(events, e => e.day)
-byDay.get(day).length
-// 1
+byDay.get(other).map(e => e.name)
+// ['review']
 ```
 <!-- {: data-highlight="Map.groupBy"} -->
 

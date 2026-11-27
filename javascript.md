@@ -23,7 +23,7 @@ fragments:
   - "export default"
   - "new Date()"
 intro: |
-  Quick reference for everyday JavaScript: values, arrays, objects, async work, and modules. Detailed sheets are linked from each card.
+  Quick reference for everyday JavaScript: values, collections, dates, async work, and modules. Related cheatsheets are linked throughout.
 links:
   - title: JavaScript reference
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
@@ -112,9 +112,9 @@ const { name, ...rest } = user
 ```js
 const ages = new Map([['Ada', 36]])
 ages.set('Bob', 40)
-ages.get('Ada')                  // → 36
-ages.has('Bob')                  // → true
-[...ages.keys()]                 // → ['Ada', 'Bob']
+ages.get('Ada') // → 36
+ages.has('Bob') // → true
+[...ages.keys()] // → ['Ada', 'Bob']
 ```
 <!-- {: data-highlight="new Map; set; get; keys"} -->
 
@@ -125,11 +125,11 @@ ages.has('Bob')                  // → true
 ### Set
 
 ```js
-const seen = new Set([1, 2, 2])  // → Set {1, 2}
-seen.add(3)                      // → Set {1, 2, 3}
-seen.has(2)                      // → true
-seen.size                        // → 3
-[...seen]                        // → [1, 2, 3]
+const seen = new Set([1, 2, 2]) // → Set {1, 2}
+seen.add(3) // → Set {1, 2, 3}
+seen.has(2) // → true
+seen.size // → 3
+[...seen] // → [1, 2, 3]
 ```
 <!-- {: data-highlight="new Set; add; has"} -->
 
@@ -143,10 +143,10 @@ seen.size                        // → 3
 
 ```js
 const now = new Date()
-now.toISOString()          // → ISO timestamp, UTC
-now.getFullYear()          // → 2026
-Date.now()                 // → ms since epoch
-new Date('2026-11-05')     // → UTC midnight
+now.toISOString() // → ISO timestamp, UTC
+now.getFullYear() // → 2026
+Date.now() // → ms since epoch
+new Date('2026-11-05') // → UTC midnight
 ```
 <!-- {: data-highlight="toISOString; getFullYear; Date.now"} -->
 
@@ -158,9 +158,9 @@ new Date('2026-11-05')     // → UTC midnight
 
 ```js
 const d = Temporal.PlainDate.from('2026-11-05')
-d.add({ months: 1 })       // → 2026-12-05
-Temporal.Now.instant()     // → current instant
-Temporal.Duration.from('P2D')  // → 2 days
+d.add({ months: 1 }) // → 2026-12-05
+Temporal.Now.instant() // → current instant
+Temporal.Duration.from('P2D') // → 2 days
 ```
 <!-- {: data-highlight="Temporal.PlainDate.from; Temporal.Now; Temporal.Duration.from"} -->
 
@@ -176,12 +176,9 @@ Node.js 26 provides `Temporal` globally; browser support is still limited.
 ### Async and await
 
 ```js
-const res = await fetch('/data.json')
-const data = await res.json()
+const value = await a()
+const next = await b()
 
-const results = await Promise.all([
-  a(), b()
-])
 try {
   await risky()
 } catch (err) {
@@ -191,7 +188,7 @@ await new Promise(r =>
   setTimeout(r, 1000)
 )
 ```
-<!-- {: data-highlight="await; Promise.all"} -->
+<!-- {: data-highlight="await; setTimeout"} -->
 
 [JavaScript Async cheatsheet](./js-async)
 
@@ -217,7 +214,7 @@ await Promise.race([a(), b()])
 await Promise.any([a(), b()])
 // → first fulfilled
 ```
-<!-- {: data-highlight="allSettled; race; any; then"} -->
+<!-- {: data-highlight="Promise.allSettled; Promise.race; Promise.any; .then"} -->
 
 [Promises cheatsheet](./promise)
 
@@ -245,7 +242,7 @@ await fetch('/save', {
 
 <!-- {: .-crosslink} -->
 
-## Code organisation
+## Code and syntax
 
 ### Modules
 
@@ -283,15 +280,15 @@ for (const item of list) console.log(item)
 ### Arrays and objects
 
 ```js
-[3, 1, 2].toSorted()               // → [1, 2, 3]
-[1, 2, 3].with(0, 9)               // → [9, 2, 3]
+[3, 1, 2].toSorted() // → [1, 2, 3]
+[1, 2, 3].with(0, 9) // → [9, 2, 3]
 const groups = Object.groupBy(list, n => n % 2)
 // → { 0: [2], 1: [1, 3] }
 
-Object.hasOwn(user, 'name')        // → true
-structuredClone(user)              // → deep copy
+Object.hasOwn(user, 'name') // → true
+structuredClone(user) // → deep copy
 ```
-<!-- {: data-highlight="toSorted; with; Object.groupBy; Object.hasOwn"} -->
+<!-- {: data-highlight="toSorted; .with(0, 9); Object.groupBy; Object.hasOwn"} -->
 
 `structuredClone` is a Web API, not ECMAScript.
 
@@ -302,14 +299,14 @@ See: [toSorted](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 ```js
 const { promise, resolve } = Promise.withResolvers()
 resolve(42)
-await promise                      // → 42
+await promise // → 42
 
 await Promise.try(() => JSON.parse('{"ok":true}'))
 // → { ok: true }
 
 const gen = (async function* () { yield 1; yield 2 })()
-await Array.fromAsync(gen)         // → [1, 2]
-[1, 2].values().map(n => n * 2).toArray()  // → [2, 4]
+await Array.fromAsync(gen) // → [1, 2]
+[1, 2].values().map(n => n * 2).toArray() // → [2, 4]
 ```
 <!-- {: data-highlight="Promise.withResolvers; Promise.try; Array.fromAsync; .toArray()"} -->
 

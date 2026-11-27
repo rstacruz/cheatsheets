@@ -15,6 +15,8 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
   - title: await
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+  - title: JavaScript cheatsheet
+    url: /javascript
 ---
 
 ## Waiting

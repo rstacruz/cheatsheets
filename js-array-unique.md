@@ -1,6 +1,6 @@
 ---
 title: How to remove duplicates from an array
-link_title: Array unique values
+link_title: Remove array duplicates
 subtitle: Dedupe primitives and objects
 logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
@@ -15,6 +15,8 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
   - title: Map
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+  - title: JavaScript cheatsheet
+    url: /javascript
 ---
 
 ## Removing duplicates

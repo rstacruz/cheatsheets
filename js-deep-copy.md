@@ -15,6 +15,8 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
   - title: Spread syntax
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+  - title: JavaScript cheatsheet
+    url: /javascript
 ---
 
 ## Copying

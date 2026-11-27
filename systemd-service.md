@@ -13,6 +13,8 @@ links:
     url: https://man7.org/linux/man-pages/man5/systemd.service.5.html
   - title: systemctl(1)
     url: https://man7.org/linux/man-pages/man1/systemctl.1.html
+  - title: systemd cheatsheet
+    url: /systemd
 ---
 
 ## Create a service
@@ -43,18 +45,11 @@ WantedBy=multi-user.target
 <!-- {: .-snippet} -->
 
 ```bash
-# enable at boot
-sudo systemctl enable hello.service
+sudo systemctl enable --now hello.service
 ```
-<!-- {: data-highlight="systemctl enable"} -->
+<!-- {: data-highlight="enable --now"} -->
 
-```bash
-# start now
-sudo systemctl start hello.service
-```
-<!-- {: data-highlight="systemctl start"} -->
-
-**Makes the service run on boot and right now.** Use `enable --now` to do both in one step; see [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Enables the service at boot and starts it now.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### Reload after edits
 <!-- {: .-snippet} -->

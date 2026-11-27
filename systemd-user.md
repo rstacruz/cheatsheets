@@ -13,6 +13,8 @@ links:
     url: https://man7.org/linux/man-pages/man5/systemd.unit.5.html
   - title: loginctl(1)
     url: https://man7.org/linux/man-pages/man1/loginctl.1.html
+  - title: systemd cheatsheet
+    url: /systemd
 ---
 
 ## Manage user services

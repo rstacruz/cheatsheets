@@ -13,6 +13,8 @@ links:
     url: https://man7.org/linux/man-pages/man5/systemd.timer.5.html
   - title: systemd.time(7)
     url: https://man7.org/linux/man-pages/man7/systemd.time.7.html
+  - title: systemd cheatsheet
+    url: /systemd
 ---
 
 ## Schedule a job

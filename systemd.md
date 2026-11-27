@@ -92,6 +92,77 @@ sudo systemctl reload nginx
 
 See: [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html)
 
+## Logs
+<!-- {: .-three-column} -->
+
+### Recent entries
+
+```bash
+journalctl -u nginx -n 50 --no-pager
+```
+<!-- {: data-highlight="-n 50"} -->
+
+Shows the last 50 lines for one unit.
+
+See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
+
+### Follow live
+
+```bash
+journalctl -u nginx -f
+```
+<!-- {: data-highlight="-f"} -->
+
+Streams new lines until `Ctrl+C`.
+
+See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
+
+### Filter by time and priority
+
+```bash
+# entries since a time
+journalctl --since "2026-11-28 09:00"
+```
+<!-- {: data-highlight="--since"} -->
+
+```bash
+# errors from this boot
+journalctl -p err -b
+```
+<!-- {: data-highlight="-p err"} -->
+
+`--until` and `--since` also accept relative times such as `1 hour ago`.
+
+See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
+
+### Current boot
+
+```bash
+# this boot
+journalctl -b
+```
+<!-- {: data-highlight="-b"} -->
+
+```bash
+# available boots
+journalctl --list-boots
+```
+
+Use `-b -1` for the previous boot.
+
+See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
+
+### Disk usage
+
+```bash
+journalctl --disk-usage
+```
+<!-- {: data-highlight="--disk-usage"} -->
+
+Reports the space used by archived and active journals.
+
+See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
+
 ## Units
 
 ### List loaded units
@@ -267,8 +338,6 @@ systemctl list-timers backup.timer
 ```
 <!-- {: data-highlight="list-timers"} -->
 
-Timers are enabled and listed like other units.
-
 See: [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html)
 
 ### Calendar expressions
@@ -295,77 +364,6 @@ systemd-analyze calendar '*-*-* 02:00:00'
 Prints the normalized expression and next elapse; nothing is started.
 
 See: [systemd-analyze(1)](https://man7.org/linux/man-pages/man1/systemd-analyze.1.html)
-
-## Logs
-<!-- {: .-three-column} -->
-
-### Recent entries
-
-```bash
-journalctl -u nginx -n 50 --no-pager
-```
-<!-- {: data-highlight="-n 50"} -->
-
-Shows the last 50 lines for one unit.
-
-See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
-
-### Follow live
-
-```bash
-journalctl -u nginx -f
-```
-<!-- {: data-highlight="-f"} -->
-
-Streams new lines until `Ctrl+C`.
-
-See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
-
-### Filter by time and priority
-
-```bash
-# entries since a time
-journalctl --since "2026-11-28 09:00"
-```
-<!-- {: data-highlight="--since"} -->
-
-```bash
-# errors from this boot
-journalctl -p err -b
-```
-<!-- {: data-highlight="-p err"} -->
-
-`--until` and `--since` also accept relative times such as `1 hour ago`.
-
-See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
-
-### Current boot
-
-```bash
-# this boot
-journalctl -b
-```
-<!-- {: data-highlight="-b"} -->
-
-```bash
-# available boots
-journalctl --list-boots
-```
-
-Use `-b -1` for the previous boot.
-
-See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
-
-### Disk usage
-
-```bash
-journalctl --disk-usage
-```
-<!-- {: data-highlight="--disk-usage"} -->
-
-Reports the space used by archived and active journals.
-
-See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
 
 ## User units
 <!-- {: .-three-column} -->
@@ -423,6 +421,12 @@ Linger keeps the user manager alive after the last session logs out.
 See: [loginctl(1)](https://man7.org/linux/man-pages/man1/loginctl.1.html)
 
 ## Also see
+
+- [Create a systemd service](./systemd-service)
+- [Run a job with a timer](./systemd-timer)
+- [List services with systemctl](./systemctl-list-services)
+- [Read logs with journalctl](./journalctl)
+- [Manage systemd user services](./systemd-user)
 
 [Linux cheatsheet](./linux)
 <!-- {: .-crosslink} -->

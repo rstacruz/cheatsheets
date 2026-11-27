@@ -5,8 +5,7 @@ import SocialList from './SocialList.astro'
 import ThemeToggle from './ThemeToggle.astro'
 import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
-import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import logoSvg from '~/assets/devhints.svg?raw'
 
 export type Props = {
   noShare?: boolean
@@ -14,10 +13,6 @@ export type Props = {
   page?: SheetPage
 }
 const props = Astro.props as Props
-const brandMarkup = readFileSync(
-  resolve(process.cwd(), 'public/assets/devhints.svg'),
-  'utf8'
-)
 
 const t = {
   title: 'Devhints.io',
@@ -70,7 +65,7 @@ const editLink = getEditLink(props.page)
 <nav class={styles.root} data-js-no-preview role="navigation">
   <div class={styles.inner}>
     <a class={styles.brand} href="/" aria-label={t.title}>
-      <span class={styles.brandMark} set:html={brandMarkup} />
+      <span class={styles.brandMark} set:html={logoSvg} />
     </a>
 
     <div class={styles.actions}>

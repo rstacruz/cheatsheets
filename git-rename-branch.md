@@ -2,6 +2,7 @@
 title: How to rename a Git branch
 link_title: Git rename branch
 subtitle: Rename local and remote branches
+logo: { src: /assets/logos/git.svg }
 category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."

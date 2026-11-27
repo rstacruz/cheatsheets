@@ -2,6 +2,7 @@
 title: How to type component props in Svelte
 link_title: Type Svelte props
 subtitle: Typed props with TypeScript
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

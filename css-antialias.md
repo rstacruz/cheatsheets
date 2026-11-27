@@ -2,6 +2,7 @@
 title: How to antialias text in CSS
 link_title: CSS antialiasing
 subtitle: Font smoothing on macOS
+logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "WebKit CSS extensions (non-standard), MDN font-smooth."

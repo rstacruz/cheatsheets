@@ -2,6 +2,7 @@
 title: How to serve a single-page app with nginx
 link_title: nginx single-page apps
 subtitle: Route client-side paths to index.html
+logo: { src: /assets/logos/nginx.svg }
 category: Devops
 layout: snippet
 last_verified_with: "nginx 1.30.8."

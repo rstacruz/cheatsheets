@@ -2,6 +2,7 @@
 title: How to join two lists in C#
 link_title: C# join lists
 subtitle: Join lists with LINQ
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

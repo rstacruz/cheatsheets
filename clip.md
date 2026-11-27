@@ -1,6 +1,7 @@
 ---
 title: Command Line Interface Pages
 subtitle: CLI cheatsheet format
+logo: { set: icon-park-outline, name: terminal }
 category: CLI
 updated: 2026-11-24
 last_verified_with: "CLI Pages syntax 2.7.0."

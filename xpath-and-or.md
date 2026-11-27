@@ -2,6 +2,7 @@
 title: How to combine conditions with and/or in XPath
 link_title: XPath and / or
 subtitle: Combine predicates
+logo: { set: icon-park-outline, name: code }
 category: HTML
 layout: snippet
 last_verified_with: "XPath 1.0."

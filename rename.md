@@ -1,6 +1,7 @@
 ---
 title: rename
 subtitle: Batch file renamer
+logo: { set: icon-park-outline, name: edit-name }
 category: CLI
 intro: |
   Batch rename files with Perl-style regex substitutions, extension replacements, and options for simulation or interactive use.

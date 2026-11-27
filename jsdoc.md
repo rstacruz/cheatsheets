@@ -1,6 +1,7 @@
 ---
 title: JSDoc
 subtitle: Doc comment annotation syntax
+logo: { set: icon-park-outline, name: file-code }
 category: JavaScript
 updated: 2026-11-25
 last_verified_with: "JSDoc 4.0.5, TypeScript 7.0.2."

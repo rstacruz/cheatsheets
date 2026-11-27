@@ -1,6 +1,7 @@
 ---
 title: rTorrent
 subtitle: Terminal BitTorrent client
+logo: { set: icon-park-outline, name: download }
 category: Networking
 intro: |
   rTorrent is a terminal BitTorrent client. Here are its shortcut keys.

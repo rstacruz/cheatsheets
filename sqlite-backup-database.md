@@ -2,6 +2,7 @@
 title: How to back up a SQLite database
 link_title: Back up SQLite
 subtitle: Safe copies and SQL dumps
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

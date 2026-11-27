@@ -1,6 +1,7 @@
 ---
 title: sed
 subtitle: Stream text editor
+logo: { set: icon-park-outline, name: edit }
 category: CLI
 intro: |
   Here's some hints on using sed.

@@ -1,6 +1,7 @@
 ---
 title: fetch()
 subtitle: Browser HTTP request function
+logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 weight: -3
 updated: 2026-11-25

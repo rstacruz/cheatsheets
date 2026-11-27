@@ -2,6 +2,7 @@
 title: How to use arrays in Bash
 link_title: Bash arrays
 subtitle: Declare, index, and slice lists
+logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."

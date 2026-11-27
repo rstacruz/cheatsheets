@@ -1,6 +1,7 @@
 ---
 title: Jekyll for GitHub Pages
 subtitle: GitHub Pages build settings
+logo: { src: /assets/logos/jekyll.svg }
 category: Markup
 updated: 2026-11-22
 last_verified_with: "Jekyll 3.10.0 / github-pages 232, Ruby 3.1."

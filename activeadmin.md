@@ -1,6 +1,7 @@
 ---
 title: ActiveAdmin
 subtitle: Rails admin interface framework
+logo: { src: /assets/logos/rails.svg }
 category: Ruby
 last_verified_with: "ActiveAdmin 3.5."
 updated: 2026-11-25

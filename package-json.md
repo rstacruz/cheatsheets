@@ -1,6 +1,7 @@
 ---
 title: package.json
 subtitle: Manifest for npm packages
+logo: { src: /assets/logos/npm.svg }
 category: Node.js libraries
 prism_languages: [json]
 updated: 2026-11-25

@@ -2,6 +2,7 @@
 title: How to restart nginx
 link_title: Restart nginx
 subtitle: Reload config and service
+logo: { src: /assets/logos/nginx.svg }
 category: Networking
 layout: snippet
 last_verified_with: "nginx 1.30.8, systemd 262."

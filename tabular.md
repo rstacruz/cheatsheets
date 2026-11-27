@@ -1,6 +1,7 @@
 ---
 title: Tabular
 subtitle: Vim text alignment plugin
+logo: { src: /assets/logos/vim.svg }
 category: Vim
 tier: t3
 last_verified_with: "Tabular 1.0.0."

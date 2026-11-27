@@ -2,6 +2,7 @@
 title: How to rate limit requests in nginx
 link_title: nginx rate limit
 subtitle: Throttle requests per client
+logo: { src: /assets/logos/nginx.svg }
 category: Devops
 layout: snippet
 last_verified_with: "nginx 1.30.8."

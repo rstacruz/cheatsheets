@@ -2,6 +2,7 @@
 title: How to format numbers with units in JavaScript
 link_title: Format units
 subtitle: Values with measurement units
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

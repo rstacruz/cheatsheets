@@ -1,6 +1,7 @@
 ---
 title: Routes
 subtitle: URL routing reference
+logo: { src: /assets/logos/rails.svg }
 category: Rails
 intro: |
   Rails routes map URLs to controller actions.

@@ -2,6 +2,7 @@
 title: How to enable Bash strict mode
 link_title: Bash strict mode
 subtitle: Fail fast in shell scripts
+logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."

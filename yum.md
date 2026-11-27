@@ -3,6 +3,7 @@ title: Yum
 seo_title: Yum cheatsheet — install, update, remove
 description: "Yum commands: install, update, remove, search, list and repositories. Reference."
 subtitle: RPM package manager
+logo: { set: icon-park-outline, name: box }
 category: Package managers
 updated: 2026-11-24
 last_verified_with: "yum 3.4.3, dnf 4.24."

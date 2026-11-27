@@ -2,6 +2,7 @@
 title: Apache Cordova
 category: JavaScript libraries
 subtitle: Cross-platform mobile app builder
+logo: { src: /assets/logos/cordova.svg, mono: true }
 intro: |
   A quick reference to common [Apache Cordova](https://cordova.apache.org/) commands.
 last_verified_with: "Cordova CLI 13.0."

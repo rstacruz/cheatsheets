@@ -1,6 +1,7 @@
 ---
 title: ffmpeg
 subtitle: Audio and video transcoder
+logo: { src: /assets/logos/ffmpeg.svg, mono: true }
 category: Media tools
 last_verified_with: "FFmpeg 9.1."
 updated: 2026-11-25

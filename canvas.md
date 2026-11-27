@@ -1,6 +1,7 @@
 ---
 title: Canvas
 subtitle: HTML canvas drawing API
+logo: { set: icon-park-outline, name: paint }
 category: Browser APIs
 last_verified_with: "WHATWG HTML Standard, Canvas 2D Context."
 updated: 2026-11-25

@@ -2,6 +2,7 @@
 title: Intl.Collator vs localeCompare
 link_title: Collator vs localeCompare
 subtitle: When to use each
+logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

@@ -2,6 +2,7 @@
 title: How to fetch data in Svelte
 link_title: Fetch data in Svelte
 subtitle: Loading remote data
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

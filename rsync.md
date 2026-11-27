@@ -1,6 +1,7 @@
 ---
 title: Rsync
 subtitle: File sync utility
+logo: { set: icon-park-outline, name: sync }
 intro: |
   A quick reference for rsync commands and flags covering syncing directories, filtering files, compression, backups, and updates.
 links:

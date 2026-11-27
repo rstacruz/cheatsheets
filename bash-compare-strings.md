@@ -2,6 +2,7 @@
 title: How to compare strings in Bash
 link_title: Compare strings
 subtitle: Test strings in shell scripts
+logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."

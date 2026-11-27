@@ -1,6 +1,7 @@
 ---
 title: "Shell: named pipes"
 subtitle: Process substitution and named pipes
+logo: { src: /assets/logos/bash.svg }
 category: Shell
 intro: |
   Use Bash process substitution and named pipes to pass command output as file paths without temporary files.

@@ -1,6 +1,7 @@
 ---
 title: Vimscript functions
 subtitle: Built-in function reference
+logo: { src: /assets/logos/vim.svg }
 category: Vim
 last_verified_with: "Vim 9.2."
 updated: 2026-11-24

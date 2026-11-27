@@ -2,6 +2,7 @@
 title: How to comment in Svelte
 link_title: Comment in Svelte
 subtitle: Comments in components
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

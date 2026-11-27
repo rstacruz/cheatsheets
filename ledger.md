@@ -1,6 +1,7 @@
 ---
 title: Ledger CLI
 subtitle: Plain-text accounting tool
+logo: { set: icon-park-outline, name: book-open }
 category: Plain-text accounting
 last_verified_with: "Ledger 3.4.1."
 updated: 2026-11-25

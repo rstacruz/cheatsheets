@@ -1,6 +1,7 @@
 ---
 title: Vimdiff
 subtitle: Vim diff comparison mode
+logo: { src: /assets/logos/vim.svg }
 category: Vim
 updated: 2026-11-26
 weight: -10

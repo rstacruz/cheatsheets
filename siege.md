@@ -1,6 +1,7 @@
 ---
 title: Siege
 subtitle: HTTP load testing tool
+logo: { set: icon-park-outline, name: speed }
 category: Networking
 tier: t3
 last_verified_with: "Siege 4.2.2."

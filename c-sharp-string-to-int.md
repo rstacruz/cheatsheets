@@ -2,6 +2,7 @@
 title: How to convert a string to an int in C#
 link_title: C# string to int
 subtitle: Parse numbers safely
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

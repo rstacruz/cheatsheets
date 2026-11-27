@@ -1,6 +1,7 @@
 ---
 title: ES2015+
 subtitle: Modern JavaScript features
+logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 last_verified_with: "ECMAScript 2018."
 updated: 2026-11-25

@@ -1,6 +1,7 @@
 ---
 title: Stylus
 subtitle: Indentation-based CSS preprocessor
+logo: { src: /assets/logos/stylus.svg, mono: true }
 category: CSS
 intro: |
   Stylus is an indentation-based CSS preprocessor with variables, mixins, functions, and built-ins.

@@ -2,6 +2,7 @@
 title: How to create a Next.js route handler
 link_title: Route handlers
 subtitle: APIs in route.ts
+logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6."

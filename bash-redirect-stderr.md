@@ -2,6 +2,7 @@
 title: How to redirect stderr in Bash
 link_title: Redirect stderr
 subtitle: Send errors to files
+logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."

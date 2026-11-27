@@ -1,6 +1,7 @@
 ---
 title: JSHint
 subtitle: JavaScript linter
+logo: { set: icon-park-outline, name: code }
 category: Build tools
 last_verified_with: "JSHint 2.13.6."
 updated: 2026-11-25

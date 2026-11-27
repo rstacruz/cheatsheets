@@ -1,6 +1,7 @@
 ---
 title: git log
 subtitle: Commit history viewer
+logo: { src: /assets/logos/git.svg }
 category: Git
 updated: 2026-11-23
 tier: t3

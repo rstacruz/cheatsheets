@@ -1,6 +1,7 @@
 ---
 title: Ruby
 subtitle: Object-oriented scripting language
+logo: { src: /assets/logos/ruby.svg }
 category: Ruby
 tags: [WIP]
 intro: |

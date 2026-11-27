@@ -1,6 +1,7 @@
 ---
 title: Stencil
 subtitle: Web component compiler
+logo: { src: /assets/logos/stencil.svg }
 category: Build tools
 updated: 2026-11-26
 last_verified_with: "Stencil 4.45.5."

@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code
 subtitle: Extensible code editor
+logo: { src: /assets/logos/vscode.svg }
 category: Apps
 weight: -5
 keywords:

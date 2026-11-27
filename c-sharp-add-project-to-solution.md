@@ -2,6 +2,7 @@
 title: How to add a project to a .NET solution
 link_title: dotnet sln add
 subtitle: Manage solution files
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: ".NET 11.0.100."

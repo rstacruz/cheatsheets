@@ -1,6 +1,7 @@
 ---
 title: Ansible modules
 subtitle: Module reference for playbooks
+logo: { src: /assets/logos/ansible.svg }
 category: Ansible
 prism_languages: [yaml]
 last_verified_with: "ansible-core 2.22."

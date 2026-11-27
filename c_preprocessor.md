@@ -1,6 +1,7 @@
 ---
 title: C Preprocessor
 subtitle: C macro preprocessor reference
+logo: { set: icon-park-outline, name: code }
 category: C-like
 intro: |
   Quick reference for the [C macro preprocessor](https://en.m.wikipedia.org/wiki/C_preprocessor), which can be used independent of C/C++.

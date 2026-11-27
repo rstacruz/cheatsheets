@@ -2,6 +2,7 @@
 title: How to polyfill Intl.PluralRules
 link_title: PluralRules polyfill
 subtitle: For Hermes and old engines
+logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "intl-pluralrules 2.0.1, Node 26.13.1."

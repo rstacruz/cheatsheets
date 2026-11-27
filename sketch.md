@@ -1,6 +1,7 @@
 ---
 title: Sketch
 subtitle: Mac vector design app
+logo: { src: /assets/logos/sketch.svg }
 category: Apps
 updated: 2026-11-26
 keywords:

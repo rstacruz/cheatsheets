@@ -1,6 +1,7 @@
 ---
 title: Textile
 subtitle: Lightweight markup language
+logo: { set: icon-park-outline, name: format }
 category: Markup
 intro: |
   Textile is a lightweight markup language for formatting web text.

@@ -2,6 +2,7 @@
 title: How to format a number as currency in JavaScript
 link_title: Format currency
 subtitle: Dollar amounts per locale
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

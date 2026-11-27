@@ -1,6 +1,7 @@
 ---
 title: "Phoenix: Ecto migrations"
 subtitle: Database migration tasks
+logo: { src: /assets/logos/phoenix.svg }
 category: Elixir
 weight: -1
 updated: 2026-11-23

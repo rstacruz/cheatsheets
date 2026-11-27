@@ -1,6 +1,7 @@
 ---
 title: assert
 subtitle: Assertion testing module
+logo: { src: /assets/logos/nodejs.svg }
 category: Node.js
 last_verified_with: "Node.js 26.13.1."
 updated: 2026-11-24

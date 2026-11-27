@@ -1,6 +1,7 @@
 ---
 title: Tomdoc
 subtitle: Ruby documentation format
+logo: { set: icon-park-outline, name: book-open }
 category: Markup
 intro: |
   TomDoc is a documentation format for Ruby code.

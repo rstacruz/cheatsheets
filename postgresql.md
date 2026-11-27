@@ -1,6 +1,7 @@
 ---
 title: PostgreSQL
 subtitle: Object-relational database system
+logo: { src: /assets/logos/postgresql.svg }
 category: Databases
 updated: 2026-11-25
 keywords: [psql, postgres, SQL]

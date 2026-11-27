@@ -1,6 +1,7 @@
 ---
 title: Tig
 subtitle: Terminal Git repository browser
+logo: { src: /assets/logos/git.svg }
 category: Git
 intro: |
   Tig is a terminal browser for Git repositories and history.

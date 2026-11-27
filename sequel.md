@@ -1,6 +1,7 @@
 ---
 title: Sequel
 subtitle: Ruby database toolkit
+logo: { set: icon-park-outline, name: data-server }
 category: Ruby libraries
 tier: t3
 last_verified_with: "Sequel 5.110.0."

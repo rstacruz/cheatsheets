@@ -2,6 +2,7 @@
 title: How to search and replace with ripgrep
 link_title: Ripgrep search and replace
 subtitle: Preview replacements safely
+logo: { set: icon-park-outline, name: search }
 category: CLI
 layout: snippet
 last_verified_with: "ripgrep 15.1.0."

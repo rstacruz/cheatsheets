@@ -1,6 +1,7 @@
 ---
 title: Heroku
 subtitle: Cloud application hosting platform
+logo: { src: /assets/logos/heroku.svg, mono: true }
 category: Devops
 updated: 2026-11-25
 tier: t3

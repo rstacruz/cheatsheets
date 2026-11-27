@@ -2,6 +2,7 @@
 title: How to change the locale in Day.js
 link_title: Day.js locale
 subtitle: Load and switch locales
+logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."

@@ -2,6 +2,7 @@
 title: When to use $derived and $effect in Svelte
 link_title: Derived vs effect
 subtitle: Values vs side effects
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

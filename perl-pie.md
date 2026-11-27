@@ -1,6 +1,7 @@
 ---
 title: Perl-pie
 subtitle: In-place file editing
+logo: { set: icon-park-outline, name: edit }
 category: CLI
 intro: |
   Use `perl` to search and replace across many files.

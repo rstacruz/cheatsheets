@@ -1,6 +1,7 @@
 ---
 title: DOM Range
 subtitle: Document range API
+logo: { set: icon-park-outline, name: browser }
 category: Browser APIs
 intro: |
   Quick reference to the HTML [DOM createRange API](https://devdocs.io/dom/range).

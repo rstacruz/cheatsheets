@@ -1,6 +1,7 @@
 ---
 title: JavaScript Numbers
 subtitle: Floating-point number reference
+logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 weight: -3
 updated: 2026-11-25

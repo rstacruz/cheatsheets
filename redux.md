@@ -1,6 +1,7 @@
 ---
 title: Redux
 subtitle: Predictable state container
+logo: { src: /assets/logos/redux.svg }
 category: JavaScript libraries
 updated: 2026-11-26
 weight: -3

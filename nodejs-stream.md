@@ -1,6 +1,7 @@
 ---
 title: Node.js streams
 subtitle: Streaming data API
+logo: { src: /assets/logos/nodejs.svg }
 category: Node.js
 weight: -1
 intro: |

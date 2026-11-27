@@ -1,6 +1,7 @@
 ---
 title: JavaScript speech synthesis
 subtitle: Speech synthesis API
+logo: { src: /assets/logos/javascript.svg }
 category: Browser APIs
 weight: -1
 updated: 2026-11-25

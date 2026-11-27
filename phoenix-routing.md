@@ -1,6 +1,7 @@
 ---
 title: "Phoenix: Routing"
 subtitle: URL routing DSL
+logo: { src: /assets/logos/phoenix.svg }
 category: Elixir
 weight: -1
 tier: t3

@@ -1,6 +1,7 @@
 ---
 title: Yaml
 subtitle: Human-readable data format
+logo: { src: /assets/logos/yaml.svg }
 category: Markup
 intro: |
   YAML is a human-readable data serialization format.

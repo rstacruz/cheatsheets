@@ -1,6 +1,7 @@
 ---
 title: Bulma
 subtitle: Flexbox-based CSS framework
+logo: { src: /assets/logos/bulma.svg }
 category: CSS
 prism_languages: [css, html]
 weight: -1

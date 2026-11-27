@@ -1,6 +1,7 @@
 ---
 title: Sinon-chai
 subtitle: Sinon assertions for Chai
+logo: { src: /assets/logos/sinon.svg }
 category: JavaScript testing
 tier: t3
 last_verified_with: "Sinon-chai 4.0.1, Sinon 22.1.0."

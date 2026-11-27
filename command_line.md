@@ -1,6 +1,7 @@
 ---
 title: Command line stuff
 subtitle: Unix shell basics
+logo: { set: icon-park-outline, name: terminal }
 category: Shell
 last_verified_with: "GNU coreutils 9.12, Bash 5.3."
 updated: 2026-11-25

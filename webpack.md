@@ -1,6 +1,7 @@
 ---
 title: Webpack
 subtitle: Asset and module bundler
+logo: { src: /assets/logos/webpack.svg }
 category: Build tools
 intro: |
   [Webpack](https://webpack.js.org) bundles JavaScript, CSS, and other assets into files a browser can load. This reference targets webpack 5 and webpack-cli 7.

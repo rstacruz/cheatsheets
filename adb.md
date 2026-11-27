@@ -1,6 +1,7 @@
 ---
 title: adb (Android Debug Bridge)
 subtitle: Android device debugging bridge
+logo: { set: icon-park-outline, name: terminal }
 category: CLI
 weight: -1
 authors:

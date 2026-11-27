@@ -1,6 +1,7 @@
 ---
 title: Haml
 subtitle: Indentation-based HTML templating
+logo: { src: /assets/logos/haml.svg }
 category: Markup
 prism_languages: [haml]
 last_verified_with: "Haml 7.5.2."

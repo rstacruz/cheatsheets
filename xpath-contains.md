@@ -2,6 +2,7 @@
 title: How to use contains() in XPath
 link_title: XPath contains()
 subtitle: Match text and attributes
+logo: { set: icon-park-outline, name: code }
 category: HTML
 layout: snippet
 last_verified_with: "XPath 1.0."

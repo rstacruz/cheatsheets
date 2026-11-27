@@ -1,6 +1,7 @@
 ---
 title: DOM Selection
 subtitle: Text selection API
+logo: { set: icon-park-outline, name: browser }
 category: Browser APIs
 intro: |
   Quick introduction to the HTML [DOM selection API](https://devdocs.io/dom/selection).

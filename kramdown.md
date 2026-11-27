@@ -1,6 +1,7 @@
 ---
 title: Kramdown
 subtitle: Ruby Markdown parser
+logo: { src: /assets/logos/markdown.svg, mono: true }
 category: Markup
 last_verified_with: "kramdown 2.6.1."
 updated: 2026-11-25

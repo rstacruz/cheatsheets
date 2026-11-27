@@ -1,6 +1,7 @@
 ---
 title: Parsley.js
 subtitle: Frontend form validation
+logo: { set: icon-park-outline, name: form }
 updated: 2026-11-25
 tier: t3
 last_verified_with: "Parsley.js 2.9.2."

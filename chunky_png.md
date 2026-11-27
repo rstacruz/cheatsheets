@@ -1,6 +1,7 @@
 ---
 title: Chunky PNG
 subtitle: Ruby PNG manipulation library
+logo: { set: icon-park-outline, name: picture }
 category: Ruby libraries
 last_verified_with: "ChunkyPNG 1.4."
 updated: 2026-11-25

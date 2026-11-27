@@ -1,6 +1,7 @@
 ---
 title: Pacman
 subtitle: Arch Linux package manager
+logo: { src: /assets/logos/archlinux.svg }
 category: Linux
 updated: 2026-11-25
 last_verified_with: "pacman 7.1.0."

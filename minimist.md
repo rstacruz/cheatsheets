@@ -1,6 +1,7 @@
 ---
 title: minimist
 subtitle: CLI argument parser
+logo: { set: icon-park-outline, name: command }
 category: Node.js libraries
 last_verified_with: "minimist 1.2.8."
 updated: 2026-11-25

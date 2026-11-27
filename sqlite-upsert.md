@@ -2,6 +2,7 @@
 title: How to upsert in SQLite
 link_title: Upsert in SQLite
 subtitle: Insert or update a row
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

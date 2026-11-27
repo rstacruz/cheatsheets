@@ -2,6 +2,7 @@
 title: How to use SQLite from Python
 link_title: SQLite in Python
 subtitle: Query a database with sqlite3
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

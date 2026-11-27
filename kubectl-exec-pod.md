@@ -2,6 +2,7 @@
 title: How to shell into a Kubernetes pod
 link_title: Kubernetes exec shell
 subtitle: Run commands inside a pod
+logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."

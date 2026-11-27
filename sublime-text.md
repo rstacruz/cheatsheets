@@ -1,6 +1,7 @@
 ---
 title: Sublime Text
 subtitle: Text editor shortcuts
+logo: { src: /assets/logos/sublimetext.svg }
 category: Apps
 intro: |
   Sublime Text is a cross-platform code editor.

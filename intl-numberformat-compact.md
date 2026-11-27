@@ -2,6 +2,7 @@
 title: How to format 1000 as 1K in JavaScript
 link_title: Compact numbers
 subtitle: Short notation such as 1.2K
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

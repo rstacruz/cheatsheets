@@ -1,6 +1,7 @@
 ---
 title: Gremlins.js
 subtitle: JavaScript monkey-testing library
+logo: { set: icon-park-outline, name: monkey }
 category: JavaScript testing
 updated: 2026-11-25
 tier: t3

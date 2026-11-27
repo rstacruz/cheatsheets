@@ -2,6 +2,7 @@
 title: SimpleForm
 category: Rails
 subtitle: Rails form builder
+logo: { src: /assets/logos/rails.svg }
 intro: |
   A Rails form builder reference for generating inputs, buttons, and custom wrappers with Simple Form.
 links:

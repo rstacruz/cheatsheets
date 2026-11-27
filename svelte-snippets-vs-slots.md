@@ -2,6 +2,7 @@
 title: How to replace slots with snippets in Svelte
 link_title: Snippets vs slots
 subtitle: Passing content to components
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

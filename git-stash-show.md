@@ -2,6 +2,7 @@
 title: How to view a Git stash
 link_title: View a Git stash
 subtitle: Inspect stashed changes
+logo: { src: /assets/logos/git.svg }
 category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."

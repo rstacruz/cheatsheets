@@ -1,6 +1,7 @@
 ---
 title: Git log format string
 subtitle: Log format placeholder reference
+logo: { src: /assets/logos/git.svg }
 category: Git
 updated: 2026-11-23
 tier: t3

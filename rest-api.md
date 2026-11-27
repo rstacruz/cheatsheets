@@ -1,6 +1,7 @@
 ---
 title: RESTful API
 subtitle: REST convention reference
+logo: { set: icon-park-outline, name: api }
 updated: 2026-11-26
 category: API
 intro: |

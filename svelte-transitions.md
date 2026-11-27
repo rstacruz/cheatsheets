@@ -2,6 +2,7 @@
 title: How to add transitions in Svelte
 link_title: Svelte transitions
 subtitle: Enter, exit, and list motion
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

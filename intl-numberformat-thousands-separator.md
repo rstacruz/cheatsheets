@@ -2,6 +2,7 @@
 title: How to add thousands separators to a number in JavaScript
 link_title: Thousands separator
 subtitle: Comma-grouped digits
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

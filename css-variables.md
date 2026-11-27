@@ -2,6 +2,7 @@
 title: How to use CSS variables
 link_title: CSS variables
 subtitle: Custom properties and fallbacks
+logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "CSS Custom Properties Module Level 1, CSS Properties and Values API Level 1."

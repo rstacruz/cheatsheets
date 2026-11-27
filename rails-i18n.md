@@ -1,6 +1,7 @@
 ---
 title: Rails i18n
 subtitle: Translation and localization
+logo: { src: /assets/logos/rails.svg }
 category: Rails
 intro: |
   Rails I18n provides translations, localization, and formatting helpers.

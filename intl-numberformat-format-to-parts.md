@@ -2,6 +2,7 @@
 title: How to style parts of a formatted number in JavaScript
 link_title: Style number parts
 subtitle: Wrap currency or digits
+logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."

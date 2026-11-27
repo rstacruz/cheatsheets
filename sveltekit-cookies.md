@@ -2,6 +2,7 @@
 title: How to set cookies in SvelteKit
 link_title: SvelteKit cookies
 subtitle: Sessions and user state
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."

@@ -2,6 +2,7 @@
 title: How to decode a Kubernetes secret
 link_title: Kubernetes decode secret
 subtitle: Read base64 secret values
+logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."

@@ -1,6 +1,7 @@
 ---
 title: Ubuntu
 subtitle: Linux distribution
+logo: { src: /assets/logos/ubuntu.svg }
 category: Linux
 intro: |
   Ubuntu is a Debian-based Linux distribution.

@@ -1,6 +1,7 @@
 ---
 title: tar
 subtitle: Archive utility
+logo: { src: /assets/logos/bash.svg }
 category: CLI
 tier: t3
 last_verified_with: "GNU tar 1.35."

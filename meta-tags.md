@@ -1,6 +1,7 @@
 ---
 title: Meta-tags gem
 subtitle: Rails meta tag helper
+logo: { set: icon-park-outline, name: tag }
 category: Ruby libraries
 weight: -1
 updated: 2026-11-25

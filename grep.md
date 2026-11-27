@@ -1,6 +1,7 @@
 ---
 title: GNU grep
 subtitle: Pattern search utility
+logo: { set: icon-park-outline, name: search }
 category: CLI
 updated: 2026-11-23
 last_verified_with: "GNU grep 3.12."

@@ -2,6 +2,7 @@
 title: How to set up an nginx reverse proxy
 link_title: nginx reverse proxy
 subtitle: Proxy requests to an app
+logo: { src: /assets/logos/nginx.svg }
 category: Networking
 layout: snippet
 last_verified_with: "nginx 1.30.8."

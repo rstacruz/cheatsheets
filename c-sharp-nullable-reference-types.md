@@ -2,6 +2,7 @@
 title: How to enable nullable reference types in C#
 link_title: C# nullable types
 subtitle: Annotate nullable values
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

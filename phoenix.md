@@ -1,6 +1,7 @@
 ---
 title: Phoenix
 subtitle: Web framework for Elixir
+logo: { src: /assets/logos/phoenix.svg }
 category: Elixir
 weight: -1
 intro: |

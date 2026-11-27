@@ -2,6 +2,7 @@
 title: When to use fd vs find
 link_title: fd vs find
 subtitle: Find files from the CLI
+logo: { set: icon-park-outline, name: file-search }
 category: CLI
 layout: snippet
 last_verified_with: "fd 10.5.1."

@@ -2,6 +2,7 @@
 title: How to group items in C#
 link_title: C# group by
 subtitle: Group with LINQ
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

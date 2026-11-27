@@ -2,6 +2,7 @@
 title: Day.js vs Moment.js differences
 link_title: Day.js vs Moment
 subtitle: API and plugin differences
+logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Moment 2.30.1."

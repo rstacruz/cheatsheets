@@ -1,6 +1,7 @@
 ---
 title: Flow
 subtitle: JavaScript type checker
+logo: { src: /assets/logos/flow.svg }
 category: Build tools
 last_verified_with: "Flow 0.342."
 updated: 2026-11-25

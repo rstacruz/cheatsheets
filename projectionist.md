@@ -1,6 +1,7 @@
 ---
 title: Projectionist
 subtitle: Vim file projection plugin
+logo: { src: /assets/logos/vim.svg }
 category: Vim
 tier: t3
 last_verified_with: "vim-projectionist 1.3."

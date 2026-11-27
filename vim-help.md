@@ -1,6 +1,7 @@
 ---
 title: Vim helpfiles
 subtitle: Help file authoring reference
+logo: { src: /assets/logos/vim.svg }
 category: Vim
 intro: |
   Vim helpfiles document plugins and features in `:help`.

@@ -2,6 +2,7 @@
 title: How to select elements by class in XPath
 link_title: XPath select by class
 subtitle: Match class tokens
+logo: { set: icon-park-outline, name: code }
 category: HTML
 layout: snippet
 last_verified_with: "XPath 1.0."

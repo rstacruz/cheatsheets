@@ -1,6 +1,7 @@
 ---
 title: Spacemacs
 subtitle: Emacs configuration distribution
+logo: { src: /assets/logos/spacemacs.svg }
 category: Apps
 updated: 2026-11-26
 tags: [WIP]

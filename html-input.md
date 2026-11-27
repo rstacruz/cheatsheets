@@ -1,6 +1,7 @@
 ---
 title: Input tag
 subtitle: Type and attribute reference
+logo: { src: /assets/logos/html.svg }
 category: HTML
 updated: 2026-11-23
 tier: t3

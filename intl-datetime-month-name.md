@@ -2,6 +2,7 @@
 title: How to get the month name in JavaScript
 link_title: Get the month name
 subtitle: Month names by locale
+logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

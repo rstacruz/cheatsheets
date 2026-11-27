@@ -2,6 +2,7 @@
 title: How to redirect in SvelteKit
 link_title: SvelteKit redirects
 subtitle: Load, actions, and hooks
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."

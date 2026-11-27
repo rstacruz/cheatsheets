@@ -2,6 +2,7 @@
 title: How to make an animated GIF with ffmpeg
 link_title: Animated GIF with ffmpeg
 subtitle: Video to GIF conversion
+logo: { src: /assets/logos/ffmpeg.svg, mono: true }
 category: Media tools
 layout: snippet
 last_verified_with: "ffmpeg 9.0.2."

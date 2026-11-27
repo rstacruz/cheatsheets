@@ -1,6 +1,7 @@
 ---
 title: Parsimmon
 subtitle: Parser combinator library
+logo: { set: icon-park-outline, name: tree-diagram }
 category: Node.js libraries
 last_verified_with: "Parsimmon 1.18.1."
 updated: 2026-11-25

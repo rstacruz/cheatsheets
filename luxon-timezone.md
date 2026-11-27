@@ -2,6 +2,7 @@
 title: How to convert time zones in Luxon
 link_title: Luxon time zones
 subtitle: Convert, parse and inspect zones
+logo: { src: /assets/logos/luxon.svg }
 category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."

@@ -1,6 +1,7 @@
 ---
 title: GnuPG
 subtitle: OpenPGP encryption suite
+logo: { set: icon-park-outline, name: key }
 category: CLI
 tags: []
 updated: 2026-11-25

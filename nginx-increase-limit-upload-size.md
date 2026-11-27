@@ -2,6 +2,7 @@
 title: How to increase the nginx upload size limit
 link_title: Increase nginx upload size
 subtitle: Allow larger request bodies
+logo: { src: /assets/logos/nginx.svg }
 category: Devops
 layout: snippet
 last_verified_with: "nginx 1.30.8."

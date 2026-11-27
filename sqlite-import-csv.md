@@ -2,6 +2,7 @@
 title: How to import a CSV into SQLite
 link_title: Import CSV into SQLite
 subtitle: Load rows with dot-import
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

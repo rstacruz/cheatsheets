@@ -2,6 +2,7 @@
 title: How to remove duplicates in C#
 link_title: C# distinct values
 subtitle: Drop duplicate items
+logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

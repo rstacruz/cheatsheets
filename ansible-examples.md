@@ -1,6 +1,7 @@
 ---
 title: Ansible examples
 subtitle: Sample playbooks and roles
+logo: { src: /assets/logos/ansible.svg }
 category: Ansible
 last_verified_with: "ansible-core 2.22."
 updated: 2026-11-25

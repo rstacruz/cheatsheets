@@ -1,6 +1,7 @@
 ---
 title: rack-test
 subtitle: Rack testing helpers
+logo: { set: icon-park-outline, name: test-tube }
 category: Ruby libraries
 last_verified_with: "rack-test 2.3.0."
 updated: 2026-11-24

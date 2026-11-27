@@ -1,6 +1,7 @@
 ---
 title: Rubygems
 subtitle: Ruby gem package manager
+logo: { src: /assets/logos/ruby.svg }
 category: Ruby
 intro: |
   A quick reference to common rubygems CLI commands.

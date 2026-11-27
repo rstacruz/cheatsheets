@@ -1,6 +1,7 @@
 ---
 title: JavaScript Arrays
 subtitle: Array manipulation reference
+logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 updated: 2026-11-25
 last_verified_with: "ECMAScript 2026."

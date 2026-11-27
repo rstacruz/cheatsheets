@@ -2,6 +2,7 @@
 title: How to create an SSH tunnel
 link_title: SSH tunnel
 subtitle: Forward local and remote ports
+logo: { set: icon-park-outline, name: link }
 category: Networking
 layout: snippet
 last_verified_with: "OpenSSH 10.6p1."

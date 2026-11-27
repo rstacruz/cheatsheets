@@ -2,6 +2,7 @@
 title: How to handle zero when pluralizing
 link_title: Zero plurals
 subtitle: English has no zero form
+logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."

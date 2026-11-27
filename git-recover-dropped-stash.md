@@ -2,6 +2,7 @@
 title: How to recover a dropped Git stash
 link_title: Recover a dropped stash
 subtitle: Restore unreachable stash commits
+logo: { src: /assets/logos/git.svg }
 category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."

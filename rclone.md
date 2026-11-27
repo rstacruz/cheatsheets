@@ -3,6 +3,7 @@ title: rclone
 seo_title: rclone cheatsheet — commands, remotes, sync
 description: "rclone commands: config, list remotes, copy, sync, check and general flags. Reference."
 subtitle: Cloud storage sync tool
+logo: { src: /assets/logos/rclone.svg }
 category: Networking
 updated: 2026-11-24
 last_verified_with: "rclone 1.76.0."

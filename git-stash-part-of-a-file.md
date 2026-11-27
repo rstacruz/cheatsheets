@@ -2,6 +2,7 @@
 title: How to stash part of a file
 link_title: Stash part of a file
 subtitle: Shelve selected hunks
+logo: { src: /assets/logos/git.svg }
 category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."

@@ -3,6 +3,7 @@ title: Factory Bot
 seo_title: Factory Bot cheatsheet — associations, traits
 description: "Factory Bot factories: define associations, traits, hooks and sequences. Reference."
 subtitle: Ruby test data factory library
+logo: { set: icon-park-outline, name: box }
 category: Ruby libraries
 weight: -3
 last_verified_with: "factory_bot 6.6."

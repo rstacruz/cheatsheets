@@ -1,6 +1,7 @@
 ---
 title: editorconfig
 subtitle: Editor config format
+logo: { src: /assets/logos/editorconfig.svg, mono: true }
 prism_languages: [ini]
 weight: -1
 updated: 2026-11-23

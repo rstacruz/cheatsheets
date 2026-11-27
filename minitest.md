@@ -1,6 +1,7 @@
 ---
 title: Minitest
 subtitle: Lightweight Ruby test suite
+logo: { set: icon-park-outline, name: test-tube }
 category: Ruby
 last_verified_with: "Minitest 6.1.0, minitest-mock 5.27.0, minitest-reporters 1.8.0."
 updated: 2026-11-25

@@ -2,6 +2,7 @@
 title: How to bind an input in Svelte
 link_title: Bind Svelte inputs
 subtitle: Two-way form bindings
+logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."

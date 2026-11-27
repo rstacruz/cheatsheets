@@ -1,6 +1,7 @@
 ---
 title: Mixpanel
 subtitle: Product analytics service
+logo: { src: /assets/logos/mixpanel.svg }
 category: Apps
 updated: 2026-11-24
 last_verified_with: "mixpanel-browser 2.86.0."

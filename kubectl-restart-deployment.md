@@ -2,6 +2,7 @@
 title: How to restart a Kubernetes deployment
 link_title: Kubernetes restart deployment
 subtitle: Restart pods without a rebuild
+logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."

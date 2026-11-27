@@ -2,6 +2,7 @@
 title: How to use TypeScript with Express
 link_title: Express TypeScript
 subtitle: Typed handlers and bodies
+logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
 updated: 2026-11-26

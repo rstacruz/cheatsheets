@@ -1,6 +1,7 @@
 ---
 title: Bundler
 subtitle: Ruby dependency manager
+logo: { set: icon-park-outline, name: box }
 category: Ruby
 last_verified_with: "Bundler 4.1."
 updated: 2026-11-25

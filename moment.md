@@ -3,6 +3,7 @@ title: Moment.js
 seo_title: Moment.js cheatsheet — format, parse, add
 description: "Moment.js format: parsing, add, subtract, time zones and duration. Date reference."
 subtitle: Date manipulation library
+logo: { src: /assets/logos/moment.svg, mono: true }
 category: Date libraries
 updated: 2026-11-25
 last_verified_with: "Moment.js 2.31.0, Moment Timezone 0.6.6."

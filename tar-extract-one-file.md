@@ -2,6 +2,7 @@
 title: How to extract one file from a tar archive
 link_title: tar extract one file
 subtitle: Extract a single archive member
+logo: { set: icon-park-outline, name: file-zip }
 category: CLI
 layout: snippet
 last_verified_with: "tar 1.35."

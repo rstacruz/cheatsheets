@@ -2,6 +2,7 @@
 title: How to write a Bash case statement
 link_title: Bash case statement
 subtitle: Match values with glob patterns
+logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."

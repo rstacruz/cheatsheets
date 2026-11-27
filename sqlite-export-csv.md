@@ -2,6 +2,7 @@
 title: How to export a SQLite table to CSV
 link_title: Export SQLite to CSV
 subtitle: Write query results to CSV
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

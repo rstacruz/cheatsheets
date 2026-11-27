@@ -1,6 +1,7 @@
 ---
 title: Arel
 subtitle: SQL abstraction library for Rails
+logo: { src: /assets/logos/rails.svg }
 category: Rails
 intro: |
   Arel is an SQL abstraction library built into Ruby on Rails.

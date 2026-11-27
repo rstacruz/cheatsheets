@@ -2,6 +2,7 @@
 title: How to show tables in SQLite
 link_title: Show tables in SQLite
 subtitle: List tables, schema and columns
+logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 layout: snippet
 tier: t3

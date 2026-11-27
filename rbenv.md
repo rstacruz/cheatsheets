@@ -2,6 +2,7 @@
 title: rbenv
 seo_title: rbenv cheatsheet — install, versions, global
 subtitle: Ruby version manager
+logo: { set: icon-park-outline, name: toolkit }
 category: Ruby
 tier: t3
 updated: 2026-11-26

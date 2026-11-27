@@ -1,6 +1,7 @@
 ---
 title: Pug
 subtitle: HTML template engine
+logo: { src: /assets/logos/pug.svg }
 category: JavaScript libraries
 intro: |
   Pug is an HTML template engine with indentation-based syntax, mixins, and inheritance.

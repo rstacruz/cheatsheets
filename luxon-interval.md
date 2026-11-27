@@ -2,6 +2,7 @@
 title: How to split and measure date ranges in Luxon
 link_title: Luxon intervals
 subtitle: Split and measure date ranges
+logo: { src: /assets/logos/luxon.svg }
 category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."

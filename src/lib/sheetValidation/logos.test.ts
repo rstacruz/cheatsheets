@@ -5,6 +5,9 @@ import { isListed } from '../page/accessors'
 import { resolveLogo } from '../logo-render'
 import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
+const MIN_RATIO = 0.8
+const MAX_RATIO = 1.25
+
 const pagesWithLogos = async () => {
   const pages = await getPages()
   return Object.values(pages).filter((page) => page.frontmatter.logo)
@@ -67,10 +70,27 @@ test('every featured sheet has a logo', async () => {
   }
 })
 
-test('logo marks are not wide wordmarks', async () => {
+test('every t1/t2 sheet has a logo', async () => {
+  const pages = Object.values(await getPages())
+  const tiered = pages.filter(
+    (page) => page.frontmatter.tier === 't1' || page.frontmatter.tier === 't2'
+  )
+
+  expect(tiered.length).toBeGreaterThan(0)
+
+  for (const page of tiered) {
+    expect(
+      page.frontmatter.logo,
+      `${page.slug} is ${page.frontmatter.tier} but has no logo`
+    ).toBeDefined()
+  }
+})
+
+test('all logo marks are square', async () => {
   for (const page of await pagesWithLogos()) {
     const logo = page.frontmatter.logo!
     const resolved = resolveLogo(logo)
+    expect(resolved, `${page.slug} did not resolve`).not.toBeNull()
     if (!resolved) continue
 
     const viewBox =
@@ -81,18 +101,17 @@ test('logo marks are not wide wordmarks', async () => {
             'utf8'
           ).match(/viewBox="([^"]+)"/)?.[1]
 
+    expect(viewBox, `${page.slug} has no viewBox`).toBeDefined()
     if (!viewBox) continue
 
     const [, , width, height] = viewBox.split(/[ ,]+/).map(Number)
     const ratio = width / height
 
-    expect(
-      ratio,
-      `${page.slug} is ${width}x${height}; prefer a square mark`
-    ).toBeGreaterThan(0.7)
-    expect(
-      ratio,
-      `${page.slug} is ${width}x${height}; prefer a square mark`
-    ).toBeLessThan(1.45)
+    expect(ratio, `${page.slug} is ${width}x${height}`).toBeGreaterThanOrEqual(
+      MIN_RATIO
+    )
+    expect(ratio, `${page.slug} is ${width}x${height}`).toBeLessThanOrEqual(
+      MAX_RATIO
+    )
   }
 })

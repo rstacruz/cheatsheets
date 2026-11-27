@@ -42,6 +42,14 @@ it.each([[], ['--json'], ['--date', DATE]])(
     expect(() => parseOptions(args)).toThrow(/--tier is required/)
   }
 )
+it.each(['2026-02-30', '2026-13-01', '26-11-28'])(
+  'rejects invalid --date: %s',
+  (date) => {
+    expect(() => parseOptions(['--tier', 't1', '--date', date])).toThrow(
+      /--date must be YYYY-MM-DD/
+    )
+  }
+)
 
 it.each([
   ['t1', '2026-11-14'],
@@ -121,6 +129,19 @@ test('excludes sheets in open PRs', () => {
   )
   const slugs = dueRows(['--tier', 't1'], excluded).map((row) => row.slug)
   expect(slugs).toEqual(['twin', 'alpha'])
+})
+test('run uses open PR paths by default', () => {
+  const openPrPaths = vi.fn(() => new Set(['oldest.md']))
+  const output = run(['--tier', 't1', '--date', DATE, '--json'], {
+    root,
+    openPrPaths,
+    print: vi.fn()
+  })
+  expect(JSON.parse(output).map((row: DueSheet) => row.slug)).toEqual([
+    'twin',
+    'alpha'
+  ])
+  expect(openPrPaths).toHaveBeenCalledWith(DEFAULT_LABEL)
 })
 
 test('warns and continues when gh fails', () => {

@@ -14,6 +14,14 @@ const DAY_MS = 86_400_000
 const USAGE =
   'Usage: sheets:due --tier <t1|t2> [--date YYYY-MM-DD] [--limit N] [--json] [--exclude-label <label>]'
 
+function isIsoDate(value: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
+  const parsed = new Date(`${value}T00:00:00Z`)
+  return (
+    !Number.isNaN(parsed.getTime()) &&
+    parsed.toISOString().slice(0, 10) === value
+  )
+}
 export const AGE_DAYS = { t1: 14, t2: 42 } as const
 export type Tier = keyof typeof AGE_DAYS
 export type DueSheet = {
@@ -35,6 +43,7 @@ type Sheet = { slug: string; frontmatter: SheetFrontmatter }
 type Dependencies = {
   root?: string
   excludedPaths?: Set<string>
+  openPrPaths?: (label: string) => Set<string>
   print?: (text: string) => void
 }
 
@@ -80,9 +89,7 @@ export function parseOptions(args: string[]): Options {
   }
 
   if (!tier) throw new Error('--tier is required')
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || Number.isNaN(Date.parse(date))) {
-    throw new Error('--date must be YYYY-MM-DD')
-  }
+  if (!isIsoDate(date)) throw new Error('--date must be YYYY-MM-DD')
   return { tier, date, limit, json, label }
 }
 
@@ -165,7 +172,8 @@ export function formatReport(
 export function run(args: string[], deps: Dependencies = {}): string {
   const options = parseOptions(args)
   const sheets = loadSheets(deps.root ?? process.cwd())
-  const excluded = deps.excludedPaths ?? openPrSheetPaths(options.label)
+  const excluded =
+    deps.excludedPaths ?? (deps.openPrPaths ?? openPrSheetPaths)(options.label)
   const due = findDueSheets(sheets, options, excluded)
   const output = options.json
     ? JSON.stringify(due, null, 2)

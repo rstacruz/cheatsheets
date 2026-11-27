@@ -1,0 +1,75 @@
+@layer components {
+  /*
+   * Homepage carbon ad
+   *
+   *     .HomePage__carbonCoverSlot
+   *       #carbonads (classic)
+   *       #carbon-responsive (responsive)
+   *
+   * Carbon fills the slot asynchronously, so the slot keeps a fixed height
+   * and these rules lay the fallback formats out inside it.
+   */
+
+  .HomePage__carbonCoverSlot #carbonads,
+  .HomePage__carbonCoverSlot #carbon-responsive {
+    width: 400px;
+    max-width: 100%;
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    transform: translateY(10px);
+  }
+
+  .HomePage__carbonCoverSlot #carbonads > span {
+    display: block;
+  }
+
+  .HomePage__carbonCoverSlot #carbonads .carbon-wrap,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-responsive-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .HomePage__carbonCoverSlot #carbonads .carbon-img,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-img {
+    flex: none;
+  }
+
+  .HomePage__carbonCoverSlot #carbonads .carbon-img img,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-img img {
+    display: block;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .HomePage__carbonCoverSlot #carbonads .carbon-text,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-text,
+  .HomePage__carbonCoverSlot #carbonads .carbon-text:visited,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-text:visited {
+    flex: 1;
+    color: var(--foreground);
+    text-decoration: none;
+  }
+
+  .HomePage__carbonCoverSlot #carbonads .carbon-text:hover,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-text:hover,
+  .HomePage__carbonCoverSlot #carbonads .carbon-text:focus,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-text:focus {
+    color: var(--link);
+  }
+
+  .HomePage__carbonCoverSlot #carbonads .carbon-poweredby,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-poweredby,
+  .HomePage__carbonCoverSlot #carbonads .carbon-poweredby:visited,
+  .HomePage__carbonCoverSlot #carbon-responsive .carbon-poweredby:visited {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: var(--muted-foreground);
+    text-decoration: none;
+  }
+}

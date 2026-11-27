@@ -28,7 +28,10 @@ export const urls = {
 export const carbon = {
   enabled: isProd,
   // src: 'https://cdn.carbonads.com/carbon.js?serve=CE7IK5QM&placement=devhintsio'
-  src: 'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio'
+  src: 'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio',
+  // Cover format, A/B tested against the zone above
+  coverSrc:
+    'https://pubsrv.devhints.io/carbon.js?serve=CWYIL2JI&placement=devhintsio&format=cover'
 } as const
 
 // Nav order. Every category except Others holds 3-16 non-snippet sheets;

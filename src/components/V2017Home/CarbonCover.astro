@@ -1,0 +1,65 @@
+---
+import { carbon } from '~/config'
+
+const useCarbon = carbon.enabled
+
+// A/B test: `a` is the current zone, `b` is the cover zone.
+// Force a bucket with `?ad=a` or `?ad=b`; otherwise the choice is sticky.
+const styles = {
+  root: 'HomePage__carbonCover col-span-full max-[991px]:order-first min-[640px]:col-span-2',
+  slot: 'HomePage__carbonCoverSlot flex h-[280px] w-full items-center justify-center overflow-hidden rounded-xl bg-secondary'
+}
+---
+
+<div class={styles.root} role="complementary">
+  <div
+    class={styles.slot}
+    data-home-ad-src-a={carbon.src}
+    data-home-ad-src-b={carbon.coverSrc}
+  >
+    {useCarbon && <script is:inline>
+      ;(function () {
+        var slot = document.currentScript.parentElement
+        if (!slot) return
+
+        var params = new URLSearchParams(window.location.search)
+        var override = params.get('ad')
+        var bucket = null
+
+        if (override === 'a' || override === 'b') bucket = override
+        if (!bucket) {
+          var match = document.cookie.match(/(?:^|;\s*)devhints_home_ad=([ab])/)
+          if (match) bucket = match[1]
+        }
+        if (!bucket) bucket = Math.random() < 0.5 ? 'a' : 'b'
+
+        document.cookie =
+          'devhints_home_ad=' +
+          bucket +
+          '; path=/; max-age=31536000; samesite=lax'
+        slot.setAttribute('data-home-ad-bucket', bucket)
+
+        // Carbon stacks the cover under 360px, where it runs about 550px
+        // tall. Keep the normal ad in narrow slots instead.
+        var showCover = bucket === 'b' && slot.clientWidth >= 360
+        slot.setAttribute(
+          'data-home-ad-creative',
+          showCover ? 'cover' : 'default'
+        )
+
+        var script = document.createElement('script')
+        script.async = true
+        script.type = 'text/javascript'
+        script.id = '_carbonads_js'
+        script.src = showCover
+          ? slot.getAttribute('data-home-ad-src-b')
+          : slot.getAttribute('data-home-ad-src-a')
+        slot.appendChild(script)
+      })()
+    </script>}
+  </div>
+</div>
+
+<style is:global>
+  @import '../../styles/vendor/home-carbon.css';
+</style>

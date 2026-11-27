@@ -73,6 +73,12 @@ A mark may appear on at most **3 non-snippet cheatsheets**.
 - Generic glyphs may serve up to 3 sheets; split a larger family across
   different glyphs.
 
+## Sizes
+
+- Sheet page header: **48px** above the h1.
+- Homepage cards: **28px** on both list and featured cards.
+- Homepage snippet rows: **20px**.
+
 ## Validation
 
 ```bash
@@ -80,8 +86,8 @@ pnpm vitest run src/lib/sheetValidation/logos.test.ts
 ```
 
 The check verifies that every declared mark resolves, every file exists and has
-a `viewBox`, every `viewBox` is between `0.8` and `1.25`, every t1/t2 sheet has
-a mark, every featured sheet has one, and no mark appears on more than 3
+a `viewBox`, every `viewBox` is between `0.8` and `1.25`, every t1/t2/t3 sheet
+has a mark, every featured sheet has one, and no mark appears on more than 3
 non-snippet cheatsheets. `pnpm build` also resolves every mark.
 
 ## Examples

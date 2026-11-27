@@ -78,7 +78,7 @@ logo: { src: /assets/logos/herdr.svg, mono: true }
 - Prefer square marks; no wordmarks.
 - `mono: true` inverts fixed-dark artwork in dark mode.
 
-See [Icons](icons.md) for the full sourcing workflow, squareness rule, and validation command. `pnpm test` checks that marks resolve, files exist, are square, and that every t1/t2 and featured sheet has one.
+See [Icons](icons.md) for the full sourcing workflow, squareness rule, and validation command. `pnpm test` checks that marks resolve, files exist, are square, and that every t1/t2/t3 and featured sheet has one.
 
 ## Categories
 

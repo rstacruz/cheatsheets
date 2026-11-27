@@ -70,11 +70,9 @@ test('every featured sheet has a logo', async () => {
   }
 })
 
-test('every t1/t2 sheet has a logo', async () => {
+test('every tiered sheet has a logo', async () => {
   const pages = Object.values(await getPages())
-  const tiered = pages.filter(
-    (page) => page.frontmatter.tier === 't1' || page.frontmatter.tier === 't2'
-  )
+  const tiered = pages.filter((page) => page.frontmatter.tier)
 
   expect(tiered.length).toBeGreaterThan(0)
 

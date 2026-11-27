@@ -12,9 +12,10 @@ test('homepage', async ({ page }) => {
   ]
 
   for (const { name, href } of linksToAssert) {
-    await expect(
-      page.getByRole('link', { name }).first()
-    ).toHaveAttribute('href', href)
+    await expect(page.getByRole('link', { name }).first()).toHaveAttribute(
+      'href',
+      href
+    )
   }
 
   // Share buttons

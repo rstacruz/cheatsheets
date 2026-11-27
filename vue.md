@@ -1,6 +1,7 @@
 ---
 title: Vue.js
 subtitle: Progressive UI framework
+logo: { set: logos, name: vue }
 category: JavaScript frameworks
 updated: 2026-11-24
 last_verified_with: "Vue 3.5.46, Vue Router 5.5.1, Pinia 4.1.0."

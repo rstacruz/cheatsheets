@@ -2,6 +2,7 @@
 title: How to schedule Paseo tasks
 link_title: Paseo scheduled tasks
 subtitle: Run agents on a schedule
+logo: { set: icon-park-outline, name: schedule }
 category: Agents
 layout: snippet
 tier: t1

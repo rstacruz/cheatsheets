@@ -2,6 +2,7 @@
 title: How to run OpenAI Codex headless
 link_title: OpenAI Codex headless tasks
 subtitle: Run Codex from scripts
+logo: { set: logos, name: codex, mono: true }
 category: Agents
 layout: snippet
 last_verified_with: "codex-cli 0.171.0."

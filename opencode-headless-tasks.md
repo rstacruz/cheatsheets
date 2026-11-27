@@ -2,6 +2,7 @@
 title: How to run OpenCode headless
 link_title: OpenCode headless tasks
 subtitle: Run OpenCode from scripts
+logo: { set: simple-icons, name: opencode }
 category: Agents
 layout: snippet
 last_verified_with: "opencode 2.4.1."

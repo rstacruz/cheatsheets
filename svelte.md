@@ -1,6 +1,7 @@
 ---
 title: Svelte
 subtitle: Compiled UI framework
+logo: { set: logos, name: svelte-icon }
 category: JavaScript frameworks
 updated: 2026-11-26
 last_verified_with: "Svelte 5.59.2, Node 26.13.1."

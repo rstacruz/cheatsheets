@@ -1,6 +1,7 @@
 ---
 title: Paseo CLI
 subtitle: Multi-agent coding CLI
+logo: { set: icon-park-outline, name: robot }
 category: Agents
 updated: 2026-11-21
 last_verified_with: "paseo 0.16.2."

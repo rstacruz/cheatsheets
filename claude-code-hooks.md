@@ -1,6 +1,7 @@
 ---
 title: Claude Code hooks
 subtitle: Lifecycle automation
+logo: { set: logos, name: claude-icon }
 category: Agents
 updated: 2026-11-22
 last_verified_with: "Claude Code 2.1.330."

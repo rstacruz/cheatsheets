@@ -1,6 +1,7 @@
 ---
 title: yt-dlp
 subtitle: Command-line video downloader
+logo: { set: icon-park-outline, name: video }
 category: Media tools
 updated: 2026-11-16
 last_verified_with: "yt-dlp 2026.10.26."

@@ -24,7 +24,7 @@ links:
 ```bash
 printf '\033[2J\033[H'
 ```
-<!-- {: data-highlight="2J"} -->
+<!-- {: data-highlight="2J; H"} -->
 
 #### Escaped output
 

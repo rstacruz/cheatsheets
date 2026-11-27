@@ -71,4 +71,4 @@ RESET=$(TERM=xterm-256color tput sgr0)
 printf '%sred%s plain\n' "$RED" "$RESET"
 ```
 
-**Stores terminfo escapes in variables.** `tput setaf 1` and `tput sgr0` emit the terminal's own color and reset sequences; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
+**Stores terminfo escapes in variables.** Pinning `TERM=xterm-256color` makes the output reproducible: these `tput` calls emit xterm's sequences, not necessarily the reader's; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).

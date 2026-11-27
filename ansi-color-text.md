@@ -42,7 +42,7 @@ echo -e '\033[31mred\033[0m'
 ```
 <!-- {: data-highlight="-e"} -->
 
-**Interprets escapes with `echo -e`.** Prefer `printf` when text begins with `-` or contains `%`; see [echo](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-echo).
+**Interprets escapes with `echo -e`.** Prefer `printf` for predictable output; use `%s` when the text contains `%`; see [echo](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-echo).
 
 ### Store color codes
 <!-- {: .-snippet} -->

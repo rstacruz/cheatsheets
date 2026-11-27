@@ -5,7 +5,7 @@ logo: { set: icon-park-outline, name: color-card }
 category: Shell
 intro: |
   Quick reference to ANSI escape sequences for colors, text styles, cursor movement, and screen clearing.
-last_verified_with: "ECMA-48 5th edition, ANSI X3.64, ISO/IEC 8613-6, ncurses 6.6."
+last_verified_with: "ECMA-48 5th edition, ANSI X3.64, ISO/IEC 8613-6."
 updated: 2026-11-28
 tier: t2
 fragments:
@@ -125,7 +125,7 @@ See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.ht
 | `107` | Bright white background |
 <!-- {: .-headers} -->
 
-See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html)
+Bright background support varies by terminal; see [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html).
 
 ### Palette ranges
 
@@ -161,7 +161,7 @@ See: [8-bit color](https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit)
 ```bash
 printf '\033[38;2;255;0;0mred\033[0m\n'
 ```
-<!-- {: data-highlight="255"} -->
+<!-- {: data-highlight="38; 2; 255"} -->
 
 #### Syntax
 
@@ -255,7 +255,7 @@ See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.ht
 ```bash
 printf '\033[sworking\033[u'
 ```
-<!-- {: data-highlight="\033[s"} -->
+<!-- {: data-highlight="\033[s; \033[u"} -->
 
 Some terminals use `ESC 7` and `ESC 8` instead; see [examples](https://en.wikipedia.org/wiki/ANSI_escape_code#Examples).
 
@@ -298,6 +298,8 @@ printf '\033[H\033[2J'
 
 See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html)
 
+## Terminal modes
+
 ### Hide cursor
 
 ```bash
@@ -314,4 +316,4 @@ printf '\033[?1049h'
 ```
 <!-- {: data-highlight="?1049h"} -->
 
-Use `\033[?1049l` to return to the normal screen; see [private modes](https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_sequences).
+Use `\033[?1049l` to return to the normal screen; see [CSI sequences](https://en.wikipedia.org/wiki/ANSI_escape_code#Control_Sequence_Introducer_commands).

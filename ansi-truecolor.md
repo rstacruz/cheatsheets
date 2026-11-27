@@ -24,7 +24,7 @@ links:
 ```bash
 printf '\033[38;2;255;0;0mred\033[0m\n'
 ```
-<!-- {: data-highlight="255"} -->
+<!-- {: data-highlight="38; 2; 255"} -->
 
 #### Escaped output
 
@@ -40,7 +40,7 @@ printf '\033[38;2;255;0;0mred\033[0m\n'
 ```bash
 printf '\033[48;2;0;0;255mblue\033[0m\n'
 ```
-<!-- {: data-highlight="255m"} -->
+<!-- {: data-highlight="48; 255m"} -->
 
 **Sets the background from RGB values.** Use `48;2;r;g;b` and reset with `0` afterwards; see [24-bit color](https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit).
 

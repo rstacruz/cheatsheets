@@ -314,14 +314,14 @@ XADD events '*' type login user Ada
 XRANGE events - + COUNT 1
 XLEN events
 ```
-<!-- {: data-highlight="XADD; XRANGE"} -->
+<!-- {: data-highlight="XADD; XRANGE; XLEN"} -->
 
 Streams keep append-only entries with generated IDs and field-value pairs.
 
 See: [Streams](https://redis.io/docs/latest/data-types/streams/)
 
 ## Expiration
-<!-- {: .-two-column} -->
+<!-- {: .-three-column} -->
 
 ### Set a TTL
 
@@ -382,15 +382,15 @@ A plain `SET` overwrites a key and clears its TTL; `KEEPTTL` preserves it.
 See: [PERSIST](https://redis.io/docs/latest/commands/persist/)
 
 ## Pub/sub
-<!-- {: .-two-column} -->
+<!-- {: .-three-column} -->
 
 ### Subscribe
 
 ```bash
 redis-cli SUBSCRIBE news
-# subscribe
-# news
-# (integer) 1
+# 1) "subscribe"
+# 2) "news"
+# 3) (integer) 1
 ```
 <!-- {: data-highlight="SUBSCRIBE"} -->
 
@@ -431,12 +431,10 @@ redis-cli PUNSUBSCRIBE 'news.*'
 ```
 <!-- {: data-highlight="UNSUBSCRIBE; PUNSUBSCRIBE"} -->
 
-Stop listening on named channels or on a pattern.
-
 See: [UNSUBSCRIBE](https://redis.io/docs/latest/commands/unsubscribe/)
 
 ## Persistence
-<!-- {: .-two-column} -->
+<!-- {: .-three-column} -->
 
 ### Snapshots
 
@@ -447,7 +445,7 @@ BGSAVE
 SAVE
 LASTSAVE
 ```
-<!-- {: data-highlight="BGSAVE; SAVE"} -->
+<!-- {: data-highlight="BGSAVE; SAVE; LASTSAVE"} -->
 
 `SAVE` blocks clients; `BGSAVE` forks. `LASTSAVE` prints the last successful snapshot time.
 
@@ -457,8 +455,8 @@ See: [Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management
 
 ```bash
 CONFIG GET appendonly
-BGREWRITEAOF
 ```
+<!-- {: data-highlight="appendonly"} -->
 
 AOF logs every write; enable it in `redis.conf` or with `CONFIG SET appendonly yes`.
 
@@ -469,6 +467,7 @@ See: [Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management
 ```bash
 BGREWRITEAOF
 ```
+<!-- {: data-highlight="BGREWRITEAOF"} -->
 
 Rewriting compacts the log without stopping the server.
 
@@ -479,13 +478,14 @@ See: [BGREWRITEAOF](https://redis.io/docs/latest/commands/bgrewriteaof/)
 ```bash
 INFO persistence
 ```
+<!-- {: data-highlight="persistence"} -->
 
 Shows RDB save status, `aof_enabled`, and whether the server is still loading data.
 
 See: [INFO](https://redis.io/docs/latest/commands/info/)
 
 ## Administration
-<!-- {: .-two-column} -->
+<!-- {: .-three-column} -->
 
 ### Server info
 
@@ -552,7 +552,7 @@ Settings changed with `CONFIG SET` last until the next restart unless saved.
 See: [CONFIG SET](https://redis.io/docs/latest/commands/config-set/)
 
 ## Docker
-<!-- {: .-two-column} -->
+<!-- {: .-three-column} -->
 
 ### Run a container
 
@@ -584,14 +584,19 @@ See: [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/mana
 
 ### Open a client
 
+#### Interactive shell
+
 ```bash
 docker exec -it redis redis-cli
+```
+
+#### One-shot command
+
+```bash
 docker exec redis redis-cli PING
 # PONG
 ```
 <!-- {: data-highlight="docker exec"} -->
-
-`docker exec` runs a command inside the running container.
 
 See: [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/)
 
@@ -627,10 +632,10 @@ See: [docker stop](https://docs.docker.com/reference/cli/docker/container/stop/)
 
 ## Also see
 
-- [Redis CLI cheatsheet](./redis-cli)
+- [Redis CLI connect cheatsheet](./redis-cli)
 - [Redis key TTL cheatsheet](./redis-ttl)
 - [Redis flush database cheatsheet](./redis-flushdb)
-- [Redis Docker cheatsheet](./redis-docker)
+- [Redis in Docker cheatsheet](./redis-docker)
 - [Redis pub/sub cheatsheet](./redis-pubsub)
 - [Docker CLI cheatsheet](./docker)
 - [SQL cheatsheet](./sql)

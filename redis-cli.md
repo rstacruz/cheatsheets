@@ -1,7 +1,7 @@
 ---
-title: How to run Redis commands with redis-cli
-link_title: Redis CLI commands
-subtitle: Connect, query, and pipe data
+title: How to connect to Redis with redis-cli
+link_title: Redis CLI connect
+subtitle: Hosts, passwords, and databases
 logo: { src: /assets/logos/redis.svg }
 category: Databases
 layout: snippet
@@ -66,25 +66,3 @@ redis-cli -n 2 DBSIZE
 
 **Runs the command against database index 2.** Indices start at 0. See [SELECT](https://redis.io/docs/latest/commands/select/).
 
-### Read stdin
-<!-- {: .-snippet} -->
-
-```bash
-echo hello | redis-cli -x SET greeting
-redis-cli GET greeting
-# "hello\n"
-```
-<!-- {: data-highlight="-x"} -->
-
-**Uses stdin as the last argument.** `echo` appends a newline; use `printf` to avoid it. See [redis-cli](https://redis.io/docs/latest/develop/tools/cli/).
-
-### Print raw replies
-<!-- {: .-snippet} -->
-
-```bash
-redis-cli --raw GET greeting
-# hello
-```
-<!-- {: data-highlight="--raw"} -->
-
-**Prints bulk strings without quotes.** Piping into other tools is easier with raw output. See [redis-cli](https://redis.io/docs/latest/develop/tools/cli/).

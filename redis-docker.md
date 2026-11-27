@@ -33,8 +33,15 @@ docker run -d --name redis \
 ### Connect to the container
 <!-- {: .-snippet} -->
 
+#### Interactive shell
+
 ```bash
 docker exec -it redis redis-cli
+```
+
+#### One-shot command
+
+```bash
 docker exec redis redis-cli PING
 # PONG
 ```

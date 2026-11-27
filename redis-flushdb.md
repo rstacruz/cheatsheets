@@ -60,13 +60,3 @@ redis-cli DBSIZE
 
 **Counts keys in the current database before deleting.** See [DBSIZE](https://redis.io/docs/latest/commands/dbsize/).
 
-### Delete matching keys
-<!-- {: .-snippet} -->
-
-```bash
-redis-cli --scan --pattern 'tmp:*' | \
-  xargs -r redis-cli UNLINK
-```
-<!-- {: data-highlight="--pattern; UNLINK"} -->
-
-**Deletes only keys matching a pattern.** `UNLINK` frees them in the background. See [UNLINK](https://redis.io/docs/latest/commands/unlink/).

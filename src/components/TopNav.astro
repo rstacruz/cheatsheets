@@ -7,7 +7,6 @@ import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
 
 export type Props = {
-  noBack?: boolean
   noShare?: boolean
   noEdit?: boolean
   page?: SheetPage
@@ -17,30 +16,20 @@ const props = Astro.props as Props
 const t = {
   title: 'Devhints.io',
   editOnGitHub: 'Edit on GitHub',
-  edit: 'Edit',
-  backToHome: 'Back to home'
+  edit: 'Edit'
 }
 
 const styles = {
   root: 'TopNav__root relative mb-[8px] h-[48px] border-b border-b-border-strong py-[8px] text-center leading-[64px] min-[481px]:mb-0 min-[481px]:h-[64px] min-[481px]:border-b-0 min-[481px]:py-0',
   inner:
     'TopNav__inner relative mx-auto flex h-[32px] max-w-content items-center px-[16px] leading-[32px] min-[481px]:mt-0 min-[481px]:h-[64px] min-[481px]:leading-[64px]',
-  left: 'TopNav__left flex-none leading-[32px] min-[481px]:absolute min-[481px]:left-[16px] min-[481px]:top-[16px]',
-  back: cx(
-    'TopNav__back',
-    'grid size-[32px] place-items-center rounded-full text-center text-muted-foreground no-underline transition-all duration-100 ease-linear',
-    'hover:bg-primary-solid hover:text-primary-foreground hover:opacity-100 focus:bg-primary-solid focus:text-primary-foreground focus:opacity-100',
-    'min-[481px]:size-[48px] min-[1232px]:relative min-[1232px]:-left-[16px]',
-    '[&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-foreground hover:[&>svg]:text-primary-foreground focus:[&>svg]:text-primary-foreground'
-  ),
   brand: cx(
     'TopNav__brand',
-    'mx-auto block h-[20px] w-[204px] flex-none bg-current',
+    'block h-[12.3px] w-[122px] flex-none bg-current',
     '[--brand-logo:url(/assets/devhints.svg)]',
     '[mask:var(--brand-logo)_center/contain_no-repeat]',
     '[-webkit-mask:var(--brand-logo)_center/contain_no-repeat]',
-    'forced-color-adjust-none hover:bg-primary focus:bg-primary',
-    'max-[481px]:hidden'
+    'forced-color-adjust-none hover:bg-primary focus:bg-primary'
   ),
   actions:
     'TopNav__actions flex flex-none items-center gap-[8px] max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[16px] min-[481px]:top-[16px]',
@@ -66,14 +55,6 @@ const editLink = getEditLink(props.page)
 
 <nav class={styles.root} data-js-no-preview role="navigation">
   <div class={styles.inner}>
-    {props.noBack !== true ? (
-      <div class={styles.left}>
-        <a class={styles.back} href="/" aria-label={t.backToHome}>
-          <Icon name="md-arrow-back" size={24} />
-        </a>
-      </div>
-    ) : null}
-
     <a class={styles.brand} href="/" aria-label={t.title}></a>
 
     <div class={styles.actions}>

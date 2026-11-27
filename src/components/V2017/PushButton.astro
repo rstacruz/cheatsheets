@@ -10,14 +10,15 @@ const { variant = 'brand' } = Astro.props as Props
 const styles = {
   root: cx(
     'PushButton__root',
-    'inline-block rounded-xs px-[16px] py-[8px] no-underline',
+    'inline-block rounded-full px-[16px] py-[8px] no-underline',
     'text-primary-foreground visited:text-primary-foreground',
-    'hover:[box-shadow:none] focus:[box-shadow:none]',
+    'hover:[box-shadow:none] focus-visible:[box-shadow:none]',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
     variant === 'dark'
-      ? 'bg-primary-active hover:bg-primary-deep focus:bg-primary-deep'
+      ? 'bg-primary-active hover:bg-primary-deep focus-visible:bg-primary-deep'
       : cx(
           'bg-[image:var(--brand-gradient)]',
-          'hover:bg-none hover:bg-primary-active focus:bg-none focus:bg-primary-active'
+          'hover:bg-none hover:bg-primary-active focus-visible:bg-none focus-visible:bg-primary-active'
         )
   )
 }

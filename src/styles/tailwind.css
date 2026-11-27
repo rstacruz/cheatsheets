@@ -1,3 +1,6 @@
+/* Hallmark · checked: 2026-11-27 · genre: modern-minimal (inferred)
+ * floor: 0 FAIL · fixed: 4 (2a, 10a, 20, 34) · built: the project · redesign: polish · v2.0.0 */
+
 @import 'tailwindcss' source(none);
 @import './tokens.css';
 @import './font-scale.css';
@@ -60,7 +63,7 @@
   --container-home: 1024px;
 
   --shadow-xs: 0 24px 96px light-dark(rgb(0 0 0 / 4%), rgb(0 0 0 / 27%));
-  --shadow-sm: 0 1px 1px light-dark(rgb(85 102 119 / 55%), rgb(0 0 0 / 70%));
+  --shadow-sm: 0 1px 2px light-dark(rgb(85 102 119 / 12%), rgb(0 0 0 / 45%));
   --shadow-md:
     0 6px 8px light-dark(rgb(85 102 119 / 3%), rgb(0 0 0 / 45%)),
     0 1px 1px light-dark(rgb(85 102 119 / 40%), rgb(0 0 0 / 70%));
@@ -75,9 +78,9 @@
   --radius: 8px;
   --radius-xs: 2px;
   --radius-sm: calc(var(--radius) * 0.5); /* 4px */
-  --radius-md: calc(var(--radius) * 0.75); /* 6px */
-  --radius-lg: var(--radius); /* 8px */
-  --radius-xl: calc(var(--radius) * 1.25); /* 10px */
+  --radius-md: var(--radius); /* 8px */
+  --radius-lg: calc(var(--radius) * 1.5); /* 12px */
+  --radius-xl: calc(var(--radius) * 1.5); /* 12px */
   --radius-2xl: calc(var(--radius) * 1.5); /* 12px */
   --radius-full: 999px;
   --radius-circle: 50%;
@@ -107,10 +110,8 @@
   --color-primary-surface: var(--primary-surface);
   --color-primary-muted: var(--primary-muted);
   --color-primary-solid: var(--primary-solid);
-  --color-primary-solid-soft: var(--primary-solid-soft);
   --color-primary-solid-hover: var(--primary-solid-hover);
   --color-slate-solid: var(--slate-solid);
-  --color-slate-solid-soft: var(--slate-solid-soft);
   --color-slate-solid-hover: var(--slate-solid-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -135,7 +136,6 @@
   --color-highlight: var(--highlight);
   --color-highlight-bright: var(--highlight-bright);
   --color-highlight-solid: var(--highlight-solid);
-  --color-highlight-solid-soft: var(--highlight-solid-soft);
   --color-highlight-solid-hover: var(--highlight-solid-hover);
   --color-syntax-punctuation: var(--syntax-punctuation);
   --color-syntax-comment: var(--syntax-comment);

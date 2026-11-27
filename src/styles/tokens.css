@@ -81,19 +81,13 @@
     var(--color-mildindigo-600),
     var(--color-mildindigo-700)
   );
-  --primary-solid-soft: light-dark(
-    var(--color-mildindigo-400),
-    var(--color-mildindigo-600)
-  );
   --primary-solid-hover: light-dark(
     var(--color-mildindigo-700),
     var(--color-mildindigo-800)
   );
   --slate-solid: light-dark(#556677, var(--color-steel-700));
-  --slate-solid-soft: light-dark(#5e7683, var(--color-steel-600));
   --slate-solid-hover: light-dark(#44525f, var(--color-steel-800));
   --highlight-solid: light-dark(#14af83, #0f7d61);
-  --highlight-solid-soft: light-dark(#15b89a, #156b52);
   --highlight-solid-hover: light-dark(#108b68, #0e5f49);
 
   /*

@@ -6,7 +6,7 @@ import {
   getRelatedPages,
   getTopPages
 } from '~/lib/page/queries'
-import RelatedPostItem from '~/components/V2017Sheet/RelatedPostItem.astro'
+import PageListItem from '~/components/V2017Home/PageListItem.astro'
 import PushButton from '~/components/V2017/PushButton.astro'
 import Icon from '~/components/Icon.astro'
 
@@ -79,7 +79,7 @@ const styles = {
   ),
   calloutLink: cx(
     'RelatedPosts__calloutLink',
-    'flex flex-[1_0_100%] items-center justify-center rounded-xs p-[32px] no-underline [box-shadow:var(--shadow-sm)]',
+    'flex flex-[1_0_100%] items-center justify-center rounded-xl p-[32px] no-underline [box-shadow:var(--shadow-sm)]',
     'bg-[image:var(--brand-gradient)]',
     'text-primary-foreground visited:text-primary-foreground',
     'hover:bg-none hover:bg-primary-solid-hover focus:bg-none focus:bg-primary-solid-hover',
@@ -93,9 +93,13 @@ const styles = {
   ),
   description:
     'RelatedPosts__description mb-[16px] block text-base font-light leading-[1.4]',
-  list: 'RelatedPosts__list m-[-4px] flex flex-wrap list-none p-0',
+  list: 'RelatedPosts__list grid grid-cols-1 gap-[8px] list-none p-0 min-[481px]:grid-cols-2',
+  item: cx(
+    'RelatedPosts__item grid min-w-0',
+    '[&>a]:border [&>a]:border-border [&>a]:bg-card'
+  ),
   heading:
-    'RelatedPosts__heading m-0 mb-[16px] border-b border-b-border-strong border-solid p-0 pb-[16px] text-base font-normal leading-[1.2] text-primary'
+    'RelatedPosts__heading m-0 mb-[16px] p-0 font-manrope text-base font-extrabold leading-[1.2] text-heading'
 }
 ---
 
@@ -121,8 +125,10 @@ const styles = {
           <h3 class={styles.heading}>{categoryHeading}</h3>
         </div>
         <ul class={styles.list}>
-          {relatedPages.map((page, index) => (
-            <RelatedPostItem page={page} featured={index === 0} />
+          {relatedPages.map((page) => (
+            <li class={styles.item}>
+              <PageListItem page={page} />
+            </li>
           ))}
         </ul>
       </div>
@@ -133,8 +139,10 @@ const styles = {
           <h3 class={styles.heading}>{t.group.top}</h3>
         </div>
         <ul class={styles.list}>
-          {topPages.map((page, index) => (
-            <RelatedPostItem page={page} featured={index === 0} />
+          {topPages.map((page) => (
+            <li class={styles.item}>
+              <PageListItem page={page} />
+            </li>
           ))}
         </ul>
       </div>

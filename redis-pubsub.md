@@ -1,0 +1,63 @@
+---
+title: How to publish and subscribe with Redis
+link_title: Redis pub/sub
+subtitle: Send messages to live channels
+logo: { src: /assets/logos/redis.svg }
+category: Databases
+layout: snippet
+last_verified_with: "Redis 8.10.3."
+updated: 2026-11-27
+tier: t3
+links:
+  - title: Redis cheatsheet
+    url: /redis
+  - title: Redis pub/sub
+    url: https://redis.io/docs/latest/develop/pubsub/
+---
+
+## Pub/sub
+<!-- {: .-snippets} -->
+
+### Subscribe to a channel
+<!-- {: .-snippet} -->
+
+```bash
+redis-cli SUBSCRIBE news
+```
+<!-- {: data-highlight="SUBSCRIBE"} -->
+
+**Listens for messages until Ctrl-C.** Messages sent while no client listens are lost. See [Pub/sub](https://redis.io/docs/latest/develop/pubsub/).
+
+### Publish a message
+<!-- {: .-snippet} -->
+
+```bash
+redis-cli PUBLISH news hello
+# (integer) 1
+```
+<!-- {: data-highlight="PUBLISH"} -->
+
+**Delivers a message to current subscribers.** The reply counts the clients that received it. See [PUBLISH](https://redis.io/docs/latest/commands/publish/).
+
+### Subscribe by pattern
+<!-- {: .-snippet} -->
+
+```bash
+redis-cli PSUBSCRIBE 'news.*'
+redis-cli PUBLISH news.dev hello
+# (integer) 1
+```
+<!-- {: data-highlight="PSUBSCRIBE"} -->
+
+**Matches several channels with a glob pattern.** `news` alone does not match `news.*`. See [PSUBSCRIBE](https://redis.io/docs/latest/commands/psubscribe/).
+
+### Unsubscribe
+<!-- {: .-snippet} -->
+
+```bash
+redis-cli UNSUBSCRIBE news
+redis-cli PUNSUBSCRIBE 'news.*'
+```
+<!-- {: data-highlight="UNSUBSCRIBE; PUNSUBSCRIBE"} -->
+
+**Stops listening on channels or patterns.** See [UNSUBSCRIBE](https://redis.io/docs/latest/commands/unsubscribe/).

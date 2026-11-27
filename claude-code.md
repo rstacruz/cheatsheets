@@ -7,6 +7,7 @@ logo: { src: /assets/logos/claude.svg }
 category: Agents
 tags: [Featured]
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 last_verified_with: "Claude Code 2.1.322."
 tier: t1
 fragments:

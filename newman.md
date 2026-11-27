@@ -4,6 +4,7 @@ subtitle: Postman collection runner
 logo: { src: /assets/logos/postman.svg }
 category: API
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 last_verified_with: "Newman 6.2.3."
 tier: t2
 fragments:

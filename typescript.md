@@ -21,6 +21,7 @@ fragments:
   - "satisfies"
 tags: [Featured]
 updated: 2026-11-11
+last_verified_at: 2026-11-12
 last_verified_with: "TypeScript 7."
 intro: |
   TypeScript adds static types to JavaScript; they're erased during builds.

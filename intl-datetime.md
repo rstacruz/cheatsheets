@@ -6,6 +6,7 @@ category: Internationalization
 tags: [Featured]
 tier: t2
 updated: 2026-11-26
+last_verified_at: 2026-11-26
 last_verified_with: "Node 26.13.1 (full ICU)."
 fragments:
   - "DateTimeFormat"

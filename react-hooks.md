@@ -4,6 +4,7 @@ subtitle: State and effects in components
 logo: { src: /assets/logos/react.svg }
 category: JavaScript frameworks
 updated: 2026-11-24
+last_verified_at: 2026-11-24
 last_verified_with: "React 19.3.1."
 tier: t2
 fragments:

@@ -32,6 +32,7 @@ The dev server runs at <http://localhost:4321>.
 | `pnpm test:playwright` | End-to-end tests (Playwright)     |
 | `pnpm ci`              | Run all linters, tests, and build |
 | `pnpm format`          | Fix lint and formatting           |
+| `pnpm sheets:due`     | List due T1/T2 sheets             |
 
 Run a single unit test with `pnpm vitest run <path>`.
 
@@ -65,6 +66,17 @@ See `_docs/writing-guidelines.md` for content and formatting guidelines,
 `_docs/rules.md` for the rule slugs and examples, and `_docs/archiving.md` for
 when to archive a sheet.
 See `_docs/tiers.md` for what T1 and T2 mean and when a sheet needs a check.
+
+### Verification stamps
+
+`last_verified_at:` records the last upstream check. It is required on T1/T2
+sheets and cannot precede `updated`; the due cadences are 14 days (T1) and 42
+days (T2). After pulling `origin/master`, run `pnpm sheets:due --tier t1` (or
+`t2`) to print a one-sentence summary, a blank line, then TSV rows with the
+`slug`, `last_verified_at`, and `age` columns. `--json` prints a pure array and
+`--limit N` caps the list. Open PRs labelled `sheet-refresh` are excluded by
+default; `--exclude-label` overrides the label. A clean check still needs a
+stamp-only PR on T1/T2. See [_docs/tiers.md](_docs/tiers.md).
 
 ## Setting up redirects
 

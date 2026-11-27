@@ -4,6 +4,7 @@ subtitle: Vite-powered test runner
 logo: { src: /assets/logos/vitest.svg }
 category: JavaScript testing
 updated: 2026-11-26
+last_verified_at: 2026-11-26
 last_verified_with: "Vitest 5.1.2, Node 26.13.1."
 tier: t1
 fragments:

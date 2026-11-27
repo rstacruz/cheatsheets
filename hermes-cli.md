@@ -20,6 +20,7 @@ fragments:
   - "--cli"
   - "--usage-file"
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "Hermes Agent 0.23.4."
 keywords:
   - AI assistant

@@ -5,6 +5,7 @@ logo: { src: /assets/logos/vitepress.svg }
 category: JavaScript libraries
 tier: t2
 updated: 2026-11-27
+last_verified_at: 2026-11-27
 last_verified_with: "VitePress 1.6.4, Vite 5.4.14, Vue 3.5.13, Node 26.13.1."
 fragments:
   - "vitepress init"

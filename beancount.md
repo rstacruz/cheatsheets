@@ -21,6 +21,7 @@ fragments:
   - "commodity"
   - "close"
 updated: 2026-11-16
+last_verified_at: 2026-11-16
 keywords:
   - beancount
   - bean-check

@@ -3,7 +3,8 @@ import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 const note = 'Conventional Commits 1.0.0, curl 8.23.0.'
 
 const TIERED = {
-  fragments: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
+  fragments: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'],
+  last_verified_at: new Date('2026-11-28')
 }
 
 test('last_verified_with is optional on untiered sheets', () => {

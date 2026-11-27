@@ -4,6 +4,7 @@ subtitle: Python version manager
 logo: { src: /assets/logos/pyenv.svg }
 category: Package managers
 updated: 2026-11-21
+last_verified_at: 2026-11-22
 last_verified_with: "pyenv 2.8.15."
 tier: t2
 fragments:

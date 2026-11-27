@@ -26,6 +26,7 @@ fragments:
   - "git reflog"
   - "ORIG_HEAD"
 updated: 2026-11-21
+last_verified_at: 2026-11-22
 last_verified_with: "git 2.56.0."
 intro: |
   Interactive rebase replays local commits onto a new base to reorder, reword, squash, edit, or drop them; rewritten commits get new hashes.

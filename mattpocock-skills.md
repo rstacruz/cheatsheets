@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: toolkit }
 category: Agents
 tier: t2
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 last_verified_with: mattpocock-skills 1.3.2.
 fragments:
   - "/grill-with-docs"

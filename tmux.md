@@ -6,6 +6,7 @@ subtitle: Terminal multiplexer
 logo: { src: /assets/logos/tmux.svg }
 category: Shell
 updated: 2026-11-18
+last_verified_at: 2026-11-18
 last_verified_with: "tmux 3.8."
 tier: t2
 fragments:

@@ -4,6 +4,7 @@ subtitle: Progressive UI framework
 logo: { src: /assets/logos/vue.svg }
 category: JavaScript frameworks
 updated: 2026-11-24
+last_verified_at: 2026-11-25
 last_verified_with: "Vue 3.5.46, Vue Router 5.5.1, Pinia 4.1.0."
 tier: t2
 fragments:

@@ -13,7 +13,7 @@ test('homepage', async ({ page }) => {
 
   for (const { name, href } of linksToAssert) {
     await expect(
-      page.getByRole('link', { name: new RegExp(`^${name}\\b`, 'i') }).first()
+      page.getByRole('link', { name }).first()
     ).toHaveAttribute('href', href)
   }
 

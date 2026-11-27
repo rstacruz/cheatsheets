@@ -1,6 +1,6 @@
 ---
 title: How to run a job with a systemd timer
-link_title: Run a job with a timer
+link_title: Run jobs with a timer
 subtitle: Schedule jobs with a timer
 logo: { set: icon-park-outline, name: calendar }
 category: Linux

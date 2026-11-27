@@ -42,9 +42,10 @@ WantedBy=default.target
 <!-- {: .-snippet} -->
 
 ```bash
-systemctl --user enable --now hello.service
+systemctl --user enable --now \
+  hello.service
 ```
-<!-- {: data-highlight="systemctl --user"} -->
+<!-- {: data-highlight="enable --now"} -->
 
 **Starts the service and enables it at login.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
@@ -54,7 +55,7 @@ systemctl --user enable --now hello.service
 ```bash
 systemctl --user status hello.service --no-pager
 ```
-<!-- {: data-highlight="--user status"} -->
+<!-- {: data-highlight="status"} -->
 
 **Shows the state of your user service.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 

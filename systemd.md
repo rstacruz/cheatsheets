@@ -90,8 +90,6 @@ sudo systemctl daemon-reload
 sudo systemctl reload nginx
 ```
 
-Use `reload` for config changes; use `daemon-reload` after editing unit files.
-
 See: [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html)
 
 ## Units
@@ -103,7 +101,7 @@ systemctl list-units --type=service --state=running
 ```
 <!-- {: data-highlight="--state=running"} -->
 
-Filters the loaded units by type and state; omit the flags to list everything.
+Filters loaded units by type and state; add `--all` to include inactive units.
 
 See: [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html)
 
@@ -306,7 +304,7 @@ See: [systemd-analyze(1)](https://man7.org/linux/man-pages/man1/systemd-analyze.
 ```bash
 journalctl -u nginx -n 50 --no-pager
 ```
-<!-- {: data-highlight="journalctl -u"} -->
+<!-- {: data-highlight="-n 50"} -->
 
 Shows the last 50 lines for one unit.
 
@@ -370,6 +368,7 @@ Reports the space used by archived and active journals.
 See: [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html)
 
 ## User units
+<!-- {: .-three-column} -->
 
 ### Unit location
 
@@ -392,7 +391,8 @@ systemctl --user start hello.service
 
 ```bash
 # enable at login
-systemctl --user enable --now hello.service
+systemctl --user enable --now \
+  hello.service
 ```
 <!-- {: data-highlight="systemctl --user"} -->
 

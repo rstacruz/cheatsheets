@@ -367,7 +367,7 @@ export default defineConfig({
 
 Save cookies and local storage once, then load them for every test.
 
-See: [Authentication](https://playwright.dev/docs/test-authentication)
+See: [Authentication](https://playwright.dev/docs/auth)
 
 ## Network mocking
 

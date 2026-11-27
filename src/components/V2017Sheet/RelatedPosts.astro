@@ -6,7 +6,7 @@ import {
   getRelatedPages,
   getTopPages
 } from '~/lib/page/queries'
-import RelatedPostItem from '~/components/V2017Sheet/RelatedPostItem.astro'
+import PageListItem from '~/components/V2017Home/PageListItem.astro'
 import PushButton from '~/components/V2017/PushButton.astro'
 import Icon from '~/components/Icon.astro'
 
@@ -94,6 +94,10 @@ const styles = {
   description:
     'RelatedPosts__description mb-[16px] block text-base font-light leading-[1.4]',
   list: 'RelatedPosts__list grid grid-cols-1 gap-[8px] list-none p-0 min-[481px]:grid-cols-2',
+  item: cx(
+    'RelatedPosts__item grid min-w-0',
+    '[&>a]:border [&>a]:border-border [&>a]:bg-card'
+  ),
   heading:
     'RelatedPosts__heading m-0 mb-[16px] p-0 font-manrope text-base font-extrabold leading-[1.2] text-heading'
 }
@@ -122,7 +126,9 @@ const styles = {
         </div>
         <ul class={styles.list}>
           {relatedPages.map((page) => (
-            <RelatedPostItem page={page} />
+            <li class={styles.item}>
+              <PageListItem page={page} />
+            </li>
           ))}
         </ul>
       </div>
@@ -134,7 +140,9 @@ const styles = {
         </div>
         <ul class={styles.list}>
           {topPages.map((page) => (
-            <RelatedPostItem page={page} />
+            <li class={styles.item}>
+              <PageListItem page={page} />
+            </li>
           ))}
         </ul>
       </div>

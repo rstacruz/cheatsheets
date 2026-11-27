@@ -69,8 +69,8 @@ const styles = {
   ),
   mark: cx('PageListItem__mark flex items-center', markTone),
   markTint: cx(
-    'PageListItem__markTint pointer-events-none absolute top-[40px] left-[130px] z-0 flex items-center',
-    featured ? 'opacity-20' : 'opacity-10',
+    'PageListItem__markTint pointer-events-none absolute top-[40px] z-0 flex items-center',
+    featured ? 'left-[130px] opacity-20' : 'left-[110%] opacity-10',
     '[transform:scale(8)] [filter:blur(256px)]',
     markTone
   ),

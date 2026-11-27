@@ -3,8 +3,8 @@ title: AWS S3
 subtitle: Object storage service
 logo: { src: /assets/logos/s3.svg }
 category: Devops
-updated: 2026-11-11
-last_verified_with: "AWS CLI S3 APIs."
+updated: 2026-11-28
+last_verified_with: "AWS CLI 2.42.4."
 tier: t2
 fragments:
   - "aws s3 cp"
@@ -220,7 +220,7 @@ aws s3api list-buckets --query 'Buckets[].Name' --output text
 aws s3api get-bucket-location --bucket mybucket --output text
 aws s3 rb s3://mybucket --force   # destructive
 ```
-<!-- {: data-highlight="--region us-west-2; --force"} -->
+<!-- {: data-highlight="aws s3 mb; aws s3 rb"} -->
 
 Bucket names are globally unique; `mb` creates one in the given region.
 `rb --force` cannot empty a versioned bucket: delete its versions first.
@@ -311,6 +311,8 @@ aws s3 website s3://mybucket/ --index-document index.html \
   --error-document error.html
 aws s3api put-public-access-block --bucket mybucket \
   --public-access-block-configuration file://pab.json
+aws s3api put-bucket-policy --bucket mybucket \
+  --policy file://policy.json
 ```
 <!-- {: data-highlight="--index-document index.html; --error-document error.html"} -->
 
@@ -326,7 +328,22 @@ aws s3api put-public-access-block --bucket mybucket \
 ```
 <!-- {: data-highlight="BlockPublicPolicy; RestrictPublicBuckets"} -->
 
-Website endpoints are public: keep both policy blocks off at bucket and account level, and prefer bucket policies over ACLs. For private hosting, use CloudFront with an S3 REST origin and OAC.
+#### policy.json
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Principal": "*",
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::mybucket/*"
+  }]
+}
+```
+<!-- {: data-highlight="s3:GetObject"} -->
+
+Public sites need this policy with `BlockPublicPolicy` and `RestrictPublicBuckets` off at both bucket and account level. For private hosting, use CloudFront with an S3 REST origin and OAC.
 
 See: [Hosting a static website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
 

@@ -19,8 +19,8 @@ fragments:
   - "data"
   - "count"
   - "depends_on"
-updated: 2026-11-11
-last_verified_with: "Terraform 1.17.1."
+updated: 2026-11-28
+last_verified_with: "Terraform 1.17.2."
 description: |
   A practical reference for Terraform configuration and CLI workflows.
 intro: |
@@ -93,7 +93,7 @@ terraform plan -minimal-refresh
 ```
 <!-- {: data-highlight="-detailed-exitcode; -minimal-refresh"} -->
 
-`-detailed-exitcode` returns 0 for no changes, 1 for errors, and 2 for changes. `-minimal-refresh` refreshes only resources with planned changes.
+`-detailed-exitcode` returns 0 for no changes, 1 for errors, and 2 for changes. `-minimal-refresh` refreshes only resources with planned changes, so it can miss drift on unchanged ones.
 
 See: [Terraform CLI](https://developer.hashicorp.com/terraform/cli/commands)
 
@@ -221,7 +221,7 @@ environment = "prod"
 ```
 <!-- {: data-highlight='environment = "prod"'} -->
 
-Precedence increases from environment variables, `terraform.tfvars(.json)`, `*.auto.tfvars(.json)`, to command-line options (`-var`, `-var-file`).
+Precedence, lowest to highest: variable defaults, `TF_VAR_` variables, `terraform.tfvars`, `terraform.tfvars.json`, and `*.auto.tfvars(.json)`. CLI options (`-var-file`, `-var`) come last and apply in the order provided.
 
 See: [Assign variable values](https://developer.hashicorp.com/terraform/language/values/variables#assign-values-to-variables)
 
@@ -545,7 +545,7 @@ terraform init -backend-config=prod.s3.tfbackend
 ```
 <!-- {: data-highlight="-migrate-state; -reconfigure; -backend-config=prod.s3.tfbackend"} -->
 
-S3 backend locking needs `use_lockfile`; the older `dynamodb_table` is deprecated. Keep credentials out of configuration and pass them with `-backend-config`.
+S3-native locking uses `use_lockfile`; `dynamodb_table` is deprecated. Use environment variables for credentials: `-backend-config` values are stored in `.terraform/` and plan files.
 
 See: [Backends](https://developer.hashicorp.com/terraform/language/backend), [S3 backend](https://developer.hashicorp.com/terraform/language/backend/s3)
 

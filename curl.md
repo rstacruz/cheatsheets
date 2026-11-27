@@ -3,8 +3,8 @@ title: Curl
 subtitle: Command-line HTTP client
 logo: { src: /assets/logos/curl.svg, mono: true }
 category: Networking
-updated: 2026-11-11
-last_verified_with: "cURL 8.23.0."
+updated: 2026-11-28
+last_verified_with: "cURL 8.23.0, curl docs 8.23.1."
 tier: t2
 fragments:
   - "curl -s"
@@ -21,6 +21,11 @@ fragments:
   - "-u user:pass"
   - "--fail"
   - "-v"
+keywords:
+  - curl http requests
+  - curl post json
+  - curl headers
+  - curl download
 intro: |
   [curl](https://curl.se/) transfers data with URLs from the command line. This reference covers common HTTP options and recipes, current through curl 8.23.
 links:
@@ -96,7 +101,7 @@ See: [-X, --request](https://curl.se/docs/manpage.html#-X)
 --url-query a=1       # append an encoded query parameter
 ```
 
-`--data` does not URL-encode; `@file` strips newlines. Use `--data-urlencode` for `&`/`=`, or `--data-binary @file` for exact bytes.
+`--data` does not URL-encode; `@file` strips CR/LF and NUL bytes. Use `--data-urlencode` for `&`/`=`, or `--data-binary @file` for exact bytes.
 
 See: [-d, --data](https://curl.se/docs/manpage.html#-d)
 
@@ -108,7 +113,7 @@ See: [-d, --data](https://curl.se/docs/manpage.html#-d)
 -b name=value     # --cookie: send a cookie
 -b cookies.txt    # --cookie: read a cookie file
 -c cookies.txt    # --cookie-jar: save cookies
---compressed      # request a compressed response
+--compressed      # request compression, auto-decompress
 ```
 
 See: [-H, --header](https://curl.se/docs/manpage.html#-H)
@@ -133,9 +138,11 @@ See: [SSL certificate verification](https://curl.se/docs/sslcerts.html)
 ### Transfers
 
 ```bash
+--connect-timeout 2  # limit the connection phase
+--max-time 10        # limit the whole transfer
 --no-progress-meter  # hide progress, keep errors
 --retry 3            # retry transient errors
---retry-all-errors   # retry any error
+--retry-all-errors   # retry any error (with --retry)
 -C -                 # --continue-at: resume a partial file
 --parallel           # run transfers in parallel
 --rate 10/s          # cap request rate
@@ -155,7 +162,7 @@ See: [--parallel](https://curl.se/docs/manpage.html#--parallel), [retries](https
 ```
 <!-- {: data-highlight="--http1.1; --http2; --http3"} -->
 
-HTTP/3 needs a curl built with HTTP/3 support.
+HTTP/3 needs a curl built with HTTP/3 support. Later `--http*` flags override earlier ones.
 
 See: [--http3](https://curl.se/docs/manpage.html#--http3)
 
@@ -182,7 +189,7 @@ See: [--variable](https://curl.se/docs/manpage.html#--variable)
 ```
 <!-- {: data-highlight="-K curlrc; -K -; -q"} -->
 
-curl reads `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, then `$HOME/.curlrc`. Write one option per line, without leading dashes.
+curl reads the first config file it finds among `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, and `$HOME/.curlrc` — even when `-K` is used. One option per line; long options may omit `--`.
 
 See: [Config file](https://ec.haxx.se/cmdline/configfile.html)
 

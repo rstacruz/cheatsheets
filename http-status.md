@@ -19,8 +19,8 @@ fragments:
   - "307 Redirect"
   - "502 Bad Gateway"
   - "503 Unavailable"
-updated: 2026-11-11
-last_verified_with: "RFC 9110 / IANA registry."
+updated: 2026-11-28
+last_verified_with: "RFC 9110, RFC 4918, IANA HTTP Status Code Registry."
 description: |
   List of HTTP Status codes and links to description.
 intro: |
@@ -98,7 +98,7 @@ links:
 | `416` | Range Not Satisfiable           | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/416) |
 | `417` | Expectation Failed              | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/417) |
 | ---   | ---                             | ---                                                                         |
-| `418` | I'm a teapot                    | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/418) |
+| `418` | I'm a teapot (unused)           | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/418) |
 | `421` | Misdirected Request             | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/421) |
 | `422` | Unprocessable Content           | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/422) |
 | `425` | Too Early                       | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/425) |

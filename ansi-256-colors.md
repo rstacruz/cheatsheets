@@ -48,10 +48,11 @@ printf '\033[48;5;21mblue\033[0m\n'
 <!-- {: .-snippet} -->
 
 ```text
-0-15   system colors
-16-231 RGB cube
-232-255 grayscale
+0–7     standard colors
+8–15    bright colors
+16–231  6×6×6 RGB cube
+232–255 grayscale ramp
 ```
-<!-- {: data-highlight="16-231"} -->
+<!-- {: data-highlight="16–231"} -->
 
 **Groups the 256 indices by purpose.** The cube varies between terminals, so check the result in your emulator; see [8-bit color](https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit).

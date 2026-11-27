@@ -54,7 +54,7 @@ printf '\033[49mdefault bg\n'
 
 **Restores the default background color.** Pair `39` and `49` to reset both without clearing bold or underline; see [SGR parameters](https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_parameters).
 
-### Reset without escapes
+### Reset with tput
 <!-- {: .-snippet} -->
 
 #### Setup

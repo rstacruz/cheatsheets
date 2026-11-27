@@ -1,6 +1,6 @@
 ---
 title: Ansi codes
-subtitle: ANSI terminal color codes
+subtitle: ANSI terminal codes
 logo: { set: icon-park-outline, name: color-card }
 category: Shell
 intro: |
@@ -259,7 +259,7 @@ printf '\033[sworking\033[u'
 
 Some terminals use `ESC 7` and `ESC 8` instead; see [examples](https://en.wikipedia.org/wiki/ANSI_escape_code#Examples).
 
-## Erase and reset
+## Erase
 
 ### Erase line
 

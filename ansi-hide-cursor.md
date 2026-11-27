@@ -42,7 +42,7 @@ printf '\033[?25h'
 ```
 <!-- {: data-highlight="?25h"} -->
 
-**Turns the text cursor back on.** Always pair the hide sequence with this one so an interrupted script does not leave the terminal invisible; see [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html).
+**Turns the text cursor back on.** Always pair the hide sequence with this one so an interrupted script does not leave the cursor hidden; see [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html).
 
 ### Restore on exit
 <!-- {: .-snippet} -->

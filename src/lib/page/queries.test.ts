@@ -7,6 +7,7 @@ import {
   getRecentPages,
   getRelatedPages,
   getSnippetPages,
+  getSnippetsByCategory,
   getTopPages
 } from './queries'
 
@@ -113,6 +114,42 @@ test('homepage listings exclude snippets when asked', () => {
 
 test('snippet pages are collected separately', () => {
   expect(getSnippetPages(pages).map((page) => page.slug)).toEqual(['snippet'])
+})
+
+test('snippets are grouped by category in nav order', () => {
+  const snippetPages = mapGlobToPages({
+    zeta: [
+      '---',
+      'title: Zeta',
+      'category: Git',
+      'layout: snippet',
+      '---',
+      'z'
+    ].join('\n'),
+    alpha: [
+      '---',
+      'title: Alpha',
+      'category: CLI',
+      'layout: snippet',
+      '---',
+      'a'
+    ].join('\n'),
+    beta: [
+      '---',
+      'title: Beta',
+      'category: Git',
+      'layout: snippet',
+      '---',
+      'b'
+    ].join('\n'),
+    article: ['---', 'title: Article', 'category: CLI', '---', 'x'].join('\n')
+  })
+
+  const grouped = getSnippetsByCategory(snippetPages)
+
+  expect(grouped.map((category) => category.title)).toEqual(['CLI', 'Git'])
+  expect(grouped[0].pages.map((page) => page.slug)).toEqual(['alpha'])
+  expect(grouped[1].pages.map((page) => page.slug)).toEqual(['beta', 'zeta'])
 })
 
 test('recent pages only include t1 and t2 sheets', () => {

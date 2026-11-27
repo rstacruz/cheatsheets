@@ -1,0 +1,37 @@
+---
+import cx from 'clsx'
+import Logo from '~/components/Logo.astro'
+import type { SheetPage } from '~/lib/page'
+
+export type Props = {
+  page: SheetPage
+}
+
+const props = Astro.props as Props
+const page = props.page
+
+const styles = {
+  link: cx(
+    'SnippetLink__link',
+    'group flex items-baseline gap-[10px] border-b border-b-border px-[4px] py-[10px] no-underline'
+  ),
+  title:
+    'SnippetLink__title font-manrope font-semibold text-heading group-hover:text-primary group-focus:text-primary',
+  subtitle:
+    'SnippetLink__subtitle text-xs leading-[1.6] text-muted-foreground-subtle',
+  arrow: 'SnippetLink__arrow ml-auto text-primary-subtle'
+}
+---
+
+<a href={`/${page.slug}`} class={styles.link}>
+  <Logo logo={page.frontmatter.logo} size={20} class="self-center" />
+  <span class={styles.title}>
+    {page.frontmatter.link_title ?? page.frontmatter.title ?? page.slug}
+  </span>
+  {page.frontmatter.subtitle && (
+    <span class={styles.subtitle}>{page.frontmatter.subtitle}</span>
+  )}
+  <span class={styles.arrow} aria-hidden="true">
+    →
+  </span>
+</a>

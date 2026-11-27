@@ -58,7 +58,7 @@ See: [Workflow syntax](https://docs.github.com/en/actions/reference/workflows-an
 
 ### Workflow file path
 
-Workflow files live in `.github/workflows/` and end in `.yml` or `.yaml`. A workflow only runs once the file is on the default branch, and `workflow_dispatch` and `schedule` read the default branch copy.
+Workflow files live in `.github/workflows/` and end in `.yml` or `.yaml`. Push and PR runs use the file at the event ref; scheduled runs use the default branch copy, and manual runs the selected ref.
 
 See: [About workflows](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows)
 
@@ -84,7 +84,7 @@ on:
     branches: [main]
   pull_request:
 ```
-<!-- {: data-highlight="branches: [main]"} -->
+<!-- {: data-highlight="push:; pull_request:"} -->
 
 Runs on pushes to `main` and on every pull request. Add `branches` under `pull_request` to limit the target.
 
@@ -267,7 +267,7 @@ See: [actions/checkout](https://github.com/actions/checkout)
 ```
 <!-- {: data-highlight="run:"} -->
 
-Each `run` is one shell command, and a non-zero exit fails the step.
+Use `|` for a multi-line script; a non-zero exit fails the step.
 
 See: [steps.run](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsrun)
 
@@ -363,7 +363,7 @@ jobs:
         env:
           DEBUG: '1'
 ```
-<!-- {: data-highlight="DEBUG: '1'"} -->
+<!-- {: data-highlight="env:"} -->
 
 Step env beats job env, which beats workflow env. An `env` value cannot reference another one.
 
@@ -742,7 +742,7 @@ See: [gh run](https://cli.github.com/manual/gh_run)
 
 | Symptom | Cause |
 | --- | --- |
-| Workflow missing from Actions | File is not on the default branch |
+| Manual or scheduled workflow missing | File is not on the default branch |
 | `Resource not accessible by integration` | `GITHUB_TOKEN` lacks the permission |
 | Cache never hits | Key includes `github.run_id` |
 | No Run workflow button | File is only on a feature branch |

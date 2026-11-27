@@ -25,7 +25,7 @@ on:
 ```
 <!-- {: data-highlight="workflow_dispatch:"} -->
 
-**Adds a Run workflow button.** The button only appears once the file is on the default branch, and the run uses that branch's copy. See [workflow_dispatch](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch).
+**Adds a Run workflow button.** The button only appears once the file is on the default branch; a dispatch run uses the workflow file at the selected ref. See [workflow_dispatch](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch).
 
 ### Add inputs
 <!-- {: .-snippet} -->
@@ -66,8 +66,9 @@ gh workflow run ci.yml -f level=debug
 <!-- {: .-snippet} -->
 
 ```bash
-gh run watch --compact
+# get the ID from gh run list
+gh run watch --compact 1234567890
 ```
 <!-- {: data-highlight="gh run watch"} -->
 
-**Shows only relevant steps while the latest run finishes.** Pass a run ID to watch a specific run. See [gh run watch](https://cli.github.com/manual/gh_run_watch).
+**Watches a run until it finishes.** Without an ID, the command prompts for an in-progress run. See [gh run watch](https://cli.github.com/manual/gh_run_watch).

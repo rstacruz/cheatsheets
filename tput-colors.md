@@ -80,4 +80,4 @@ TERM=xterm-256color tput sgr0
 \033(B\033[m$
 ```
 
-**Restores default colors and styles.** Capture it once at startup to reset even when `$TERM` changes; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
+**Restores default colors and styles.** Capture it once at startup for cleanup; re-query if `$TERM` changes; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).

@@ -246,7 +246,7 @@ See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.ht
 ```bash
 printf '\033[2A\033[3C'
 ```
-<!-- {: data-highlight="2A"} -->
+<!-- {: data-highlight="2A; 3C"} -->
 
 See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html)
 

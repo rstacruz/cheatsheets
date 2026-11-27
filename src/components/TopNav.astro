@@ -28,10 +28,11 @@ const styles = {
   left: 'TopNav__left flex-none leading-[32px] min-[481px]:absolute min-[481px]:left-[16px] min-[481px]:top-[16px]',
   back: cx(
     'TopNav__back',
-    'grid size-[32px] place-items-center rounded-full text-center text-muted-foreground no-underline transition-all duration-100 ease-linear',
-    'hover:bg-primary-solid hover:text-primary-foreground hover:opacity-100 focus:bg-primary-solid focus:text-primary-foreground focus:opacity-100',
+    'grid size-[32px] place-items-center rounded-full text-center text-muted-foreground no-underline transition-colors duration-100 ease-linear',
+    'hover:bg-primary-solid hover:text-primary-foreground hover:opacity-100 focus-visible:bg-primary-solid focus-visible:text-primary-foreground',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
     'min-[481px]:size-[48px] min-[1232px]:relative min-[1232px]:-left-[16px]',
-    '[&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-foreground hover:[&>svg]:text-primary-foreground focus:[&>svg]:text-primary-foreground'
+    '[&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-foreground hover:[&>svg]:text-primary-foreground focus-visible:[&>svg]:text-primary-foreground'
   ),
   brand:
     'TopNav__brand inline-block flex-auto text-xs font-bold leading-[32px] tracking-caps text-foreground uppercase no-underline hover:text-primary max-[481px]:hidden min-[481px]:leading-[64px]',
@@ -44,14 +45,12 @@ const styles = {
   editItem: 'TopNav__editItem m-0 flex! p-0',
   editLink: cx(
     'TopNav__editLink',
-    'inline-block align-top h-[32px] rounded-xs px-[16px] leading-[32px] text-foreground no-underline transition-all duration-100 ease-linear',
-    '[box-shadow:inset_0_0_0_1px_var(--border-strong)]',
-    'hover:bg-[image:var(--brand-gradient)] hover:text-primary-foreground hover:shadow-sm',
-    'focus:bg-[image:var(--brand-gradient)] focus:text-primary-foreground focus:shadow-sm',
-    '[&>svg]:relative [&>svg]:-top-[2px] [&>svg]:inline-block [&>svg]:align-middle'
+    'inline-flex h-[32px] items-center gap-[8px] rounded-full border border-border-strong px-[16px] text-xs font-medium whitespace-nowrap text-foreground no-underline transition-colors duration-100 ease-linear',
+    'hover:border-primary-solid hover:bg-primary-solid hover:text-primary-foreground',
+    'focus-visible:border-primary-solid focus-visible:bg-primary-solid focus-visible:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+    '[&>svg]:shrink-0'
   ),
-  editText:
-    'TopNav__editText relative -top-px ml-[4px] inline text-xs leading-[32px]'
+  editText: 'TopNav__editText'
 }
 
 const editLink = getEditLink(props.page)

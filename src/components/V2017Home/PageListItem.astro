@@ -7,11 +7,11 @@ import type { SheetPage } from '../../lib/page'
 const CARD_FRAGMENT_COUNT = 22
 const tones = {
   primary:
-    'bg-linear-[15deg,var(--primary-solid),var(--primary-solid-soft)] hover:bg-none hover:bg-primary-solid-hover focus:bg-none focus:bg-primary-solid-hover',
+    'bg-primary-solid hover:bg-primary-solid-hover focus-visible:bg-primary-solid-hover',
   slate:
-    'bg-linear-[15deg,var(--slate-solid),var(--slate-solid-soft)] hover:bg-none hover:bg-slate-solid-hover focus:bg-none focus:bg-slate-solid-hover',
+    'bg-slate-solid hover:bg-slate-solid-hover focus-visible:bg-slate-solid-hover',
   green:
-    'bg-linear-[15deg,var(--highlight-solid),var(--highlight-solid-soft)] hover:bg-none hover:bg-highlight-solid-hover focus:bg-none focus:bg-highlight-solid-hover'
+    'bg-highlight-solid hover:bg-highlight-solid-hover focus-visible:bg-highlight-solid-hover'
 }
 
 export type Props = {
@@ -48,13 +48,14 @@ const styles = {
   link: cx(
     'PageListItem__link',
     'group flex min-w-0 flex-col gap-[2px] rounded-xl no-underline',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
     featured ? 'relative' : '',
     featured
       ? cx(
           'h-[280px] overflow-hidden px-[18px] pt-[16px] pb-[18px]',
           tones[props.tone ?? 'primary']
         )
-      : 'min-h-32 bg-secondary px-[14px] pt-[12px] pb-[14px] hover:bg-accent focus:bg-accent'
+      : 'min-h-32 bg-secondary px-[14px] pt-[12px] pb-[14px] hover:bg-accent focus-visible:bg-accent'
   ),
   fragments: cx(
     'PageListItem__fragments',

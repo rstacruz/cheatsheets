@@ -15,25 +15,28 @@ const t = {
   suffix: 'cheatsheet'
 }
 
+const subtitle = page.frontmatter.subtitle ?? t.suffix
+
 const featured = props.featured === true
 
 const styles = {
   root: 'RelatedPostItem__root m-[4px] flex flex-[1_1_auto] list-none p-0 text-left leading-[1.4] min-[481px]:flex-[1_1_40%]',
-  link: featured
-    ? cx(
-        'RelatedPostItem__link',
-        'group block flex-[1_1_100%] rounded-xs p-[16px] no-underline [box-shadow:var(--shadow-sm)]',
-        'bg-primary-solid [color:color-mix(in_srgb,var(--primary-foreground)_50%,transparent)]',
-        'visited:[color:color-mix(in_srgb,var(--primary-foreground)_50%,transparent)]',
-        'hover:bg-primary-solid-hover focus:bg-primary-solid-hover',
-        'hover:text-primary-foreground focus:text-primary-foreground'
-      )
-    : cx(
-        'RelatedPostItem__link',
-        'group block flex-[1_1_100%] rounded-xs p-[16px] no-underline [box-shadow:var(--shadow-sm)]',
-        'bg-card text-muted-foreground visited:text-muted-foreground',
-        'hover:text-primary focus:text-primary'
-      ),
+  link: cx(
+    'RelatedPostItem__link',
+    'group block flex-[1_1_100%] rounded-lg border p-[16px] no-underline transition-colors duration-100',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+    featured
+      ? cx(
+          'border-primary-solid bg-primary-solid [color:color-mix(in_srgb,var(--primary-foreground)_50%,transparent)]',
+          'visited:[color:color-mix(in_srgb,var(--primary-foreground)_50%,transparent)]',
+          'hover:border-primary-solid-hover hover:bg-primary-solid-hover focus-visible:bg-primary-solid-hover',
+          'hover:text-primary-foreground focus-visible:text-primary-foreground'
+        )
+      : cx(
+          'border-border bg-card text-muted-foreground visited:text-muted-foreground',
+          'hover:border-border-strong hover:text-primary focus-visible:text-primary'
+        )
+  ),
   title: cx(
     'RelatedPostItem__title',
     'text-base font-normal leading-[1.4] min-[481px]:block',
@@ -48,6 +51,6 @@ const styles = {
 <li class={styles.root}>
   <a class={styles.link} href={url}>
     <strong class={styles.title}>{title}</strong>{' '}
-    <span class={styles.suffix}>{t.suffix}</span>
+    <span class={styles.suffix}>{subtitle}</span>
   </a>
 </li>

@@ -10,7 +10,7 @@
     font-size: 14px;
     line-height: 1.6;
     color: var(--foreground);
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {

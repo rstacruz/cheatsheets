@@ -32,16 +32,16 @@ export default {
 <!-- {: .-snippet} -->
 
 ````md
-```ts {2,4-5}
+```ts {2-3}
 export default {
   title: 'Docs',
   theme: defaultTheme(),
 }
 ```
 ````
-<!-- {: data-highlight="{2,4-5}"} -->
+<!-- {: data-highlight="{2-3}"} -->
 
-**Tints the listed lines.** Use single lines and ranges, such as `{2,4-5}`; the braces follow the language. See [line highlighting](https://v2.vuepress.vuejs.org/guide/markdown.html#line-highlighting).
+**Tints the listed lines.** Use single lines and ranges, such as `{2-3}`; the braces follow the language. See [line highlighting](https://v2.vuepress.vuejs.org/guide/markdown.html#line-highlighting).
 
 ### Number the lines
 <!-- {: .-snippet} -->

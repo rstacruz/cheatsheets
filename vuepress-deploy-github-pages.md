@@ -1,6 +1,6 @@
 ---
 title: How to deploy VuePress to GitHub Pages
-link_title: Deploy VuePress to Pages
+link_title: VuePress GitHub Pages
 subtitle: Publish docs from Actions
 category: Devops
 layout: snippet

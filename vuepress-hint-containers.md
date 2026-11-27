@@ -1,6 +1,6 @@
 ---
-title: How to add callouts in VuePress
-link_title: VuePress callouts
+title: How to add hint containers in VuePress
+link_title: VuePress hint containers
 subtitle: Tips, warnings, and details
 category: JavaScript libraries
 layout: snippet
@@ -11,7 +11,7 @@ links:
     url: https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers
 ---
 
-## Adding callouts
+## Adding hint containers
 <!-- {: .-snippets} -->
 
 ### Add a tip

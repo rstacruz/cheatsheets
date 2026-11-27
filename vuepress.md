@@ -17,7 +17,7 @@ fragments:
   - "themePlugins"
   - "::: tip"
   - "title="
-  - "{2,4}"
+  - "{2,3}"
   - ":no-line-numbers"
   - "@[code{"
   - "base:"
@@ -148,6 +148,22 @@ export default defineUserConfig({
 
 See: [Config reference](https://v2.vuepress.vuejs.org/reference/config.html)
 
+### Frontmatter
+
+```md
+---
+title: Install
+description: Set up the CLI
+outline: [2, 3]
+editLink: false
+---
+```
+<!-- {: data-highlight="outline"} -->
+
+`title` falls back to the first H1. `description` overrides the site description for that page, and `outline` picks the heading levels for the aside.
+
+See: [Frontmatter](https://v2.vuepress.vuejs.org/reference/frontmatter.html)
+
 ## Default theme
 
 ### Navigation
@@ -261,35 +277,19 @@ See: [Theme config](https://ecosystem.vuejs.press/themes/default/config.html)
 
 ## Markdown
 
-### Frontmatter
-
-```md
----
-title: Install
-description: Set up the CLI
-outline: [2, 3]
-editLink: false
----
-```
-<!-- {: data-highlight="outline"} -->
-
-`title` falls back to the first H1. `description` overrides the site description for that page, and `outline` picks the heading levels for the aside.
-
-See: [Frontmatter](https://v2.vuepress.vuejs.org/reference/frontmatter.html)
-
 ### Code blocks
 
 ````md
-```ts title="config.ts" {2,4}
+```ts title="config.ts" {2,3}
 export default {
   title: 'Docs',
   theme: defaultTheme(),
 }
 ```
 ````
-<!-- {: data-highlight='title="config.ts"; {2,4}'} -->
+<!-- {: data-highlight='title="config.ts"; {2,3}'} -->
 
-`title` adds a filename bar and `{2,4}` tints lines. Add `:line-numbers=10` to start numbering at 10, or `:no-line-numbers` to hide numbers.
+`title` adds a filename bar and `{2,3}` tints lines. Add `:line-numbers=10` to start numbering at 10, or `:no-line-numbers` to hide numbers.
 
 See: [Code blocks](https://v2.vuepress.vuejs.org/guide/markdown.html#code-blocks)
 
@@ -324,7 +324,7 @@ The build output lives in `docs/.vuepress/dist`.
 ```
 <!-- {: data-highlight="::: details"} -->
 
-Also available: `warning`, `danger`, `important`, `note`, `info`, and `caution`. Add a title after the name; `{no-title}` hides it.
+Also available: `warning`, `danger`, `important`, `note`, `info`, and `caution`. Add a title after the name; `{no-title}` hides it, except for `details`.
 
 See: [Hint containers](https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers)
 
@@ -409,9 +409,7 @@ The build writes static HTML to `docs/.vuepress/dist`. Pass `--dest` to publish 
 
 See: [Build](https://v2.vuepress.vuejs.org/guide/getting-started.html#build-your-site)
 
-### GitHub Pages
-
-#### Base
+### Base path
 
 ```ts
 export default defineUserConfig({
@@ -420,7 +418,11 @@ export default defineUserConfig({
 ```
 <!-- {: data-highlight="base"} -->
 
-#### Workflow
+Set `base` to `/<repo>/` for a project site, or `/` for a user site or custom domain.
+
+See: [GitHub Pages](https://v2.vuepress.vuejs.org/guide/deployment.html#github-pages)
+
+### Pages workflow
 
 ```yaml
 name: docs
@@ -459,7 +461,7 @@ jobs:
 ```
 <!-- {: data-highlight="actions/deploy-pages@v5"} -->
 
-Set `base` to `/<repo>/` for a project site, or `/` for a user site or custom domain. Choose GitHub Actions as the Pages source.
+Builds and deploys on pushes to `main`. Choose GitHub Actions as the Pages source.
 
 See: [GitHub Pages](https://v2.vuepress.vuejs.org/guide/deployment.html#github-pages)
 
@@ -487,3 +489,16 @@ See: [GitHub Pages](https://v2.vuepress.vuejs.org/guide/deployment.html#github-p
 Both hosts serve from the domain root, so keep `base: '/'` (the default) unless the site lives under a subpath. Netlify reads `netlify.toml`; Vercel reads `vercel.json` and its "Other" framework preset.
 
 See: [Deployment](https://v2.vuepress.vuejs.org/guide/deployment.html#netlify)
+
+## Also see
+
+- [Deploy to GitHub Pages](./vuepress-deploy-github-pages)
+- [Deploy to Netlify](./vuepress-deploy-netlify)
+- [Add search](./vuepress-search)
+- [Configure the navbar](./vuepress-navbar)
+- [Configure the sidebar](./vuepress-sidebar)
+- [Format code blocks](./vuepress-code-blocks)
+- [Add hint containers](./vuepress-hint-containers)
+- [Add a second language](./vuepress-i18n)
+- [Add Google Analytics](./vuepress-google-analytics)
+<!-- {: .-also-see} -->

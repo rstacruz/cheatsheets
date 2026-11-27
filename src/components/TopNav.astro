@@ -20,19 +20,23 @@ const t = {
 }
 
 const styles = {
-  root: 'TopNav__root relative mb-[8px] h-[48px] border-b border-b-border-strong py-[8px] text-center leading-[64px] min-[481px]:mb-0 min-[481px]:h-[64px] min-[481px]:border-b-0 min-[481px]:py-0',
+  root: cx(
+    'TopNav__root',
+    '[--brand-ink:light-dark(var(--foreground),#fff)]',
+    'relative mb-[8px] h-[48px] border-b border-b-border-strong py-[8px] text-center leading-[64px] min-[481px]:mb-0 min-[481px]:h-[64px] min-[481px]:border-b-0 min-[481px]:py-0'
+  ),
   inner:
-    'TopNav__inner relative mx-auto flex h-[32px] max-w-content items-center px-[16px] leading-[32px] min-[481px]:mt-0 min-[481px]:h-[64px] min-[481px]:leading-[64px]',
+    'TopNav__inner relative flex h-[32px] items-center px-[32px] leading-[32px] min-[481px]:mt-0 min-[481px]:h-[64px] min-[481px]:leading-[64px]',
   brand: cx(
     'TopNav__brand',
-    'block h-[12.3px] w-[122px] flex-none bg-current',
+    'block h-[10.9px] w-[108px] flex-none bg-[var(--brand-ink)]',
     '[--brand-logo:url(/assets/devhints.svg)]',
     '[mask:var(--brand-logo)_center/contain_no-repeat]',
     '[-webkit-mask:var(--brand-logo)_center/contain_no-repeat]',
     'forced-color-adjust-none hover:bg-primary focus:bg-primary'
   ),
   actions:
-    'TopNav__actions flex flex-none items-center gap-[8px] max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[16px] min-[481px]:top-[16px]',
+    'TopNav__actions flex flex-none items-center gap-[8px] max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[32px] min-[481px]:top-[16px]',
   socialList:
     'TopNav__socialList m-0 flex h-[32px] list-none items-center gap-[8px] p-0',
   pageActions:
@@ -40,7 +44,7 @@ const styles = {
   editItem: 'TopNav__editItem m-0 flex! p-0',
   editLink: cx(
     'TopNav__editLink',
-    'inline-block align-top h-[32px] rounded-xs px-[16px] leading-[32px] text-foreground no-underline transition-all duration-100 ease-linear',
+    'inline-block align-top h-[32px] rounded-xs px-[16px] leading-[32px] text-[var(--brand-ink)] no-underline transition-all duration-100 ease-linear',
     '[box-shadow:inset_0_0_0_1px_var(--border-strong)]',
     'hover:bg-[image:var(--brand-gradient)] hover:text-primary-foreground hover:shadow-sm',
     'focus:bg-[image:var(--brand-gradient)] focus:text-primary-foreground focus:shadow-sm',

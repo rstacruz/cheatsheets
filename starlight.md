@@ -384,6 +384,7 @@ Drafts render in `dev` but are left out of builds, along with their sidebar and 
 See: [draft](https://starlight.astro.build/reference/frontmatter/#draft)
 
 ## Theming
+<!-- {: .-three-column} -->
 
 ### Custom CSS
 
@@ -435,7 +436,7 @@ See: [Theming](https://starlight.astro.build/guides/css-and-tailwind/#theming)
 ```css
 :root {
   --sl-font: 'Inter', sans-serif;
-  --sl-font-mono: 'JetBrains Mono', monospace;
+  --sl-font-mono: 'JetBrains Mono';
   --sl-sidebar-width: 20rem;
   --sl-content-width: 50rem;
 }
@@ -447,6 +448,7 @@ These properties set body type, code type, sidebar width and content width.
 See: [props.css](https://github.com/withastro/starlight/blob/main/packages/starlight/src/style/props.css)
 
 ## Internationalization
+<!-- {: .-three-column} -->
 
 ### Locales
 
@@ -454,7 +456,10 @@ See: [props.css](https://github.com/withastro/starlight/blob/main/packages/starl
 starlight({
   defaultLocale: 'root',
   locales: {
-    root: { label: 'English', lang: 'en' },
+    root: {
+      label: 'English',
+      lang: 'en',
+    },
     fr: { label: 'Français' },
   },
 })
@@ -470,10 +475,12 @@ See: [i18n](https://starlight.astro.build/guides/i18n/)
 #### src/content.config.ts
 
 ```ts
-import { defineCollection } from 'astro:content'
+import { defineCollection } from
+  'astro:content'
 import { docsLoader, i18nLoader } from
   '@astrojs/starlight/loaders'
-import { docsSchema, i18nSchema } from '@astrojs/starlight/schema'
+import { docsSchema, i18nSchema } from
+  '@astrojs/starlight/schema'
 
 export const collections = {
   docs: defineCollection({

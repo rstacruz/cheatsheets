@@ -2,12 +2,16 @@
 title: jQuery
 subtitle: DOM manipulation library
 logo: { src: /assets/logos/jquery.svg, mono: true }
-category: JavaScript libraries
-tags: [WIP]
+category: Hidden
+# Unfinished overview: selectors and internals, no events or AJAX.
+tags: [Archived]
+archived: |
+  This unfinished overview stops at selectors and a few extension hooks; it
+  has no events, effects, or AJAX coverage. Use the
+  [jQuery API documentation](https://api.jquery.com/).
 weight: -1
 last_verified_with: "jQuery 4.1.0."
 updated: 2026-11-25
-tier: t3
 intro: |
   [jQuery](https://api.jquery.com/) is a JavaScript library for selecting and traversing DOM elements. This sheet covers selectors, traversal methods, selector extensions, and CSS hooks.
 links:

@@ -2,15 +2,19 @@
 title: Spacemacs
 subtitle: Emacs configuration distribution
 logo: { src: /assets/logos/spacemacs.svg }
-category: Apps
+category: Hidden
 updated: 2026-11-26
-tags: [WIP]
+# Unfinished since 2018: layer shortcuts without configuration guidance.
+tags: [Archived]
+archived: |
+  This unfinished reference lists layer keybindings without covering current
+  configuration or installation. Use
+  [Spacemacs documentation](https://www.spacemacs.org/doc/DOCUMENTATION.html).
 intro: |
   Spacemacs is a distribution for Emacs.
 links:
   - title: Spacemacs
     url: https://www.spacemacs.org/
-tier: t3
 last_verified_with: "Spacemacs develop, Emacs 31.1."
 ---
 

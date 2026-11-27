@@ -1,6 +1,6 @@
 ---
 title: SimpleForm
-category: Rails
+category: Hidden
 subtitle: Rails form builder
 logo: { set: icon-park-outline, name: form-one }
 intro: |
@@ -10,8 +10,11 @@ links:
     url: https://github.com/heartcombo/simple_form
   - title: Simple Form usage guide
     url: https://github.com/heartcombo/simple_form#usage
-tags: [WIP]
-tier: t3
+# Unfinished stub: input and wrapper examples only.
+tags: [Archived]
+archived: |
+  This unfinished page has just input and wrapper examples. Use the
+  [Simple Form usage guide](https://github.com/heartcombo/simple_form#usage).
 last_verified_with: "Simple Form 5.4.1."
 updated: 2026-11-26
 ---

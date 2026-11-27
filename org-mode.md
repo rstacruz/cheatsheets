@@ -2,11 +2,14 @@
 title: Org Mode
 subtitle: Emacs note organizer
 logo: { set: icon-park-outline, name: notes }
-tags: [WIP]
-category: Apps
+category: Hidden
+# Unfinished since 2018; syntax basics and a handful of shortcuts.
+tags: [Archived]
+archived: |
+  This unfinished reference stops at syntax basics and a handful of
+  shortcuts. Use the [Org mode manual](https://orgmode.org/manual/).
 updated: 2026-11-23
 last_verified_with: "GNU Emacs Org mode 9.8.10."
-tier: t3
 intro: |
   [Org mode](https://orgmode.org/) is for keeping hierarchal notes (and more) in Emacs.
 links:

@@ -1,15 +1,18 @@
 ---
 title: Premailer
-category: Ruby libraries
+category: Hidden
 subtitle: CSS inliner for email
 logo: { set: icon-park-outline, name: mail }
-tags: [WIP]
+# Unfinished stub: only custom CSS properties.
+tags: [Archived]
+archived: |
+  This unfinished page covers only the `-premailer-*` CSS properties. Use the
+  [Premailer README](https://github.com/premailer/premailer) for setup and usage.
 intro: |
   [Premailer](https://github.com/premailer/premailer/) is a Ruby library that inlines CSS into HTML.
 links:
   - title: Premailer
     url: https://github.com/premailer/premailer/
-tier: t3
 last_verified_with: "Premailer 1.33.0."
 updated: 2026-11-25
 ---

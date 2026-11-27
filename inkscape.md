@@ -2,10 +2,14 @@
 title: Inkscape
 subtitle: Vector graphics editor
 logo: { src: /assets/logos/inkscape.svg, mono: true }
-category: Apps
-tags: [WIP]
+category: Hidden
+# Unfinished shortcut stub; one key's action is still unknown.
+tags: [Archived]
+archived: |
+  This unfinished shortcut list covers a few tools and leaves one binding
+  unknown (`Alt`). Use
+  [Inkscape's keyboard reference](https://inkscape.org/doc/keys.html).
 updated: 2026-11-25
-tier: t3
 last_verified_with: "Inkscape 1.4.4."
 intro: |
   [Inkscape](https://inkscape.org/) is a vector graphics editor. This sheet covers keyboard shortcuts for the canvas, selector, and node tools.

@@ -2,7 +2,12 @@
 title: Cheatsheet styles
 category: Hidden
 subtitle: Styling reference for cheatsheets
-tags: [WIP]
+# Internal styling demo, unfinished since 2017; superseded by the writing guidelines.
+tags: [Archived]
+archived: |
+  This unfinished styling demo is an internal reference, not a reader-facing
+  cheatsheet. Use the repo's
+  [writing guidelines](https://github.com/rstacruz/cheatsheets/blob/master/_docs/writing-guidelines.md).
 updated: 2017-10-26
 intro: |
   This is a reference of styles that you can use on Devhints cheatsheets. How

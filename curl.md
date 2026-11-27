@@ -3,7 +3,6 @@ title: Curl
 subtitle: Command-line HTTP client
 logo: { src: /assets/logos/curl.svg, mono: true }
 category: Networking
-tags: [Featured]
 updated: 2026-11-11
 last_verified_with: "cURL 8.23.0."
 tier: t2

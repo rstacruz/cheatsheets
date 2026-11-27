@@ -9,8 +9,6 @@ export type Props = {
 }
 
 const props = Astro.props as Props
-const tones = ['primary', 'slate', 'green'] as const
-
 // Insert the cover ad where featured cards 3 and 4 would sit.
 const CARBON_AFTER_INDEX = 2
 
@@ -24,12 +22,7 @@ const styles = {
     {props.pages.map((page, index) => (
       <>
         {index === CARBON_AFTER_INDEX && <CarbonCover />}
-        <PageListItem
-          page={page}
-          variant="featured"
-          tone={tones[index % tones.length]}
-          showFragments
-        />
+        <PageListItem page={page} variant="featured" showFragments />
       </>
     ))}
   </div>

@@ -5,19 +5,10 @@ import Logo from '~/components/Logo.astro'
 import type { SheetPage } from '../../lib/page'
 
 const CARD_FRAGMENT_COUNT = 22
-const tones = {
-  primary:
-    'bg-linear-[15deg,var(--primary-solid),var(--primary-solid-soft)] hover:bg-none hover:bg-primary-solid-hover focus:bg-none focus:bg-primary-solid-hover',
-  slate:
-    'bg-linear-[15deg,var(--slate-solid),var(--slate-solid-soft)] hover:bg-none hover:bg-slate-solid-hover focus:bg-none focus:bg-slate-solid-hover',
-  green:
-    'bg-linear-[15deg,var(--highlight-solid),var(--highlight-solid-soft)] hover:bg-none hover:bg-highlight-solid-hover focus:bg-none focus:bg-highlight-solid-hover'
-}
 
 export type Props = {
   page: SheetPage
   variant?: 'list' | 'featured'
-  tone?: keyof typeof tones
   showFragments?: boolean
 }
 const props = Astro.props as Props
@@ -37,29 +28,37 @@ const fragments =
 const featured = props.variant === 'featured'
 const markSize = 28
 const logo = page.frontmatter.logo
-const markTone = logo
-  ? featured
-    ? 'text-primary-foreground'
-    : 'text-heading'
-  : featured
-    ? '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
-    : 'text-primary-subtle'
+function getMarkTone() {
+  if (!logo) {
+    return featured
+      ? '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
+      : 'text-primary'
+  }
+  if (featured) return 'text-primary-foreground'
+  if (!('src' in logo)) return 'text-primary'
+  return 'text-heading'
+}
+const markTone = getMarkTone()
 const styles = {
   link: cx(
     'PageListItem__link',
-    'group flex min-w-0 flex-col gap-[2px] rounded-xl no-underline',
-    featured ? 'relative' : '',
+    'group relative isolate flex min-w-0 flex-col gap-[8px] overflow-hidden rounded-xl no-underline',
     featured
-      ? cx(
-          'h-[280px] overflow-hidden px-[18px] pt-[16px] pb-[18px]',
-          tones[props.tone ?? 'primary']
-        )
-      : 'min-h-32 bg-secondary px-[14px] pt-[12px] pb-[14px] hover:bg-accent focus:bg-accent'
+      ? 'h-[280px] p-[24px] bg-steel-900 hover:bg-steel-800 focus:bg-steel-800'
+      : 'min-h-32 bg-secondary p-[16px] hover:bg-accent focus:bg-accent'
+  ),
+  top: cx(
+    'PageListItem__top relative z-10 flex min-h-0 flex-auto flex-col gap-[8px]'
   ),
   fragments: cx(
-    'PageListItem__fragments',
+    'PageListItem__fragments mt-2 [transform:rotate(-30deg)_translate(4rem,-1rem)]',
+    'motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out',
+    'motion-safe:group-hover:[transform:rotate(-30deg)_translate(4rem,-1rem)_scale(1.08)]',
     'flex min-h-0 flex-auto flex-wrap content-start gap-x-[5px] gap-y-[4px] overflow-hidden pr-[20%] opacity-50',
-    'mb-[8px] [mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]',
+    '[&>:nth-child(3n)]:opacity-30',
+    '[&>:nth-child(3n+1)]:opacity-60',
+    '[&>:nth-child(3n+2)]:opacity-90',
+    '[mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]',
     '[-webkit-mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]'
   ),
   fragment: cx(
@@ -67,37 +66,89 @@ const styles = {
     'flex-none rounded-full bg-overlay-soft px-[7px] py-px font-handjet text-base leading-[18px] tracking-chip whitespace-nowrap',
     '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
   ),
-  mark: cx('PageListItem__mark mt-auto flex items-center pt-[10px]', markTone),
+  mark: cx('PageListItem__mark flex items-center', markTone),
+  markTint: cx(
+    'PageListItem__markTint pointer-events-none absolute top-[40px] left-[130px] z-0 flex items-center',
+    featured ? 'opacity-20' : 'opacity-10',
+    '[transform:scale(8)] [filter:blur(256px)]',
+    markTone
+  ),
   title: cx(
     'PageListItem__title',
+    'truncate shrink-0',
     featured
-      ? 'font-manrope text-lg leading-[1.25] font-extrabold wrap-break-word text-primary-foreground'
-      : 'font-manrope font-semibold wrap-break-word text-heading group-hover:text-primary group-focus:text-primary'
+      ? 'font-manrope text-lg leading-[1.25] font-extrabold text-primary-foreground'
+      : 'font-manrope font-semibold text-heading group-hover:text-primary group-focus:text-primary'
   ),
   subtitle: cx(
     'PageListItem__subtitle',
+    '-mt-2',
+    'leading-[1.35] text-balance',
     featured
-      ? '[color:color-mix(in_srgb,var(--primary-foreground)_78%,transparent)]'
-      : 'truncate text-xs leading-[1.6] text-muted-foreground-subtle'
-  )
+      ? 'text-primary-subtle'
+      : 'truncate text-xs text-muted-foreground-subtle'
+  ),
+  text: cx('PageListItem__text relative z-10 flex shrink-0 flex-col gap-[8px]')
 }
 ---
 
 <a href={url} class={styles.link}>
-  {fragments && (
-    <span class={styles.fragments} aria-hidden="true">
-      {fragments.map((fragment) => (
-        <span class={styles.fragment}>{fragment}</span>
-      ))}
-    </span>
-  )}
-  <span class={styles.title}>{title}</span>
-  {subtitle && <span class={styles.subtitle}>{subtitle}</span>}
-  <span class={styles.mark}>
+  <span class={styles.markTint} aria-hidden="true">
     {logo ? (
-      <Logo logo={logo} size={markSize} />
+      <Logo
+        logo={logo}
+        size={markSize}
+        class={featured && logo.mono ? '[filter:invert(1)]' : undefined}
+      />
     ) : (
       <Icon name="chevron-forward" size={markSize} />
     )}
   </span>
+  <span class={styles.top}>
+    <span class={styles.mark}>
+      {logo ? (
+        <Logo
+          logo={logo}
+          size={markSize}
+          class={featured && logo.mono ? '[filter:invert(1)]' : undefined}
+        />
+      ) : (
+        <Icon name="chevron-forward" size={markSize} />
+      )}
+    </span>
+    {fragments && (
+      <span class={styles.fragments} aria-hidden="true">
+        {fragments.map((fragment, index) => (
+          <span class={styles.fragment} style={`--fragment-index:${index}`}>
+            {fragment}
+          </span>
+        ))}
+      </span>
+    )}
+  </span>
+  <span class={styles.text}>
+    <span class={styles.title}>{title}</span>
+    {subtitle && <span class={styles.subtitle}>{subtitle}</span>}
+  </span>
 </a>
+
+<style is:global>
+  @keyframes page-list-item-fragment-in {
+    from {
+      transform: translate3d(0, 12px, 0);
+      filter: opacity(0);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      filter: opacity(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .PageListItem__fragment {
+      animation: page-list-item-fragment-in 400ms ease-out both;
+      animation-delay: calc(var(--fragment-index) * 80ms);
+    }
+  }
+</style>

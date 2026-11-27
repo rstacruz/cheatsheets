@@ -1,6 +1,7 @@
 ---
 title: Terraform
 subtitle: Infrastructure as code tool
+logo: { set: logos, name: terraform-icon }
 category: Devops
 tier: t2
 fragments:

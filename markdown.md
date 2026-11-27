@@ -3,6 +3,7 @@ title: Markdown
 seo_title: Markdown cheatsheet — syntax, tables, links
 description: "Markdown syntax: headings, lists, tables, links, code and HTML. CommonMark and GFM reference."
 subtitle: Plain-text markup format
+logo: { set: simple-icons, name: markdown }
 category: Markup
 tier: t2
 last_verified_with: "CommonMark 0.31.2, GFM 0.29-gfm."

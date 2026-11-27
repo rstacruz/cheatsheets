@@ -1,6 +1,7 @@
 ---
 title: OpenAI Codex
 subtitle: Terminal coding agent
+logo: { set: logos, name: codex, mono: true }
 category: Agents
 updated: 2026-11-11
 last_verified_with: "codex-cli 0.167.1."

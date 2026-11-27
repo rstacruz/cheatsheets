@@ -3,7 +3,7 @@ import { icons as simpleIcons } from '@iconify-json/simple-icons'
 import { icons as iconParkOutline } from '@iconify-json/icon-park-outline'
 import { icons as devicon } from '@iconify-json/devicon'
 import { getIconData, iconToSVG, replaceIDs } from '@iconify/utils'
-import type { SheetLogo } from './logos'
+import type { SheetLogo } from '~/types/SheetFrontmatter'
 
 const sets = {
   logos,
@@ -19,7 +19,7 @@ export type ResolvedLogo =
 /** Resolve a registry entry to build-time SVG or a static file. */
 export function resolveLogo(logo: SheetLogo | null): ResolvedLogo | null {
   if (!logo) return null
-  if (logo.kind === 'file') return { kind: 'img', src: logo.src }
+  if ('src' in logo) return { kind: 'img', src: logo.src }
 
   const icon = getIconData(sets[logo.set], logo.name)
   if (!icon) throw new Error(`Unknown logo: ${logo.set}:${logo.name}`)

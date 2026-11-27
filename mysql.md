@@ -1,6 +1,7 @@
 ---
 title: MySQL
 subtitle: Relational database server
+logo: { set: logos, name: mysql-icon }
 updated: 2026-11-11
 last_verified_with: "MySQL 9.7 LTS."
 tier: t2

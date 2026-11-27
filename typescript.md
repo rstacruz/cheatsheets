@@ -1,6 +1,7 @@
 ---
 title: TypeScript
 subtitle: Typed superset of JavaScript
+logo: { set: logos, name: typescript-icon }
 category: Build tools
 tier: t2
 fragments:

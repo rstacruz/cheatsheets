@@ -117,7 +117,7 @@ const sizeStudy = [40, 48, 56, 64, 80]
           <div class="tiles">
             {group.slugs.map((slug) => (
               <figure>
-                <Logo slug={slug} size={56} />
+                <Logo logo={pages[slug].frontmatter.logo} size={56} />
                 <figcaption>{slug}</figcaption>
               </figure>
             ))}
@@ -138,7 +138,7 @@ const sizeStudy = [40, 48, 56, 64, 80]
           <div class="tiles sizes">
             {ladderSizes.map((size) => (
               <figure>
-                <Logo slug={slug} size={size} />
+                <Logo logo={pages[slug].frontmatter.logo} size={size} />
                 <figcaption>{size}px</figcaption>
               </figure>
             ))}

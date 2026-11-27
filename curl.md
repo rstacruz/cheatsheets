@@ -1,6 +1,7 @@
 ---
 title: Curl
 subtitle: Command-line HTTP client
+logo: { set: simple-icons, name: curl }
 category: Networking
 tags: [Featured]
 updated: 2026-11-11

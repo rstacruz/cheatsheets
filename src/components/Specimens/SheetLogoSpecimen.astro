@@ -42,28 +42,34 @@ const headingStyles = {
   role="banner"
 >
   {placement === 'watermark' && (
-    <Logo slug={page.slug} size={260} class="specimen-watermark-logo" />
+    <Logo
+      logo={page.frontmatter.logo}
+      size={260}
+      class="specimen-watermark-logo"
+    />
   )}
 
   {placement === 'above' && (
     <div class="specimen-above">
-      <Logo slug={page.slug} size={size} />
+      <Logo logo={page.frontmatter.logo} size={size} />
     </div>
   )}
 
   {placement === 'kicker' && (
     <div class="specimen-kicker">
-      <Logo slug={page.slug} size={20} />
+      <Logo logo={page.frontmatter.logo} size={20} />
       <span>{category}</span>
     </div>
   )}
 
   <div class="specimen-title-row">
-    {placement === 'beside' && <Logo slug={page.slug} size={size} />}
+    {placement === 'beside' && (
+      <Logo logo={page.frontmatter.logo} size={size} />
+    )}
     <h1 class={headingStyles.h1}>
       {placement === 'inline' && (
         <Logo
-          slug={page.slug}
+          logo={page.frontmatter.logo}
           size={40}
 
           class="specimen-inline"
@@ -73,7 +79,7 @@ const headingStyles = {
       <span class="specimen-suffix"> cheatsheet</span>
       {placement === 'suffix' && (
         <Logo
-          slug={page.slug}
+          logo={page.frontmatter.logo}
           size={28}
 
           class="specimen-suffix-logo"

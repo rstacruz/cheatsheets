@@ -1,6 +1,7 @@
 ---
 title: React.js
 subtitle: UI library
+logo: { set: logos, name: react }
 category: JavaScript frameworks
 tags: [Featured]
 updated: 2026-11-24

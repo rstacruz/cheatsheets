@@ -6,7 +6,6 @@ import { getPages, type SheetPage } from '../lib/page'
 import BaseLayout from './BaseLayout.astro'
 import TopNav from './TopNav.astro'
 import CommentsArea from './V2017Sheet/CommentsArea.astro'
-import SearchFooter from './V2017Sheet/SearchFooter.astro'
 import RelatedPosts from './V2017Sheet/RelatedPosts.astro'
 import CarbonBox from './V2017/CarbonBox.astro'
 import { getSEOPropsForPage } from '~/lib/seo/seo'
@@ -18,7 +17,6 @@ import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
 import { formatShortDate } from '~/lib/dates'
 import { isDeprecated } from '~/lib/page/accessors'
-import { getListedSheetCount } from '~/lib/page/queries'
 import { typeStyles } from '~/styles/CommonStyles'
 
 export type Props = {
@@ -28,7 +26,6 @@ export type Props = {
 const props = Astro.props as Props
 const page = props.page
 const pages = await getPages()
-const sheetCount = getListedSheetCount(pages)
 const snippetLayout = page.frontmatter.layout === 'snippet'
 const editUrl = getEditLink(page)
 const mkdn = await render(page.markdown, {
@@ -174,7 +171,6 @@ const headingStyles = {
     </i>
   </div>
   <CommentsArea identifier={page.slug} />
-  <SearchFooter count={sheetCount} />
   <RelatedPosts page={page} pages={pages} />
 </BaseLayout>
 

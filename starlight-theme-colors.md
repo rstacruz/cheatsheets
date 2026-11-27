@@ -38,9 +38,9 @@ starlight({
   --sl-color-accent-high: #b3c7ff;
 }
 ```
-<!-- {: data-highlight="--sl-color-accent"} -->
+<!-- {: data-highlight="--sl-color-accent-low; --sl-color-accent:; --sl-color-accent-high"} -->
 
-**Sets the dark-mode accent.** `-low` fills backgrounds, `-accent` colors links, and `-high` covers hover and emphasis; see [theming](https://starlight.astro.build/guides/css-and-tailwind/#theming).
+**Sets the dark-mode accent.** `-low` fills backgrounds, `-high` colors links and emphasis in dark mode, and `-accent` takes over in light mode; see [theming](https://starlight.astro.build/guides/css-and-tailwind/#theming).
 
 ### Add the light-mode colors
 <!-- {: .-snippet} -->
@@ -54,4 +54,4 @@ starlight({
 ```
 <!-- {: data-highlight="[data-theme='light']"} -->
 
-**Overrides the light theme separately.** Dark mode lives on the base `:root`, so a single block leaves light mode untouched; see [theming](https://starlight.astro.build/guides/css-and-tailwind/#theming).
+**Overrides the light theme separately.** Dark mode lives on the base `:root`, but custom CSS is unlayered, so without this block your dark accent also replaces the light palette; see [theming](https://starlight.astro.build/guides/css-and-tailwind/#theming).

@@ -6,9 +6,9 @@ test('homepage', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveTitle('Devhints — TL;DR for developer documentation')
   const linksToAssert = [
-    { name: 'Xpath', href: '/xpath' },
-    { name: 'React', href: '/react' },
-    { name: 'Bash', href: '/bash' }
+    { name: /^XPath\b/, href: '/xpath' },
+    { name: /^React\.js\b/, href: '/react' },
+    { name: /^Bash\b/, href: '/bash' }
   ]
 
   for (const { name, href } of linksToAssert) {

@@ -6,6 +6,7 @@ category: Containers
 prism_languages: [yaml]
 weight: -1
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "Docker 29.9.3, Compose 5.7.0."
 tier: t2
 fragments:

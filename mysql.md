@@ -3,6 +3,7 @@ title: MySQL
 subtitle: Relational database server
 logo: { src: /assets/logos/mysql.svg }
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "MySQL 9.7.4 LTS."
 tier: t2
 fragments:

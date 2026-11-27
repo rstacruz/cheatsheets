@@ -20,6 +20,7 @@ fragments:
   - "count"
   - "depends_on"
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "Terraform 1.17.2."
 description: |
   A practical reference for Terraform configuration and CLI workflows.

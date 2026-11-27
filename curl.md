@@ -4,6 +4,7 @@ subtitle: Command-line HTTP client
 logo: { src: /assets/logos/curl.svg, mono: true }
 category: Networking
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "cURL 8.23.0, curl docs 8.23.1."
 tier: t2
 fragments:

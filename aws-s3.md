@@ -4,6 +4,7 @@ subtitle: Object storage service
 logo: { src: /assets/logos/s3.svg }
 category: Devops
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "AWS CLI 2.42.4."
 tier: t2
 fragments:

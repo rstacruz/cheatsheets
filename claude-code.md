@@ -6,8 +6,8 @@ subtitle: AI coding agent
 logo: { src: /assets/logos/claude.svg }
 category: Agents
 tags: [Featured]
-updated: 2026-11-23
-last_verified_with: "Claude Code 2.1.322."
+updated: 2026-11-28
+last_verified_with: "Claude Code 2.1.330."
 tier: t1
 fragments:
   - "claude"
@@ -48,7 +48,7 @@ links:
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash  # native
 brew install --cask claude-code                 # Homebrew
-npm install -g @anthropic-ai/claude-code        # npm, Node 22+
+npm install -g @anthropic-ai/claude-code@latest        # npm, Node 22+
 claude install stable                           # stable channel
 ```
 
@@ -118,6 +118,8 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | ------------------------- | --------------------------------- |
 | `-c, --continue`          | Continue most recent conversation |
 | `-r, --resume`            | Resume a session by ID or name    |
+| `--agent my-agent`       | Use a named subagent             |
+| `--allowedTools "Read"`  | Pre-approve listed tools         |
 | ------------------------- | --------------------------------- |
 | `--model sonnet`          | Choose the model                  |
 | `--effort high`           | Set reasoning effort              |
@@ -137,21 +139,27 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--settings file.json`           | Load settings for this session    |
 | `--ide`                          | Auto-connect to your IDE          |
 | `-w, --worktree`                 | Start in an isolated git worktree |
+| --- | --- |
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
 | `--safe-mode`                    | Start with customizations off     |
+| `--tools "Bash,Edit,Read"`      | Restrict built-in tools           |
+| `--mcp-config mcp.json`         | Load MCP servers for a session    |
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
 ### Headless mode
 
-| Flag                   | Description                      |
-| ---------------------- | -------------------------------- |
-| `-p, --print`          | Print the response and exit      |
-| `--output-format json` | `text`, `json`, or `stream-json` |
-| `--json-schema schema` | Constrain output to a schema     |
-| `--max-turns 3`        | Limit agentic turns              |
-| `--max-budget-usd 5`   | Stop the run at a spend cap      |
-| `--bare`               | Skip hooks, plugins, and memory  |
+| Flag                         | Description                      |
+| ---------------------------- | -------------------------------- |
+| `-p, --print`                | Print the response and exit      |
+| `--output-format json`       | `text`, `json`, or `stream-json` |
+| `--json-schema schema`       | Constrain output to a schema     |
+| `--max-turns 3`              | Limit agentic turns              |
+| --- | --- |
+| `--max-budget-usd 5`         | Stop the run at a spend cap      |
+| `--bare`                     | Skip hooks, plugins, and memory  |
+| `--input-format stream-json` | Stream input events              |
+| `--permission-prompts none`  | Deny unattended prompts          |
 
 See: [Headless mode](https://code.claude.com/docs/en/headless)
 
@@ -172,6 +180,8 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 | `/model`       | Switch the AI model          |
 | `/permissions` | Allow, ask, and deny rules   |
 | `/status`      | Show version, model, account |
+| `/resume`      | Reopen an earlier conversation |
+| `/tasks`       | Show background work           |
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
@@ -183,9 +193,11 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/memory`      | Edit memory files            |
 | `/mcp`         | Manage MCP connections       |
 | `/hooks`       | View hook configurations     |
+| --- | --- |
 | `/doctor`      | Run a setup checkup          |
 | `/diff`        | Review working-tree changes  |
 | `/code-review` | Review the diff or a PR      |
+| `/config`      | Open the settings interface    |
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
@@ -232,11 +244,11 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `Ctrl+L` | Redraw the screen            |
 | `Ctrl+R` | Search prompt history        |
 | `Ctrl+O` | Toggle the transcript viewer |
-| `Ctrl+T` | Toggle Claude's task list    |
+| `Ctrl+T` | Toggle task checklist        |
 
 <!-- {: .-shortcuts} -->
 
-On macOS, use `Option` instead of `Alt`; some chords need Option mapped to Meta.
+On macOS, use `Option` instead of `Alt`; `Option+P` and editing chords need Option mapped to Meta.
 
 See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 
@@ -269,6 +281,22 @@ See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 
 Run `/config` to edit settings, or pass `--settings file.json` for one session. See: [Settings](https://code.claude.com/docs/en/settings)
 
+### Settings keys
+
+| Key | Purpose |
+| --- | --- |
+| `model` | Default model |
+| `permissions.defaultMode` | Starting permission mode |
+| `permissions.allow` | Tools that run without asking |
+| `permissions.deny` | Tools that are always blocked |
+| --- | --- |
+| `env` | Environment variables for sessions |
+| `hooks` | Commands at lifecycle events |
+| `enabledPlugins` | Plugins to activate |
+| `autoMemoryEnabled` | Toggle auto memory |
+
+See: [Settings reference](https://code.claude.com/docs/en/settings-reference)
+
 ### Hooks
 
 | Hook | Fires when |
@@ -277,9 +305,14 @@ Run `/config` to edit settings, or pass `--settings file.json` for one session. 
 | `PostToolUse` | After a tool call |
 | `SessionStart` | A session starts |
 | `Stop` | Claude finishes a reply |
+| --- | --- |
+| `UserPromptSubmit` | A prompt is submitted |
+| `PostToolUseFailure` | A tool call fails |
+| `PreCompact` | Before context compaction |
+| `SessionEnd` | A session ends |
 <!-- {: .-headers} -->
 
-Hooks run shell commands at lifecycle events. Define them in `.claude/settings.json`; `/hooks` lists the loaded ones. See: [Hooks](https://code.claude.com/docs/en/hooks)
+Hooks run commands or prompts at lifecycle events. Set them under a `hooks` key in settings; `/hooks` lists the loaded ones. See: [Hooks](https://code.claude.com/docs/en/hooks)
 
 [Claude Code hooks cheatsheet](./claude-code-hooks)
 <!-- {: .-crosslink} -->
@@ -305,6 +338,7 @@ CLAUDE.md             # project instructions, committed
 CLAUDE.local.md       # personal notes, not committed
 .claude/rules/*.md    # topic rules, optionally path-scoped
 ~/.claude/CLAUDE.md   # instructions for all your projects
+~/.claude/projects/<project>/memory/MEMORY.md # auto memory
 ```
 
 `/init` generates a project CLAUDE.md; `/memory` edits memory files and auto memory. Import files with `@path/to/file.md`. See: [Memory](https://code.claude.com/docs/en/memory)
@@ -315,12 +349,12 @@ CLAUDE.local.md       # personal notes, not committed
 | ------------------- | --------------------------------------- |
 | `default`           | Reads only (labeled Manual)             |
 | `acceptEdits`       | Reads, file edits, filesystem commands  |
-| `plan`              | Reads, until you approve a plan         |
+| `plan`              | Reads, approved commands until approval |
 | `auto`              | Everything, with safety checks          |
 | `dontAsk`           | Pre-approved tools only; rest denied    |
 | `bypassPermissions` | Everything                              |
 
-`auto` is the built-in starting mode; `Shift+Tab` cycles modes in a session. A classifier can still block actions, and explicit ask rules still prompt. See: [Permission modes](https://code.claude.com/docs/en/permission-modes)
+`auto` is the built-in starting mode in terminal and VS Code sessions on v2.1.283+; `-p` runs start in `default`. `Shift+Tab` cycles modes; a classifier can still block actions, and explicit ask rules still prompt. See: [Permission modes](https://code.claude.com/docs/en/permission-modes)
 
 ## Common workflows
 
@@ -333,7 +367,7 @@ git diff | claude -p "review this diff for bugs"
 claude -p "check src/ for security issues"
 ```
 
-In a session, `/code-review` reviews the diff, `/code-review 1234` a pull request, and `/security-review` scans for vulnerabilities.
+In a session, `/code-review` reviews the diff, `/code-review 1234` a pull request, and `/security-review` scans for vulnerabilities. Add `--fix` to apply the findings.
 
 See: [Review locally with /code-review](https://code.claude.com/docs/en/code-review-local)
 
@@ -360,6 +394,7 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 ```bash
 claude --bg "migrate the auth tests"  # detach immediately
 claude agents                         # monitor and dispatch
+claude attach <id>                    # attach in this terminal
 ```
 <!-- {: data-highlight="--bg"} -->
 

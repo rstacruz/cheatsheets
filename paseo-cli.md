@@ -3,8 +3,8 @@ title: Paseo CLI
 subtitle: Multi-agent coding CLI
 logo: { set: icon-park-outline, name: robot }
 category: Agents
-updated: 2026-11-21
-last_verified_with: "paseo 0.16.2."
+updated: 2026-11-28
+last_verified_with: "paseo 0.18.1."
 tier: t1
 fragments:
   - "paseo"
@@ -80,13 +80,16 @@ See: [Quick reference](https://paseo.sh/docs/cli#quick-reference)
 
 ```bash
 paseo run "fix the tests"
+paseo run --workspace <workspace-id> "review the current diff"
 paseo run --provider codex --no-wait "run the focused test suite"
 paseo run --output-schema schema.json "name this branch"
 paseo run --new-workspace worktree --worktree-mode branch-off \
   --new-branch feature/x --base origin/main "implement feature X"
 ```
 
-A bare `run` in an interactive shell creates a local workspace; `--no-wait` returns while the agent keeps running. `--output-schema` cannot combine with `--no-wait`.
+A bare `run` creates a local workspace in the current directory;
+`--workspace` uses an existing one. `--no-wait` returns early;
+`--output-schema` cannot combine with `--no-wait`.
 
 See: [Running agents](https://paseo.sh/docs/cli#running-agents)
 
@@ -96,10 +99,12 @@ See: [Running agents](https://paseo.sh/docs/cli#running-agents)
 paseo ls
 paseo ls -a
 paseo ls -a -g --json
+paseo ls --background
 paseo ls -q
 ```
 
 `-a` adds archived and background agents; `-g` crosses directories.
+`--background` adds background agents without archived ones.
 
 See: [Listing agents](https://paseo.sh/docs/cli#listing-agents)
 
@@ -125,7 +130,8 @@ paseo send <id> --behavior steer "continue on this path"
 paseo send <id> --no-wait "run this task"
 ```
 
-Agent-originated sends steer the running turn by default; other sends interrupt.
+Agent sends queue until the running turn ends; `--behavior steer`
+joins that turn. From a person, the default is `interrupt`.
 
 See: [Sending messages](https://paseo.sh/docs/cli#sending-messages)
 
@@ -319,10 +325,12 @@ paseo schedule pause <id>
 paseo schedule resume <id>
 paseo schedule run-once <id>
 paseo schedule update <id> --every 10m --max-runs 6
+paseo schedule update <id> --no-archive-on-finish
 paseo schedule delete <id>
 ```
 
-Each run starts a fresh agent; run workspaces are archived when a run ends.
+Each run starts a fresh agent and archives its workspace by default;
+`--no-archive-on-finish` keeps run workspaces active.
 
 See: [Manage](https://paseo.sh/docs/schedules-cli#manage)
 
@@ -463,6 +471,7 @@ See: [Account usage](https://paseo.sh/docs/cli#account-usage)
 paseo hub status
 paseo hub login [url]
 paseo hub permissions list
+paseo hub permissions grant hub.execute
 paseo hub deploy --dry-run
 ```
 

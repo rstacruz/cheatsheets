@@ -426,8 +426,7 @@ See: [PSUBSCRIBE](https://redis.io/docs/latest/commands/psubscribe/)
 ### Leave a subscription
 
 ```bash
-redis-cli SUBSCRIBE news
-# Ctrl-C to leave subscribe mode
+# In the subscribed redis-cli: Ctrl-C
 ```
 <!-- {: data-highlight="Ctrl-C"} -->
 
@@ -556,7 +555,7 @@ See: [CONFIG SET](https://redis.io/docs/latest/commands/config-set/)
 ## Docker
 <!-- {: .-three-column} -->
 
-### Run a container
+### Start a container
 
 ```bash
 docker run -d --name redis \
@@ -599,6 +598,7 @@ docker exec redis redis-cli PING
 # PONG
 ```
 <!-- {: data-highlight="docker exec"} -->
+Runs `redis-cli` inside the container, interactively or for one command.
 
 See: [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/)
 

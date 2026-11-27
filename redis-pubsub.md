@@ -55,8 +55,7 @@ redis-cli PUBLISH news.dev hello
 <!-- {: .-snippet} -->
 
 ```bash
-redis-cli SUBSCRIBE news
-# Ctrl-C to leave subscribe mode
+# In the subscribed redis-cli: Ctrl-C
 ```
 <!-- {: data-highlight="Ctrl-C"} -->
 

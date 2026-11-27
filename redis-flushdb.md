@@ -37,7 +37,7 @@ redis-cli DBSIZE
 ```
 <!-- {: data-highlight="DBSIZE"} -->
 
-**Counts keys in the current database before deleting.** See [DBSIZE](https://redis.io/docs/latest/commands/dbsize/).
+**Counts keys in the current database; run before a flush for a pre-delete count.** See [DBSIZE](https://redis.io/docs/latest/commands/dbsize/).
 
 ### Avoid blocking the server
 <!-- {: .-snippet} -->

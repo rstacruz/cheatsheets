@@ -47,7 +47,7 @@ docker exec redis redis-cli PING
 ```
 <!-- {: data-highlight="docker exec"} -->
 
-**Opens a client inside the running container.** See [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/).
+**Runs `redis-cli` inside the container, interactively or for one command.** See [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/).
 
 ### Persist data
 <!-- {: .-snippet} -->

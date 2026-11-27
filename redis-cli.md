@@ -18,6 +18,17 @@ links:
 ## Command line
 <!-- {: .-snippets} -->
 
+### Open the prompt
+<!-- {: .-snippet} -->
+
+```bash
+redis-cli
+127.0.0.1:6379> PING
+PONG
+```
+
+**Opens an interactive session until Ctrl-D or `exit`.** See [redis-cli](https://redis.io/docs/latest/develop/tools/cli/).
+
 ### Run one command
 <!-- {: .-snippet} -->
 

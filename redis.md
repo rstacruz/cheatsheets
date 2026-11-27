@@ -323,7 +323,7 @@ See: [TYPE](https://redis.io/docs/latest/commands/type/)
 ## Expiration
 <!-- {: .-three-column} -->
 
-### Set a TTL
+### Set a TTL on write
 
 ```bash
 SET session:1 token EX 60
@@ -366,7 +366,7 @@ See: [EXPIRE](https://redis.io/docs/latest/commands/expire/)
 
 See: [TTL](https://redis.io/docs/latest/commands/ttl/)
 
-### Remove expiry
+### Remove a TTL
 
 ```bash
 PERSIST session:1
@@ -384,7 +384,7 @@ See: [PERSIST](https://redis.io/docs/latest/commands/persist/)
 ## Pub/sub
 <!-- {: .-three-column} -->
 
-### Subscribe
+### Subscribe to a channel
 
 ```bash
 redis-cli SUBSCRIBE news
@@ -398,7 +398,7 @@ The connection blocks and prints messages until Ctrl-C. Messages with no listene
 
 See: [Pub/sub](https://redis.io/docs/latest/develop/pubsub/)
 
-### Publish
+### Publish a message
 
 ```bash
 redis-cli PUBLISH news hello
@@ -410,7 +410,7 @@ The integer counts the clients that received the message.
 
 See: [PUBLISH](https://redis.io/docs/latest/commands/publish/)
 
-### Pattern subscription
+### Subscribe by pattern
 
 ```bash
 redis-cli PSUBSCRIBE 'news.*'
@@ -423,15 +423,17 @@ Glob patterns match several channels; `news` alone does not match `news.*`.
 
 See: [PSUBSCRIBE](https://redis.io/docs/latest/commands/psubscribe/)
 
-### Unsubscribe
+### Leave a subscription
 
 ```bash
-redis-cli UNSUBSCRIBE news
-redis-cli PUNSUBSCRIBE 'news.*'
+redis-cli SUBSCRIBE news
+# Ctrl-C to leave subscribe mode
 ```
-<!-- {: data-highlight="UNSUBSCRIBE; PUNSUBSCRIBE"} -->
+<!-- {: data-highlight="Ctrl-C"} -->
 
-See: [UNSUBSCRIBE](https://redis.io/docs/latest/commands/unsubscribe/)
+Client libraries send `UNSUBSCRIBE` on the subscribed connection; a new `redis-cli` cannot end another client's subscription.
+
+See: [Pub/sub](https://redis.io/docs/latest/develop/pubsub/)
 
 ## Persistence
 <!-- {: .-three-column} -->
@@ -582,7 +584,7 @@ The named volume keeps AOF files when the container is replaced.
 
 See: [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
 
-### Open a client
+### Connect to the container
 
 #### Interactive shell
 
@@ -600,7 +602,7 @@ docker exec redis redis-cli PING
 
 See: [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/)
 
-### Compose
+### Docker Compose
 
 ```yaml
 services:
@@ -618,7 +620,7 @@ Compose declares the port mapping and a named volume for `/data`.
 
 See: [Compose services](https://docs.docker.com/reference/compose-file/services/)
 
-### Stop and start
+### Stop and restart
 
 ```bash
 docker stop redis

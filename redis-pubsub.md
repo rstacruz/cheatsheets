@@ -51,13 +51,13 @@ redis-cli PUBLISH news.dev hello
 
 **Matches several channels with a glob pattern.** `news` alone does not match `news.*`. See [PSUBSCRIBE](https://redis.io/docs/latest/commands/psubscribe/).
 
-### Unsubscribe
+### Leave a subscription
 <!-- {: .-snippet} -->
 
 ```bash
-redis-cli UNSUBSCRIBE news
-redis-cli PUNSUBSCRIBE 'news.*'
+redis-cli SUBSCRIBE news
+# Ctrl-C to leave subscribe mode
 ```
-<!-- {: data-highlight="UNSUBSCRIBE; PUNSUBSCRIBE"} -->
+<!-- {: data-highlight="Ctrl-C"} -->
 
-**Stops listening on channels or patterns.** See [UNSUBSCRIBE](https://redis.io/docs/latest/commands/unsubscribe/).
+**Ends subscribe mode in `redis-cli`.** Client libraries send `UNSUBSCRIBE` on the subscribed connection; see [Pub/sub](https://redis.io/docs/latest/develop/pubsub/).

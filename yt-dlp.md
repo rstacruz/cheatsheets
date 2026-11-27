@@ -4,6 +4,7 @@ subtitle: Command-line video downloader
 logo: { set: icon-park-outline, name: video }
 category: Media tools
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "yt-dlp 2026.11.23."
 tier: t1
 fragments:

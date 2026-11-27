@@ -4,6 +4,7 @@ subtitle: Cursor terminal agent
 logo: { src: /assets/logos/cursor.svg, mono: true }
 category: Agents
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "Cursor CLI 2026.11.22."
 tier: t1
 fragments:

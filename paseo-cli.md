@@ -4,6 +4,7 @@ subtitle: Multi-agent coding CLI
 logo: { set: icon-park-outline, name: robot }
 category: Agents
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "paseo 0.18.1."
 tier: t1
 fragments:

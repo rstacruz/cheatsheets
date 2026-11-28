@@ -5,7 +5,7 @@ subtitle: Group routes with Router
 logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
-updated: 2026-11-26
+updated: 2026-11-28
 last_verified_with: "Express 5.3.0, Node 26.13.1."
 tier: t3
 keywords: [express router, express routes files, express.Router]
@@ -36,7 +36,7 @@ export default router
 ```
 <!-- {: data-highlight="Router()"} -->
 
-**Groups related routes in their own file.** `Router()` returns middleware with the same routing methods as `app`. See [express.Router](https://expressjs.com/en/5x/guide/routing/#expressrouter).
+**Groups related routes,** in their own file. `Router()` returns middleware with the same routing methods as `app`. See [express.Router](https://expressjs.com/en/5x/guide/routing/#expressrouter).
 
 ### Mount the router
 <!-- {: .-snippet} -->
@@ -50,7 +50,7 @@ app.use('/users', users)
 ```
 <!-- {: data-highlight="'/users'"} -->
 
-**Mounts the router on a prefix.** Paths inside `users.js` stay relative to `/users`. See [express.Router](https://expressjs.com/en/5x/guide/routing/#expressrouter).
+**Mounts on a prefix,** with the router. Paths inside `users.js` stay relative to `/users`. See [express.Router](https://expressjs.com/en/5x/guide/routing/#expressrouter).
 
 ### Router-level middleware
 <!-- {: .-snippet} -->

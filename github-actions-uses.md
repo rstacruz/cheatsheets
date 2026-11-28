@@ -5,7 +5,7 @@ subtitle: Call, pin, and reuse actions
 category: Devops
 layout: snippet
 last_verified_with: "actions/setup-node 7.1.0, actions/checkout 7.0.1, codeql-action 4."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: steps.uses
     url: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsuses
@@ -54,7 +54,7 @@ links:
 ```
 <!-- {: data-highlight="./.github/actions/setup"} -->
 
-**Runs an action from your repository.** The folder holds an `action.yml`, and the repo must be checked out first. See [Local actions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsuses).
+**Runs a local action.** It comes from your repository. The folder holds an `action.yml`, and the repo must be checked out first. See [Local actions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsuses).
 
 ### Run a Docker image
 <!-- {: .-snippet} -->
@@ -66,7 +66,7 @@ links:
 ```
 <!-- {: data-highlight="docker://alpine:3.21"} -->
 
-**Runs an image as a step.** `args` and `entrypoint` control what it executes. See [Docker actions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsuses).
+**Runs a Docker image.** It runs as a step. `args` and `entrypoint` control what it executes. See [Docker actions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsuses).
 
 ### Read the action's outputs
 <!-- {: .-snippet} -->

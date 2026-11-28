@@ -6,7 +6,7 @@ logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: kubectl cp
     url: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/
@@ -23,7 +23,7 @@ kubectl cp web-0:/app/log.txt ./log.txt
 ```
 <!-- {: data-highlight="kubectl cp"} -->
 
-**Copies a file out of a container.** The remote side needs the `pod:path` form; the local path is a normal file or directory. See [kubectl cp](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/).
+**Copies a file out.** The remote side needs the `pod:path` form; the local path is a normal file or directory. See [kubectl cp](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/).
 
 ### Copy into a pod
 <!-- {: .-snippet} -->
@@ -33,7 +33,7 @@ kubectl cp ./config.yaml web-0:/app/config.yaml
 ```
 <!-- {: data-highlight="./config.yaml web-0:"} -->
 
-**Copies a local file into a container.** The parent directory must already exist, and the target's permissions come from the copied file. See [kubectl cp](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/).
+**Copies files into a pod.** A local file lands in the container; the parent directory must already exist, and the target's permissions come from the copied file. See [kubectl cp](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/).
 
 ### Copy a directory
 <!-- {: .-snippet} -->
@@ -54,4 +54,4 @@ kubectl exec web-0 -- tar cf - /app/log.txt \
 ```
 <!-- {: data-highlight="tar cf -"} -->
 
-**Pipes files through tar by hand.** `kubectl cp` wraps both ends in `tar` and skips symlinks with a warning; this pipeline keeps them and shows tar's errors. See [kubectl exec](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/).
+**Pipes files through tar.** It is done by hand: `kubectl cp` wraps both ends in `tar` and skips symlinks with a warning; this pipeline keeps them and shows tar's errors. See [kubectl exec](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/).

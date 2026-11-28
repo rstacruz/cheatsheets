@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Remote functions
     url: https://svelte.dev/docs/kit/remote-functions
@@ -46,7 +46,7 @@ export const getTodos = query(async () => {
 ```
 <!-- {: data-highlight="query(async"} -->
 
-**Runs on the server and returns a fetch wrapper.** A `query()` in a `.remote.ts` file is safe to import in components; see [query](https://svelte.dev/docs/kit/remote-functions#query).
+**Queries the server.** It runs on the server and returns a fetch wrapper; a `query()` in a `.remote.ts` file is safe to import in components. See [query](https://svelte.dev/docs/kit/remote-functions#query).
 
 ### Await in markup
 <!-- {: .-snippet} -->
@@ -82,7 +82,7 @@ export const getTodo = query(
 ```
 <!-- {: data-highlight="v.string()"} -->
 
-**Checks the payload before the handler runs.** The first argument is a Standard Schema, so the HTTP endpoint cannot pass junk; see [Query arguments](https://svelte.dev/docs/kit/remote-functions#query-Query-arguments).
+**Checks the payload.** Validation runs before the handler; the first argument is a Standard Schema, so the HTTP endpoint cannot pass junk. See [Query arguments](https://svelte.dev/docs/kit/remote-functions#query-Query-arguments).
 
 ### Submit with a form
 <!-- {: .-snippet} -->
@@ -113,4 +113,4 @@ export const addTodo = form(
 </form>
 ```
 
-**Carries method, action, and field attributes.** The spread works without JavaScript and enhances itself; see [form](https://svelte.dev/docs/kit/remote-functions#form).
+**Carries form attributes.** The spread supplies method, action, and field attributes; it works without JavaScript and enhances itself. See [form](https://svelte.dev/docs/kit/remote-functions#form).

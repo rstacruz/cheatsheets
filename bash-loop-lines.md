@@ -6,7 +6,7 @@ logo: { src: /assets/logos/bash.svg }
 category: Shell
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash for loop cheatsheet
@@ -40,7 +40,7 @@ done <<< "$text"
 ```
 <!-- {: data-highlight='<<< "$text"'} -->
 
-**Feeds a string into the loop.** The here-string adds a final newline, so the last line is not lost; see [here strings](https://www.gnu.org/software/bash/manual/html_node/Here-Strings.html).
+**Feeds a string.** It goes into the loop. The here-string adds a final newline, so the last line is not lost; see [here strings](https://www.gnu.org/software/bash/manual/html_node/Here-Strings.html).
 
 ### Skip blank lines
 <!-- {: .-snippet} -->

@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: hourCycle option
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle
@@ -30,7 +30,7 @@ new Intl.DateTimeFormat('en-US', {
 ```
 <!-- {: .-wrap data-highlight="hourCycle: 'h23'"} -->
 
-**Forces a 24-hour clock regardless of locale.** `h23` counts 0-23; see [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle).
+**Forces a 24-hour clock.** It applies regardless of locale, and `h23` counts 0-23. See [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle).
 
 ### Prefer h23 over h24
 <!-- {: .-snippet} -->
@@ -64,7 +64,7 @@ new Intl.DateTimeFormat('en-US', {
 ```
 <!-- {: .-wrap data-highlight="hour12: false"} -->
 
-**The older switch for a 24-hour clock.** `hour12` wins when both options are set, so use `hourCycle` to pick `h11`, `h12`, `h23`, or `h24`; see [hour12](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hour12).
+**The older 24-hour switch.** `hour12` wins when both options are set, so use `hourCycle` to pick `h11`, `h12`, `h23`, or `h24`. See [hour12](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hour12).
 
 ### Pick a 24-hour locale
 <!-- {: .-snippet} -->
@@ -77,4 +77,4 @@ new Intl.DateTimeFormat('de-DE', {
 ```
 <!-- {: .-wrap data-highlight="'de-DE'"} -->
 
-**Most of Europe already defaults to 24-hour time.** Locale defaults are not guaranteed, so set `hourCycle` when the design needs 24-hour output; see [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle).
+**Europe mostly uses 24-hour time.** Locale defaults are not guaranteed, so set `hourCycle` when the design needs 24-hour output. See [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle).

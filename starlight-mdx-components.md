@@ -5,7 +5,7 @@ subtitle: Steps, tabs and trees
 logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
-updated: 2026-11-27
+updated: 2026-11-28
 last_verified_with: "Starlight 0.43.2, Astro 7.4.13."
 links:
   - title: Using components
@@ -37,7 +37,7 @@ import { Steps, Tabs, TabItem } from
 ```
 <!-- {: data-highlight="@astrojs/starlight/components"} -->
 
-**Pulls the built-ins into the page.** Components ship in that package, plus your own `.astro` files; see [using components](https://starlight.astro.build/components/using-components/).
+**Pulls in components.** The built-ins are pulled into the page. Components ship in that package, plus your own `.astro` files; see [using components](https://starlight.astro.build/components/using-components/).
 
 ### Number a list with Steps
 <!-- {: .-snippet} -->
@@ -81,4 +81,4 @@ import { Steps, Tabs, TabItem } from
 ```
 <!-- {: data-highlight="<FileTree>"} -->
 
-**Styles a nested list as a tree.** Folders and extensions get icons, and a trailing slash marks a directory; see [FileTree](https://starlight.astro.build/components/file-tree/).
+**Styles a file tree.** A nested list is styled as a tree. Folders and extensions get icons, and a trailing slash marks a directory; see [FileTree](https://starlight.astro.build/components/file-tree/).

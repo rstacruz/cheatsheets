@@ -6,7 +6,7 @@ logo: { src: /assets/logos/ffmpeg.svg, mono: true }
 category: Media tools
 layout: snippet
 last_verified_with: "ffmpeg 9.0.2."
-updated: 2026-11-24
+updated: 2026-11-28
 tier: t3
 intro: |
   Convert video to animated GIF with ffmpeg, including palette generation, trimming, and resizing.
@@ -27,7 +27,7 @@ links:
 ffmpeg -i in.mp4 out.gif
 ```
 
-**Converts the whole clip with default settings.** Output is large; the palette recipe below gives better colors; see the [ffmpeg documentation](https://ffmpeg.org/documentation.html).
+**Converts the whole clip.** Default settings make the output large; the palette recipe below gives better colors. See [ffmpeg documentation](https://ffmpeg.org/documentation.html).
 
 ### Better colors
 <!-- {: .-snippet} -->
@@ -39,7 +39,7 @@ ffmpeg -i in.mp4 -filter_complex \
   out.gif
 ```
 
-**Builds one palette from the clip and reuses it.** The split filter feeds a copy to `palettegen` and applies the palette to the original; see the [FFmpeg wiki](https://trac.ffmpeg.org/wiki/How%20to%20encode%20animated%20GIF%20images%20with%20ffmpeg).
+**Builds one reusable palette.** The split filter feeds a copy to `palettegen` and applies the palette to the original. See [FFmpeg wiki](https://trac.ffmpeg.org/wiki/How%20to%20encode%20animated%20GIF%20images%20with%20ffmpeg).
 
 ### Trim and resize
 <!-- {: .-snippet} -->
@@ -49,4 +49,4 @@ ffmpeg -ss 0:01:30 -t 5 -i in.mp4 \
   -vf "fps=15,scale=480:-1" out.gif
 ```
 
-**Converts five seconds at 15 fps, 480 px wide.** `-ss` before `-i` seeks fast, and `-1` keeps the aspect ratio; see [scale](https://ffmpeg.org/ffmpeg-filters.html#scale).
+**Trims and resizes.** It converts five seconds at 15 fps, 480 px wide; `-ss` before `-i` seeks fast, and `-1` keeps the aspect ratio. See [scale](https://ffmpeg.org/ffmpeg-filters.html#scale).

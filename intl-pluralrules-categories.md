@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.PluralRules resolvedOptions()
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/resolvedOptions
@@ -28,7 +28,7 @@ opts.pluralCategories
 ```
 <!-- {: data-highlight="pluralCategories"} -->
 
-**Lists the categories a locale uses.** Build translation keys from this list instead of assuming `one` and `other`. See [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/resolvedOptions).
+**Lists plural categories.** Build translation keys from this list instead of assuming `one` and `other`. See [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/resolvedOptions).
 
 ### Compare locales
 <!-- {: .-snippet} -->

@@ -6,7 +6,7 @@ logo: { src: /assets/logos/bash.svg }
 category: Shell
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash for loop cheatsheet
@@ -42,7 +42,7 @@ done
 ```
 <!-- {: data-highlight='$(seq 1 "$n")'} -->
 
-**Reads the count from a variable.** `{1..$n}` stays literal because brace expansion runs first, so call `seq`; see [seq](https://www.gnu.org/software/coreutils/manual/html_node/seq-invocation.html).
+**Reads a variable count.** `{1..$n}` stays literal because brace expansion runs first, so call `seq`. See [seq](https://www.gnu.org/software/coreutils/manual/html_node/seq-invocation.html).
 
 ### C-style loop
 <!-- {: .-snippet} -->
@@ -56,4 +56,4 @@ done
 ```
 <!-- {: data-highlight="for ((i = 0; i < n; i++))"} -->
 
-**Counts with arithmetic instead of a list.** Start, test, and step are ordinary bash arithmetic, so `$n` needs no prefix; see [arithmetic evaluation](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html).
+**Counts with arithmetic.** Start, test, and step are ordinary bash arithmetic, so `$n` needs no prefix. See [arithmetic evaluation](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html).

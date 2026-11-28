@@ -6,7 +6,7 @@ logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: kubectl logs
     url: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/
@@ -23,7 +23,7 @@ kubectl logs --previous web-0
 ```
 <!-- {: data-highlight="--previous"} -->
 
-**Reads the log of the container instance that ended.** When a container crashes and restarts, the current logs start empty, so the error only survives with `--previous`. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
+**Reads the previous log.** Use it when a container crashes and restarts: the current logs start empty, so the error only survives with `--previous`. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
 
 ### Choose a container
 <!-- {: .-snippet} -->
@@ -33,7 +33,7 @@ kubectl logs --previous -c api web-0
 ```
 <!-- {: data-highlight="-c api"} -->
 
-**Picks one container in a multi-container pod.** Without `-c`, kubectl prints that it defaulted to the pod's first container and reads that one. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
+**Picks one container.** Without `-c`, kubectl prints that it defaulted to the pod's first container and reads that one. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
 
 ### Whole deployment
 <!-- {: .-snippet} -->
@@ -43,7 +43,7 @@ kubectl logs --previous -l app=web
 ```
 <!-- {: data-highlight="-l app=web"} -->
 
-**Reads the previous logs of every matching pod.** A pod that never restarted has no previous logs, which stops the run; add `--ignore-errors` to skip it. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
+**Reads a whole deployment.** It shows previous logs for every matching pod; a pod that never restarted has none, which stops the run, so add `--ignore-errors` to skip it. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
 
 ### Stream the current log
 <!-- {: .-snippet} -->

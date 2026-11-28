@@ -26,7 +26,7 @@ journalctl -u ssh.service -f
 ```
 <!-- {: data-highlight="-f"} -->
 
-**Streams new lines for one service until `Ctrl+C`.** See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
+**Streams new lines until `Ctrl+C`.** Use `-u` to follow one service. See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
 
 ### Last N lines
 <!-- {: .-snippet} -->
@@ -36,7 +36,7 @@ journalctl -u ssh.service -n 100 --no-pager
 ```
 <!-- {: data-highlight="-n 100"} -->
 
-**Prints the latest 100 entries without a pager.** See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
+**Prints the latest 100 entries.** `-n` sets the count; `--no-pager` skips the pager. See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
 
 ### Since a time
 <!-- {: .-snippet} -->
@@ -47,7 +47,7 @@ journalctl --since "2026-11-28 09:00" \
 ```
 <!-- {: data-highlight="--since"} -->
 
-**Limits entries to a time window.** Relative values such as `1 hour ago` also work; see [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
+**Limits entries by time.** Use `--since` and `--until` for a window; relative values such as `1 hour ago` also work. See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
 
 ### Errors this boot
 <!-- {: .-snippet} -->
@@ -57,7 +57,7 @@ journalctl -p err -b --no-pager
 ```
 <!-- {: data-highlight="-p err"} -->
 
-**Shows only error-priority entries from the current boot.** See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
+**Shows error entries this boot.** `-p err` filters by priority; `-b` limits the log to the current boot. See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
 
 ### Previous boot
 <!-- {: .-snippet} -->
@@ -67,7 +67,7 @@ journalctl -b -1 --no-pager
 ```
 <!-- {: data-highlight="-b -1"} -->
 
-**Reads the last boot's journal.** See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
+**Reads the last boot's journal.** `-b -1` steps back one boot. See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
 
 ### Disk usage
 <!-- {: .-snippet} -->
@@ -77,4 +77,4 @@ journalctl --disk-usage
 ```
 <!-- {: data-highlight="--disk-usage"} -->
 
-**Reports the space used by journals.** See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
+**Reports journal disk usage.** `--disk-usage` totals the space the journal files occupy. See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).

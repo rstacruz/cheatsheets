@@ -6,7 +6,7 @@ logo: { src: /assets/logos/redis.svg }
 category: Databases
 layout: snippet
 last_verified_with: "Redis 8.10.3, Docker 29.9.3."
-updated: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Redis cheatsheet
@@ -28,7 +28,7 @@ docker run -d --name redis \
 ```
 <!-- {: data-highlight="docker run"} -->
 
-**Runs Redis in the background on the default port.** See [Redis on Docker Hub](https://hub.docker.com/_/redis).
+**Runs Redis in the background.** It listens on the default port. See [Redis on Docker Hub](https://hub.docker.com/_/redis).
 
 ### Connect to the container
 <!-- {: .-snippet} -->
@@ -47,7 +47,7 @@ docker exec redis redis-cli PING
 ```
 <!-- {: data-highlight="docker exec"} -->
 
-**Runs `redis-cli` inside the container, interactively or for one command.** See [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/).
+**Runs `redis-cli` in the container.** It works interactively or for one command. See [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/).
 
 ### Persist data
 <!-- {: .-snippet} -->
@@ -61,7 +61,7 @@ docker run -d --name redis \
 ```
 <!-- {: data-highlight="redis-data:/data; --appendonly yes"} -->
 
-**Keeps writes in a named volume across container restarts.** See [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/).
+**Keeps writes in a volume.** A named volume survives container restarts. See [Redis persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/).
 
 ### Docker Compose
 <!-- {: .-snippet} -->
@@ -78,7 +78,7 @@ volumes:
   redis-data:
 ```
 
-**Defines the service, port, and volume in one file.** See [Compose services](https://docs.docker.com/reference/compose-file/services/).
+**Defines services in one file.** The port and volume are declared alongside the image. See [Compose services](https://docs.docker.com/reference/compose-file/services/).
 
 ### Stop and restart
 <!-- {: .-snippet} -->
@@ -89,4 +89,4 @@ docker start redis
 ```
 <!-- {: data-highlight="docker stop; docker start"} -->
 
-**The volume survives stop and start.** `docker rm` removes the container but keeps the volume. See [docker stop](https://docs.docker.com/reference/cli/docker/container/stop/).
+**The volume survives a restart.** `docker rm` removes the container but keeps the volume. See [docker stop](https://docs.docker.com/reference/cli/docker/container/stop/).

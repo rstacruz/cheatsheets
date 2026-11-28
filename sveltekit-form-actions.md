@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Form actions
     url: https://svelte.dev/docs/kit/form-actions
@@ -45,7 +45,7 @@ export const actions = {
 ```
 <!-- {: data-highlight="POST"} -->
 
-**Posts to the page's default action.** A plain form works with JavaScript disabled; see [Default actions](https://svelte.dev/docs/kit/form-actions#Default-actions).
+**Posts to the default action.** The page's action handles a plain form, which works with JavaScript disabled; see [Default actions](https://svelte.dev/docs/kit/form-actions#Default-actions).
 
 ### Add named actions
 <!-- {: .-snippet} -->
@@ -93,7 +93,7 @@ export const actions = {
 ```
 <!-- {: data-highlight="fail(400"} -->
 
-**Sends errors back to the page.** `fail()` returns data as `form` and keeps the request from redirecting; see [Validation errors](https://svelte.dev/docs/kit/form-actions#Anatomy-of-an-action-Validation-errors).
+**Sends errors back.** They return to the page. `fail()` returns data as `form` and keeps the request from redirecting; see [Validation errors](https://svelte.dev/docs/kit/form-actions#Anatomy-of-an-action-Validation-errors).
 
 ### Enhance the form
 <!-- {: .-snippet} -->
@@ -115,4 +115,4 @@ export const actions = {
 ```
 <!-- {: data-highlight="use:enhance"} -->
 
-**Submits in place and keeps field values.** `form` holds the failed action's return data until the next submit; see [use:enhance](https://svelte.dev/docs/kit/form-actions#Progressive-enhancement-use:enhance).
+**Submits in place.** Field values are kept. `form` holds the failed action's return data until the next submit; see [use:enhance](https://svelte.dev/docs/kit/form-actions#Progressive-enhancement-use:enhance).

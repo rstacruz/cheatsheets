@@ -5,7 +5,7 @@ subtitle: Move pages safely
 logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
-updated: 2026-11-27
+updated: 2026-11-28
 last_verified_with: "Starlight 0.43.2, Astro 7.4.13."
 links:
   - title: Astro redirects
@@ -29,7 +29,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="redirects:"} -->
 
-**Writes a meta-refresh page at the old URL.** Static hosts serve it without server rules; see [Astro redirects](https://docs.astro.build/en/guides/routing/#redirects).
+**Writes a redirect page.** A meta-refresh at the old URL works on static hosts without server rules. See [Astro redirects](https://docs.astro.build/en/guides/routing/#redirects).
 
 ### Redirect several pages
 <!-- {: .-snippet} -->
@@ -42,4 +42,4 @@ redirects: {
 ```
 <!-- {: data-highlight="'/setup/'"} -->
 
-**Maps every old path in one object.** Keys are site-root paths and values are paths or absolute URLs; see [Astro redirects](https://docs.astro.build/en/guides/routing/#redirects).
+**Maps old paths.** Put every redirect in one object: keys are site-root paths and values are paths or absolute URLs. See [Astro redirects](https://docs.astro.build/en/guides/routing/#redirects).

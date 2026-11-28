@@ -6,7 +6,7 @@ logo: { src: /assets/logos/nginx.svg }
 category: Networking
 layout: snippet
 last_verified_with: "nginx 1.30.8."
-updated: 2026-11-25
+updated: 2026-11-28
 links:
   - title: ngx_http_proxy_module
     url: https://nginx.org/en/docs/http/ngx_http_proxy_module.html
@@ -32,7 +32,7 @@ server {
 ```
 <!-- {: data-highlight="proxy_pass http://127.0.0.1:3000"} -->
 
-**Passes every request to the app server.** The app sees the upstream address in `Host` and the proxy's IP unless headers are forwarded; see [proxy_pass](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass).
+**Passes requests upstream.** By default the app sees the upstream address in `Host` and the proxy's IP, unless headers are forwarded. See [proxy_pass](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass).
 
 ### Forward client headers
 <!-- {: .-snippet} -->
@@ -49,7 +49,7 @@ location / {
 ```
 <!-- {: data-highlight="Host; X-Real-IP; X-Forwarded-For; X-Forwarded-Proto"} -->
 
-**Tells the app who the client is.** By default the app sees the proxy's address; these headers pass the original host, client IP, and protocol, and `X-Forwarded-For` appends to the chain; see [proxy_set_header](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header).
+**Forwards client details.** By default the app sees the proxy's address; these headers pass the original host, client IP, and protocol, and `X-Forwarded-For` appends to the chain. See [proxy_set_header](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header).
 
 ### Proxy WebSockets
 <!-- {: .-snippet} -->
@@ -78,7 +78,7 @@ location /events/ {
 ```
 <!-- {: data-highlight="proxy_buffering off; proxy_read_timeout 1h"} -->
 
-**Sends each chunk as it arrives.** Buffering is on by default and holds server-sent events until the buffer fills; the timeout closes idle streams; see [proxy_buffering](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering).
+**Sends chunks as they arrive.** Buffering is on by default and holds server-sent events until the buffer fills; the timeout closes idle streams. See [proxy_buffering](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering).
 
 ### Strip the path prefix
 <!-- {: .-snippet} -->

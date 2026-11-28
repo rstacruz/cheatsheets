@@ -38,7 +38,7 @@ WantedBy=default.target
 ```
 <!-- {: data-highlight="ExecStart"} -->
 
-**Defines a service for your own user manager.** `WantedBy=default.target` lets `enable` start it at login; see [systemd.unit(5)](https://man7.org/linux/man-pages/man5/systemd.unit.5.html).
+**Defines a user service,** run by your own user manager. `WantedBy=default.target` lets `enable` start it at login; See [systemd.unit(5)](https://man7.org/linux/man-pages/man5/systemd.unit.5.html).
 
 ### Start and enable
 <!-- {: .-snippet} -->
@@ -49,7 +49,7 @@ systemctl --user enable --now \
 ```
 <!-- {: data-highlight="enable --now"} -->
 
-**Starts the service and enables it at login.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Starts and enables it,** now and at login. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### Check state
 <!-- {: .-snippet} -->
@@ -59,7 +59,7 @@ systemctl --user status hello.service --no-pager
 ```
 <!-- {: data-highlight="status"} -->
 
-**Shows the state of your user service.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Shows user service state,** with `status`. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### Read logs
 <!-- {: .-snippet} -->
@@ -69,7 +69,7 @@ journalctl --user -u hello.service -n 20
 ```
 <!-- {: data-highlight="journalctl --user"} -->
 
-**Reads the last 20 journal lines for that service.** See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
+**Reads journal lines,** the last 20 for that service. See [journalctl(1)](https://man7.org/linux/man-pages/man1/journalctl.1.html).
 
 ### Keep running after logout
 <!-- {: .-snippet} -->
@@ -79,4 +79,4 @@ loginctl enable-linger alice
 ```
 <!-- {: data-highlight="enable-linger"} -->
 
-**Keeps the user manager alive without an active session.** See [loginctl(1)](https://man7.org/linux/man-pages/man1/loginctl.1.html).
+**Keeps the user manager alive,** without an active session. See [loginctl(1)](https://man7.org/linux/man-pages/man1/loginctl.1.html).

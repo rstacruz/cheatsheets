@@ -33,7 +33,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="defineConfig("} -->
 
-**Puts runner options at the top level.** Browser options go under `use`. See [configuration](https://playwright.dev/docs/test-configuration).
+**Sets runner options.** They go at the top level; browser options go under `use`. See [configuration](https://playwright.dev/docs/test-configuration).
 
 ### Browsers as projects
 <!-- {: .-snippet} -->
@@ -59,7 +59,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="projects:"} -->
 
-**Runs the suite once per project.** Select one with `--project=firefox`. See [projects](https://playwright.dev/docs/test-projects).
+**Runs a suite per project.** Select one with `--project=firefox`. See [projects](https://playwright.dev/docs/test-projects).
 
 ### Start a server
 <!-- {: .-snippet} -->
@@ -75,7 +75,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="webServer:"} -->
 
-**Starts the app before the tests and reuses a running server locally.** See [web server](https://playwright.dev/docs/test-webserver).
+**Starts the app early.** It launches before tests and reuses a running server locally. See [web server](https://playwright.dev/docs/test-webserver).
 
 ### Retries and timeouts
 <!-- {: .-snippet} -->
@@ -89,4 +89,4 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="timeout:; retries:"} -->
 
-**Keeps flaky retries to CI and caps each test.** See [timeouts](https://playwright.dev/docs/test-timeouts).
+**Limits retries and timeouts.** Keep flaky retries to CI and cap each test. See [timeouts](https://playwright.dev/docs/test-timeouts).

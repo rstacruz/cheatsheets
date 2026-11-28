@@ -7,7 +7,7 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "Python 3.14.10, SQLite 3.54.0."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Python sqlite3
     url: https://docs.python.org/3/library/sqlite3.html
@@ -59,7 +59,7 @@ with conn:
 ```
 <!-- {: data-highlight="executemany"} -->
 
-**Commits the batch in one transaction.** The `with` block rolls back on error; see [transactions](https://docs.python.org/3/library/sqlite3.html#sqlite3-controlling-transactions).
+**Commits one transaction.** The `with` block wraps the batch in a transaction and rolls back on error. See [transactions](https://docs.python.org/3/library/sqlite3.html#sqlite3-controlling-transactions).
 
 ### Read rows by column
 <!-- {: .-snippet} -->
@@ -74,7 +74,7 @@ print(row['name'])
 ```
 <!-- {: data-highlight="sqlite3.Row"} -->
 
-**Returns rows that support column names.** `dict(row)` converts one to a plain dictionary; see [Row objects](https://docs.python.org/3/library/sqlite3.html#sqlite3.Row).
+**Returns named rows.** Rows support column names, and `dict(row)` converts one to a plain dictionary. See [Row objects](https://docs.python.org/3/library/sqlite3.html#sqlite3.Row).
 
 ### Back up the database
 <!-- {: .-snippet} -->

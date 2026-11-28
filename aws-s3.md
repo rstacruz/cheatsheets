@@ -50,7 +50,7 @@ aws s3 cp dist/ s3://mybucket/dist/ --recursive \
   --exclude "*" --include "*.js" --include "*.css"
 aws s3 cp file.txt s3://mybucket/ --no-overwrite
 ```
-<!-- {: data-highlight="--exclude; --include"} -->
+<!-- {: data-highlight="aws s3 cp"} -->
 
 #### Options
 
@@ -117,7 +117,7 @@ aws s3 cp s3://source-bucket/ s3://dest-bucket/ --recursive
 aws s3 cp s3://source-bucket/key s3://dest-bucket/key \
   --source-region us-west-2 --copy-props default
 ```
-<!-- {: data-highlight="--source-region us-west-2; --copy-props default"} -->
+<!-- {: data-highlight="aws s3 cp s3://"} -->
 
 `--region` names the destination's region; `--source-region` names the
 source's. `--copy-props` controls which properties the copy preserves.

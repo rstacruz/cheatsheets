@@ -3,7 +3,8 @@ title: Herdr
 subtitle: Terminal workspace manager
 logo: { src: /assets/logos/herdr.svg, mono: true }
 category: Agents
-updated: 2026-11-22
+updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "herdr 0.9.5."
 tier: t1
 fragments:
@@ -50,6 +51,22 @@ links:
 <!-- {: .-shortcuts} -->
 
 The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
+
+See: [Keyboard](https://herdr.dev/tui/docs/keyboard/)
+
+### Everyday keys
+
+| Shortcut | Action |
+| --- | --- |
+| `prefix+n` / `prefix+p` | Next / previous tab |
+| `prefix+z` | Zoom focused pane |
+| `prefix+x` | Close pane |
+| `prefix+[` | Copy mode |
+| `prefix+g` | Goto picker |
+| `prefix+shift+n` | New workspace |
+<!-- {: .-shortcuts} -->
+
+The Goto picker searches agents, terminals, branches, and paths.
 
 See: [Keyboard](https://herdr.dev/tui/docs/keyboard/)
 
@@ -139,12 +156,28 @@ See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 
 ### Agents
 
+#### Control agents
+
+```bash
+herdr agent start reviewer --kind claude --pane w1:p1
+herdr agent prompt reviewer "review this diff" --wait
+herdr agent wait reviewer --until blocked --timeout 120000
+herdr agent read w1:p1 --lines 120
+herdr agent attach reviewer
+```
+
+#### Commands
+
 | Command | Purpose |
 | --- | --- |
 | `herdr agent` | Start, prompt, wait on, read agents |
-| `herdr integration` | Install agent integrations |
+| `herdr integration` | Install, check agent integrations |
 | `herdr plugin` | Install, update, manage plugins |
 <!-- {: .-shortcuts} -->
+
+States are `idle`, `working`, `blocked`, `done`, and `unknown`; `idle` and `done` both mean ready for input.
+
+See: [Agents](https://herdr.dev/tui/docs/agents/)
 
 [Herdr agents cheatsheet](./herdr-agents)
 <!-- {: .-crosslink} -->
@@ -156,14 +189,14 @@ See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 | Command | Purpose |
 | --- | --- |
 | `herdr session` | Named sessions: list, attach, stop, delete |
-| `herdr machine` | Saved SSH machines; `--machine` routes commands |
+| `herdr machine` | Saved SSH machines; `--machine` routes API commands |
 <!-- {: .-shortcuts} -->
 
 #### Server
 
 | Command | Purpose |
 | --- | --- |
-| `herdr server` | Headless server; stop, reload-config, manifests |
+| `herdr server` | Headless server; stop, reload config, manage agent manifests |
 | `herdr status` | Show client and server state |
 <!-- {: .-shortcuts} -->
 
@@ -174,15 +207,52 @@ See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 | Command | Purpose |
 | --- | --- |
 | `herdr api` | Socket API snapshot and schema |
-| `herdr terminal` | Attach to raw terminal streams |
+| `herdr terminal` | Attach to or observe terminal streams |
 | `herdr notification` | Show a notification |
 | `herdr update` | Update a direct install |
 | `herdr channel` | Show or set the update channel |
-| `herdr config` | Validate config or reset keybindings |
+| `herdr config` | Check config; reset custom keybindings |
 | `herdr completion` | Generate shell completions |
 <!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
+
+## Configuration
+
+### Config file
+
+```bash
+herdr --default-config > ~/.config/herdr/config.toml
+herdr config check
+herdr server reload-config
+```
+
+Linux and macOS use `~/.config/herdr/config.toml`; Windows uses `%APPDATA%\herdr\config.toml`. `HERDR_CONFIG_PATH` overrides the path and `HERDR_SESSION` selects a named session for CLI commands.
+
+See: [Configuration](https://herdr.dev/tui/docs/configuration/)
+
+### Keybindings
+
+```toml
+[keys]
+prefix = "ctrl+a"
+new_tab = ["prefix+c", "ctrl+alt+c"]
+```
+
+Every binding is configurable, including the prefix. A binding can be a key or an array of keys; `prefix+?` lists bindings. `herdr config reset-keys` backs up `config.toml` and drops custom `[keys]` and `[[keys.command]]`; restart or `herdr server reload-config` to apply.
+
+See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)
+
+### Mouse capture
+
+```toml
+[ui]
+mouse_capture = false
+```
+
+With `mouse_capture = false`, Herdr's mouse UI is off and clicks reach the outer terminal and pane apps.
+
+See: [Concepts](https://herdr.dev/tui/docs/concepts/)
 
 ## Also see
 

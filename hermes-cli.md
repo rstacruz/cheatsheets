@@ -19,8 +19,9 @@ fragments:
   - "--tui"
   - "--cli"
   - "--usage-file"
-updated: 2026-11-11
-last_verified_with: "Hermes CLI commands and flags from the official docs."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "Hermes Agent 0.23.4."
 keywords:
   - AI assistant
   - CLI
@@ -134,7 +135,7 @@ See: [Scripted one-shot](https://hermes-agent.nousresearch.com/docs/reference/cl
 ```bash
 hermes model   # provider wizard: keys, OAuth, endpoints
 /model         # switch configured providers and models
-hermes chat --model anthropic/claude-sonnet-4
+hermes chat --model anthropic/claude-sonnet-4.6
 ```
 <!-- {: data-highlight="hermes model; /model; --model"} -->
 
@@ -230,6 +231,8 @@ See: [`hermes sessions`](https://hermes-agent.nousresearch.com/docs/reference/cl
 | `/resume [name]`    | Reopen a named session                   |
 | `/sessions`         | Browse and switch sessions               |
 | `/compress [focus]` | Summarize to free up context             |
+| `/history`          | Show conversation history             |
+| `/retry`            | Retry the last message                |
 | ------------------- | ---------------------------------------- |
 | `/undo`             | Drop the last exchange                   |
 | `/rewind [N]`       | Edit an earlier prompt, or fork before it |
@@ -247,6 +250,8 @@ See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/sla
 | `/status`  | Show session details and a recap     |
 | `/usage`   | Show tokens, cost, and account limits |
 | `/config`  | Show the current configuration       |
+| `/fast`     | Toggle the fast service tier           |
+| `/reasoning` | Set or show reasoning effort          |
 
 See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#interactive-cli-slash-commands)
 
@@ -258,8 +263,11 @@ See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/s
 | `/steer <prompt>`                     | Nudge the agent after the next tool call |
 | `/bg <prompt>`                        | Run the prompt in a background session |
 | `/btw <question>`                     | Ask a side question about the chat   |
+| ------------------------------------ | ------------------------------------ |
 | `/goal <text>`                        | Set a goal that spans turns          |
 | `/loop [interval] <prompt>`           | Re-run a prompt on a schedule        |
+| `/plan [task]`             | Write a plan to `.hermes/plans/` |
+| `/review [instructions]`   | Run an independent reviewer subagent |
 | `/heartbeat every <interval> <prompt>` | Repeat a prompt while the session is idle |
 
 See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#session)
@@ -373,7 +381,7 @@ See: [`hermes profile`](https://hermes-agent.nousresearch.com/docs/reference/cli
 | -------------------------- | ----------------------------------- |
 | `--ignore-user-config`     | Skip `config.yaml`; `.env` still loads |
 | `--ignore-rules`           | Skip AGENTS.md, memory, and skills  |
-| `--safe-mode`              | Disable all customizations          |
+| `--safe-mode`              | Disable all customizations; needs explicit `--model` |
 
 <!-- {: .-shortcuts} -->
 
@@ -422,6 +430,20 @@ echo "RAM 92%" | hermes send --to telegram:-1001234567890
 `/handoff telegram` moves a live session into a chat thread; `hermes send` posts without an agent turn.
 
 See: [`hermes send`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-send)
+
+### Status and updates
+
+```bash
+hermes status
+hermes doctor
+hermes update --check
+hermes --version
+```
+<!-- {: data-highlight="hermes status; hermes doctor; hermes update"} -->
+
+`doctor` diagnoses config and dependency problems; `update --check` previews a release without installing it.
+
+See: [CLI commands](https://hermes-agent.nousresearch.com/docs/reference/cli-commands)
 
 ## Also see
 

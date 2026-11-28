@@ -5,8 +5,9 @@ logo: { src: /assets/logos/go.svg }
 prism_languages: [go, bash]
 weight: -3
 category: C-like
-updated: 2026-11-11
-last_verified_with: "Go 1.27.3."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "Go 1.27.4."
 tier: t2
 fragments:
   - "package main"
@@ -23,6 +24,11 @@ fragments:
   - "go build"
   - "go test"
   - "go mod tidy"
+keywords:
+  - go programming
+  - go concurrency
+  - go modules
+  - go commands
 links:
   - title: A tour of Go
     url: https://go.dev/tour/welcome/1
@@ -76,7 +82,9 @@ Or try it in the [Go playground](https://go.dev/play/).
 | `go build` | Compile package |
 | `go test ./...` | Run tests |
 | `go vet ./...` | Report likely bugs |
+| --- | --- |
 | `go fmt ./...` | Format packages |
+| `go fix ./...` | Apply modernizers |
 | `go mod tidy` | Sync dependencies |
 | `go doc fmt.Println` | Show documentation |
 
@@ -712,7 +720,7 @@ func push(name string, ch chan string) {
 
 Channels are concurrency-safe communication objects, used in goroutines.
 
-Goroutines run on `GOMAXPROCS` threads; since Go 1.25 that follows the container's CPU limit on Linux.
+`GOMAXPROCS` caps how many CPUs execute Go code at once; since Go 1.25 its default follows the container's CPU limit on Linux.
 
 See: [Goroutines](https://go.dev/tour/concurrency/1), [Channels](https://go.dev/tour/concurrency/2)
 
@@ -1021,10 +1029,12 @@ u := User{
   Name: "Ada",
 }
 fmt.Println(u.ID)  // promoted field
-```
-<!-- {: data-highlight="u.ID"} -->
 
-Embedding promotes the fields and methods of the embedded type.
+v := User{ID: 7}  // promoted field as key
+```
+<!-- {: data-highlight="u.ID; User{ID: 7}"} -->
+
+Embedding promotes the fields and methods of the embedded type. Since Go 1.27 a literal key may name a promoted field.
 
 See: [Embedding](https://go.dev/doc/effective_go#embedding)
 

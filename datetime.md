@@ -7,6 +7,7 @@ subtitle: Date format codes by tool
 logo: { set: icon-park-outline, name: calendar }
 weight: -5
 updated: 2026-11-18
+last_verified_at: 2026-11-18
 last_verified_with: "strftime, JavaScript, PHP, Go, Java, Swift and C# date APIs."
 tier: t2
 fragments:

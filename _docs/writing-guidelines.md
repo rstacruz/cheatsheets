@@ -11,6 +11,7 @@ subtitle: UI library
 category: JavaScript libraries
 tags: [Featured]
 updated: 2024-01-01
+last_verified_at: 2024-01-01
 ---
 ```
 
@@ -18,6 +19,7 @@ updated: 2024-01-01
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
 - **Link title:** optional short title for homepage and other link lists. Falls back to `title`.
 - **Last verified with:** required for tiered sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
+- **Last verified at:** `YYYY-MM-DD` date of the last upstream check. Required for `t1` and `t2`, optional elsewhere, and never before `updated`. Record a stamp-only edit when a clean check finds nothing new; see [review tiers](tiers.md).
 - **Tier:** `t1` for sheets that move often, `t2` for slower ones, `t3` for best-effort sheets that still get the tiered checks; see [review tiers](tiers.md). Omit it for sheets that need no checks.
 - **Layout:** `snippet` uses the two-column snippet cards and drops "cheatsheet" from the H1. See [snippet layout](#snippet-layout).
 - **Logo:** optional square mark for homepage cards. Use `{ src }` for an image under `assets/logos/`, `{ set, name }` for a glyph, and see [Icons](icons.md) for sourcing and validation. See also [Logos](#logos).

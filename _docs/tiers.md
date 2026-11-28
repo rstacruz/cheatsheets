@@ -6,8 +6,8 @@ changes, whatever its tier.
 
 | Tier   | Check cadence       | Typical sheets                                 |
 | ------ | ------------------- | ---------------------------------------------- |
-| `t1`   | About weekly        | Tools that ship changes weekly                 |
-| `t2`   | About every 6 weeks | Stable tools, languages, standards             |
+| `t1`   | 14 days             | Tools that ship changes weekly                 |
+| `t2`   | 28 days (4 weeks)   | Stable tools, languages, standards             |
 | `t3`   | Best effort         | Legacy sheets that still get the tiered checks |
 | (none) | Best effort         | Everything else                                |
 
@@ -19,6 +19,30 @@ them.
 A `t1` sheet's `<title>` ends with the month and year of its `updated` date, eg
 `Bash scripting cheatsheet (Nov 2026)`; keep `updated` current so the stamp does
 not go stale.
+
+## Verification stamps
+
+`last_verified_at: YYYY-MM-DD` records when the examples were last checked
+against upstream. It is required on `t1` and `t2` sheets, optional elsewhere,
+and must never precede `updated`. The 2026-11-28 backfill derived dates from
+git history (50 content commits, 48 verification-note commits, and 5 bulk
+metadata commits); these are proxies, not recorded checks. Recheck
+`claude-code-headless-tasks`, `codex-headless-tasks`, `intl-numberformat`,
+`opencode-headless-tasks`, and `paseo-scheduled-tasks` on the first sweep.
+
+Run `pnpm sheets:due --tier t1` or `--tier t2` after pulling `origin/master`.
+It prints a one-sentence summary, a blank line, then TSV rows under the
+`slug`, `last_verified_at`, `age` header; `--json` prints a pure array instead.
+A sheet is due when its stamp is 14 days (t1) or 28 days (t2) old or older,
+oldest first. Sheets in open PRs labelled `sheet-refresh` are excluded by
+default. Create the label once:
+
+```sh
+gh label create sheet-refresh --color 0E8A16 --description "Sheet refresh in progress"
+```
+
+`--exclude-label <label>` overrides the label, `--date YYYY-MM-DD` shifts the
+as-of day, and `--limit N` caps the list.
 
 ## Choosing a tier
 
@@ -46,6 +70,8 @@ Layouts are separate from review tiers. A snippet sheet sets
 ## Checking a sheet
 
 Compare the examples with upstream docs, then update `last_verified_with` with
-the versions checked and `updated` if the content changed. A check that finds
-nothing new needs no edit. A cadence is a nudge, not a deadline: a breaking
-release warrants a check the same day, even on a `t3` or untiered sheet.
+the versions checked, `last_verified_at` with the check date, and `updated` if
+the content changed. A clean check still needs a stamp-only PR on `t1` and
+`t2`: recording the check is a change. A cadence is a nudge, not a deadline:
+a breaking release warrants a check the same day, even on a `t3` or untiered
+sheet.

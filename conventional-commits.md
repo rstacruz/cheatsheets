@@ -21,6 +21,7 @@ fragments:
   - "style:"
   - "revert:"
 updated: 2026-11-16
+last_verified_at: 2026-11-16
 intro: |
   [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) maps commit messages to SemVer releases. This reference covers message grammar, recommended types, breaking-change markers, and the tooling that reads them.
 links:

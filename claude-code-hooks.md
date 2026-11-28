@@ -3,8 +3,9 @@ title: Claude Code hooks
 subtitle: Lifecycle automation
 logo: { src: /assets/logos/claude.svg }
 category: Agents
-updated: 2026-11-22
-last_verified_with: "Claude Code 2.1.330."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "Claude Code 2.1.332."
 tier: t1
 fragments:
   - "hooks:"
@@ -102,8 +103,11 @@ See: [Set up your first hook](https://code.claude.com/docs/en/hooks-guide#set-up
       {
         "matcher": "Edit|Write",
         "hooks": [
-          { "type": "command",
-            "command": ".claude/hooks/format.sh" }
+          {
+            "type": "command",
+            "command":
+              "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/format.sh"
+          }
         ]
       }
     ]
@@ -127,8 +131,11 @@ See: [Auto-format code after edits](https://code.claude.com/docs/en/hooks-guide#
       {
         "matcher": "Edit|Write",
         "hooks": [
-          { "type": "command",
-            "command": ".claude/hooks/protect-files.sh" }
+          {
+            "type": "command",
+            "command":
+              "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect-files.sh"
+          }
         ]
       }
     ]
@@ -187,8 +194,11 @@ See: [Get notified when Claude needs input](https://code.claude.com/docs/en/hook
       {
         "matcher": "",
         "hooks": [
-          { "type": "command",
-            "command": ".claude/hooks/context.sh" }
+          {
+            "type": "command",
+            "command":
+              "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/context.sh"
+          }
         ]
       }
     ]
@@ -216,14 +226,14 @@ See: [Add context for Claude](https://code.claude.com/docs/en/hooks#add-context-
 ```json
 {
   "type": "command",
-  "command": ".claude/hooks/run-tests.sh",
+  "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/run-tests.sh",
   "async": true,
   "asyncRewake": true
 }
 ```
 <!-- {: data-highlight='"async"'} -->
 
-Async hooks don't block the turn; `asyncRewake` wakes Claude on exit 2 and shows stderr as a system reminder.
+Async hooks don't block the turn or set decisions; `asyncRewake` wakes Claude on exit 2 and shows stderr (or stdout if empty) as a system reminder.
 
 See: [Run hooks in the background](https://code.claude.com/docs/en/hooks#run-hooks-in-the-background)
 
@@ -237,8 +247,13 @@ See: [Run hooks in the background](https://code.claude.com/docs/en/hooks#run-hoo
 | `Setup` | Init-only or maintenance run |
 | `PreCompact` | Before context compaction |
 | `PostCompact` | After compaction |
+| --- | --- |
 | `ConfigChange` | A settings file changes |
 | `SessionEnd` | Session terminates |
+| `WorktreeCreate` | A worktree is created; replaces git behavior |
+| `WorktreeRemove` | A hook-created worktree is removed |
+| `PreModelSwitch` | Before a requested model switch; can block |
+| `PostModelSwitch` | After the session's model changes |
 <!-- {: .-headers} -->
 
 See: [Hook lifecycle](https://code.claude.com/docs/en/hooks#hook-lifecycle)
@@ -252,6 +267,8 @@ See: [Hook lifecycle](https://code.claude.com/docs/en/hooks#hook-lifecycle)
 | `Stop` | Claude finishes responding |
 | `StopFailure` | Turn ends on an API error |
 | `Notification` | A notification is sent |
+| `PreSkillShellCommand` | Skill shell command; v2.1.332+ |
+| `MessageDisplay` | While assistant text is displayed |
 <!-- {: .-headers} -->
 
 See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
@@ -262,10 +279,15 @@ See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 | --- | --- |
 | `PreToolUse` | Before a tool call; can block |
 | `PermissionRequest` | A tool needs a decision |
-| `PermissionDenied` | Auto mode denies a call |
+| `PermissionDenied` | Auto mode denies; `retry: true` tells the model it may retry |
 | `PostToolUse` | Tool call succeeds |
+| --- | --- |
 | `PostToolUseFailure` | Tool call fails |
 | `PostToolBatch` | A parallel batch resolves |
+| `TaskCreated` | `TaskCreate` creates a task; can cancel |
+| `TaskCompleted` | A task is marked complete; can keep it open |
+| `Elicitation` | MCP server requests user input |
+| `ElicitationResult` | User answers an MCP elicitation |
 <!-- {: .-headers} -->
 
 See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
@@ -280,6 +302,7 @@ See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 | `InstructionsLoaded` | CLAUDE.md is loaded |
 | `SubagentStart` | A subagent is spawned |
 | `SubagentStop` | A subagent finishes |
+| `TeammateIdle` | An agent team teammate goes idle |
 <!-- {: .-headers} -->
 
 See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
@@ -293,9 +316,9 @@ See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 | `~/.claude/settings.json` | All your projects |
 | `.claude/settings.json` | One project, shareable |
 | `.claude/settings.local.json` | One project, personal |
-| Managed settings | Organization-wide |
+| Managed policy settings | Organization-wide |
 | Plugin `hooks/hooks.json` | While plugin is enabled |
-| Skill frontmatter | After invocation, until `/clear` |
+| Skill frontmatter | After invocation, until `/clear` or `/resume` |
 | Subagent frontmatter | While that subagent runs |
 <!-- {: .-headers} -->
 
@@ -314,7 +337,7 @@ See: [Hook locations](https://code.claude.com/docs/en/hooks#hook-locations)
 | `mcp__memory__.*` | Regex: server tools |
 <!-- {: .-headers} -->
 
-Regex applies when the value contains characters outside letters, digits, `_`, `-`, spaces, `,`, and `|`.
+Regex is unanchored and applies when the value contains characters outside letters, digits, `_`, `-`, spaces, `,`, and `|`. `FileChanged` and `StopFailure` use letters, digits, `_`, and `|` only.
 
 See: [Matcher patterns](https://code.claude.com/docs/en/hooks#matcher-patterns)
 
@@ -333,6 +356,20 @@ Prompt and agent hooks are capped at 12 concurrent runs.
 
 See: [Hook handler fields](https://code.claude.com/docs/en/hooks#hook-handler-fields)
 
+### Per-type keys
+
+| Type | Additional fields |
+| --- | --- |
+| `command` | `command`, `args`, `shell`, `async`, `asyncRewake`, `onFailure` |
+| `http` | `url`, `headers`, `allowedEnvVars`, `onFailure` |
+| `mcp_tool` | `server`, `tool`, `input`, `onFailure` |
+| `prompt`, `agent` | `prompt`, `model` |
+<!-- {: .-headers} -->
+
+All types accept `type`, `if`, `timeout`, `statusMessage`; `once` applies only to skill hooks.
+
+See: [Hook handler fields](https://code.claude.com/docs/en/hooks#hook-handler-fields)
+
 ### Fields
 
 ```json
@@ -342,7 +379,7 @@ See: [Hook handler fields](https://code.claude.com/docs/en/hooks#hook-handler-fi
     {
       "type": "command",
       "if": "Bash(git *)",
-      "command": ".claude/hooks/git-check.sh",
+      "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/git-check.sh",
       "timeout": 30,
       "statusMessage": "Checking git command"
     }
@@ -351,7 +388,7 @@ See: [Hook handler fields](https://code.claude.com/docs/en/hooks#hook-handler-fi
 ```
 <!-- {: data-highlight="Bash(git *)"} -->
 
-`if` filters five tool events; on other events the hook never runs. Commands default to 600s, prompts to 30s, and agents to 60s.
+`if` holds one rule and filters six events (five before v2.1.332); on other events the hook never runs. Defaults: 600s for commands, HTTP, and MCP; 30s for prompts; 60s for agents.
 
 See: [Common fields](https://code.claude.com/docs/en/hooks#common-fields)
 
@@ -404,13 +441,14 @@ See: [JSON output](https://code.claude.com/docs/en/hooks#json-output)
 
 | Field | Effect |
 | --- | --- |
-| `decision: "block"` | Reject a prompt or add feedback |
-| `continue: false` | Stop Claude entirely |
+| `decision: "block"` | Block the action; `reason` explains |
+| `continue: false` | Stop Claude entirely; `stopReason` explains |
+| `permissionDecision` | Allow, deny, ask, or defer a tool call |
 | `systemMessage` | Warn the user |
-| `terminalSequence` | Emit an allowed OSC sequence |
+| `terminalSequence` | Emit an allowlisted OSC sequence |
 <!-- {: .-headers} -->
 
-`permissionDecision` and `additionalContext` are per-event; put them in `hookSpecificOutput` with `hookEventName`.
+`permissionDecision` and `additionalContext` live in `hookSpecificOutput` with `hookEventName`.
 
 See: [Decision control](https://code.claude.com/docs/en/hooks#decision-control)
 

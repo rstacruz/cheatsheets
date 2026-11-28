@@ -3,8 +3,9 @@ title: mise
 subtitle: Dev tool version manager
 logo: { src: /assets/logos/mise.svg, mono: true }
 category: Package managers
-updated: 2026-11-11
-last_verified_with: "mise v2026.11.1 APIs."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "mise v2026.11.14 APIs."
 tier: t1
 fragments:
   - "mise use"
@@ -116,6 +117,8 @@ See: [Shims](https://mise.jdx.dev/dev-tools/shims.html)
 | `mise config ls`    | Show loaded config files |
 | `mise tasks ls`     | List project tasks       |
 | `mise doctor`       | Check the install        |
+| `mise deps install` | Install project dependencies (experimental) |
+| `mise skills ls`    | List skills shipped by active tools          |
 
 `mise exec` and `mise run` load tools and env without activation — use them in scripts and CI.
 

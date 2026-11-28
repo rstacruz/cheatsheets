@@ -6,6 +6,7 @@ subtitle: Modern .NET language
 logo: { src: /assets/logos/csharp.svg, mono: true }
 category: C-like
 updated: 2026-11-26
+last_verified_at: 2026-11-26
 last_verified_with: "C# 15, .NET 11.0.100."
 tier: t2
 fragments:

@@ -4,27 +4,27 @@ subtitle: Core scripting language
 logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 weight: -10
-updated: 2026-11-11
-last_verified_with: "ES2022–2026 APIs."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "Node.js 26.13.1 (V8 14.6)."
 tier: t2
 fragments:
-  - "const res"
+  - "const list"
   - "n => n * 2"
-  - "await"
   - "await fetch"
   - "Promise.all"
-  - "res.json"
   - "list.map"
-  - "Object.keys"
-  - "JSON.stringify"
-  - "console.log"
   - "list.filter"
   - "list.find"
-  - "new Map"
-  - "Array.fromAsync"
+  - "Object.keys"
+  - "JSON.stringify"
+  - "structuredClone"
+  - "Object.groupBy"
+  - "import Circle"
+  - "export default"
+  - "new Date()"
 intro: |
-  Quick reference for the core JavaScript language. Most sections link to a
-  full cheatsheet.
+  Quick reference for everyday JavaScript: values, collections, dates, async work, and modules. Related cheatsheets are linked throughout.
 links:
   - title: JavaScript reference
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
@@ -32,17 +32,18 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 ---
 
-## Built-in types
+## Everyday values
+<!-- {: .-three-column} -->
 
 ### Strings
 
 ```js
 const name = 'Ada'
-`Hello, ${name}!`          // → "Hello, Ada!"
-'  hi  '.trim()            // → "hi"
-'hello'.includes('ell')    // → true
-'a,b,c'.split(',')         // → ["a", "b", "c"]
-'hello'.slice(1, 3)        // → "el"
+`Hello, ${name}!` // → "Hello, Ada!"
+'  hi  '.trim() // → "hi"
+'hello'.includes('ell') // → true
+'a,b,c'.split(',') // → ["a", "b", "c"]
+'hello'.slice(1, 3) // → "el"
 ```
 <!-- {: data-highlight="trim; includes; split; slice"} -->
 
@@ -53,11 +54,13 @@ const name = 'Ada'
 ### Numbers
 
 ```js
-parseInt('42px', 10)       // → 42
-(1234.5).toFixed(2)        // → "1234.50"
-(1234).toLocaleString('en-US')  // → "1,234"
-Math.max(1, 2, 3)          // → 3
-Number.isInteger(2.5)      // → false
+parseInt('42px', 10) // → 42
+(1234.5).toFixed(2) // → "1234.50"
+(1234).toLocaleString('en-US')
+// → "1,234"
+
+Math.max(1, 2, 3) // → 3
+Number.isInteger(2.5) // → false
 ```
 <!-- {: data-highlight="parseInt; toFixed; toLocaleString; Number.isInteger"} -->
 
@@ -69,11 +72,11 @@ Number.isInteger(2.5)      // → false
 
 ```js
 const list = [1, 2, 3]
-list.map(n => n * 2)       // → [2, 4, 6]
-list.filter(n => n > 1)    // → [2, 3]
-list.find(n => n > 1)      // → 2
-list.includes(2)           // → true
-[...list, 4]               // → [1, 2, 3, 4]
+list.map(n => n * 2) // → [2, 4, 6]
+list.filter(n => n > 1) // → [2, 3]
+list.find(n => n > 1) // → 2
+list.includes(2) // → true
+[...list, 4] // → [1, 2, 3, 4]
 ```
 <!-- {: data-highlight="map; filter; find; ...list"} -->
 
@@ -85,39 +88,34 @@ list.includes(2)           // → true
 
 ```js
 const user = { name: 'Ada', age: 36 }
-user.name                        // → "Ada"
-user['age']                      // → 36
-Object.keys(user)                // → ["name", "age"]
-Object.entries(user)             // → [["name", "Ada"], ["age", 36]]
-const { name, ...rest } = user   // rest → { age: 36 }
-({ ...user, age: 37 })           // → { name: "Ada", age: 37 }
+user.name // → "Ada"
+user['age'] // → 36
+Object.keys(user) // → ["name", "age"]
+Object.entries(user)
+// → [["name", "Ada"], ["age", 36]]
+
+const { name, ...rest } = user
+// rest → { age: 36 }
+
+({ ...user, age: 37 })
+// → { name: "Ada", age: 37 }
 ```
+<!-- {: data-highlight="Object.keys; Object.entries"} -->
 
 [JavaScript Objects cheatsheet](./js-object)
 
 <!-- {: .-crosslink} -->
 
-### Map and Set
+## Collections
 
-#### Set
-
-```js
-const seen = new Set([1, 2, 2])  // → Set {1, 2}
-seen.add(3)                      // → Set {1, 2, 3}
-seen.has(2)                      // → true
-seen.size                        // → 3
-[...seen]                        // → [1, 2, 3]
-```
-<!-- {: data-highlight="new Set; add; has"} -->
-
-#### Map
+### Map
 
 ```js
 const ages = new Map([['Ada', 36]])
 ages.set('Bob', 40)
-ages.get('Ada')                  // → 36
-ages.has('Bob')                  // → true
-[...ages.keys()]                 // → ['Ada', 'Bob']
+ages.get('Ada') // → 36
+ages.has('Bob') // → true
+[...ages.keys()] // → ['Ada', 'Bob']
 ```
 <!-- {: data-highlight="new Map; set; get; keys"} -->
 
@@ -125,35 +123,36 @@ ages.has('Bob')                  // → true
 
 <!-- {: .-crosslink} -->
 
-### Modern built-ins
+### Set
 
 ```js
-[3, 1, 2].toSorted()                // → [1, 2, 3]
-[1, 2, 3].with(0, 9)                // → [9, 2, 3]
-Object.groupBy(list, n => n % 2)    // → { 0: [2], 1: [1, 3] }
-Object.hasOwn(user, 'name')         // → true
-new Set(a).union(b)                 // → Set union
-Promise.withResolvers()             // → { promise, resolve, reject }
-await Array.fromAsync(gen())        // → collected values
-[1, 2].values().map(x => x * 2).toArray()  // → [2, 4]
-await Promise.try(risky)            // → rejects on sync throw
-structuredClone(obj)                // → deep copy
+const seen = new Set([1, 2, 2])
+// → Set {1, 2}
+
+seen.add(3) // → Set {1, 2, 3}
+seen.has(2) // → true
+seen.size // → 3
+[...seen] // → [1, 2, 3]
 ```
-<!-- {: data-highlight="toSorted; Object.groupBy; Promise.withResolvers; structuredClone"} -->
+<!-- {: data-highlight="new Set; add; has"} -->
 
-Recent additions (ES2022–2026); `structuredClone` is a Web API, not ECMAScript.
+[JavaScript Map and Set cheatsheet](./js-map-set)
 
-See: [toSorted](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted) · [Object.groupBy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy) · [Promise.withResolvers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)
+<!-- {: .-crosslink} -->
 
-### Dates
+## Dates and time
+
+### Date
 
 ```js
 const now = new Date()
-now.toISOString()          // → UTC now, e.g. 2026-10-04T00:00:00.000Z
-now.getFullYear()          // → 2026
-Date.now()                 // → ms since epoch
-new Date(2014, 2, 1)       // → Sat Mar 01 2014, local midnight
-new Date(0).toISOString()  // → "1970-01-01T00:00:00.000Z"
+now.toISOString()
+// → ISO timestamp, UTC
+
+now.getFullYear() // → 2026
+Date.now() // → ms since epoch
+new Date('2026-11-05')
+// → UTC midnight
 ```
 <!-- {: data-highlight="toISOString; getFullYear; Date.now"} -->
 
@@ -164,38 +163,42 @@ new Date(0).toISOString()  // → "1970-01-01T00:00:00.000Z"
 ### Temporal
 
 ```js
-// Limited availability: Chrome 144+, Firefox 139+, Node 26
 const d = Temporal.PlainDate.from('2026-11-05')
-d.add({ months: 1 })    // → 2026-12-05
-Temporal.Now.instant()  // → Temporal.Instant
-Temporal.Now.plainDateISO()     // → current local date
-Temporal.Duration.from('P2D')   // → 2 days
-```
-<!-- {: data-highlight="Temporal.PlainDate.from; Temporal.Now; Temporal.Duration"} -->
+d.add({ months: 1 }) // → 2026-12-05
 
-A modern replacement for `Date`; plain dates have no time zone.
+Temporal.Now.instant()
+// → current instant
+
+Temporal.Duration.from('P2D')
+// → 2 days
+```
+<!-- {: data-highlight="Temporal.PlainDate.from; Temporal.Now; Temporal.Duration.from"} -->
+
+Node.js 26 provides `Temporal` globally; browser support is still limited.
 
 [JavaScript Temporal cheatsheet](./js-temporal)
 
 <!-- {: .-crosslink} -->
 
-## Async and modules
+## Async work
+<!-- {: .-three-column} -->
 
-### Async
+### Async and await
 
 ```js
-const res = await fetch('/data.json')
-const data = await res.json()
+const value = await a()
+const next = await b()
 
-const results = await Promise.all([a(), b()])
 try {
   await risky()
 } catch (err) {
   console.error(err)
 }
-await new Promise(r => setTimeout(r, 1000))  // wait 1 second
+await new Promise(r =>
+  setTimeout(r, 1000)
+)
 ```
-<!-- {: data-highlight="Promise.all"} -->
+<!-- {: data-highlight="await; setTimeout"} -->
 
 [JavaScript Async cheatsheet](./js-async)
 
@@ -204,14 +207,26 @@ await new Promise(r => setTimeout(r, 1000))  // wait 1 second
 ### Promises
 
 ```js
-new Promise((resolve, reject) => { resolve(1) })
-promise.then(v => v * 2).catch(console.error)
-await Promise.all([a(), b()])         // → all results, fails fast
-await Promise.allSettled([a(), b()])  // → every result, never rejects
-await Promise.race([a(), b()])        // → first settled, either way
-await Promise.any([a(), b()])         // → first fulfilled (ES2021)
+new Promise((resolve, reject) => {
+  resolve(1)
+})
+promise
+  .then(v => v * 2)
+  .catch(console.error)
+
+await Promise.all([a(), b()])
+// → results
+
+await Promise.allSettled([a(), b()])
+// → every result, never rejects
+
+await Promise.race([a(), b()])
+// → first settled, either way
+
+await Promise.any([a(), b()])
+// → first fulfilled
 ```
-<!-- {: data-highlight="Promise.allSettled; Promise.race; Promise.any; then"} -->
+<!-- {: data-highlight="Promise.allSettled; Promise.race; Promise.any; .then"} -->
 
 [Promises cheatsheet](./promise)
 
@@ -221,12 +236,15 @@ await Promise.any([a(), b()])         // → first fulfilled (ES2021)
 
 ```js
 const res = await fetch('/data.json')
-res.status                        // → 200
-res.ok                            // → true (status 200-299)
-await res.json()                  // → parsed JSON body
+res.status // → 200
+res.ok // → true (200-299)
+await res.json() // → parsed body
+
 await fetch('/save', {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+  headers: {
+    'Content-Type': 'application/json'
+  },
   body: JSON.stringify(data)
 })
 ```
@@ -235,6 +253,8 @@ await fetch('/save', {
 [fetch() cheatsheet](./js-fetch)
 
 <!-- {: .-crosslink} -->
+
+## Code and syntax
 
 ### Modules
 
@@ -252,7 +272,7 @@ const { default: Chart } = await import('./chart.js')
 
 <!-- {: .-crosslink} -->
 
-### ES2015+ features
+### Modern syntax
 
 ```js
 const [first, ...rest] = list
@@ -267,8 +287,52 @@ for (const item of list) console.log(item)
 
 <!-- {: .-crosslink} -->
 
+## Newer APIs
+
+### Arrays and objects
+
+```js
+[3, 1, 2].toSorted() // → [1, 2, 3]
+[1, 2, 3].with(0, 9) // → [9, 2, 3]
+const groups = Object.groupBy(list, n => n % 2)
+// → { 0: [2], 1: [1, 3] }
+
+Object.hasOwn(user, 'name') // → true
+structuredClone(user) // → deep copy
+```
+<!-- {: data-highlight="toSorted; .with(0, 9); Object.groupBy; Object.hasOwn"} -->
+
+`structuredClone` is a Web API, not ECMAScript.
+
+See: [toSorted](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted) · [Object.groupBy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy) · [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone)
+
+### Promises and iterators
+
+```js
+const { promise, resolve } = Promise.withResolvers()
+resolve(42)
+await promise // → 42
+
+await Promise.try(() => JSON.parse('{"ok":true}'))
+// → { ok: true }
+
+const gen = (async function* () { yield 1; yield 2 })()
+await Array.fromAsync(gen) // → [1, 2]
+[1, 2].values().map(n => n * 2).toArray()
+// → [2, 4]
+```
+<!-- {: data-highlight="Promise.withResolvers; Promise.try; Array.fromAsync; .toArray()"} -->
+
+See: [Promise.withResolvers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers) · [Array.fromAsync](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync) · [Iterator helpers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
+
 ## Also see
 
+- [Remove duplicates from an array](./js-array-unique)
+- [Group an array of objects](./js-group-by)
+- [Deep copy an object](./js-deep-copy)
+- [Round a number](./js-round-number)
+- [Wait in JavaScript](./js-sleep)
+- [Flatten an array](./js-flatten-array)
 - [JavaScript lazy shortcuts](./js-lazy)
 
 <!-- {: .-also-see} -->

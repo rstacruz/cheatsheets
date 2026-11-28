@@ -23,6 +23,7 @@ fragments:
   - "not(expr)"
 weight: -5
 updated: 2026-11-26
+last_verified_at: 2026-11-26
 last_verified_with: "XPath 1.0, Selenium 4.54.0, Playwright 1.65.1."
 intro: |
   XPath is a query language for selecting nodes in HTML and XML. This reference covers syntax, predicates, axes and automation locators.

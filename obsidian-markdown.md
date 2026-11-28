@@ -20,6 +20,7 @@ fragments:
   - "---"
   - "![[Note#^id]]"
 updated: 2026-11-22
+last_verified_at: 2026-11-23
 keywords: [obsidian, obsidian markdown, wikilinks, callouts, embeds, block refs]
 intro: |
   [Obsidian](https://obsidian.md/) stores notes as Markdown files. Its flavor adds wikilinks, callouts, embeds, properties, and other syntax on top of CommonMark and GFM.

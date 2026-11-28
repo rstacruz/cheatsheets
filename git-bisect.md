@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: bug }
 category: Git
 tier: t2
 updated: 2026-11-21
+last_verified_at: 2026-11-22
 last_verified_with: "Git."
 fragments:
   - "bisect start"

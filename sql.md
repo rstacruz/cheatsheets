@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: data }
 category: Databases
 weight: -10
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 tier: t2
 last_verified_with: "SQLite 3.54.0, PostgreSQL 19."
 fragments:

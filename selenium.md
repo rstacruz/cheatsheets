@@ -24,6 +24,7 @@ fragments:
   - "driver.quit()"
 keywords: [WebDriver, browser automation, Python, UI testing, Selenium Manager]
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 last_verified_with: "Selenium 4.53.0 (Python bindings)."
 intro: |
   [Selenium](https://www.selenium.dev/) drives real browsers through WebDriver and WebDriver BiDi. This reference uses the Python bindings for locating elements, waiting, interacting, and capturing failures.

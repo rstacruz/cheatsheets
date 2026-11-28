@@ -3,8 +3,9 @@ title: Curl
 subtitle: Command-line HTTP client
 logo: { src: /assets/logos/curl.svg, mono: true }
 category: Networking
-updated: 2026-11-11
-last_verified_with: "cURL 8.23.0."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "cURL 8.23.0, curl docs 8.23.1."
 tier: t2
 fragments:
   - "curl -s"
@@ -21,6 +22,11 @@ fragments:
   - "-u user:pass"
   - "--fail"
   - "-v"
+keywords:
+  - curl http requests
+  - curl post json
+  - curl headers
+  - curl download
 intro: |
   [curl](https://curl.se/) transfers data with URLs from the command line. This reference covers common HTTP options and recipes, current through curl 8.23.
 links:
@@ -133,9 +139,11 @@ See: [SSL certificate verification](https://curl.se/docs/sslcerts.html)
 ### Transfers
 
 ```bash
+--connect-timeout 2  # limit the connection phase
+--max-time 10        # limit the whole transfer
 --no-progress-meter  # hide progress, keep errors
 --retry 3            # retry transient errors
---retry-all-errors   # retry any error
+--retry-all-errors   # retry any error (with --retry)
 -C -                 # --continue-at: resume a partial file
 --parallel           # run transfers in parallel
 --rate 10/s          # cap request rate
@@ -182,7 +190,7 @@ See: [--variable](https://curl.se/docs/manpage.html#--variable)
 ```
 <!-- {: data-highlight="-K curlrc; -K -; -q"} -->
 
-curl reads `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, then `$HOME/.curlrc`. Write one option per line, without leading dashes.
+curl reads the first config file it finds among `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, and `$HOME/.curlrc`. One option per line; long options may omit `--`.
 
 See: [Config file](https://ec.haxx.se/cmdline/configfile.html)
 

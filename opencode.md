@@ -3,8 +3,9 @@ title: OpenCode
 subtitle: Open-source coding agent
 logo: { src: /assets/logos/opencode.svg, mono: true }
 category: Agents
-updated: 2026-11-14
-last_verified_with: "OpenCode v2 APIs."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "OpenCode 2.4.2 docs, 2.3.2 runtime."
 tier: t1
 fragments:
   - "opencode"
@@ -88,24 +89,32 @@ See: [CLI](https://opencode.ai/docs/cli)
 
 ### Session commands
 
-| Command                        | Description                 |
-| ------------------------------ | --------------------------- |
-| `opencode run <prompt>`        | Send one prompt, then exit  |
-| `opencode mini`                | Start the minimal interface |
-| `opencode session list`        | List saved sessions         |
-| `opencode session export <id>` | Export a session as JSON    |
+| Command                                   | Description                       |
+| ----------------------------------------- | --------------------------------- |
+| `opencode run <prompt>`                   | Send one prompt, then exit        |
+| `opencode mini`                           | Start the minimal interface       |
+| `opencode session list`                   | List saved sessions               |
+| `opencode session export <id>`            | Export a session as JSON          |
+| `opencode session export <id> --sanitize` | Export with sensitive data redacted |
+| `opencode session import <file>`          | Import a session from JSON        |
+| `opencode session delete <id>`            | Delete a session and its children |
 
 
-See: [run](https://opencode.ai/docs/cli/commands#run)
+See: [session](https://opencode.ai/docs/cli/commands#session)
 
 ### Setup commands
 
-| Command                      | Description                |
-| ---------------------------- | -------------------------- |
-| `opencode auth login <name>` | Sign in to a provider      |
-| `opencode models`            | List available models      |
-| `opencode mcp add <name>`    | Add an MCP server          |
-| `opencode plugin list`       | List installed plugins     |
+| Command                       | Description                 |
+| ----------------------------- | --------------------------- |
+| `opencode auth login <name>`  | Sign in to a provider       |
+| `opencode auth logout <name>` | Sign out of a saved account |
+| `opencode auth switch <name>` | Switch the active account   |
+| `opencode models`             | List available models       |
+| --- | --- |
+| `opencode mcp add <name>`     | Add an MCP server           |
+| `opencode mcp auth <name>`    | Sign in to an OAuth server  |
+| `opencode plugin list`        | List installed plugins      |
+| `opencode plugin update`      | Update package plugins      |
 
 
 See: [auth](https://opencode.ai/docs/cli/commands#auth)
@@ -115,25 +124,28 @@ See: [auth](https://opencode.ai/docs/cli/commands#auth)
 | Command                        | Description                   |
 | ------------------------------ | ----------------------------- |
 | `opencode service set <k> <v>` | Change shared server settings |
+| `opencode service status`      | Show shared server status     |
 | `opencode debug paths`         | Print state and config paths  |
+| `opencode debug paths db`      | Print the database path       |
 
 
 See: [CLI](https://opencode.ai/docs/cli#background-service)
 
 ### Run flags
 
-| Flag                       | Description                          |
-| -------------------------- | ------------------------------------ |
-| `--model <provider/model>` | Choose the model for this run        |
-| `--agent <name>`           | Run as a specific agent              |
-| `--session <id>`           | Continue a session by ID             |
-| `--continue`               | Continue the latest session          |
-| ---                        | ---                                  |
-| `--file <path>`            | Attach a file to the prompt          |
-| `--format json`            | Emit newline-delimited JSON          |
-| `--auto`                   | Auto-approve anything not denied     |
-| `--archived`               | Keep the session out of lists        |
-| `--standalone`             | Run on a private server              |
+| Flag                       | Description                      |
+| -------------------------- | -------------------------------- |
+| `--model <provider/model>` | Choose the model for this run    |
+| `--agent <name>`           | Run as a specific agent          |
+| `--session <id>`           | Continue a session by ID         |
+| `--continue`               | Continue the latest session      |
+| ---                        | ---                              |
+| `--file <path>`            | Attach a file to the prompt      |
+| `--format json`            | Emit newline-delimited JSON      |
+| `--auto`                   | Auto-approve anything not denied |
+| `--archived`               | Keep the session out of lists    |
+| `--worktree [name]`        | Run in a new Git worktree        |
+| `--standalone`             | Run on a private server          |
 
 
 See: [run](https://opencode.ai/docs/cli/commands#run)
@@ -168,9 +180,10 @@ See: [Background service](https://opencode.ai/docs/cli#background-service)
 | `/btw <question>` | Ask a side question                  |
 | `/editor`         | Edit the prompt in `$EDITOR`         |
 | `/highlights`     | Replay the release notes             |
+| `/automation`     | Schedule a recurring run             |
 
 
-`/btw` answers from the session's context without adding it to the transcript. `Esc` interrupts a run.
+`/btw` answers from the session's context without adding it to the transcript. `/automation` schedules prompts or shell jobs; set `"automations": false` to disable them. `Esc` interrupts a run.
 
 See: [TUI](https://opencode.ai/docs/cli/tui)
 
@@ -251,7 +264,7 @@ See: [Keybinds](https://opencode.ai/docs/cli/keybinds)
 
 <!-- {: .-shortcuts} -->
 
-`@src/auth.ts#20-45` attaches a line range. `Enter` steers a running session; `Ctrl+X` `Enter` queues the prompt. For a newline, use `Ctrl+J` or `Shift+Enter`.
+`@src/auth.ts#20-45` attaches a line range. `Enter` steers a running session; `Ctrl+X` `Enter` queues the prompt. For a newline, use `Ctrl+J`, `Shift+Enter`, `Ctrl+Enter`, or `Alt+Enter`.
 
 See: [TUI](https://opencode.ai/docs/cli/tui)
 
@@ -304,7 +317,7 @@ opencode.jsonc                     # project root, committed
 ```
 <!-- {: data-highlight=".opencode/opencode.jsonc"} -->
 
-Every `.opencode` config overrides every direct config; the system directory outranks both. On macOS that directory is `/Library/Application Support/opencode`. TUI settings live in `~/.config/opencode/cli.json`.
+Every `.opencode` config overrides every direct config; the system directory outranks both. On macOS that directory is `/Library/Application Support/opencode`. TUI settings live in `~/.config/opencode/cli.json`. Add `$schema` for editor validation: `https://opencode.ai/config.json`, or `https://opencode.ai/v2/cli.json` in `cli.json`.
 
 See: [Config](https://opencode.ai/docs/config)
 
@@ -317,7 +330,7 @@ See: [Config](https://opencode.ai/docs/config)
     "acme": {
       "env": ["ACME_API_KEY"],
       "package": "@opencode/ai/providers/openai-compatible",
-      "settings": { "baseURL": "https://llm.acme/v1" },
+      "settings": { "baseURL": "https://llm.acme.example/v1" },
       "models": { "qwen3-coder": {} }
     }
   }
@@ -343,7 +356,7 @@ See: [Providers](https://opencode.ai/docs/providers)
 
 <!-- {: .-shortcuts} -->
 
-Subagents run in background child sessions and report back when idle.
+Subagents run in background child sessions and report back when idle. Set `default_agent` in `opencode.jsonc` to choose the primary agent.
 
 See: [Agents](https://opencode.ai/docs/agents)
 
@@ -378,7 +391,11 @@ See: [Agents](https://opencode.ai/docs/agents)
 
 <!-- {: data-highlight='"git push *"'} -->
 
-Last match wins and unmatched actions ask; defaults allow everything except `.env` reads (`.env.example` stays allowed); actions include `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, `external_directory`, and MCP tools; v1's `permission`, `bash`, `task` names are retired.
+Last match wins; unmatched actions ask. Defaults allow everything except `.env` and `.env.*` reads (`.env.example` stays allowed).
+
+Actions include `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, `external_directory`, and MCP tools.
+
+v1's `permission`, `bash`, and `task` names are retired.
 
 See: [Permissions](https://opencode.ai/docs/permissions)
 
@@ -404,7 +421,7 @@ opencode mcp list
 ```
 <!-- {: data-highlight="--url; --global"} -->
 
-Remote servers use OAuth by default; run `/mcps` to finish a sign-in. Servers live under `mcp.servers` in the config.
+Remote servers use OAuth by default; run `/mcps` to finish a sign-in. Servers live under `mcp.servers` in the config. Use `disabled: true` to keep one offline; `pool: true` shares a connection across directories.
 
 See: [MCP servers](https://opencode.ai/docs/mcp-servers)
 

@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: link }
 category: Networking
 tier: t2
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 last_verified_with: "OpenSSH 10.6p1."
 fragments:
   - "ssh user@host"

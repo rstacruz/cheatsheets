@@ -3,8 +3,9 @@ title: OpenAI Codex
 subtitle: Terminal coding agent
 logo: { src: /assets/logos/codex.svg, mono: true }
 category: Agents
-updated: 2026-11-11
-last_verified_with: "codex-cli 0.167.1."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "codex-cli 0.172.0."
 tier: t1
 fragments:
   - "codex"
@@ -68,8 +69,9 @@ codex                      # start the interactive TUI
 codex "explain this repo"  # start with a prompt
 codex resume --last        # reopen the latest chat
 codex fork --last          # branch the latest chat
+codex queue --thread <id> --message "Run checks"
 ```
-<!-- {: data-highlight="codex resume; codex fork"} -->
+<!-- {: data-highlight="codex resume; codex fork; codex queue"} -->
 
 `codex resume` scopes `--last` to the current directory; add `--all` to search every session. See: [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -154,6 +156,8 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `--disable <feature>`                        | Turn an optional feature off                  |
 | `--no-daemon`                                | Skip the shared background server             |
 | `--strict-config`                            | Reject unknown config keys                    |
+| `--trust`                                    | Trust this project for future chats, even with `--ephemeral` |
+| `--skip-git-repo-check`                      | Allow runs outside a Git repository                         |
 | `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing                 |
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
@@ -190,6 +194,7 @@ git diff | codex exec "review this"     # pipe context in
 codex exec --json "list failing tests"  # JSONL events
 codex exec --ephemeral "triage issues"  # write no session files
 codex exec resume --last "fix them"     # continue the last run
+codex exec fork <id> --worktree "try another approach"
 ```
 <!-- {: data-highlight="codex exec"} -->
 
@@ -355,7 +360,7 @@ $CODEX_HOME/<name>.config.toml  # profile, selected with --profile
 #### Settings
 
 ```toml
-model = "gpt-6.1-sol"
+model = "gpt-6.2-sol"
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
 model_reasoning_effort = "medium"

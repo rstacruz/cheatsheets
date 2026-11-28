@@ -3,8 +3,9 @@ title: Claude Code commands
 subtitle: Slash command reference
 logo: { src: /assets/logos/claude.svg }
 category: Agents
-updated: 2026-11-18
-last_verified_with: "Claude Code slash commands from the official commands reference."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "Claude Code 2.1.331."
 tier: t1
 fragments:
   - "/claude-api"
@@ -32,7 +33,7 @@ keywords:
   - Settings
   - Permissions
 intro: |
-  [Claude Code](https://code.claude.com/docs/en/commands) is Anthropic's AI coding agent for the terminal. This sheet lists every slash command it accepts.
+  [Claude Code](https://code.claude.com/docs/en/commands) is Anthropic's AI coding agent for the terminal. This sheet lists its built-in commands and bundled skills.
 links:
   - title: Commands
     url: https://code.claude.com/docs/en/commands
@@ -73,7 +74,9 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/goal`   | Work until a condition is met      |
 | `/branch` | Branch the conversation here       |
 
-Plan mode writes a plan before it edits. See: [Permission modes](https://code.claude.com/docs/en/permission-modes)
+Plan mode writes a plan before it edits.
+
+See: [Permission modes](https://code.claude.com/docs/en/permission-modes)
 
 ### History
 
@@ -83,7 +86,9 @@ Plan mode writes a plan before it edits. See: [Permission modes](https://code.cl
 | `/rewind` | Restore code and conversation   |
 | `/export` | Export the conversation as text |
 
-`/resume` opens the picker; pass an ID or name to skip it. See: [Checkpointing](https://code.claude.com/docs/en/checkpointing)
+`/resume` opens the picker; pass an ID or name to skip it.
+
+See: [Checkpointing](https://code.claude.com/docs/en/checkpointing)
 
 ## Review and background
 
@@ -98,10 +103,22 @@ Plan mode writes a plan before it edits. See: [Permission modes](https://code.cl
 | `/review`          | Alias of `/code-review`           |
 | `/security-review` | Scan changes for vulnerabilities  |
 | `/simplify`        | Apply cleanup findings            |
-| `/ultrareview`     | Deep multi-agent cloud review     |
+| `/ultrareview`     | Alias of `/code-review ultra`     |
 | `/autofix-pr`      | Watch a PR and push fixes         |
 
-`/code-review` also takes an effort level and `--fix`. See: [Review locally with /code-review](https://code.claude.com/docs/en/code-review-local)
+`/code-review high 1234` reviews a PR; `--fix` applies findings.
+
+See: [Review locally with /code-review](https://code.claude.com/docs/en/code-review-local)
+
+### Shipping pull requests
+
+| Command                     | Description                    |
+| --------------------------- | ------------------------------ |
+| `/ship [level] [pr] [+bot]` | Commit, push, open a PR, watch |
+| `/steward [pr] [+bot]`      | Watch a PR and push fixes      |
+| `/ship:review`              | Alias of `/code-review`        |
+
+See: [Get a pull request ready with /ship](https://code.claude.com/docs/en/ship-command)
 
 ### Background work
 
@@ -116,6 +133,8 @@ Plan mode writes a plan before it edits. See: [Permission modes](https://code.cl
 | `/loop`           | Repeat a prompt on a schedule      |
 | `/schedule`       | Manage cloud scheduled tasks       |
 | `/workflows`      | Watch running workflows            |
+
+`/loop 5m check if the deploy finished` repeats a prompt.
 
 See: [Agent view](https://code.claude.com/docs/en/agent-view)
 
@@ -183,6 +202,19 @@ See: [Settings](https://code.claude.com/docs/en/settings)
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
+### Utilities
+
+| Command               | Description                         |
+| --------------------- | ----------------------------------- |
+| `/heapdump`           | Save a memory snapshot              |
+| `/skill-doctor`       | Show skill context cost             |
+| `/auto-mode-setup`    | Draft auto-mode entries             |
+| `/claude-approvals`   | Edit approval policies (v2.1.331+)  |
+
+`/heapdump` writes a `.heapsnapshot` with your full conversation and credentials; don't share it.
+
+See: [Commands](https://code.claude.com/docs/en/commands)
+
 ## Project and integrations
 
 <!-- {: .-two-column} -->
@@ -208,7 +240,7 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/plugin`         | Manage plugins                 |
 | `/reload-plugins` | Apply plugin changes           |
 | ----------------- | ------------------------------ |
-| `/agents`         | Create or manage subagents     |
+| `/agents`         | Print a reminder to set up subagents |
 | `/skills`         | List and filter skills         |
 | `/reload-skills`  | Rescan skill directories       |
 | `/doctor`         | Run a setup checkup            |
@@ -253,7 +285,9 @@ See: [Claude Code on the web](https://code.claude.com/docs/en/claude-code-on-the
 | `/fewer-permission-prompts` | Build an allowlist             |
 | `/artifacts`                | List and attach artifacts      |
 
-Type `/` to see every skill your install ships. See: [Skills](https://code.claude.com/docs/en/skills)
+Type `/` to browse available commands and skills.
+
+See: [Skills](https://code.claude.com/docs/en/skills)
 
 ## Also see
 

@@ -4,8 +4,9 @@ subtitle: Node.js package manager
 logo: { src: /assets/logos/npm.svg }
 category: Package managers
 weight: -1
-updated: 2026-11-11
-last_verified_with: "npm 12 APIs."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "npm 12.2.3."
 tier: t1
 fragments:
   - "npm install"
@@ -269,6 +270,33 @@ npm owner ls pkg
 <!-- {: data-highlight="npm deprecate; npm owner"} -->
 
 See: [npm deprecate](https://docs.npmjs.com/cli/v12/commands/npm-deprecate/), [npm owner](https://docs.npmjs.com/cli/v12/commands/npm-owner/)
+
+### Dist-tags
+
+```bash
+npm dist-tag ls mypkg
+npm dist-tag add mypkg@1.2.3 beta
+npm dist-tag rm mypkg beta
+```
+<!-- {: data-highlight="npm dist-tag"} -->
+
+`publish` sets `latest` unless `--tag` is given; tags let installs use `pkg@beta`.
+
+See: [npm dist-tag](https://docs.npmjs.com/cli/v12/commands/npm-dist-tag/)
+
+### Trusted publishing
+
+```bash
+npm trust github --file release.yml \
+  --repo owner/pkg --allow-publish
+npm trust list
+npm trust revoke --id <trust-id>
+```
+<!-- {: data-highlight="npm trust"} -->
+
+OIDC publishing needs a trust relationship; pass `--allow-publish` or `--allow-stage-publish`.
+
+See: [npm trust](https://docs.npmjs.com/cli/v12/commands/npm-trust/), [Trusted publishing](https://docs.npmjs.com/trusted-publishers/)
 
 ## Package sources
 

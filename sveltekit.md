@@ -4,6 +4,7 @@ subtitle: Full-stack framework for Svelte
 logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 updated: 2026-11-26
+last_verified_at: 2026-11-26
 last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2, Vite 8.3.8, Node 22.23.5, 26.13.1."
 tier: t2
 fragments:

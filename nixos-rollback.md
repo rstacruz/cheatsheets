@@ -20,16 +20,6 @@ links:
 ## Roll back a system
 <!-- {: .-snippets} -->
 
-### Find the generation
-<!-- {: .-snippet} -->
-
-```bash
-sudo nixos-rebuild list-generations
-```
-<!-- {: data-highlight="list-generations"} -->
-
-**Lists generations with their dates and versions.** See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
-
 ### Switch to the previous one
 <!-- {: .-snippet} -->
 
@@ -39,6 +29,16 @@ sudo nixos-rebuild switch --rollback
 <!-- {: data-highlight="--rollback"} -->
 
 **Activates the generation before the current one.** See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
+
+### Find the generation
+<!-- {: .-snippet} -->
+
+```bash
+sudo nixos-rebuild list-generations
+```
+<!-- {: data-highlight="list-generations"} -->
+
+**Lists generations with their dates and versions.** See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
 
 ### Keep the rollback at next boot
 <!-- {: .-snippet} -->

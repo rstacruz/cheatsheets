@@ -14,7 +14,7 @@ fragments:
   - "nix profile"
   - "nix flake init"
   - "nix flake update"
-  - "profile install"
+  - "profile add"
   - "nix search"
   - "nixpkgs#hello"
   - "legacyPackages"
@@ -68,9 +68,9 @@ See: [Ad hoc shell environments](https://nix.dev/tutorials/first-steps/ad-hoc-sh
 ### Install to a profile
 
 ```bash
-nix profile install nixpkgs#hello
+nix profile add nixpkgs#hello
 ```
-<!-- {: data-highlight="nix profile install"} -->
+<!-- {: data-highlight="nix profile add"} -->
 
 Adds a package to `~/.local/state/nix/profiles/profile`.
 
@@ -85,7 +85,7 @@ nix search nixpkgs '^hello$'
 
 Searches package names and descriptions by regular expression.
 
-See: [nix search](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix.html)
+See: [nix search](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-search.html)
 
 ### Build a package
 
@@ -103,13 +103,14 @@ See: [nix build](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-buil
 ```bash
 nix path-info -Sh result
 ```
-<!-- {: data-highlight="-Sh"} -->
+<!-- {: data-highlight="nix path-info"} -->
 
-Shows the store path behind `./result` and its size; `-r` lists runtime dependencies.
+Shows the store path behind `./result` and its closure size; `-r` applies the operation to the whole closure.
 
 See: [nix path-info](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-path-info.html)
 
 ## Nix language
+<!-- {: .-three-column} -->
 
 ### Values
 
@@ -175,6 +176,8 @@ See: [Functions and imports](https://nix.dev/tutorials/nix-language.html)
 
 See: [Built-in operators](https://nix.dev/manual/nix/stable/language/operators.html)
 
+## Nix expressions
+
 ### Select and test attributes
 
 ```nix
@@ -205,7 +208,7 @@ See: [Attribute selection](https://nix.dev/manual/nix/stable/language/operators.
 ''
 ```
 
-`''${` writes a literal `${`; `./file.nix` copies the file into the store.
+`''${` writes a literal `${`; interpolating `./file.nix` copies it into the store.
 
 See: [String literals](https://nix.dev/manual/nix/stable/language/string-literals.html)
 
@@ -292,7 +295,7 @@ nix flake lock
 ```bash
 nix flake update nixpkgs
 ```
-<!-- {: data-highlight="nix flake update"} -->
+<!-- {: data-highlight="nixpkgs"} -->
 
 `flake.lock` pins exact revisions; `lock` keeps existing entries, `update` moves them.
 
@@ -304,7 +307,7 @@ See: [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/ni
 nix flake show
 nix flake metadata
 ```
-<!-- {: data-highlight="nix flake show"} -->
+<!-- {: data-highlight="nix flake show; nix flake metadata"} -->
 
 `show` lists outputs; `metadata` prints inputs and the lock file path.
 
@@ -633,7 +636,7 @@ home-manager switch
 
 In NixOS, add `home-manager.users.alice = import ./home.nix;` to your modules.
 
-See: [Home Manager: NixOS module](https://nix-community.github.io/home-manager/index.html#sec-nixos-module)
+See: [Home Manager: NixOS module](https://nix-community.github.io/home-manager/installation/nixos.html#nixos-module)
 
 ## Maintenance
 
@@ -661,12 +664,12 @@ See: [Garbage collection](https://nix.dev/manual/nix/stable/package-management/g
 
 ```bash
 nix profile list
-nix profile remove 0
+nix profile remove hello
 nix profile rollback
 ```
-<!-- {: data-highlight="nix profile rollback"} -->
+<!-- {: data-highlight="nix profile list; nix profile remove hello; nix profile rollback"} -->
 
-`list` prints index numbers; `remove` takes an index, `rollback` undoes a change.
+`list` prints package names; `remove` takes a name, `rollback` undoes a change.
 
 See: [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
 

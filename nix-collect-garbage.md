@@ -20,16 +20,6 @@ links:
 ## Clean the store
 <!-- {: .-snippets} -->
 
-### Preview what would be deleted
-<!-- {: .-snippet} -->
-
-```bash
-nix-store --gc --print-dead
-```
-<!-- {: data-highlight="--print-dead"} -->
-
-**Lists unreachable store paths without deleting them.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
-
 ### Delete old generations
 <!-- {: .-snippet} -->
 
@@ -40,15 +30,25 @@ nix-collect-garbage -d
 
 **Removes old profile generations, then collects unreachable paths.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
 
+### Preview what would be deleted
+<!-- {: .-snippet} -->
+
+```bash
+nix-store --gc --print-dead
+```
+<!-- {: data-highlight="--print-dead"} -->
+
+**Lists unreachable store paths without deleting them.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
+
 ### Keep two weeks of generations
 <!-- {: .-snippet} -->
 
 ```bash
-nix-env --delete-generations 14d
+nix-collect-garbage --delete-older-than 14d
 ```
 <!-- {: data-highlight="14d"} -->
 
-**Deletes generations older than 14 days, keeping the current one.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
+**Deletes generations older than 14 days across all profiles.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
 
 ### Deduplicate files
 <!-- {: .-snippet} -->

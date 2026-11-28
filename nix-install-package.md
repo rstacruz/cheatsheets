@@ -24,9 +24,9 @@ links:
 <!-- {: .-snippet} -->
 
 ```bash
-nix profile install nixpkgs#hello
+nix profile add nixpkgs#hello
 ```
-<!-- {: data-highlight="nix profile install"} -->
+<!-- {: data-highlight="nix profile add"} -->
 
 **Adds a package to your user profile.** It is available in new shells; see [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).
 
@@ -54,8 +54,8 @@ nix shell nixpkgs#hello nixpkgs#cowsay
 <!-- {: .-snippet} -->
 
 ```bash
-nix profile remove 0
+nix profile remove hello
 ```
-<!-- {: data-highlight="nix profile remove"} -->
+<!-- {: data-highlight="nix profile remove hello"} -->
 
-**Removes a package by its profile index.** Find the index with `nix profile list`; see [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).
+**Removes a package by name.** Find the name with `nix profile list`; see [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).

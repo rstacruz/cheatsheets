@@ -3,9 +3,9 @@ import { buildFuseIndex, parseFuse } from './fuseSearch'
 describe('Simple pages scenario', () => {
   // prettier-ignore
   const pages = {
-    "react": { slug: "react", frontmatter: { title: "React" } },
-    "vim": { slug: "vim", frontmatter: { title: "Vim" } },
-    "react-router": { slug: "react-router", frontmatter: { title: "React Router" } },
+    "react": { slug: "react", markdown: "", frontmatter: { title: "React", keywords: ["hooks"] } },
+    "vim": { slug: "vim", markdown: "### Motions", frontmatter: { title: "Vim", subtitle: "Modal editor", category: "Vim" } },
+    "react-router": { slug: "react-router", markdown: "", frontmatter: { title: "React Router" } },
   }
 
   let fuse: ReturnType<typeof parseFuse>
@@ -21,6 +21,18 @@ describe('Simple pages scenario', () => {
   runTest({
     label: 'no-result search',
     query: 'skinamarink'
+  })
+
+  test('matches a heading-only term', () => {
+    expect(fuse.search('motions').map((result) => result.item.slug)).toEqual([
+      'vim'
+    ])
+  })
+
+  test('matches a keyword-only term', () => {
+    expect(fuse.search('hooks').map((result) => result.item.slug)).toEqual([
+      'react'
+    ])
   })
 
   beforeEach(() => {

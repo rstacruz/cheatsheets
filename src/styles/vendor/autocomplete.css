@@ -1,3 +1,5 @@
+@reference '/src/styles/tailwind.css';
+
 /*
  * Overrides for npm:autocompleter.
  *
@@ -8,37 +10,24 @@
  */
 
 .autocomplete {
-  border: none;
-  background: var(--field);
-  color: var(--foreground);
-  padding: 0.5rem;
-  padding-top: 0;
-  border-bottom-left-radius: var(--radius-sm);
-  border-bottom-right-radius: var(--radius-sm);
-  box-shadow: var(--shadow-md);
-  transform: translate(-8px, -2px);
+  @apply rounded-lg border border-border bg-field p-2 text-foreground shadow-lg;
+  transform: translate(-8px, 8px);
 }
 
 .autocomplete > div {
-  padding: 0.5rem;
-  border-radius: var(--radius-sm);
+  @apply p-2;
 }
 
 .autocomplete > div.group {
-  background: var(--muted);
-  color: var(--muted-foreground);
+  @apply bg-muted text-muted-foreground;
 }
 
 .autocomplete > div:hover:not(.group) {
-  background: var(--background);
+  @apply bg-muted;
 }
 
-.autocomplete > div + div:not(.selected) {
-  box-shadow: inset 0 1px var(--border);
-}
 
 .autocomplete > div.selected,
 .autocomplete > div.selected:hover {
-  background: var(--highlight-solid);
-  color: var(--primary-foreground);
+  @apply bg-secondary text-secondary-foreground;
 }

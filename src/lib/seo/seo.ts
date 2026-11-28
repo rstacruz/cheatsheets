@@ -38,6 +38,39 @@ export function getSEOPropsForHome() {
   }
 }
 
+export function getSEOPropsForSearch() {
+  const t = {
+    title: 'Search cheatsheets — devhints.io',
+    description: 'Search devhints.io cheatsheets by title, heading, or keyword.'
+  }
+  const url = new URL('/search', site.url).toString()
+  const image = 'https://assets.devhints.io/previews/index.jpg'
+
+  return {
+    title: t.title,
+    links: {
+      canonical: url
+    },
+    meta: {
+      description: t.description,
+      'app:pageurl': url
+    },
+    metaProperties: denull({
+      'og:description': t.description,
+      'og:image:height': '471',
+      'og:image': image,
+      'og:image:width': '900',
+      'og:site_name': site.title,
+      'og:title': t.title,
+      'og:type': 'website',
+      'og:url': url,
+      'twitter:title': t.title,
+      'twitter:image': image,
+      'twitter:description': t.description
+    })
+  }
+}
+
 export function getPageTitle(page: {
   frontmatter: { title?: string; seo_title?: string; layout?: string }
 }) {

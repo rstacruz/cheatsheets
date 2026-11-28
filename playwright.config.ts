@@ -1,29 +1,15 @@
-import { createHash } from 'node:crypto'
-import { fileURLToPath } from 'node:url'
 import { defineConfig } from '@playwright/test'
-
-const PORT_BASE = 10000
-const PORT_RANGE = 10000
-
-function worktreePort(projectDir: string): number {
-  const digest = createHash('sha256').update(projectDir).digest('hex')
-  return PORT_BASE + (parseInt(digest.slice(0, 4), 16) % PORT_RANGE)
-}
-
-// Hash the checkout path so parallel worktrees don't compete for one port.
-const projectDir = fileURLToPath(new URL('.', import.meta.url))
-const port = process.env.PORT ?? worktreePort(projectDir)
-
-const isCI = Boolean(process.env.CI)
+import { isCI, launchOptions, port } from './playwright.shared'
 
 export default defineConfig({
   testMatch: /.*\.e2e\.[^.]*/,
+  testIgnore: /search-edge\.e2e\./,
   webServer: {
     // Astro 7 backgrounds `astro dev` when it detects an agent; --ignore-lock
     // keeps it in the foreground so Playwright can own its lifetime.
     command: `npm run dev -- --port ${port} --ignore-lock`,
     url: `http://localhost:${port}/`,
-    reuseExistingServer: !isCI /* Spawn dev server on CI */,
+    reuseExistingServer: !isCI,
     // astro build clears node_modules/.vite, so keep the test server's cache
     // out of its way (it runs concurrently with the build in `pnpm run ci`).
     env: { ASTRO_VITE_CACHE_DIR: 'node_modules/.vite-e2e' }
@@ -33,14 +19,6 @@ export default defineConfig({
   },
   use: {
     baseURL: `http://localhost:${port}/`,
-    // NixOS: point at the system Chromium, since Playwright's build needs
-    // libraries the Nix store doesn't expose.
-    ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
-      ? {
-          launchOptions: {
-            executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
-          }
-        }
-      : {})
+    launchOptions
   }
 })

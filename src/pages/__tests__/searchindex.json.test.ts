@@ -1,8 +1,9 @@
+import type { Row } from '~/lib/fuseSearch/fuseSearch'
 import { GET } from '../searchindex.json'
 
 type SearchData = {
   index: { records: unknown[] }
-  rows: Array<{ title: string; slug: string }>
+  rows: Row[]
 }
 
 let data: SearchData

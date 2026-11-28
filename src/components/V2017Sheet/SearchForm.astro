@@ -6,6 +6,7 @@ import Icon from '~/components/Icon.astro'
 
 type BaseProps = {
   size?: 'default' | 'small'
+  noAutocomplete?: boolean
 }
 
 export type Props =
@@ -31,8 +32,8 @@ const styles = {
       'SearchForm__box',
       'flex items-center rounded-full bg-field cursor-text',
       small ? 'h-[48px]' : 'h-[64px]',
-      small ? '' : '[box-shadow:var(--shadow-md)]',
-      'focus-within:[box-shadow:var(--shadow-focus)]'
+      small ? '' : '[box-shadow:var(--shadow-neo)]',
+      'focus-within:[box-shadow:var(--shadow-neo-focus)]'
     ),
   prefix: (small: boolean) =>
     cx(
@@ -59,13 +60,17 @@ const styles = {
         ? 'h-[48px] py-[8px] pr-[8px] text-base'
         : 'h-[64px] py-[16px] pr-[16px] text-lg'
     ),
-  icon: (small: boolean) =>
+  submit: (small: boolean) =>
     cx(
-      'SearchForm__icon',
-      'order-2 grid place-items-center text-heading',
-      small
-        ? 'w-[48px] flex-[0_0_48px] [&>svg]:size-[24px]'
-        : 'w-[64px] flex-[0_0_64px] [&>svg]:size-[32px]'
+      'SearchForm__submit',
+      'order-2 mr-3 flex flex-none items-center justify-center rounded-full bg-transparent',
+      'text-sm font-semibold no-underline text-heading',
+      'data-[active=true]:bg-[image:var(--brand-gradient)]',
+      'data-[active=true]:text-primary-foreground',
+      'data-[active=true]:hover:bg-none data-[active=true]:hover:bg-primary-active',
+      'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+      'px-[12px] data-[active=true]:px-[16px]',
+      small ? 'h-[40px] [&>svg]:size-[20px]' : 'h-[48px] [&>svg]:size-[24px]'
     )
 }
 ---
@@ -78,24 +83,56 @@ const styles = {
       name="q"
       type="text"
       class={styles.input(small)}
-      {...(props.isLive ? { autofocus: true } : {})}
       data-js-search-input
       placeholder={placeholder}
       autocomplete="off"
+      data-js-no-autocomplete={props.noAutocomplete ? '' : undefined}
     />
-    <span class={styles.icon(small)}>
-      <Icon name="md-search" size={small ? 24 : 32} />
-    </span>
+    <button
+      type="button"
+      class={styles.submit(small)}
+      data-js-search-submit
+      aria-label="Search"
+      aria-disabled="true"
+      data-active="false"
+    >
+      <Icon name="md-search" size={small ? 20 : 24} />
+    </button>
   </label>
 </form>
 
 <script>
   import { onScrollVisible } from '~/lib/domutils/onScrollVisible'
 
-  // Prevent <enter> from submitting the form
   document
     .querySelectorAll<HTMLFormElement>('[data-js-search-form]')
     .forEach((form) => {
+      const input = form.querySelector<HTMLInputElement>(
+        '[data-js-search-input]'
+      )
+      const button = form.querySelector<HTMLButtonElement>(
+        '[data-js-search-submit]'
+      )
+      const sync = () => {
+        const active = Boolean(input?.value.trim())
+        if (button) {
+          button.dataset.active = String(active)
+          button.setAttribute('aria-disabled', String(!active))
+        }
+      }
+      sync()
+      input?.addEventListener('input', sync)
+      button?.addEventListener('click', (event) => {
+        event.preventDefault()
+        const query = input?.value.trim() ?? ''
+        if (!query) return
+        if (input?.hasAttribute('data-js-no-autocomplete')) {
+          form.requestSubmit()
+        } else {
+          location.assign(`/search?q=${encodeURIComponent(query)}`)
+        }
+      })
+
       form.addEventListener('submit', (event) => {
         event.preventDefault()
       })
@@ -104,6 +141,7 @@ const styles = {
   document
     .querySelectorAll<HTMLInputElement>('[data-js-search-input]')
     .forEach((input) => {
+      if (input.hasAttribute('data-js-no-autocomplete')) return
       onScrollVisible(input, async () => {
         const { setup } = await import('./SearchForm.script')
         setup(input)

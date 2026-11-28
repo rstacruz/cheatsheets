@@ -12,6 +12,7 @@ pmOnFail: ignore
 allowBuilds:
   esbuild: true
   sharp: true
+  workerd: true
 
 # pnpm 10+ reads overrides from this file; package.json's "pnpm" field is
 # ignored by pnpm 12.

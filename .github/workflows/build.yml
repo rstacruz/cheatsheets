@@ -22,3 +22,5 @@ jobs:
         run: pnpm playwright install --with-deps chromium
       - name: Run tests
         run: pnpm run ci
+      - name: Run Pages edge e2e
+        run: pnpm run pages:e2e

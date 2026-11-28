@@ -1,0 +1,103 @@
+---
+import { urls } from '~/config'
+import BaseLayout from '~/components/BaseLayout.astro'
+import SEO from '~/components/SEO/SEO.astro'
+import TopNav from '~/components/TopNav.astro'
+import SearchForm from '~/components/V2017Sheet/SearchForm.astro'
+import PageListItem from '~/components/V2017Home/PageListItem.astro'
+import SnippetLink from '~/components/V2017Home/SnippetLink.astro'
+import { getPages } from '~/lib/page'
+import { isListed } from '~/lib/page/accessors'
+import { getPagesByCategory, getSnippetPages } from '~/lib/page/queries'
+import { getSEOPropsForSearch } from '~/lib/seo/seo'
+import { homeStyles } from '~/styles/CommonStyles'
+
+const listedPages = Object.values(await getPages()).filter(isListed)
+const pages = Object.fromEntries(listedPages.map((page) => [page.slug, page]))
+const pageCategories = getPagesByCategory(pages, { excludeSnippets: true })
+const snippetPages = getSnippetPages(pages)
+const seoProps = getSEOPropsForSearch()
+
+const t = {
+  snippets: 'Recipes',
+  seeSomethingMissing: 'See something missing?',
+  requestCheatsheet: 'Request cheatsheet'
+}
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <SEO {...seoProps} />
+    <script is:inline>
+      if (new URLSearchParams(location.search).get('q')?.trim()) {
+        document.documentElement.dataset.searchPending = 'true'
+      }
+    </script>
+  </Fragment>
+  <TopNav noEdit />
+  <div class={homeStyles.body}>
+    <div role="banner">
+      <SearchForm isLive noAutocomplete />
+      <div class="mt-16"></div>
+    </div>
+
+    <div class={homeStyles.pagesList} role="main" data-js-search-results>
+      <div class="contents" data-js-search-groups>
+        {Object.values(pageCategories).map((category) => {
+          if (category.pages.length === 0) return null
+
+          return (
+            <section data-js-search-group class="contents">
+              <h2 class={homeStyles.category} data-js-searchable-header>
+                <span>{category.title}</span>
+              </h2>
+              {category.pages.map((page) => (
+                <PageListItem page={page} />
+              ))}
+            </section>
+          )
+        })}
+
+        {snippetPages.length > 0 && (
+          <section data-js-search-group class="contents">
+            <h2 class={homeStyles.category} data-js-searchable-header>
+              <span>{t.snippets}</span>
+            </h2>
+            <div class={homeStyles.snippetList} data-js-search-container>
+              {snippetPages.map((page) => (
+                <SnippetLink page={page} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+
+      <div class={homeStyles.missingMessage}>
+        <h3 class={homeStyles.missingTitle}>{t.seeSomethingMissing}</h3>
+        <p class={homeStyles.missingBody}>
+          <a class={homeStyles.pushButton} href={urls.newCheatsheetUrl}>
+            {t.requestCheatsheet}
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <p data-js-search-empty hidden class="m-0">
+      No cheatsheets found. Request one above.
+    </p>
+    <noscript>
+      Enable JavaScript for ranked results; all cheatsheets are listed.
+    </noscript>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  html[data-search-pending] [data-js-search-results] {
+    visibility: hidden;
+  }
+</style>
+<script>
+  import { setupSearchResults } from '~/components/V2017Search/SearchResults.script'
+
+  setupSearchResults()
+</script>

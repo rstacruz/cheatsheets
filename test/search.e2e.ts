@@ -69,7 +69,7 @@ test('cards and snippets are ranked in separate sections', async ({ page }) => {
 
   await waitForResults(page, 8)
   expect(await visibleSlugsInGroup(page, 'Git')).toEqual(['git-stash'])
-  expect((await visibleSlugsInGroup(page, 'Snippets')).slice(0, 3)).toEqual([
+  expect((await visibleSlugsInGroup(page, 'Recipes')).slice(0, 3)).toEqual([
     'git-stash-show',
     'git-resolve-stash-conflict',
     'git-recover-dropped-stash'

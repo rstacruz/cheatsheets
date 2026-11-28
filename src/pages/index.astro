@@ -37,6 +37,7 @@ const t = {
   title: "Rico's cheatsheets",
   tagline: `Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.`,
   recentlyUpdated: 'Recently updated',
+  seeLatest: 'See all new and updated sheets',
   snippets: 'Snippets',
   allSnippets: 'See all snippets',
   seeSomethingMissing: 'See something missing?',
@@ -58,6 +59,7 @@ const styles = {
     'HomePage__snippetMore',
     'col-span-full text-center text-sm text-muted-foreground'
   ),
+  latestMore: 'col-span-full text-center text-sm text-muted-foreground',
   missingMessage: cx(
     'HomePage__missingMessage',
     'col-span-full',
@@ -117,6 +119,12 @@ const headingStyles = {
       {recentPages.map((page) => (
         <PageListItem page={page} />
       ))}
+
+      <p class={styles.latestMore}>
+        <a class="text-primary hover:underline" href="/latest">
+          {t.seeLatest}
+        </a>
+      </p>
 
       {Object.values(pageCategories).map((category) => {
         if (category.pages.length === 0) return

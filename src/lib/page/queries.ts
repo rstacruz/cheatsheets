@@ -45,6 +45,40 @@ export function getListedSheetCount(pages: Record<string, SheetPage>): number {
   return Object.values(pages).filter(isListed).length
 }
 
+type DateKey = 'created_at' | 'updated'
+type LatestOptions = { maxCount?: number }
+
+function getPagesByDate(
+  pages: Record<string, SheetPage>,
+  key: DateKey,
+  maxCount: number
+): SheetPage[] {
+  return Object.values(pages)
+    .filter((page) => isListed(page) && !isTestFixture(page))
+    .filter((page) => Boolean(page.frontmatter[key]))
+    .sort((a, b) => {
+      const byDate =
+        (b.frontmatter[key]?.getTime() ?? 0) -
+        (a.frontmatter[key]?.getTime() ?? 0)
+      return byDate || a.slug.localeCompare(b.slug)
+    })
+    .slice(0, maxCount)
+}
+
+export function getNewPages(
+  pages: Record<string, SheetPage>,
+  options?: LatestOptions
+): SheetPage[] {
+  return getPagesByDate(pages, 'created_at', options?.maxCount ?? 20)
+}
+
+export function getUpdatedPages(
+  pages: Record<string, SheetPage>,
+  options?: LatestOptions
+): SheetPage[] {
+  return getPagesByDate(pages, 'updated', options?.maxCount ?? 20)
+}
+
 /**
  * Returns categories and their corresponding pages.
  */

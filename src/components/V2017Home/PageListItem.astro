@@ -10,6 +10,7 @@ export type Props = {
   page: SheetPage
   variant?: 'list' | 'featured'
   showFragments?: boolean
+  meta?: string
 }
 const props = Astro.props as Props
 const page = props.page
@@ -89,6 +90,7 @@ const styles = {
       ? 'text-primary-subtle'
       : 'truncate text-xs text-muted-foreground-subtle'
   ),
+  meta: 'PageListItem__meta text-xs text-muted-foreground-subtle',
   text: cx('PageListItem__text relative z-10 flex shrink-0 flex-col gap-[8px]')
 }
 ---
@@ -130,6 +132,7 @@ const styles = {
   <span class={styles.text}>
     <span class={styles.title}>{title}</span>
     {subtitle && <span class={styles.subtitle}>{subtitle}</span>}
+    {props.meta && <span class={styles.meta}>{props.meta}</span>}
   </span>
 </a>
 

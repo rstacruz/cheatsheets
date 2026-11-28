@@ -3,12 +3,14 @@ import {
   getArchivedPages,
   getFeaturedPages,
   getListedSheetCount,
+  getNewPages,
   getPagesByCategory,
   getRecentPages,
   getRelatedPages,
   getSnippetPages,
   getSnippetsByCategory,
-  getTopPages
+  getTopPages,
+  getUpdatedPages
 } from './queries'
 
 const pages = mapGlobToPages({
@@ -280,4 +282,112 @@ test('archive pages skip listed sheets and test fixtures', () => {
 test('listed count excludes hidden, deprecated, and archived sheets', () => {
   expect(getListedSheetCount(pages)).toBe(6)
   expect(getListedSheetCount(archivePages)).toBe(1)
+})
+
+const latestPages = mapGlobToPages({
+  aardvark: [
+    '---',
+    'category: Test',
+    'created_at: 2026-11-28',
+    '---',
+    'a'
+  ].join('\n'),
+  ant: ['---', 'category: Test', 'created_at: 2026-11-28', '---', 'a'].join(
+    '\n'
+  ),
+  alpha: [
+    '---',
+    'category: Test',
+    'created_at: 2026-11-20',
+    'updated: 2026-11-28',
+    '---',
+    'a'
+  ].join('\n'),
+  'snippet-x': [
+    '---',
+    'title: Snippet X',
+    'category: Test',
+    'created_at: 2026-11-27',
+    'updated: 2026-11-28',
+    'layout: snippet',
+    '---',
+    's'
+  ].join('\n'),
+  zeta: [
+    '---',
+    'category: Test',
+    'created_at: 2020-01-01',
+    'updated: 2026-11-28',
+    '---',
+    'z'
+  ].join('\n'),
+  beta: [
+    '---',
+    'category: Test',
+    'created_at: 2026-11-29',
+    'deprecated: true',
+    '---',
+    'b'
+  ].join('\n'),
+  superseded: [
+    '---',
+    'category: Test',
+    'created_at: 2026-11-29',
+    'deprecated_by: /alpha',
+    '---',
+    's'
+  ].join('\n'),
+  oldie: [
+    '---',
+    'category: Test',
+    'created_at: 2026-11-29',
+    'archived: Old and unmaintained.',
+    '---',
+    'o'
+  ].join('\n'),
+  'hidden-x': [
+    '---',
+    'category: Hidden',
+    'created_at: 2026-11-30',
+    '---',
+    'h'
+  ].join('\n'),
+  'tests/fixture': [
+    '---',
+    'category: Test',
+    'created_at: 2026-12-01',
+    '---',
+    'f'
+  ].join('\n')
+})
+
+test('new pages sort by creation date with a slug tie-break', () => {
+  expect(getNewPages(latestPages).map((page) => page.slug)).toEqual([
+    'aardvark',
+    'ant',
+    'snippet-x',
+    'alpha',
+    'zeta'
+  ])
+  expect(
+    getNewPages(latestPages, { maxCount: 2 }).map((page) => page.slug)
+  ).toEqual(['aardvark', 'ant'])
+})
+
+test('new pages skip unlisted sheets and test fixtures', () => {
+  const slugs = getNewPages(latestPages).map((page) => page.slug)
+
+  expect(slugs).not.toContain('beta')
+  expect(slugs).not.toContain('superseded')
+  expect(slugs).not.toContain('oldie')
+  expect(slugs).not.toContain('hidden-x')
+  expect(slugs).not.toContain('tests/fixture')
+})
+
+test('updated pages require an update date', () => {
+  expect(getUpdatedPages(latestPages).map((page) => page.slug)).toEqual([
+    'alpha',
+    'snippet-x',
+    'zeta'
+  ])
 })

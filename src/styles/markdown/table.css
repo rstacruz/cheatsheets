@@ -23,7 +23,7 @@
     }
 
     & td:first-child {
-      white-space: nowrap;
+      max-width: 50%;
     }
 
     & td > code {

@@ -34,7 +34,7 @@ devShells.${system}.default =
 ```
 <!-- {: data-highlight="devShells"} -->
 
-**Declares shell packages,** built from the flake's inputs. See [nix develop](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-develop.html).
+**Declares shell packages** built from the flake's inputs. See [nix develop](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-develop.html).
 
 ### Enter the shell
 <!-- {: .-snippet} -->
@@ -44,7 +44,7 @@ nix develop
 ```
 <!-- {: data-highlight="nix develop"} -->
 
-**Enters the shell,** with those packages available. See [nix develop](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-develop.html).
+**Enters the shell** with those packages available. See [nix develop](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-develop.html).
 
 ### Run one command
 <!-- {: .-snippet} -->
@@ -54,7 +54,7 @@ nix develop --command make test
 ```
 <!-- {: data-highlight="--command"} -->
 
-**Runs one command,** without opening a shell. See [nix develop](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-develop.html).
+**Runs one command** without opening a shell. See [nix develop](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-develop.html).
 
 ### Add a setup hook
 <!-- {: .-snippet} -->
@@ -66,4 +66,4 @@ shellHook = ''echo "ready"'';
 ```
 <!-- {: data-highlight="shellHook"} -->
 
-**Adds a startup hook,** run each time the shell opens. See [declarative shell environments](https://nix.dev/tutorials/first-steps/declarative-shell.html).
+**Adds a startup hook** run each time the shell opens. See [declarative shell environments](https://nix.dev/tutorials/first-steps/declarative-shell.html).

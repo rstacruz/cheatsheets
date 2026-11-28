@@ -29,7 +29,7 @@ sudo nixos-rebuild switch
 ```
 <!-- {: data-highlight="nixos-rebuild switch"} -->
 
-**Activates the config,** making it the boot default. See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
+**Activates the config** making it the boot default. See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
 
 ### Use a flake
 <!-- {: .-snippet} -->
@@ -40,7 +40,7 @@ sudo nixos-rebuild switch \
 ```
 <!-- {: data-highlight="--flake"} -->
 
-**Selects a flake host,** from `nixosConfigurations.myhost`. See [NixOS manual](https://nixos.org/manual/nixos/stable/#sec-installation-manual-installing).
+**Selects a flake host** from `nixosConfigurations.myhost`. See [NixOS manual](https://nixos.org/manual/nixos/stable/#sec-installation-manual-installing).
 
 ### Test without a boot entry
 <!-- {: .-snippet} -->
@@ -50,7 +50,7 @@ sudo nixos-rebuild test
 ```
 <!-- {: data-highlight="nixos-rebuild test"} -->
 
-**Tests the config,** until the next reboot. See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
+**Tests the config** until the next reboot. See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
 
 ### Apply on next boot
 <!-- {: .-snippet} -->
@@ -60,7 +60,7 @@ sudo nixos-rebuild boot
 ```
 <!-- {: data-highlight="nixos-rebuild boot"} -->
 
-**Sets the boot default,** without switching now. See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
+**Sets the boot default** without switching now. See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
 
 ### List generations
 <!-- {: .-snippet} -->
@@ -70,4 +70,4 @@ sudo nixos-rebuild list-generations
 ```
 <!-- {: data-highlight="list-generations"} -->
 
-**Lists generations,** with dates and versions. See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
+**Lists generations** with dates and versions. See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).

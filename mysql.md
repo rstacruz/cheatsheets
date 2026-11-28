@@ -61,6 +61,15 @@ SELECT * FROM t1 JOIN t2 USING (id);
 
 See: [JOIN clause](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 
+### Select - Union
+
+```sql
+SELECT a1, a2 FROM t1 UNION SELECT a1, a2 from t2;
+SELECT a1, a2 FROM t1 WHERE condition UNION SELECT a1, a2 from t2;
+SELECT a1, a2, default_value as a3 FROM t1 UNION SELECT a1, a2, a3 from t2;
+SELECT a1 FROM t1 UNION ALL SELECT a1 from t2;
+```
+
 ### Conditions
 
 ```sql

@@ -10,6 +10,8 @@ import { RESULT_LIMIT } from '../src/lib/fuseSearch/searchConfig'
 type SearchEnv = { ASSETS: { fetch: typeof fetch } }
 type SearchContext = { request: Request; env: SearchEnv }
 
+const MAX_QUERY_LENGTH = 100
+
 let cachedFuse: Promise<Fuse<Row>> | undefined
 
 async function loadFuse(env: SearchEnv, url: URL) {
@@ -33,7 +35,7 @@ export async function onRequestGet({ request, env }: SearchContext) {
   const query = url.searchParams.get('q')?.trim() ?? ''
   const asset = () => env.ASSETS.fetch(new URL('/search', url))
 
-  if (!query) return asset()
+  if (!query || query.length > MAX_QUERY_LENGTH) return asset()
 
   try {
     const fuse = await getFuse(env, url)

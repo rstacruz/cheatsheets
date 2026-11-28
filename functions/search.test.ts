@@ -60,6 +60,15 @@ it('skips the index when there is no query', async () => {
   expect(String(fetchAsset.mock.calls[0][0])).toBe(`${ORIGIN}/search`)
 })
 
+it('skips the index for an oversized query', async () => {
+  const fetchAsset = assetFetch()
+  const response = await handler(context('x'.repeat(101), fetchAsset))
+
+  expect(await response.text()).toBe(HTML)
+  expect(fetchAsset).toHaveBeenCalledTimes(1)
+  expect(String(fetchAsset.mock.calls[0][0])).toBe(`${ORIGIN}/search`)
+})
+
 it('falls back on a failed index fetch and recovers later', async () => {
   const fetchAsset = assetFetch(true)
   const query = context('es6', fetchAsset)

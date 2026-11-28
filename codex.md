@@ -43,36 +43,83 @@ links:
 
 ### Install
 
+#### Install script
+
 ```bash
-curl -fsSL https://chatgpt.com/codex/install.sh | sh   # macOS/Linux
-npm install -g @openai/codex                           # npm
-brew install --cask codex                              # macOS
-irm https://chatgpt.com/codex/install.ps1 | iex        # Windows
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+#### Homebrew
+
+```bash
+brew install --cask codex
+```
+
+#### npm
+
+```bash
+npm install -g @openai/codex
+```
+
+#### Windows
+
+```bash
+irm https://chatgpt.com/codex/install.ps1 | iex
 ```
 
 See: [Getting started](https://learn.chatgpt.com/docs/codex/cli#getting-started)
 
 ### Sign in
 
+#### First run
+
 ```bash
-codex                 # first run opens a browser login
-codex login           # sign in again
-codex login status    # show the current account
+codex
+```
+
+#### Sign in again
+
+```bash
+codex login
 ```
 <!-- {: data-highlight="codex login"} -->
+
+#### Check the account
+
+```bash
+codex login status
+```
 
 Codex works with a ChatGPT plan or an API key. For scripts, pipe a key in: `printenv OPENAI_API_KEY | codex login --with-api-key`. See: [Authentication](https://learn.chatgpt.com/docs/auth)
 
 ### Sessions
 
+#### Start a chat
+
 ```bash
-codex                      # start the interactive TUI
-codex "explain this repo"  # start with a prompt
-codex resume --last        # reopen the latest chat
-codex fork --last          # branch the latest chat
+codex
+```
+
+#### With a prompt
+
+```bash
+codex "explain this repo"
+```
+
+#### Resume or fork
+
+```bash
+codex resume --last
+codex fork --last
+```
+<!-- {: data-highlight="codex resume; codex fork"} -->
+
+#### Queue a message
+
+```bash
 codex queue --thread <id> --message "Run checks"
 ```
-<!-- {: data-highlight="codex resume; codex fork; codex queue"} -->
+<!-- {: data-highlight="codex queue"} -->
 
 `codex resume` scopes `--last` to the current directory; add `--all` to search every session. See: [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -94,8 +141,6 @@ codex queue --thread <id> --message "Run checks"
 | `codex delete <chat>`    | Delete a chat and its transcript   |
 | `codex queue`            | Queue a message for a session      |
 
-<!-- {: .-shortcuts} -->
-
 #### Setup
 
 | Command                | Description                  |
@@ -110,8 +155,6 @@ codex queue --thread <id> --message "Run checks"
 | `codex mcp`            | Manage MCP servers           |
 | `codex plugin`         | Install and remove plugins   |
 
-<!-- {: .-shortcuts} -->
-
 #### Automation
 
 | Command              | Description                      |
@@ -120,8 +163,6 @@ codex queue --thread <id> --message "Run checks"
 | `codex review`       | Review changes non-interactively |
 | `codex cloud`        | Browse and run cloud chats       |
 | `codex apply <task>` | Apply a cloud diff locally       |
-
-<!-- {: .-shortcuts} -->
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -167,11 +208,18 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 
 <!-- {: .-prime} -->
 
+#### Auto
+
 ```bash
-codex -s workspace-write -a on-request  # Auto
-codex -s read-only -a never             # read-only, no prompts
+codex -s workspace-write -a on-request
 ```
 <!-- {: data-highlight="-s workspace-write; -a on-request"} -->
+
+#### Read-only
+
+```bash
+codex -s read-only -a never
+```
 
 #### Modes
 
@@ -181,23 +229,52 @@ codex -s read-only -a never             # read-only, no prompts
 | `workspace-write`    | Edit the workspace; network off |
 | `danger-full-access` | No sandbox at all               |
 
-<!-- {: .-shortcuts} -->
-
 Auto is the default preset: edits in the workspace, approval to leave it, network off until `sandbox_workspace_write.network_access = true`.
 
 See: [Approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)
 
 ### Non-interactive mode
 
+#### Run a prompt
+
 ```bash
-codex exec "summarize this repo"        # final message to stdout
-git diff | codex exec "review this"     # pipe context in
-codex exec --json "list failing tests"  # JSONL events
-codex exec --ephemeral "triage issues"  # write no session files
-codex exec resume --last "fix them"     # continue the last run
-codex exec fork <id> --worktree "try another approach"
+# final message on stdout
+codex exec "summarize this repo"
 ```
 <!-- {: data-highlight="codex exec"} -->
+
+```bash
+# pipe a diff in as context
+git diff | codex exec "review this"
+```
+
+#### Output and sandbox
+
+```bash
+# JSONL events for scripts
+codex exec --json "list failing tests"
+```
+<!-- {: data-highlight="codex exec --json"} -->
+
+```bash
+# leave no session files behind
+codex exec --ephemeral "triage issues"
+```
+<!-- {: data-highlight="--ephemeral"} -->
+
+#### Continue a run
+
+```bash
+# reopen the last run in this directory
+codex exec resume --last "fix them"
+```
+<!-- {: data-highlight="resume --last"} -->
+
+```bash
+# branch a run into a worktree
+codex exec fork <id> --worktree "try another approach"
+```
+<!-- {: data-highlight="fork <id>"} -->
 
 `codex exec` runs read-only by default; add `--sandbox workspace-write` to allow edits. `-o file` writes the final message to a file. See: [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode)
 
@@ -341,21 +418,34 @@ See: [Interactive shortcuts](https://learn.chatgpt.com/docs/developer-commands#i
 | `@`   | Search files and add paths   |
 | `!`   | Run a shell command directly |
 
-<!-- {: .-shortcuts} -->
-
 Paste an image into the composer. See: [Image inputs](https://learn.chatgpt.com/docs/image-inputs)
 
 ## Configuration
 
 ### Config file
 
-#### Locations
+#### User
 
 ```bash
-~/.codex/config.toml            # user settings
-.codex/config.toml              # project settings (trusted projects)
-$CODEX_HOME/<name>.config.toml  # profile, selected with --profile
-/etc/codex/config.toml          # system defaults (Unix)
+~/.codex/config.toml
+```
+
+#### Project
+
+```bash
+.codex/config.toml
+```
+
+#### Profile
+
+```bash
+$CODEX_HOME/<name>.config.toml
+```
+
+#### System
+
+```bash
+/etc/codex/config.toml
 ```
 
 #### Settings
@@ -381,17 +471,22 @@ Project files merge from the repo root down to the current directory; CLI flags 
 | `CODEX_CA_CERTIFICATE` | PEM CA bundle for corporate TLS      |
 | `RUST_LOG`             | Log verbosity for debugging          |
 
-<!-- {: .-shortcuts} -->
-
 See: [Environment variables](https://learn.chatgpt.com/docs/config-file/environment-variables)
 
 ### AGENTS.md
 
+#### Project file
+
 ```md
-AGENTS.md            # project instructions, committed
-~/.codex/AGENTS.md   # global defaults for every repo
+AGENTS.md
 ```
 <!-- {: data-highlight="AGENTS.md"} -->
+
+#### Global file
+
+```md
+~/.codex/AGENTS.md
+```
 
 Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — concatenated from the repo root down, up to 32 KiB by default (`project_doc_max_bytes`). See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
@@ -433,12 +528,24 @@ See: [Code review](https://learn.chatgpt.com/docs/code-review?surface=cli)
 
 ### Cloud tasks
 
+#### List chats
+
 ```bash
-codex cloud list                # recent cloud chats
+codex cloud list
+```
+
+#### Run a task
+
+```bash
 codex cloud exec --env <id> "fix the flaky test"
-codex apply <task-id>           # apply the diff locally
 ```
 <!-- {: data-highlight="codex cloud exec"} -->
+
+#### Apply a diff
+
+```bash
+codex apply <task-id>
+```
 
 `codex cloud exec` needs `--env`; add `--attempts 2` for best-of-N. See: [Codex Cloud](https://learn.chatgpt.com/docs/cloud)
 
@@ -446,12 +553,24 @@ codex apply <task-id>           # apply the diff locally
 
 ### Adding servers
 
+#### stdio
+
 ```bash
-codex mcp add my-server -- npx my-mcp-server        # stdio
-codex mcp add remote --url https://example.com/mcp  # HTTP
-codex mcp list
+codex mcp add my-server -- npx my-mcp-server
 ```
 <!-- {: data-highlight="codex mcp add"} -->
+
+#### HTTP
+
+```bash
+codex mcp add remote --url https://example.com/mcp
+```
+
+#### List servers
+
+```bash
+codex mcp list
+```
 
 Add `--env KEY=VALUE` for stdio servers, or `--bearer-token-env-var VAR` for HTTP.
 
@@ -459,12 +578,24 @@ See: [MCP](https://learn.chatgpt.com/docs/extend/mcp#add-an-mcp-server)
 
 ### Authentication
 
+#### Log in
+
 ```bash
-codex mcp login my-server             # OAuth, opens a browser
-codex mcp login my-server --scopes read,write
-codex mcp logout my-server
+codex mcp login my-server
 ```
 <!-- {: data-highlight="codex mcp login"} -->
+
+#### Scopes
+
+```bash
+codex mcp login my-server --scopes read,write
+```
+
+#### Log out
+
+```bash
+codex mcp logout my-server
+```
 
 OAuth works with streamable HTTP servers that support it. Stored credentials live in the store set by `mcp_oauth_credentials_store` (auto, file, or keyring). See: [MCP](https://learn.chatgpt.com/docs/extend/mcp)
 

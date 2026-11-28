@@ -5,6 +5,8 @@ import {
   selectWeeklySnippets
 } from './weeklySnippets'
 
+const LINKS = ['links:', '  - title: Docs', '    url: https://example.com/docs']
+
 const pages = Object.values(
   mapGlobToPages(
     Object.fromEntries(
@@ -15,6 +17,7 @@ const pages = Object.values(
           `title: Snippet ${index}`,
           'category: Git',
           'created_at: 2020-01-01',
+          ...LINKS,
           'layout: snippet',
           '---',
           'x'

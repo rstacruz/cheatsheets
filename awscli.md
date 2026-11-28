@@ -7,6 +7,15 @@ last_verified_with: "AWS CLI 2.42."
 created_at: 2015-07-17
 updated: 2026-11-25
 tier: t3
+intro: |
+  AWS CLI reference for EC2, S3, ECS, installation, configuration profiles, deployments, and settings.
+links:
+  - title: EC2 command reference
+    url: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/index.html
+  - title: Install AWS CLI
+    url: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+  - title: Named profiles
+    url: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-using-profiles
 ---
 
 ### EC2

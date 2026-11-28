@@ -121,7 +121,12 @@ export function findSnippetLayoutIssues(source: string): Finding[] {
   return found
 }
 
-const CREATED = { created_at: new Date('2020-01-01') }
+const REQUIRED = {
+  intro: 'Hello',
+  links: [{ title: 'Docs', url: 'https://example.com' }]
+}
+
+const CREATED = { created_at: new Date('2020-01-01'), ...REQUIRED }
 
 test('the schema accepts layout: snippet', () => {
   expect(

@@ -3,11 +3,18 @@ import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
 const MAX_WORDS = 5
 
+const REQUIRED = {
+  intro: 'Hello',
+  links: [{ title: 'Docs', url: 'https://example.com' }]
+}
+
 const fiveWords = {
+  ...REQUIRED,
   created_at: new Date('2020-01-01'),
   subtitle: 'one two three four five'
 }
 const sixWords = {
+  ...REQUIRED,
   created_at: new Date('2020-01-01'),
   subtitle: 'one two three four five six'
 }

@@ -8,6 +8,11 @@ created_at: 2018-12-07
 updated: 2026-11-25
 tier: t3
 prism_languages: [css]
+intro: |
+  Create two-dimensional grid layouts with container tracks, named areas, item placement, and responsive sizing.
+links:
+  - title: CSS grid layout reference
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout#reference
 ---
 
 ### Container

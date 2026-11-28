@@ -7,6 +7,13 @@ created_at: 2013-03-26
 updated: 2018-12-06
 tier: t3
 category: JavaScript libraries
+intro: |
+  Backbone.js reference for event binding, models, views, collections, validation, and custom URLs.
+links:
+  - title: Backbone.js documentation
+    url: https://backbonejs.org/
+  - title: Events
+    url: https://backbonejs.org/#Events-on
 ---
 
 ### Binding events

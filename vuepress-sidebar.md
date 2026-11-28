@@ -6,7 +6,7 @@ logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Sidebar config
     url: https://ecosystem.vuejs.press/themes/default/config.html#sidebar
@@ -41,7 +41,7 @@ theme: defaultTheme({
 ```
 <!-- {: data-highlight="'/guide/'"} -->
 
-**Shows a menu under every `/guide/` page.** The key is matched as a path prefix, so nested pages share the sidebar. Group items under `items`, not `children`. See [sidebar items](https://ecosystem.vuejs.press/themes/default/config.html#sidebar-items).
+**Shows a folder menu.** It appears under every `/guide/` page; the key is matched as a path prefix, so nested pages share the sidebar. Group items under `items`, not `children`. See [sidebar items](https://ecosystem.vuejs.press/themes/default/config.html#sidebar-items).
 
 ### Generate it from files
 <!-- {: .-snippet} -->
@@ -65,7 +65,7 @@ order: 2
 ```
 <!-- {: data-highlight="order"} -->
 
-**Builds the menu from the folder tree.** `order` sorts siblings; page titles label the links. See [generate from structure](https://ecosystem.vuejs.press/themes/default/config.html#generate-from-the-file-structure).
+**Builds the menu.** It comes from the folder tree; `order` sorts siblings and page titles label the links. See [generate from structure](https://ecosystem.vuejs.press/themes/default/config.html#generate-from-the-file-structure).
 
 ### Hide the sidebar
 <!-- {: .-snippet} -->
@@ -77,4 +77,4 @@ theme: defaultTheme({
 ```
 <!-- {: data-highlight="sidebar: false"} -->
 
-**Removes the sidebar from every page.** Use `sidebar: false` in a page's frontmatter to hide it on one page. See [sidebar](https://ecosystem.vuejs.press/themes/default/config.html#sidebar).
+**Hides the sidebar.** It disappears from every page; use `sidebar: false` in a page's frontmatter to hide it on just one page. See [sidebar](https://ecosystem.vuejs.press/themes/default/config.html#sidebar).

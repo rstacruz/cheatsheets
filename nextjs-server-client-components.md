@@ -6,7 +6,7 @@ logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6, React 19.3.1."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Server and Client Components
     url: https://nextjs.org/docs/app/getting-started/server-and-client-components
@@ -56,4 +56,4 @@ export default function Page() {
 ```
 <!-- {: data-highlight="<Counter"} -->
 
-**Keeps the page on the server.** The page stays a Server Component; only `Counter` and its imports are sent to the browser. See [composition](https://nextjs.org/docs/app/getting-started/server-and-client-components#interleaving-server-and-client-components).
+**Keeps the page server-side,** as a Server Component; only `Counter` and its imports are sent to the browser. See [composition](https://nextjs.org/docs/app/getting-started/server-and-client-components#interleaving-server-and-client-components).

@@ -7,7 +7,7 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Markdown extensions
     url: https://vitepress.dev/guide/markdown
@@ -60,4 +60,4 @@ links:
 ```
 <!-- {: data-highlight="{2-4 ts:line-numbers}"} -->
 
-**Highlights lines and sets the language.** Braces take line numbers, an optional language override, and `:line-numbers`. See [import code snippets](https://vitepress.dev/guide/markdown#import-code-snippets).
+**Highlights imported lines.** It also sets the language. Braces take line numbers, an optional language override, and `:line-numbers`. See [import code snippets](https://vitepress.dev/guide/markdown#import-code-snippets).

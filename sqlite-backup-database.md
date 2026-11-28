@@ -7,7 +7,7 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "SQLite 3.54.0."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Backup API
     url: https://sqlite.org/backup.html
@@ -26,7 +26,7 @@ sqlite3 app.db ".backup backup.db"
 ```
 <!-- {: data-highlight=".backup backup.db"} -->
 
-**Takes a consistent copy while the database is in use.** Copying the file with `cp` can capture a partial write; see [backup](https://sqlite.org/backup.html).
+**Takes a consistent copy.** It works while the database is in use; copying the file with `cp` can capture a partial write. See [backup](https://sqlite.org/backup.html).
 
 ### Snapshot with VACUUM INTO
 <!-- {: .-snippet} -->
@@ -46,7 +46,7 @@ sqlite3 app.db ".dump" > dump.sql
 ```
 <!-- {: data-highlight=".dump"} -->
 
-**Exports schema and data as SQL.** Load the file into a new database with `sqlite3 new.db < dump.sql`; see [.dump](https://sqlite.org/cli.html#converting_an_entire_database_to_a_text_file).
+**Exports SQL.** Schema and data go into the file; load it into a new database with `sqlite3 new.db < dump.sql`. See [.dump](https://sqlite.org/cli.html#converting_an_entire_database_to_a_text_file).
 
 ### Restore a copy
 <!-- {: .-snippet} -->
@@ -56,4 +56,4 @@ sqlite3 app.db ".restore backup.db"
 ```
 <!-- {: data-highlight=".restore backup.db"} -->
 
-**Copies a SQLite database file into the current database.** Unlike `.dump`, the source must be a database file, not a SQL script; see [restore](https://sqlite.org/cli.html#other_dot_commands).
+**Restores a copy.** It copies a SQLite database file into the current database; unlike `.dump`, the source must be a database file, not a SQL script. See [restore](https://sqlite.org/cli.html#other_dot_commands).

@@ -6,7 +6,7 @@ logo: { src: /assets/logos/bash.svg }
 category: Shell
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash for loop cheatsheet
@@ -41,7 +41,7 @@ done
 ```
 <!-- {: data-highlight="globstar"} -->
 
-**Enables `**` to match across directories.** `globstar` makes `**/*.txt` include nested files; see [shopt](https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html).
+**Matches subdirectories.** `globstar` enables `**` to match across directories, so `**/*.txt` includes nested files. See [shopt](https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html).
 
 ### Skip an empty match
 <!-- {: .-snippet} -->

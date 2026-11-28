@@ -7,7 +7,7 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Extending the default theme
     url: https://vitepress.dev/guide/extending-default-theme
@@ -35,7 +35,7 @@ export default {
 ```
 <!-- {: data-highlight="import './custom.css'"} -->
 
-**Loads the stylesheet on every page.** The import pulls `custom.css` into the theme bundle; `extends` keeps the default theme as the base. See [extending the default theme](https://vitepress.dev/guide/extending-default-theme).
+**Loads the stylesheet,** on every page. The import pulls `custom.css` into the theme bundle; `extends` keeps the default theme as the base. See [extending the default theme](https://vitepress.dev/guide/extending-default-theme).
 
 ### Override the brand tokens
 <!-- {: .-snippet} -->
@@ -79,4 +79,4 @@ export default {
 ```
 <!-- {: data-highlight=".dark"} -->
 
-**Overrides tokens only in dark mode.** The theme toggles a `dark` class on `<html>`, so plain `.dark` selectors win. See [dark mode](https://vitepress.dev/guide/extending-default-theme#customizing-css).
+**Overrides tokens there,** in dark mode only. The theme toggles a `dark` class on `<html>`, so plain `.dark` selectors win. See [dark mode](https://vitepress.dev/guide/extending-default-theme#customizing-css).

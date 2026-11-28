@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: terminal }
 category: CLI
 layout: snippet
 last_verified_with: "GNU coreutils 9.12, GNU Awk 5.4."
-updated: 2026-11-23
+updated: 2026-11-28
 tier: t3
 links:
   - title: GNU cut manual
@@ -88,4 +88,4 @@ alice
 bob
 ```
 
-**Extracts fields with a custom delimiter.** `-F` sets the separator, so awk fits once splitting needs logic; see [Field separators](https://www.gnu.org/software/gawk/manual/html_node/Field-Separators.html).
+**Extracts fields.** `-F` sets a custom separator, so awk fits once splitting needs logic. See [Field separators](https://www.gnu.org/software/gawk/manual/html_node/Field-Separators.html).

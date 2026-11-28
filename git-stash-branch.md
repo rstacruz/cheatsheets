@@ -7,7 +7,7 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: git-stash manual
     url: https://git-scm.com/docs/git-stash
@@ -26,7 +26,7 @@ git stash branch feat/login
 ```
 <!-- {: data-highlight="git stash branch"} -->
 
-**Moves the stash onto a new branch.** Branches from the stash's base commit, applies the stash, and drops it on success; see [git stash branch](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-branchbranchnamestash).
+**Moves the stash.** It lands on a new branch. Branches from the stash's base commit, applies the stash, and drops it on success; see [git stash branch](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-branchbranchnamestash).
 
 ### Choose the stash
 <!-- {: .-snippet} -->
@@ -54,7 +54,7 @@ git switch feat/login
 git stash apply
 ```
 
-**Use `apply` when the branch already exists.** `stash branch` is for creating a new one; see [git stash apply](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-apply--index-q--quietstash).
+**Uses `apply`.** It works when the branch already exists. `stash branch` is for creating a new one; see [git stash apply](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-apply--index-q--quietstash).
 
 ### After unmerged paths
 <!-- {: .-snippet} -->
@@ -66,7 +66,7 @@ git stash drop
 ```
 <!-- {: data-highlight="git add app.txt"} -->
 
-**Finishes an apply that stopped on conflicts.** Stage the resolution, then drop; see [resolve a stash conflict](./git-resolve-stash-conflict).
+**Finishes the apply.** It had stopped on conflicts. Stage the resolution, then drop; see [resolve a stash conflict](./git-resolve-stash-conflict).
 
 ### After an aborted apply
 <!-- {: .-snippet} -->

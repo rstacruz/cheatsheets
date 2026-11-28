@@ -27,7 +27,7 @@ await expect(page.getByText('Saved'))
 ```
 <!-- {: data-highlight="toBeVisible("} -->
 
-**Retries until the element is visible.** Web-first matchers are async, so always `await` them. See [auto-retrying assertions](https://playwright.dev/docs/test-assertions#auto-retrying-assertions).
+**Retries until visible,** checking the element; web-first matchers are async, so always `await` them. See [auto-retrying assertions](https://playwright.dev/docs/test-assertions#auto-retrying-assertions).
 
 ### Page title and URL
 <!-- {: .-snippet} -->
@@ -38,7 +38,7 @@ await expect(page).toHaveURL(/login/)
 ```
 <!-- {: data-highlight="toHaveTitle(; toHaveURL("} -->
 
-**Checks the page itself, not a single element.** See [page assertions](https://playwright.dev/docs/api/class-pageassertions).
+**Checks page title and URL,** not a single element. See [page assertions](https://playwright.dev/docs/api/class-pageassertions).
 
 ### Count and values
 <!-- {: .-snippet} -->
@@ -52,7 +52,7 @@ await expect(page.getByLabel('Email'))
 ```
 <!-- {: data-highlight="toHaveCount(; toHaveValue("} -->
 
-**Verifies list size and input value with retries.** See [locator assertions](https://playwright.dev/docs/api/class-locatorassertions).
+**Checks count and input value,** retrying both assertions. See [locator assertions](https://playwright.dev/docs/api/class-locatorassertions).
 
 ### Poll an async value
 <!-- {: .-snippet} -->
@@ -67,7 +67,7 @@ await expect.poll(async () => {
 ```
 <!-- {: data-highlight="expect.poll("} -->
 
-**Turns a synchronous matcher into a retried check.** See [expect.poll](https://playwright.dev/docs/test-assertions#expectpoll).
+**Polls an async value,** turning a synchronous matcher into a retried check. See [expect.poll](https://playwright.dev/docs/test-assertions#expectpoll).
 
 ### Soft assertions
 <!-- {: .-snippet} -->
@@ -78,4 +78,4 @@ await expect.soft(page.getByText('Saved'))
 ```
 <!-- {: data-highlight="expect.soft("} -->
 
-**Fails the test without stopping later steps.** See [soft assertions](https://playwright.dev/docs/test-assertions#soft-assertions).
+**Softly fails the test,** without stopping later steps. See [soft assertions](https://playwright.dev/docs/test-assertions#soft-assertions).

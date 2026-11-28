@@ -6,7 +6,7 @@ logo: { src: /assets/logos/nginx.svg }
 category: Devops
 layout: snippet
 last_verified_with: "nginx 1.30.8."
-updated: 2026-11-25
+updated: 2026-11-28
 links:
   - title: ngx_http_limit_req_module
     url: https://nginx.org/en/docs/http/ngx_http_limit_req_module.html
@@ -30,7 +30,7 @@ server {
 ```
 <!-- {: data-highlight="$binary_remote_addr"} -->
 
-**Caps each client IP at 10 requests per second.** The zone takes 10 MB of shared memory; `burst=20 nodelay` serves short spikes and rejects the rest with 503; see [limit_req_zone](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_zone).
+**Caps each client IP,** at 10 requests per second. The zone takes 10 MB of shared memory; `burst=20 nodelay` serves short spikes and rejects the rest with 503; See [limit_req_zone](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_zone).
 
 ### Queue bursts
 <!-- {: .-snippet} -->
@@ -40,7 +40,7 @@ limit_req zone=api burst=20;
 ```
 <!-- {: data-highlight="burst=20"} -->
 
-**Queues excess requests instead of rejecting them.** Without `nodelay`, nginx delays up to `burst` requests to smooth spikes; see [limit_req](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req).
+**Queues excess requests,** instead of rejecting them. Without `nodelay`, nginx delays up to `burst` requests to smooth spikes; See [limit_req](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req).
 
 ### Return 429
 <!-- {: .-snippet} -->
@@ -77,4 +77,4 @@ limit_req_dry_run on;
 ```
 <!-- {: data-highlight="limit_req_dry_run on"} -->
 
-**Logs excess requests without rejecting them.** The message is logged at `error` level by default; use it to tune a limit before enforcing it; see [limit_req_dry_run](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_dry_run).
+**Logs excess requests,** without rejecting them. The message is logged at `error` level by default; use it to tune a limit before enforcing it; See [limit_req_dry_run](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_dry_run).

@@ -6,7 +6,7 @@ logo: { src: /assets/logos/git.svg }
 category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
-updated: 2026-11-23
+updated: 2026-11-28
 tier: t3
 links:
   - title: git-branch manual
@@ -36,7 +36,7 @@ git branch -m old-name new-name
 ```
 <!-- {: data-highlight="old-name new-name"} -->
 
-**Renames a branch without checking it out.** See the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--m).
+**Renames a branch.** It does so without checking out that branch. See [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--m).
 
 ### Push the new name
 <!-- {: .-snippet} -->

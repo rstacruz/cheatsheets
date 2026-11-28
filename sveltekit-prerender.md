@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Page options
     url: https://svelte.dev/docs/kit/page-options
@@ -27,7 +27,7 @@ export const prerender = true
 ```
 <!-- {: data-highlight="prerender = true"} -->
 
-**Writes the page as HTML at build time.** The route must return the same content for every visitor; see [prerender](https://svelte.dev/docs/kit/page-options#prerender).
+**Writes the page as HTML,** at build time. The route must return the same content for every visitor; See [prerender](https://svelte.dev/docs/kit/page-options#prerender).
 
 ### Prerender dynamic routes
 <!-- {: .-snippet} -->
@@ -56,7 +56,7 @@ export const ssr = false
 ```
 <!-- {: data-highlight="ssr = false"} -->
 
-**Renders the app only in the browser.** Setting it on the root layout makes a single-page app; see [ssr](https://svelte.dev/docs/kit/page-options#ssr).
+**Renders in the browser,** with SSR off. Setting it on the root layout makes a single-page app; See [ssr](https://svelte.dev/docs/kit/page-options#ssr).
 
 ### Ship pages without JS
 <!-- {: .-snippet} -->
@@ -90,4 +90,4 @@ export default defineConfig({
 export const prerender = true
 ```
 
-**Emits files for any static host.** Every route must be prerendered or given a `fallback`; see [adapter-static](https://svelte.dev/docs/kit/adapter-static).
+**Emits static files,** for any static host. Every route must be prerendered or given a `fallback`; See [adapter-static](https://svelte.dev/docs/kit/adapter-static).

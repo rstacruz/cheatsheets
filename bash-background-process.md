@@ -6,7 +6,7 @@ logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash job control
@@ -36,7 +36,7 @@ jobs
 ```
 <!-- {: data-highlight="jobs"} -->
 
-**Lists the background jobs of this shell.** `jobs -l` adds PIDs, and `kill %1` stops job 1. See [jobs](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Builtins.html).
+**Lists this shell's jobs.** These are the background jobs; `jobs -l` adds PIDs, and `kill %1` stops job 1. See [jobs](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Builtins.html).
 
 ### Resume in foreground
 <!-- {: .-snippet} -->
@@ -46,7 +46,7 @@ fg %1
 ```
 <!-- {: data-highlight="fg %1"} -->
 
-**Brings job 1 back to the foreground.** `Ctrl+Z` suspends the running job first. See [fg](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Builtins.html).
+**Brings a job forward.** `fg %1` resumes job 1 in the foreground; `Ctrl+Z` suspends the running job first. See [fg](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Builtins.html).
 
 ### Resume in background
 <!-- {: .-snippet} -->
@@ -56,7 +56,7 @@ bg %1
 ```
 <!-- {: data-highlight="bg %1"} -->
 
-**Resumes a suspended job in the background.** Use it after `Ctrl+Z` when the job should keep running. See [bg](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Builtins.html).
+**Resumes a suspended job.** `bg` restarts it in the background; use it after `Ctrl+Z` when the job should keep running. See [bg](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Builtins.html).
 
 ### After logout
 <!-- {: .-snippet} -->
@@ -66,7 +66,7 @@ nohup ./server.sh &
 ```
 <!-- {: data-highlight="nohup"} -->
 
-**Keeps the job alive when the terminal closes.** `nohup` ignores SIGHUP and appends output to `nohup.out`. See [nohup](https://www.gnu.org/software/coreutils/manual/html_node/nohup-invocation.html).
+**Keeps jobs alive at logout.** The terminal can close without stopping them: `nohup` ignores SIGHUP and appends output to `nohup.out`. See [nohup](https://www.gnu.org/software/coreutils/manual/html_node/nohup-invocation.html).
 
 ### Wait for jobs
 <!-- {: .-snippet} -->

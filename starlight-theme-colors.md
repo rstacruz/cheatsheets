@@ -5,7 +5,7 @@ subtitle: Restyle the accent
 logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
-updated: 2026-11-27
+updated: 2026-11-28
 last_verified_with: "Starlight 0.43.2, Astro 7.4.13."
 links:
   - title: CSS and styling
@@ -27,7 +27,7 @@ starlight({
 ```
 <!-- {: data-highlight="customCss:"} -->
 
-**Loads your CSS on every page.** Starlight uses cascade layers, so unlayered rules win without `!important`; see [custom CSS](https://starlight.astro.build/guides/css-and-tailwind/#custom-css-styles).
+**Loads your CSS.** The stylesheet applies on every page; Starlight uses cascade layers, so unlayered rules win without `!important`. See [custom CSS](https://starlight.astro.build/guides/css-and-tailwind/#custom-css-styles).
 
 ### Change the accent color
 <!-- {: .-snippet} -->

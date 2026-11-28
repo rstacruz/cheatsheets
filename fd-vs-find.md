@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: file-search }
 category: CLI
 layout: snippet
 last_verified_with: "fd 10.5.1."
-updated: 2026-11-23
+updated: 2026-11-28
 tier: t3
 links:
   - title: fd repository
@@ -69,7 +69,7 @@ src/lib/util.ts
 5 src/lib/util.ts
 ```
 
-**Runs a command on each match.** `-x` passes the path as `{}`; see [fd](https://github.com/sharkdp/fd).
+**Runs a command per match.** `-x` passes the path as `{}`. See [fd](https://github.com/sharkdp/fd).
 
 ### find by name
 <!-- {: .-snippet} -->
@@ -118,4 +118,4 @@ src/app.test.ts
 20 ./src/app.test.ts
 ```
 
-**Runs a command on matched files.** `-exec ... +` batches matches into one call instead of one per file. See [find](https://www.gnu.org/software/findutils/manual/html_node/find_html/).
+**Runs a command on files.** `-exec ... +` batches the matches into one call instead of one per file. See [find](https://www.gnu.org/software/findutils/manual/html_node/find_html/).

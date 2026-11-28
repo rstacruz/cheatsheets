@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Snippets
     url: https://svelte.dev/docs/svelte/snippet
@@ -46,7 +46,7 @@ links:
 ```
 <!-- {: data-highlight="header?.()"} -->
 
-**Names a snippet prop instead of a slot name.** The optional call keeps the header out when the parent passes nothing; see [Snippet props](https://svelte.dev/docs/svelte/snippet#Passing-snippets-to-components).
+**Names a snippet prop,** instead of a slot name. The optional call keeps the header out when the parent passes nothing; See [Snippet props](https://svelte.dev/docs/svelte/snippet#Passing-snippets-to-components).
 
 ### Pass slot props as arguments
 <!-- {: .-snippet} -->
@@ -64,7 +64,7 @@ links:
 ```
 <!-- {: data-highlight="row(item)"} -->
 
-**Turns slot props into snippet arguments.** The parent decides how each item renders; see [Implicit props](https://svelte.dev/docs/svelte/snippet#Passing-snippets-to-components-Implicit-props).
+**Passes slot props as arguments,** to the snippet. The parent decides how each item renders; See [Implicit props](https://svelte.dev/docs/svelte/snippet#Passing-snippets-to-components-Implicit-props).
 
 ### Provide fallback content
 <!-- {: .-snippet} -->
@@ -82,7 +82,7 @@ links:
 ```
 <!-- {: data-highlight="<p>No footer</p>"} -->
 
-**Checks the prop before rendering it.** A snippet prop is `undefined` unless the parent passes one, so the fallback is ordinary markup; see [Snippets](https://svelte.dev/docs/svelte/snippet).
+**Checks the prop,** before rendering it. A snippet prop is `undefined` unless the parent passes one, so the fallback is ordinary markup; See [Snippets](https://svelte.dev/docs/svelte/snippet).
 
 ### Pass a snippet from the parent
 <!-- {: .-snippet} -->
@@ -102,4 +102,4 @@ links:
 ```
 <!-- {: data-highlight="{#snippet row(item)}"} -->
 
-**Declares the snippet at the call site.** Snippets are values, so `{row}` passes like any other prop; see [Snippets](https://svelte.dev/docs/svelte/snippet).
+**Declares the snippet,** at the call site. Snippets are values, so `{row}` passes like any other prop; See [Snippets](https://svelte.dev/docs/svelte/snippet).

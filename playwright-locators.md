@@ -28,7 +28,7 @@ await page.getByRole('button', {
 ```
 <!-- {: data-highlight="getByRole("} -->
 
-**Matches the accessible role and name.** Prefer it for buttons, links, and headings. See [role locators](https://playwright.dev/docs/locators#locate-by-role).
+**Matches by accessible role.** Add the name for buttons, links, and headings. See [role locators](https://playwright.dev/docs/locators#locate-by-role).
 
 ### By label
 <!-- {: .-snippet} -->
@@ -39,7 +39,7 @@ await page.getByLabel('Password')
 ```
 <!-- {: data-highlight="getByLabel("} -->
 
-**Matches a control through its associated label.** See [label locators](https://playwright.dev/docs/locators#locate-by-label).
+**Matches a labelled control.** The label's text identifies the input, so placeholder changes do not break the locator. See [label locators](https://playwright.dev/docs/locators#locate-by-label).
 
 ### By text
 <!-- {: .-snippet} -->
@@ -51,7 +51,7 @@ await expect(page.getByText('Saved', {
 ```
 <!-- {: data-highlight="getByText("} -->
 
-**Matches visible text, with whitespace normalised.** Use `exact` to disable substring matching. See [text locators](https://playwright.dev/docs/locators#locate-by-text).
+**Matches visible text.** Whitespace is normalised and matching is a substring unless you set `exact`. See [text locators](https://playwright.dev/docs/locators#locate-by-text).
 
 ### Filter a list
 <!-- {: .-snippet} -->
@@ -64,7 +64,7 @@ await page.getByRole('row')
 ```
 <!-- {: data-highlight=".filter("} -->
 
-**Narrows a locator that matches several elements.** See [filtering](https://playwright.dev/docs/locators#filter-by-text).
+**Narrows a locator.** Filter a locator that matches several elements down to the ones you want. See [filtering](https://playwright.dev/docs/locators#filter-by-text).
 
 ### Chain locators
 <!-- {: .-snippet} -->
@@ -76,7 +76,7 @@ await page.getByTestId('cart')
 ```
 <!-- {: data-highlight=".getByRole("} -->
 
-**Scopes a search to the first locator.** Locator methods that return a locator can be chained. See [locators](https://playwright.dev/docs/locators#locating-elements).
+**Scopes a search.** Any locator method that returns a locator can be chained onto the first one. See [locators](https://playwright.dev/docs/locators#locating-elements).
 
 ### Inside frames
 <!-- {: .-snippet} -->
@@ -88,4 +88,4 @@ await page.frameLocator('#checkout')
 ```
 <!-- {: data-highlight="frameLocator("} -->
 
-**Searches inside an iframe with a chained locator.** See [FrameLocator](https://playwright.dev/docs/api/class-framelocator).
+**Searches inside an iframe.** Chain a locator onto the frame locator to reach elements within the frame. See [FrameLocator](https://playwright.dev/docs/api/class-framelocator).

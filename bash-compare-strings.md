@@ -6,7 +6,7 @@ logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash conditional expressions
@@ -68,4 +68,4 @@ links:
 ```
 <!-- {: data-highlight="-z; -n"} -->
 
-**Tests for empty or non-empty strings.** `-z` is true for an empty string and `-n` for a non-empty one. See [test](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).
+**Tests for empty strings.** It also tests for non-empty ones: `-z` is true for an empty string and `-n` for a non-empty one. See [test](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).

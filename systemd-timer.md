@@ -50,7 +50,7 @@ WantedBy=timers.target
 ```
 <!-- {: data-highlight="OnCalendar"} -->
 
-**Pairs a oneshot service with its schedule.** `Persistent` catches up a missed run after boot; see [systemd.timer(5)](https://man7.org/linux/man-pages/man5/systemd.timer.5.html).
+**Pairs a oneshot and timer.** The oneshot service holds the command and the timer its schedule; `Persistent` catches up a missed run after boot. See [systemd.timer(5)](https://man7.org/linux/man-pages/man5/systemd.timer.5.html).
 
 ### Enable the timer
 <!-- {: .-snippet} -->
@@ -60,7 +60,7 @@ sudo systemctl enable --now backup.timer
 ```
 <!-- {: data-highlight="enable --now backup.timer"} -->
 
-**Starts the timer now and at boot.** Enable the timer, not the service it activates; see [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Enables the timer at boot.** It starts now too; enable the timer, not the service it activates. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### Check the next run
 <!-- {: .-snippet} -->
@@ -70,7 +70,7 @@ systemctl list-timers backup.timer
 ```
 <!-- {: data-highlight="list-timers"} -->
 
-**Shows the next and last elapse.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Shows the next elapse.** `list-timers` also reports the last elapse and the unit that will run. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### Verify the schedule
 <!-- {: .-snippet} -->
@@ -80,4 +80,4 @@ systemd-analyze calendar 'Mon..Fri 09:00:00'
 ```
 <!-- {: data-highlight="systemd-analyze calendar"} -->
 
-**Prints the normalized expression and next elapse.** See [systemd.time(7)](https://man7.org/linux/man-pages/man7/systemd.time.7.html).
+**Prints the next elapse.** The output also shows the normalized `OnCalendar` expression. See [systemd.time(7)](https://man7.org/linux/man-pages/man7/systemd.time.7.html).

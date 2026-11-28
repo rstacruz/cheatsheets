@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl locales argument
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
@@ -30,7 +30,7 @@ en.format(1234567.891)
 ```
 <!-- {: data-highlight="'de-DE'; 'en-US'"} -->
 
-**Swaps separators to match the locale.** German uses `.` for groups and `,` for the decimal mark; see [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+**Swaps separators,** to match the locale. German uses `.` for groups and `,` for the decimal mark; See [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
 ### Format a local currency
 <!-- {: .-snippet} -->
@@ -44,7 +44,7 @@ new Intl.NumberFormat('de-DE', {
 ```
 <!-- {: data-highlight="currency: 'EUR'"} -->
 
-**Places the euro sign after the amount in German.** Symbol placement comes from the locale, not the currency code; see [currency](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency).
+**Places the euro sign,** after the amount in German. Symbol placement comes from the locale, not the currency code; See [currency](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency).
 
 ### Use another numbering system
 <!-- {: .-snippet} -->
@@ -60,4 +60,4 @@ new Intl.NumberFormat('ar-EG', {
 ```
 <!-- {: data-highlight="numberingSystem: 'latn'"} -->
 
-**Forces Western digits with `numberingSystem: 'latn'`.** Egyptian Arabic otherwise uses Arabic-Indic digits; see [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#numberingsystem).
+**Forces Western digits,** with `numberingSystem: 'latn'`. Egyptian Arabic otherwise uses Arabic-Indic digits; See [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#numberingsystem).

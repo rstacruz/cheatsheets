@@ -5,7 +5,7 @@ subtitle: Hosted and self-hosted labels
 category: Devops
 layout: snippet
 last_verified_with: "GitHub Actions runner images, ubuntu 24.04 and macos 15 labels."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: GitHub-hosted runners
     url: https://docs.github.com/en/actions/reference/runners/github-hosted-runners
@@ -36,7 +36,7 @@ runs-on: ubuntu-24.04
 ```
 <!-- {: data-highlight="ubuntu-24.04"} -->
 
-**Stops the image changing under you.** `-latest` moves when GitHub promotes a new image; the versioned label stays put. See [runner images](https://github.com/actions/runner-images).
+**Pins the image version.** The `-latest` label moves as GitHub promotes new images, while a versioned label stays put. See [runner images](https://github.com/actions/runner-images).
 
 ### Choose an architecture
 <!-- {: .-snippet} -->
@@ -59,7 +59,7 @@ runs-on: ${{ matrix.os }}
 ```
 <!-- {: data-highlight="${{ matrix.os }}"} -->
 
-**Runs the job once per runner.** See [matrix](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrix).
+**Runs once per runner.** A matrix expands the job across each combination of labels you list. See [matrix](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrix).
 
 ### Target a self-hosted runner
 <!-- {: .-snippet} -->
@@ -69,7 +69,7 @@ runs-on: [self-hosted, linux, x64]
 ```
 <!-- {: data-highlight="[self-hosted, linux, x64]"} -->
 
-**Matches a runner with every label.** List `self-hosted` first; Actions Runner Controller omits that label. See [self-hosted runners](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/use-in-a-workflow).
+**Matches every label.** List `self-hosted` first; Actions Runner Controller omits that label. See [self-hosted runners](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/use-in-a-workflow).
 
 ### Use a runner group
 <!-- {: .-snippet} -->
@@ -81,4 +81,4 @@ runs-on:
 ```
 <!-- {: data-highlight="group:"} -->
 
-**Limits the job to a group.** The runner must be in the group and carry the labels. See [runner groups](https://docs.github.com/en/actions/concepts/runners/runner-groups).
+**Limits the job.** The runner must belong to the group and carry the listed labels. See [runner groups](https://docs.github.com/en/actions/concepts/runners/runner-groups).

@@ -9,6 +9,15 @@ tier: t3
 last_verified_with: "CSS Flexible Box Layout Module Level 1."
 prism_languages: [css]
 weight: -3
+intro: |
+  CSS flexbox reference for containers and items, alignment, reordering, vertical centering, and responsive layouts.
+links:
+  - title: Basic concepts of flexbox
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
+  - title: flex property
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+  - title: Aligning items
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container
 ---
 
 ### Simple example

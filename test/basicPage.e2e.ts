@@ -10,7 +10,8 @@ test('/tests/basic', async ({ page }) => {
 
   await expectMeta(page, {
     name: 'description',
-    content: 'Basic test cheatsheet: usage, examples, and snippets.'
+    content:
+      'Basic test cheatsheet. Describe a basic test cheatsheet used as a reference for automated tests.'
   })
 
   const ldJsonPayloads = await getLdJsonPayloads(page)
@@ -26,7 +27,8 @@ test('/tests/basic', async ({ page }) => {
     },
     headline: 'Basic test cheatsheet',
     image: ['https://assets.devhints.io/previews/tests/basic.jpg'],
-    description: 'Basic test cheatsheet: usage, examples, and snippets.'
+    description:
+      'Basic test cheatsheet. Describe a basic test cheatsheet used as a reference for automated tests.'
   })
 
   const jsonData2 = ldJsonPayloads[1] as JsonLdBreadcrumbList

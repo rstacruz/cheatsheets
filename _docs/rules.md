@@ -526,7 +526,7 @@ updated: 2026-11-24
 
 🤖 Check: `frontmatter/introduction`.
 
-Set `intro` frontmatter; it renders as the first card. Write one paragraph under 25 words, with links to at most four first-party sources.
+`intro` and `links` are required on ordinary sheets; the schema rejects a page without them. Snippet pages skip `intro`, and archived sheets skip both. Write one paragraph under 25 words, with links to at most four first-party sources. The card is generated from these fields.
 
 ````yaml
 intro: |
@@ -539,7 +539,7 @@ links:
     url: https://github.com/anthropics/claude-code
 ````
 
-The card is generated; never write an `### Introduction` card by hand.
+Never write an `### Introduction` card by hand.
 
 ### tables/headers
 

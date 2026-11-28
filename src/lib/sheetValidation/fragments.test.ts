@@ -4,8 +4,14 @@ const twelve = Array.from({ length: 12 }, (_, index) => `f${index}`)
 const twenty = Array.from({ length: 20 }, (_, index) => `f${index}`)
 const CREATED_AT = new Date('2020-01-01')
 
+const REQUIRED = {
+  intro: 'Hello',
+  links: [{ title: 'Docs', url: 'https://example.com' }]
+}
+
 const VERIFIED = {
   created_at: CREATED_AT,
+  ...REQUIRED,
   last_verified_with: 'verified',
   last_verified_at: new Date('2026-11-28')
 }
@@ -25,7 +31,10 @@ test('the schema requires fragments for t1 and t2 sheets', () => {
 
 test('the schema allows untiered and t3 sheets to omit fragments', () => {
   expect(
-    SheetFrontmatterSchema.parse({ created_at: CREATED_AT }).fragments
+    SheetFrontmatterSchema.parse({
+      created_at: CREATED_AT,
+      ...REQUIRED
+    }).fragments
   ).toBeUndefined()
   expect(
     SheetFrontmatterSchema.parse({ ...VERIFIED, tier: 't3' }).fragments

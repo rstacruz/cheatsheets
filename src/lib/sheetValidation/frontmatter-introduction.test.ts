@@ -10,6 +10,37 @@ const CARD_TITLES = /^### (?:Introduction|About)$/
 const LINKS = [{ title: 'Docs', url: 'https://example.com' }]
 const CREATED = { created_at: new Date('2020-01-01') }
 
+test('the schema requires intro and links on ordinary sheets', () => {
+  expect(() => SheetFrontmatterSchema.parse(CREATED)).toThrow(/intro/)
+  expect(() =>
+    SheetFrontmatterSchema.parse({ ...CREATED, intro: 'Hello' })
+  ).toThrow(/links/)
+  expect(() =>
+    SheetFrontmatterSchema.parse({ ...CREATED, intro: 'Hello', links: [] })
+  ).toThrow(/links/)
+})
+
+it.each([{ layout: 'snippet' }, { archived: 'No longer maintained.' }])(
+  'the schema exempts %j from intro',
+  (exemption) => {
+    const parsed = SheetFrontmatterSchema.parse({
+      ...CREATED,
+      ...exemption,
+      links: LINKS
+    })
+    expect(parsed.intro).toBeUndefined()
+  }
+)
+
+test('the schema exempts archived sheets from links', () => {
+  const parsed = SheetFrontmatterSchema.parse({
+    ...CREATED,
+    archived: 'No longer maintained.',
+    intro: 'Hello'
+  })
+  expect(parsed.links).toBeUndefined()
+})
+
 test('the schema accepts a single paragraph with soft line breaks', () => {
   const intro = 'A worktree is a second checkout.\nIt shares objects and refs.'
   const result = SheetFrontmatterSchema.parse({
@@ -75,4 +106,16 @@ test('intro contains no headings', async () => {
   }
 
   expect(findings).toEqual([])
+})
+
+test('every active page has links and every non-snippet has an intro', async () => {
+  const pages = Object.values(await getPages())
+  expect(pages.length).toBeGreaterThan(0)
+
+  for (const { slug, frontmatter } of pages) {
+    if (frontmatter.archived) continue
+    expect(frontmatter.links.length, slug).toBeGreaterThan(0)
+    if (frontmatter.layout === 'snippet') continue
+    expect(frontmatter.intro, slug).toBeTruthy()
+  }
 })

@@ -7,6 +7,13 @@ last_verified_with: "CSS Snapshot 2026."
 created_at: 2017-08-29
 updated: 2026-11-25
 tier: t3
+intro: |
+  Assorted CSS snippets for text rendering, gradient text, scrolling, and other layout effects.
+links:
+  - title: text-rendering
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering#values
+  - title: background-clip
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip#text
 ---
 
 ### Heading kerning pairs and ligature

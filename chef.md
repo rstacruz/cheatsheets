@@ -7,6 +7,15 @@ last_verified_with: "Chef Infra Client 19.4."
 created_at: 2013-08-24
 updated: 2026-11-25
 tier: t3
+intro: |
+  Chef reference for installing Chef Infra, setting up cookbooks, using knife, and running chef-solo recipes.
+links:
+  - title: Chef install script
+    url: https://docs.chef.io/chef_install_script/
+  - title: Chef repository
+    url: https://docs.chef.io/chef_repo/
+  - title: knife
+    url: https://docs.chef.io/workstation/latest/tools/knife/
 ---
 
 ### Install

@@ -7,6 +7,15 @@ last_verified_with: "WHATWG HTML Standard, Canvas 2D Context."
 created_at: 2012-10-11
 updated: 2026-11-25
 tier: t3
+intro: |
+  HTML canvas reference for drawing shapes, styles, gradients, images, transformations, and animation with the 2D context.
+links:
+  - title: getContext()
+    url: https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext
+  - title: Basic animations
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations
+  - title: Canvas API
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 ---
 
 ### Getting the context

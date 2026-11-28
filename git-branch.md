@@ -7,6 +7,13 @@ created_at: 2014-09-11
 updated: 2026-11-23
 tier: t3
 last_verified_with: "Git 2.56.0."
+intro: |
+  Create, list, switch, merge, and delete Git branches locally and on remotes.
+links:
+  - title: git branch
+    url: https://git-scm.com/docs/git-branch
+  - title: git checkout
+    url: https://git-scm.com/docs/git-checkout
 ---
 
 ## Working with branches

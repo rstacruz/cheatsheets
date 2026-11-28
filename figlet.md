@@ -43,6 +43,11 @@ introduction: |
 #   name=$(basename ${fn%.tlf})
 #   do_figlet $name
 # done
+intro: |
+  Render text as ASCII art with Figlet using different fonts and formatting options.
+links:
+  - title: Figlet
+    url: http://www.figlet.org/
 ---
 
 ### Usage

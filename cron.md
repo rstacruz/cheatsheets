@@ -10,6 +10,13 @@ updated: 2026-11-23
 tier: t3
 last_verified_with: "cronie 1.7.2."
 weight: -3
+intro: |
+  Cron reference covering five-field schedule syntax, operators, special strings, examples, and crontab management.
+links:
+  - title: crontab(5)
+    url: https://man7.org/linux/man-pages/man5/crontab.5.html#DESCRIPTION
+  - title: crontab(1)
+    url: https://man7.org/linux/man-pages/man1/crontab.1.html#OPTIONS
 ---
 
 ## Format

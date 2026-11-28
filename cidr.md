@@ -7,6 +7,13 @@ last_verified_with: "RFC 4632."
 created_at: 2017-02-20
 updated: 2018-05-14
 tier: t3
+intro: |
+  CIDR notation reference with IPv4 range examples, prefix sizes, and a calculator resource.
+links:
+  - title: CIDR notation (RFC 4632)
+    url: https://www.rfc-editor.org/rfc/rfc4632.html#section-3.1
+  - title: CIDR range calculator
+    url: http://ipaddressguide.com/cidr#range
 ---
 
 ### CIDR ranges

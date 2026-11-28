@@ -1,5 +1,9 @@
 import { getPages, mapGlobToPages } from './page'
 
+const INTRO = 'intro: Hello'
+const LINKS = ['links:', '  - title: Docs', '    url: https://example.com/docs']
+const REQUIRED = [INTRO, ...LINKS]
+
 let pages: Awaited<ReturnType<typeof getPages>>
 let keys: string[]
 
@@ -34,9 +38,7 @@ test('links frontmatter', () => {
       '---',
       'title: Bash',
       'created_at: 2020-01-01',
-      'links:',
-      '  - title: Docs',
-      '    url: https://example.com/docs',
+      ...REQUIRED,
       '---',
       '# hi'
     ].join('\n')
@@ -55,9 +57,7 @@ test('intro length cap', () => {
         'title: Bash',
         'created_at: 2020-01-01',
         `intro: ${intro}`,
-        'links:',
-        '  - title: Docs',
-        '    url: https://example.com/docs',
+        ...LINKS,
         '---',
         '# hi'
       ].join('\n')
@@ -67,19 +67,32 @@ test('intro length cap', () => {
   expect(() => page('x'.repeat(500))).not.toThrow()
 })
 
-test('intro requires a link', () => {
-  expect(() =>
+test('intro and links are both required', () => {
+  const withoutIntro = () =>
     mapGlobToPages({
       bash: [
         '---',
         'title: Bash',
         'created_at: 2020-01-01',
-        'intro: Hello',
+        ...LINKS,
         '---',
         '# hi'
       ].join('\n')
     })
-  ).toThrow(/links/)
+  const withoutLinks = () =>
+    mapGlobToPages({
+      bash: [
+        '---',
+        'title: Bash',
+        'created_at: 2020-01-01',
+        INTRO,
+        '---',
+        '# hi'
+      ].join('\n')
+    })
+
+  expect(withoutIntro).toThrow(/intro/)
+  expect(withoutLinks).toThrow(/links/)
 })
 
 test('links cap', () => {
@@ -89,6 +102,7 @@ test('links cap', () => {
         '---',
         'created_at: 2020-01-01',
         'title: Bash',
+        INTRO,
         'links:',
         ...Array.from(
           { length: count },
@@ -109,6 +123,7 @@ test('deprecated frontmatter', () => {
       '---',
       'created_at: 2020-01-01',
       'title: Old',
+      ...REQUIRED,
       'deprecated: true',
       'deprecated_by: /new',
       '---',
@@ -127,6 +142,7 @@ describe('mapGlobToPages()', () => {
         '---',
         'title: Bash',
         'created_at: 2020-01-01',
+        ...REQUIRED,
         '---',
         '# hi'
       ].join('\n')
@@ -137,6 +153,13 @@ describe('mapGlobToPages()', () => {
         "bash": {
           "frontmatter": {
             "created_at": 2020-01-01T00:00:00.000Z,
+            "intro": "Hello",
+            "links": [
+              {
+                "title": "Docs",
+                "url": "https://example.com/docs",
+              },
+            ],
             "title": "Bash",
           },
           "markdown": "# hi",
@@ -152,6 +175,7 @@ describe('mapGlobToPages()', () => {
         '---',
         'title: 101',
         'created_at: 2020-01-01',
+        ...REQUIRED,
         '---',
         '# hi'
       ].join('\n')
@@ -162,6 +186,13 @@ describe('mapGlobToPages()', () => {
         "101": {
           "frontmatter": {
             "created_at": 2020-01-01T00:00:00.000Z,
+            "intro": "Hello",
+            "links": [
+              {
+                "title": "Docs",
+                "url": "https://example.com/docs",
+              },
+            ],
             "title": "101",
           },
           "markdown": "# hi",
@@ -178,6 +209,7 @@ describe('mapGlobToPages()', () => {
         'created_at: 2020-01-01',
         'title: 101',
         'description: Custom description',
+        ...REQUIRED,
         '---',
         '# hi'
       ].join('\n')
@@ -189,6 +221,13 @@ describe('mapGlobToPages()', () => {
           "frontmatter": {
             "created_at": 2020-01-01T00:00:00.000Z,
             "description": "Custom description",
+            "intro": "Hello",
+            "links": [
+              {
+                "title": "Docs",
+                "url": "https://example.com/docs",
+              },
+            ],
             "title": "101",
           },
           "markdown": "# hi",
@@ -205,6 +244,7 @@ describe('mapGlobToPages()', () => {
           '---',
           'title: false',
           'created_at: 2020-01-01',
+          ...REQUIRED,
           '---',
           '# hi'
         ].join('\n')
@@ -220,6 +260,7 @@ describe('mapGlobToPages()', () => {
         '---',
         'title: 101',
         'created_at: 2020-01-01',
+        ...REQUIRED,
         '---',
         '# hi'
       ].join('\n')
@@ -230,6 +271,13 @@ describe('mapGlobToPages()', () => {
         "101": {
           "frontmatter": {
             "created_at": 2020-01-01T00:00:00.000Z,
+            "intro": "Hello",
+            "links": [
+              {
+                "title": "Docs",
+                "url": "https://example.com/docs",
+              },
+            ],
             "title": "101",
           },
           "markdown": "# hi",

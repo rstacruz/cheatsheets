@@ -8,6 +8,15 @@ last_verified_with: "Capybara 3.40."
 created_at: 2012-03-16
 updated: 2020-06-13
 tier: t3
+intro: |
+  Capybara reference for browser navigation, form interaction, queries, selectors, matchers, and debugging in Ruby tests.
+links:
+  - title: Capybara README
+    url: https://github.com/teamcapybara/capybara#navigating
+  - title: Querying
+    url: https://github.com/teamcapybara/capybara#querying
+  - title: Session#within
+    url: https://www.rubydoc.info/gems/capybara/Capybara/Session#within-instance_method
 ---
 
 ### Navigating

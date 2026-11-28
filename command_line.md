@@ -7,6 +7,15 @@ last_verified_with: "GNU coreutils 9.12, Bash 5.3."
 created_at: 2012-12-15
 updated: 2026-11-25
 tier: t3
+intro: |
+  Unix command-line reference for ls, tail, sudo, wc, file descriptors, prompts, and common shell options.
+links:
+  - title: ls manual
+    url: https://man7.org/linux/man-pages/man1/ls.1.html#SYNOPSIS
+  - title: tail manual
+    url: https://man7.org/linux/man-pages/man1/tail.1.html#SYNOPSIS
+  - title: sudo manual
+    url: https://man7.org/linux/man-pages/man8/sudo.8.html#SYNOPSIS
 ---
 
 ## List (ls)

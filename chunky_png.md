@@ -7,6 +7,15 @@ last_verified_with: "ChunkyPNG 1.4."
 created_at: 2013-09-17
 updated: 2026-11-25
 tier: t3
+intro: |
+  ChunkyPNG reference for loading, saving, drawing on, cropping, and transforming PNG images in Ruby.
+links:
+  - title: Loading images
+    url: https://www.rubydoc.info/gems/chunky_png/1.4.0/ChunkyPNG/Canvas/PNGDecoding#from_file-instance_method
+  - title: Drawing methods
+    url: https://github.com/wvanbergen/chunky_png/blob/master/lib/chunky_png/canvas/drawing.rb
+  - title: Canvas operations
+    url: https://github.com/wvanbergen/chunky_png/blob/master/lib/chunky_png/canvas/operations.rb
 ---
 
 ### Loading

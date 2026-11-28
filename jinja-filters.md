@@ -25,7 +25,7 @@ links:
 ```
 <!-- {: data-highlight="trim; title"} -->
 
-**Pipes apply filters left to right.** See [Filters](https://jinja.palletsprojects.com/en/stable/templates/#filters).
+**Pipes apply left to right,** so `trim` runs before `title`. See [Filters](https://jinja.palletsprojects.com/en/stable/templates/#filters).
 
 ### Sort and join
 <!-- {: .-snippet} -->
@@ -41,7 +41,7 @@ links:
 1, 2, 3
 ```
 
-**Sorts the list before joining it into a string.** See [join](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.join).
+**Sorts then joins,** turning a list into `1, 2, 3`. See [join](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.join).
 
 ### Default a missing city
 <!-- {: .-snippet} -->
@@ -51,7 +51,7 @@ links:
 ```
 <!-- {: data-highlight='default("Paris")'} -->
 
-**Uses the fallback only when `city` is undefined.** See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
+**Falls back on undefined,** so `city` becomes `Paris`. See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
 
 ### Default a zero value
 <!-- {: .-snippet} -->
@@ -69,7 +69,7 @@ links:
 ```
 <!-- {: data-highlight='default("none", true)'} -->
 
-**Pass `true` to replace `0`, empty strings, and `false` too.** See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
+**Includes falsy values,** replacing `0`, `""`, and `false`. See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
 
 ### Select and map
 <!-- {: .-snippet} -->
@@ -93,7 +93,7 @@ links:
 ['Ada']
 ```
 
-**Keeps active users and extracts their names.** See [selectattr](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.selectattr) and [map](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.map).
+**Filters then projects,** keeping only active users' names. See [selectattr](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.selectattr) and [map](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.map).
 
 ### Serialize to JSON
 <!-- {: .-snippet} -->
@@ -111,4 +111,4 @@ links:
 {"n": 2, "ok": true}
 ```
 
-**Emits JSON with HTML-unsafe characters escaped.** See [tojson](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.tojson).
+**Emits safe JSON,** with HTML-unsafe characters escaped. See [tojson](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.tojson).

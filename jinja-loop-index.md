@@ -35,7 +35,7 @@ links:
 3. item 2
 ```
 
-**Counts iterations from one.** See [loop.index](https://jinja.palletsprojects.com/en/stable/templates/#for).
+**Counts from one,** numbering each iteration in turn. See [loop.index](https://jinja.palletsprojects.com/en/stable/templates/#for).
 
 ### Start from zero
 <!-- {: .-snippet} -->
@@ -55,7 +55,7 @@ links:
 2: item 2
 ```
 
-**Counts iterations from zero for array indexes.** See [loop.index0](https://jinja.palletsprojects.com/en/stable/templates/#for).
+**Counts from zero,** for zero-based array indexes. See [loop.index0](https://jinja.palletsprojects.com/en/stable/templates/#for).
 
 ### Mark first and last
 <!-- {: .-snippet} -->
@@ -74,7 +74,7 @@ links:
 1: False / True
 ```
 
-**Reports whether the current iteration is the first or last.** See [loop.first](https://jinja.palletsprojects.com/en/stable/templates/#for).
+**Marks the ends,** reporting first and last iterations. See [loop.first](https://jinja.palletsprojects.com/en/stable/templates/#for).
 
 ### Count from the end
 <!-- {: .-snippet} -->
@@ -94,7 +94,7 @@ links:
 2: 1 of 3
 ```
 
-**`revindex` counts down to one; `length` is the item count.** See [loop.revindex](https://jinja.palletsprojects.com/en/stable/templates/#for).
+**Counts backwards,** from `revindex` and total `length`. See [loop.revindex](https://jinja.palletsprojects.com/en/stable/templates/#for).
 
 ### Reach the outer loop
 <!-- {: .-snippet} -->
@@ -117,4 +117,4 @@ links:
 2.1: c
 ```
 
-**Saves the outer loop before entering the inner one.** See [Loop variable](https://jinja.palletsprojects.com/en/stable/templates/#for).
+**Saves the outer loop,** so nested rows can read its index. See [Loop variable](https://jinja.palletsprojects.com/en/stable/templates/#for).

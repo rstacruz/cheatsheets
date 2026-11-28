@@ -33,7 +33,7 @@ links:
 ```
 <!-- {: data-highlight='{% include "header.html" %}'} -->
 
-**Use include to render another template's markup in place, sharing the caller's context.** See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
+**Use include to render,** markup in place with the caller's context. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
 
 ### Import macros
 <!-- {: .-snippet} -->
@@ -55,7 +55,7 @@ links:
 ```
 <!-- {: data-highlight='{% import "forms.html" as forms %}'} -->
 
-**Use import for reusable macros under a namespace so names cannot collide.** See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
+**Use import for macros,** load them under a namespace. See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
 
 ### Import selected macros
 <!-- {: .-snippet} -->
@@ -67,7 +67,7 @@ links:
 ```
 <!-- {: data-highlight='{% from "forms.html" import input as field %}'} -->
 
-**Imports one macro directly and renames it.** See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
+**Imports one macro,** under the name `field`. See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
 
 ### Control the context
 <!-- {: .-snippet} -->
@@ -86,7 +86,7 @@ links:
 ```
 <!-- {: data-highlight="with context"} -->
 
-**`without context` hides caller variables from an include; `with context` shares them with imports.** See [Import with context](https://jinja.palletsprojects.com/en/stable/templates/#import-context-behavior).
+**Controls context,** hiding variables from includes or sharing with imports. See [Import with context](https://jinja.palletsprojects.com/en/stable/templates/#import-context-behavior).
 
 ### Ignore a missing template
 <!-- {: .-snippet} -->
@@ -96,4 +96,4 @@ links:
 ```
 <!-- {: data-highlight="ignore missing"} -->
 
-**Renders nothing when the included template is absent.** See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
+**Skips absent templates,** rendering nothing when the file is missing. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).

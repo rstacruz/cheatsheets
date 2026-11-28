@@ -29,6 +29,9 @@ keywords:
   - go concurrency
   - go modules
   - go commands
+intro: |
+  Go is an open-source language for building simple, reliable software.
+  This reference covers syntax, commands, concurrency, and the standard library.
 links:
   - title: A tour of Go
     url: https://go.dev/tour/welcome/1

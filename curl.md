@@ -102,7 +102,7 @@ See: [-X, --request](https://curl.se/docs/manpage.html#-X)
 --url-query a=1       # append an encoded query parameter
 ```
 
-`--data` does not URL-encode; `@file` strips newlines. Use `--data-urlencode` for `&`/`=`, or `--data-binary @file` for exact bytes.
+`--data` does not URL-encode; `@file` strips CR/LF and NUL bytes. Use `--data-urlencode` for `&`/`=`, or `--data-binary @file` for exact bytes.
 
 See: [-d, --data](https://curl.se/docs/manpage.html#-d)
 
@@ -114,7 +114,7 @@ See: [-d, --data](https://curl.se/docs/manpage.html#-d)
 -b name=value     # --cookie: send a cookie
 -b cookies.txt    # --cookie: read a cookie file
 -c cookies.txt    # --cookie-jar: save cookies
---compressed      # request a compressed response
+--compressed      # request compression, auto-decompress
 ```
 
 See: [-H, --header](https://curl.se/docs/manpage.html#-H)
@@ -163,7 +163,7 @@ See: [--parallel](https://curl.se/docs/manpage.html#--parallel), [retries](https
 ```
 <!-- {: data-highlight="--http1.1; --http2; --http3"} -->
 
-HTTP/3 needs a curl built with HTTP/3 support.
+HTTP/3 needs a curl built with HTTP/3 support. Later `--http*` flags override earlier ones.
 
 See: [--http3](https://curl.se/docs/manpage.html#--http3)
 
@@ -190,7 +190,7 @@ See: [--variable](https://curl.se/docs/manpage.html#--variable)
 ```
 <!-- {: data-highlight="-K curlrc; -K -; -q"} -->
 
-curl reads the first config file it finds among `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, and `$HOME/.curlrc`. One option per line; long options may omit `--`.
+curl reads the first config file it finds among `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, and `$HOME/.curlrc` — even when `-K` is used. One option per line; long options may omit `--`.
 
 See: [Config file](https://ec.haxx.se/cmdline/configfile.html)
 

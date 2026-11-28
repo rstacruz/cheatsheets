@@ -2,7 +2,7 @@
 title: Screen
 subtitle: GNU terminal multiplexer
 logo: { set: icon-park-outline, name: split }
-category: Shell
+category: Terminal
 keywords:
   - Screen
   - Linux

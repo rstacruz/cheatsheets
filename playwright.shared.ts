@@ -13,8 +13,8 @@ export const isCI = Boolean(process.env.CI)
 export const port =
   process.env.PORT ?? worktreePort(fileURLToPath(new URL('.', import.meta.url)))
 
-// NixOS: point at the system Chromium, since Playwright's build needs
-// libraries the Nix store doesn't expose.
+// NixOS: use the system Chromium because Playwright's build needs libraries
+// the Nix store doesn't expose.
 export const launchOptions = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
   ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH }
   : {}

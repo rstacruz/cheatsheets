@@ -26,6 +26,37 @@ test('the top hit is the first visible result', async ({ page }) => {
   expect(slugs[0]).toBe('react')
 })
 
+test('a landing query hides the browse list until results load', async ({
+  page
+}) => {
+  await page.route('**/searchindex.json', async (route) => {
+    const { promise, resolve } = Promise.withResolvers<void>()
+    setTimeout(resolve, 500)
+    await promise
+    await route.continue()
+  })
+
+  await page.goto('/search?q=react')
+  await expect(page.locator('[data-js-search-results]')).toBeHidden()
+  await expect(page.locator(STATUS)).toHaveText('24 cheatsheets for “react”')
+  await expect(page.locator('[data-js-search-results]')).toBeVisible()
+})
+
+test('typing filters in place without autocomplete suggestions', async ({
+  page
+}) => {
+  await page.goto('/search')
+  const input = page.getByPlaceholder('Search...')
+
+  await input.fill('git stash')
+  await expect(page.locator(STATUS)).toHaveText('8 cheatsheets for “git stash”')
+  await expect(page.getByRole('option')).toHaveCount(0)
+  await expect(page).toHaveURL(/\/search$/)
+
+  await input.press('Enter')
+  await expect(page).toHaveURL(/\/search\?q=git%20stash$/)
+})
+
 test('a single result redirects straight to the sheet', async ({ page }) => {
   await page.goto('/search?q=es6')
 

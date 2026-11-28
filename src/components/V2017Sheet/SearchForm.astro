@@ -6,7 +6,7 @@ import Icon from '~/components/Icon.astro'
 
 type BaseProps = {
   size?: 'default' | 'small'
-  noAutoSelect?: boolean
+  noAutocomplete?: boolean
 }
 
 export type Props =
@@ -83,7 +83,7 @@ const styles = {
       data-js-search-input
       placeholder={placeholder}
       autocomplete="off"
-      data-js-no-autoselect={props.noAutoSelect ? '' : undefined}
+      data-js-no-autocomplete={props.noAutocomplete ? '' : undefined}
     />
     <span class={styles.icon(small)}>
       <Icon name="md-search" size={small ? 24 : 32} />
@@ -106,6 +106,7 @@ const styles = {
   document
     .querySelectorAll<HTMLInputElement>('[data-js-search-input]')
     .forEach((input) => {
+      if (input.hasAttribute('data-js-no-autocomplete')) return
       onScrollVisible(input, async () => {
         const { setup } = await import('./SearchForm.script')
         setup(input)

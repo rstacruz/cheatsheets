@@ -28,11 +28,16 @@ const t = {
 <BaseLayout>
   <Fragment slot="head">
     <SEO {...seoProps} />
+    <script is:inline>
+      if (new URLSearchParams(location.search).get('q')?.trim()) {
+        document.documentElement.dataset.searchPending = 'true'
+      }
+    </script>
   </Fragment>
   <TopNav noEdit />
   <div class={homeStyles.body}>
     <div role="banner">
-      <SearchForm isLive noAutoSelect />
+      <SearchForm isLive noAutocomplete />
       <div class="mt-8"></div>
     </div>
 
@@ -87,6 +92,11 @@ const t = {
   </div>
 </BaseLayout>
 
+<style is:global>
+  html[data-search-pending] [data-js-search-results] {
+    visibility: hidden;
+  }
+</style>
 <script>
   import { setupSearchResults } from '~/components/V2017Search/SearchResults.script'
 

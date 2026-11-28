@@ -5,7 +5,6 @@ export async function setup(input: HTMLInputElement) {
   let fuse
 
   autocomplete<{ label: string; value: string }>({
-    disableAutoSelect: input.hasAttribute('data-js-no-autoselect'),
     input,
     fetch: async (text: string, update) => {
       fuse ??= parseFuse(await fetchFuse())

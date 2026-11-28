@@ -106,6 +106,7 @@ export function setupSearchResults() {
     empty.hidden = !(query.length > 0 && matched.size === 0)
     status.textContent = getStatusText(query, matched.size)
     document.title = getResultTitle(query, baseTitle)
+    delete document.documentElement.dataset.searchPending
   }
 
   function renderFromUrl(initial = false) {
@@ -131,6 +132,12 @@ export function setupSearchResults() {
     history.pushState({}, '', url)
     renderFromUrl()
   })
+
+  input.addEventListener('input', () => {
+    if (!index) return
+    const query = input.value.trim()
+    render(query, search(query))
+  })
   window.addEventListener('popstate', () => renderFromUrl())
 
   fetchFuse()
@@ -140,5 +147,6 @@ export function setupSearchResults() {
     })
     .catch(() => {
       status.textContent = 'Search is unavailable; all cheatsheets are listed.'
+      delete document.documentElement.dataset.searchPending
     })
 }

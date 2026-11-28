@@ -26,7 +26,7 @@ links:
 ```bash
 nix-collect-garbage -d
 ```
-<!-- {: data-highlight="nix-collect-garbage"} -->
+<!-- {: data-highlight="-d"} -->
 
 **Removes old profile generations, then collects unreachable paths.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
 

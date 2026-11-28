@@ -101,7 +101,7 @@ See: [nix build](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-buil
 ### Inspect a store path
 
 ```bash
-nix path-info -Sh result
+nix path-info -Sh ./result
 ```
 <!-- {: data-highlight="nix path-info"} -->
 
@@ -345,12 +345,14 @@ References are `flake-url#attribute`; a bare `nixpkgs#hello` uses the registry.
 See: [Flake references](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake.html)
 
 ## Flake dependencies
+<!-- {: .-three-column} -->
 
 ### Share one nixpkgs
 
 ```nix
 inputs.home-manager = {
-  url = "github:nix-community/home-manager";
+  url =
+    "github:nix-community/home-manager";
   inputs.nixpkgs.follows = "nixpkgs";
 };
 ```
@@ -375,7 +377,8 @@ See: [Flakes: running commands](https://nix.dev/concepts/flakes.html)
 
 ```bash
 nix build .#hello \
-  --override-input nixpkgs path:/path/to/nixpkgs
+  --override-input nixpkgs \
+  path:/path/to/nixpkgs
 ```
 <!-- {: data-highlight="--override-input"} -->
 
@@ -384,6 +387,7 @@ Tries a local checkout without editing `flake.nix` or `flake.lock`.
 See: [nix flake options](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake.html)
 
 ## Development shells
+<!-- {: .-three-column} -->
 
 ### Flake devShell
 
@@ -415,6 +419,7 @@ nix develop --command make test
 ```bash
 nix develop .#ci
 ```
+<!-- {: data-highlight=".#ci"} -->
 
 `--command` runs one command inside the shell; `.#ci` selects another devShell.
 
@@ -451,6 +456,7 @@ Then run `direnv allow`; the shell activates when you enter the directory.
 See: [nix develop](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-develop.html)
 
 ## Building packages
+<!-- {: .-three-column} -->
 
 ### Derivation
 
@@ -480,7 +486,7 @@ pkgs.callPackage ./hello.nix {}
 
 `callPackage` fills function arguments from `pkgs` automatically.
 
-See: [callPackage](https://nixos.org/manual/nixpkgs/stable/#sec-functions-library-callpackage)
+See: [callPackage](https://nixos.org/manual/nixpkgs/stable/#including-a-derivation-using-callpackage)
 
 ### Override attributes
 
@@ -495,7 +501,7 @@ pkgs.hello.overrideAttrs (old: {
 
 `overrideAttrs` changes build steps; `override` changes function inputs.
 
-See: [Overrides](https://nixos.org/manual/nixpkgs/stable/#sec-overrides)
+See: [Overrides](https://nixos.org/manual/nixpkgs/stable/#sec-pkg-overrideAttrs)
 
 ### Overlays
 
@@ -503,16 +509,17 @@ See: [Overrides](https://nixos.org/manual/nixpkgs/stable/#sec-overrides)
 
 ```nix
 self: super: {
-  hello = super.hello.overrideAttrs (_: {
-    doCheck = false;
-  });
+  hello = super.hello.overrideAttrs
+    (_: {
+      doCheck = false;
+    });
 }
 ```
 <!-- {: data-highlight="self: super:"} -->
 
 Add the file to `nixpkgs.overlays` to change packages across a system.
 
-See: [Overlays](https://nixos.org/manual/nixpkgs/stable/#sec-overlays)
+See: [Overlays](https://nixos.org/manual/nixpkgs/stable/#chap-overlays)
 
 ## NixOS
 
@@ -551,7 +558,7 @@ sudo nixos-rebuild test
 
 `switch` activates and sets the boot default; `boot` waits for the next boot.
 
-See: [NixOS manual: configuration changes](https://nixos.org/manual/nixos/stable/#sec-changes-configuration)
+See: [NixOS manual: configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config)
 
 ### Use a flake
 
@@ -639,6 +646,7 @@ In NixOS, add `home-manager.users.alice = import ./home.nix;` to your modules.
 See: [Home Manager: NixOS module](https://nix-community.github.io/home-manager/installation/nixos.html#nixos-module)
 
 ## Maintenance
+<!-- {: .-three-column} -->
 
 ### Clean the store
 

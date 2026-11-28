@@ -10,7 +10,7 @@ last_verified_with: "NixOS 26.05."
 updated: 2026-11-28
 links:
   - title: NixOS manual
-    url: https://nixos.org/manual/nixos/stable/#sec-changes-configuration
+    url: https://nixos.org/manual/nixos/stable/#sec-changing-config
   - title: nixos-rebuild(8)
     url: https://nixos.org/manual/nixos/stable/
   - title: Nix cheatsheet
@@ -28,7 +28,7 @@ sudo nixos-rebuild switch
 ```
 <!-- {: data-highlight="nixos-rebuild switch"} -->
 
-**Builds, activates, and sets the boot default.** See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changes-configuration).
+**Builds, activates, and sets the boot default.** See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
 
 ### Use a flake
 <!-- {: .-snippet} -->
@@ -49,7 +49,7 @@ sudo nixos-rebuild test
 ```
 <!-- {: data-highlight="nixos-rebuild test"} -->
 
-**Activates the config until the next reboot.** See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changes-configuration).
+**Activates the config until the next reboot.** See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
 
 ### Apply on next boot
 <!-- {: .-snippet} -->
@@ -59,7 +59,7 @@ sudo nixos-rebuild boot
 ```
 <!-- {: data-highlight="nixos-rebuild boot"} -->
 
-**Sets the boot default without switching now.** See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changes-configuration).
+**Sets the boot default without switching now.** See [configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config).
 
 ### List generations
 <!-- {: .-snippet} -->

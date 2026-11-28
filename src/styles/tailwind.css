@@ -74,6 +74,13 @@
   --shadow-focus:
     inset 0 0 0 1px var(--ring-focus),
     0 0 0 3px color-mix(in srgb, var(--ring-focus) 10%, transparent);
+  --shadow-neo:
+    0 24px 48px light-dark(#00008018, #00008030),
+    0 -12px 48px light-dark(#80000009, #80000014);
+  --shadow-neo-focus:
+    0 24px 48px light-dark(#00008018, #00008030),
+    0 -12px 48px light-dark(#80000009, #80000014),
+    0 0 0 2px var(--color-mildindigo-500);
 
   --radius: 8px;
   --radius-xs: 2px;

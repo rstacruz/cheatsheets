@@ -32,8 +32,8 @@ const styles = {
       'SearchForm__box',
       'flex items-center rounded-full bg-field cursor-text',
       small ? 'h-[48px]' : 'h-[64px]',
-      small ? '' : '[box-shadow:var(--shadow-md)]',
-      'focus-within:[box-shadow:var(--shadow-focus)]'
+      small ? '' : '[box-shadow:var(--shadow-neo)]',
+      'focus-within:[box-shadow:var(--shadow-neo-focus)]'
     ),
   prefix: (small: boolean) =>
     cx(
@@ -83,7 +83,6 @@ const styles = {
       name="q"
       type="text"
       class={styles.input(small)}
-      {...(props.isLive ? { autofocus: true } : {})}
       data-js-search-input
       placeholder={placeholder}
       autocomplete="off"

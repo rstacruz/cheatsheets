@@ -185,7 +185,7 @@ foo bar
 bar foo
 ```
 
-A leading `'` makes the term literal instead of fuzzy. Quote both ends to match word boundaries.
+A leading `'` makes the term literal instead of fuzzy. Wrap a term in quotes (`'foo'`) to match it as a whole word.
 
 See: [Search syntax](https://github.com/junegunn/fzf#search-syntax)
 
@@ -240,7 +240,7 @@ core.rb
 core.py
 ```
 
-A single `|` term acts as OR between the terms around it.
+A `|` between terms matches either side.
 
 See: [Search syntax](https://github.com/junegunn/fzf#search-syntax)
 
@@ -261,7 +261,7 @@ fzf --preview 'cat {}'
 fzf --preview 'bat --color=always {}'
 ```
 
-`{}` is replaced with the highlighted line. Avoid previews that expect non-file input.
+`{}` expands to the highlighted line, quoted for the shell. With piped input, it is that line rather than a file path.
 
 See: [Preview window](https://github.com/junegunn/fzf#preview-window)
 

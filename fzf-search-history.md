@@ -28,7 +28,7 @@ history | fzf
 
 **Finds a past command.** `history | fzf` narrows the list as you type; press Enter to print the chosen line with its history number. See [key bindings](https://github.com/junegunn/fzf#key-bindings-for-command-line).
 
-### Enable Ctrl-R in Bash
+### Enable Ctrl-R
 <!-- {: .-snippet} -->
 
 ```bash

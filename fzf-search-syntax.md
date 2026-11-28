@@ -1,7 +1,7 @@
 ---
 title: How to use fzf search syntax
 subtitle: Filter with fzf search operators
-link_title: Search fzf syntax
+link_title: Search syntax in fzf
 logo: { set: icon-park-outline, name: search }
 category: Terminal
 layout: snippet

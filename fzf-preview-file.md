@@ -24,7 +24,7 @@ fzf --preview 'cat {}'
 ```
 <!-- {: data-highlight="--preview"} -->
 
-**Previews the highlighted file.** `{}` becomes the current line, quoted for the shell. See [fzf preview window](https://github.com/junegunn/fzf#preview-window).
+**Previews the highlighted file.** `{}` expands to the highlighted line, quoted for the shell. See [fzf preview window](https://github.com/junegunn/fzf#preview-window).
 
 ### Use syntax colors
 <!-- {: .-snippet} -->

@@ -21,8 +21,8 @@ const SHEETS = {
   alpha: fixture('t1', '2026-11-14'),
   'recent-t1': fixture('t1', '2026-11-15'),
   hidden: fixture('t1', '2026-11-01', 'Hidden'),
-  'older-t2': fixture('t2', '2026-10-17'),
-  'recent-t2': fixture('t2', '2026-10-18')
+  'older-t2': fixture('t2', '2026-10-31'),
+  'recent-t2': fixture('t2', '2026-11-01')
 }
 
 let root: string
@@ -53,7 +53,7 @@ it.each(['2026-02-30', '2026-13-01', '26-11-28'])(
 
 it.each([
   ['t1', '2026-11-14'],
-  ['t2', '2026-10-17']
+  ['t2', '2026-10-31']
 ] as const)('treats the %s cadence as inclusive', (tier, stamp) => {
   const rows = findDueSheets(loadSheets(root), { tier, date: DATE })
   expect(rows.map((row) => row.verifiedAt)).toContain(stamp)
@@ -64,7 +64,7 @@ test('t1 excludes sheets younger than 14 days', () => {
   expect(rows.map((row) => row.slug)).toEqual(['oldest', 'twin', 'alpha'])
 })
 
-test('t2 uses a 42-day cadence', () => {
+test('t2 uses a 28-day cadence', () => {
   expect(dueRows(['--tier', 't2']).map((row) => row.slug)).toEqual(['older-t2'])
 })
 
@@ -81,7 +81,7 @@ test('sorts equal stamps by slug', () => {
 it.each([
   [
     't2',
-    '2026-11-01',
+    '2026-10-31',
     'No t2 sheets are due for verification; sheets in open sheet-refresh PRs are excluded.'
   ],
   [

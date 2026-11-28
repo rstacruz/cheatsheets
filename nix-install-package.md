@@ -28,7 +28,7 @@ nix profile add nixpkgs#hello
 ```
 <!-- {: data-highlight="nix profile add"} -->
 
-**Adds a package to your user profile.** It is available in new shells; see [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).
+**Adds a package globally,** available in new shells. See [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).
 
 ### Run a program once
 <!-- {: .-snippet} -->
@@ -38,7 +38,7 @@ nix run nixpkgs#hello -- --greeting Hi
 ```
 <!-- {: data-highlight="nix run"} -->
 
-**Runs a package without installing it.** Arguments after `--` go to the program; see [nix run](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-run.html).
+**Runs a package once,** with arguments after `--` passed to the program. See [nix run](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-run.html).
 
 ### Try packages in a shell
 <!-- {: .-snippet} -->
@@ -48,7 +48,7 @@ nix shell nixpkgs#hello nixpkgs#cowsay
 ```
 <!-- {: data-highlight="nix shell"} -->
 
-**Opens a shell with extra packages.** They disappear when you exit; see [ad hoc shell environments](https://nix.dev/tutorials/first-steps/ad-hoc-shell-environments.html).
+**Opens a temporary shell,** removed when you exit. See [ad hoc shell environments](https://nix.dev/tutorials/first-steps/ad-hoc-shell-environments.html).
 
 ### Remove a package
 <!-- {: .-snippet} -->
@@ -58,4 +58,4 @@ nix profile remove hello
 ```
 <!-- {: data-highlight="nix profile remove hello"} -->
 
-**Removes a package by name.** Find the name with `nix profile list`; see [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).
+**Removes a package,** selected by its profile name. See [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).

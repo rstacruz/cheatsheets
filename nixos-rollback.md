@@ -28,7 +28,7 @@ sudo nixos-rebuild switch --rollback
 ```
 <!-- {: data-highlight="--rollback"} -->
 
-**Activates the generation before the current one.** See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
+**Rolls back one generation,** activating the previous one. See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
 
 ### Find the generation
 <!-- {: .-snippet} -->
@@ -38,7 +38,7 @@ sudo nixos-rebuild list-generations
 ```
 <!-- {: data-highlight="list-generations"} -->
 
-**Lists generations with their dates and versions.** See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
+**Lists generations,** with dates and versions. See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
 
 ### Keep the rollback at next boot
 <!-- {: .-snippet} -->
@@ -48,7 +48,7 @@ sudo nixos-rebuild boot --rollback
 ```
 <!-- {: data-highlight="boot --rollback"} -->
 
-**Sets the previous generation as the boot default.** See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
+**Rolls back at boot,** keeping the current session unchanged. See [nixos-rebuild(8)](https://nixos.org/manual/nixos/stable/).
 
 ### Roll back a user profile
 <!-- {: .-snippet} -->
@@ -58,7 +58,7 @@ nix profile rollback
 ```
 <!-- {: data-highlight="nix profile rollback"} -->
 
-**Undoes the last change to your user profile.** See [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).
+**Rolls back a profile,** undoing its last change. See [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).
 
 ### Clear old generations
 <!-- {: .-snippet} -->
@@ -68,4 +68,4 @@ nix profile wipe-history
 ```
 <!-- {: data-highlight="wipe-history"} -->
 
-**Removes non-current profile versions once rollback is no longer needed.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
+**Clears old versions,** once rollback is no longer needed. See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).

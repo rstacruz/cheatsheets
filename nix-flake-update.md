@@ -28,7 +28,7 @@ nix flake update
 ```
 <!-- {: data-highlight="nix flake update"} -->
 
-**Updates every input in `flake.lock` to its newest revision.** See [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
+**Updates every input,** moving all pins to newer revisions. See [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
 
 ### Update one input
 <!-- {: .-snippet} -->
@@ -38,7 +38,7 @@ nix flake update nixpkgs
 ```
 <!-- {: data-highlight="nixpkgs"} -->
 
-**Moves only the named input.** Other pins stay untouched; see [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
+**Moves one input,** leaving other pins untouched. See [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
 
 ### Lock without updating
 <!-- {: .-snippet} -->
@@ -48,7 +48,7 @@ nix flake lock
 ```
 <!-- {: data-highlight="nix flake lock"} -->
 
-**Creates a lock file but keeps pinned inputs.** See [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
+**Locks without updating,** keeping existing pins. See [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
 
 ### Commit the result
 <!-- {: .-snippet} -->
@@ -59,4 +59,4 @@ git commit -m "Update flake inputs"
 ```
 <!-- {: data-highlight="flake.lock"} -->
 
-**Shares the new pins with everyone else.** See [Flakes: dependency management](https://nix.dev/concepts/flakes.html).
+**Commits the lock file,** sharing the new pins. See [Flakes: dependency management](https://nix.dev/concepts/flakes.html).

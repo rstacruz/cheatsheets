@@ -28,7 +28,7 @@ nix-collect-garbage -d
 ```
 <!-- {: data-highlight="-d"} -->
 
-**Removes old profile generations, then collects unreachable paths.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
+**Deletes old generations,** then collects unreachable paths. See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
 
 ### Preview what would be deleted
 <!-- {: .-snippet} -->
@@ -38,7 +38,7 @@ nix-store --gc --print-dead
 ```
 <!-- {: data-highlight="--print-dead"} -->
 
-**Lists unreachable store paths without deleting them.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
+**Previews dead paths,** without deleting anything. See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
 
 ### Keep two weeks of generations
 <!-- {: .-snippet} -->
@@ -48,7 +48,7 @@ nix-collect-garbage --delete-older-than 14d
 ```
 <!-- {: data-highlight="14d"} -->
 
-**Deletes generations older than 14 days across all profiles.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
+**Prunes old generations,** older than 14 days across profiles. See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
 
 ### Optimise the store
 <!-- {: .-snippet} -->
@@ -58,4 +58,4 @@ sudo nix-store --optimise
 ```
 <!-- {: data-highlight="--optimise"} -->
 
-**Hard-links identical store files to save space.** See [nix-store](https://nix.dev/manual/nix/stable/command-ref/nix-store.html).
+**Deduplicates store files,** reclaiming disk space. See [nix-store](https://nix.dev/manual/nix/stable/command-ref/nix-store.html).

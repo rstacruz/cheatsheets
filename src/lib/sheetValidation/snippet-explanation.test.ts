@@ -13,8 +13,9 @@ import {
 const MAX_BOLD_WORDS = 5
 const SEE_WORD = /\bsee(?:\s+(?:also|the|a|an))?\s+$/i
 const HAS_WORD = /[\p{L}\p{N}]/u
+const BOLD_COMMA = /,$/
 
-type Rule = 'words' | 'expound' | 'see-link'
+type Rule = 'words' | 'period' | 'expound' | 'see-link'
 type Finding = { line: number; heading: string; rule: Rule; detail: string }
 type Explanation = { line: number; heading: string; paragraph: Paragraph }
 
@@ -68,7 +69,8 @@ export function findExplanationIssues(source: string, rule: Rule): Finding[] {
   for (const { line, heading, paragraph } of explanations(source)) {
     const children = paragraph.children
     if (children[0]?.type !== 'strong') continue
-    const words = textOf(children[0]).trim().split(/\s+/).filter(Boolean)
+    const summary = textOf(children[0]).trim()
+    const words = summary.split(/\s+/).filter(Boolean)
 
     if (rule === 'words' && words.length > MAX_BOLD_WORDS) {
       found.push({
@@ -76,6 +78,16 @@ export function findExplanationIssues(source: string, rule: Rule): Finding[] {
         heading,
         rule,
         detail: `${words.length} words in bold summary (max ${MAX_BOLD_WORDS})`
+      })
+      continue
+    }
+
+    if (rule === 'period' && BOLD_COMMA.test(summary)) {
+      found.push({
+        line,
+        heading,
+        rule,
+        detail: 'bold summary ends with a comma'
       })
       continue
     }
@@ -123,17 +135,20 @@ export function findExplanationIssues(source: string, rule: Rule): Finding[] {
 
 describe('findExplanationIssues()', () => {
   const GOOD =
-    "**Renders in place,** sharing the caller's context. See [Include](https://example.com)."
+    "**Renders in place.** Sharing the caller's context. See [Include](https://example.com)."
   const LONG =
-    "**Renders the template's output in place,** sharing context. See [Include](https://example.com)."
+    '**Renders in place with a full context.** Sharing context. See [Include](https://example.com).'
   const BARE = '**Renders in place.** See [Include](https://example.com).'
-  const NO_SEE = "**Renders in place,** sharing the caller's context."
-  const NO_LINK =
-    "**Renders in place,** sharing the caller's context. See more."
+  const NO_SEE = "**Renders in place.** Sharing the caller's context."
+  const NO_LINK = '**Renders in place.** Sharing context. See more.'
+  const COMMA =
+    "**Renders in place,** sharing the caller's context. See [Include](https://example.com)."
 
   const cases: Array<[string, Rule, number]> = [
     [GOOD, 'words', 0],
     [LONG, 'words', 1],
+    [GOOD, 'period', 0],
+    [COMMA, 'period', 1],
     [GOOD, 'expound', 0],
     [BARE, 'expound', 1],
     [GOOD, 'see-link', 0],
@@ -147,7 +162,7 @@ describe('findExplanationIssues()', () => {
 
   test('accepts lowercase see', () => {
     const input = sheet(
-      '**Renders in place,** sharing context. see [Include](https://example.com).'
+      '**Renders in place.** Sharing context. see [Include](https://example.com).'
     )
     expect(findExplanationIssues(input, 'see-link')).toEqual([])
   })
@@ -155,6 +170,7 @@ describe('findExplanationIssues()', () => {
 
 const RULES: Array<[Rule, string]> = [
   ['words', 'snippet-bold-summary-words.json'],
+  ['period', 'snippet-bold-summary-period.json'],
   ['expound', 'snippet-summary-expounds.json'],
   ['see-link', 'snippet-see-link.json']
 ]

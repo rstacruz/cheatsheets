@@ -15,6 +15,7 @@ test('/?q=git+rebase loads ranked search results', async ({ page }) => {
 
 test('the top hit is the first visible result', async ({ page }) => {
   await page.goto('/search?q=react')
+  await expect(page.locator(STATUS)).toHaveText('24 cheatsheets for “react”')
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveCount(0)
   const slugs = await page

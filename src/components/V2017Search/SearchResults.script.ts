@@ -1,13 +1,12 @@
 import Fuse from 'fuse.js'
 import { fetchFuse, parseFuse, type Row } from '~/lib/fuseSearch/fuseSearch'
 import { getInitialRedirectSlug } from '~/lib/fuseSearch/searchLanding'
+import { RESULT_LIMIT } from '~/lib/fuseSearch/searchConfig'
 import {
   getResultTitle,
   rankGroupOrder,
   rankGroupSlugs
 } from './SearchResults.core'
-
-const RESULT_LIMIT = 24
 
 type SearchIndex = Fuse<Row>
 

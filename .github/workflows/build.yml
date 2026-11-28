@@ -3,7 +3,7 @@ on:
   push:
     branches: [main, master]
   pull_request:
-    branches: [main, master]
+    branches: [main, master, rico/cheat-search-landing]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,3 +22,5 @@ jobs:
         run: pnpm playwright install --with-deps chromium
       - name: Run tests
         run: pnpm run ci
+      - name: Run Pages edge e2e
+        run: pnpm run pages:e2e

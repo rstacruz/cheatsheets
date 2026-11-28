@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: code }
 category: HTML
 layout: snippet
 last_verified_with: "XPath 1.0."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: XPath booleans

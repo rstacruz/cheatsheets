@@ -9,6 +9,7 @@ archived: |
   Bluebird last shipped in 2019 and upstream recommends native promises.
   See [Promises](./promise) for the standard API.
 weight: -1
+created_at: 2014-09-24
 updated: 2017-09-08
 ---
 

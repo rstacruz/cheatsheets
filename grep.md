@@ -3,6 +3,7 @@ title: GNU grep
 subtitle: Pattern search utility
 logo: { set: icon-park-outline, name: search }
 category: CLI
+created_at: 2021-09-26
 updated: 2026-11-23
 last_verified_with: "GNU grep 3.12."
 tier: t3

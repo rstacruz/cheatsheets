@@ -1,5 +1,6 @@
 ---
 title: CircleCI
+created_at: 2015-11-23
 subtitle: CI configuration reference
 category: Hidden
 # CircleCI 1.0 stopped running builds on 2018-08-31; circle.yml is no longer read.

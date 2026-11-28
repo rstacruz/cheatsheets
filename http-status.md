@@ -19,6 +19,7 @@ fragments:
   - "307 Redirect"
   - "502 Bad Gateway"
   - "503 Unavailable"
+created_at: 2017-10-24
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "RFC 9110, RFC 4918, IANA HTTP Status Code Registry."

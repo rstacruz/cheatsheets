@@ -5,6 +5,7 @@ description: "Cron syntax: the five-field format, operators, special strings and
 subtitle: Unix job scheduler
 logo: { set: icon-park-outline, name: time }
 category: CLI
+created_at: 2013-05-29
 updated: 2026-11-23
 tier: t3
 last_verified_with: "cronie 1.7.2."

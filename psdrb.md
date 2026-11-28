@@ -10,6 +10,7 @@ links:
     url: https://github.com/layervault/psd.rb
 tier: t3
 last_verified_with: "PSD.rb 3.9.0."
+created_at: 2013-09-17
 updated: 2026-11-26
 ---
 

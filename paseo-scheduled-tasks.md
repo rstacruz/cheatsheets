@@ -7,6 +7,7 @@ category: Agents
 layout: snippet
 tier: t1
 last_verified_with: "Paseo 0.17.4."
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-26
 fragments:

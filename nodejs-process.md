@@ -4,6 +4,7 @@ subtitle: Process global reference
 logo: { set: icon-park-outline, name: cpu }
 category: Node.js
 last_verified_with: "Node.js 26.13.1."
+created_at: 2014-10-23
 updated: 2026-11-25
 tier: t3
 intro: |

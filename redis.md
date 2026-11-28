@@ -3,6 +3,7 @@ title: Redis
 subtitle: In-memory data store and cache
 logo: { src: /assets/logos/redis.svg }
 category: Databases
+created_at: 2026-11-27
 updated: 2026-11-27
 last_verified_at: 2026-11-27
 last_verified_with: "Redis 8.10.3, redis-cli 8.10.3, Docker 29.9.3."

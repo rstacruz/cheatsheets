@@ -4,6 +4,7 @@ subtitle: Syntax for ES modules
 logo: { set: icon-park-outline, name: cube }
 category: JavaScript
 weight: -3
+created_at: 2026-10-04
 updated: 2026-11-25
 last_verified_with: "ECMAScript 2026, Node.js 26.13.1."
 tier: t3

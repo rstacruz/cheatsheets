@@ -6,6 +6,7 @@ subtitle: Interactive shell
 logo: { src: /assets/logos/zsh.svg }
 category: Shell
 tier: t2
+created_at: 2012-03-16
 updated: 2026-11-18
 last_verified_at: 2026-11-18
 last_verified_with: "Zsh 5.9.2."

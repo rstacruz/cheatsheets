@@ -39,8 +39,6 @@
   "firebase#Authenticating",
   "firebase#Using",
   "goby#Hello world",
-  "intl-datetime#Options without a locale",
-  "intl-datetime#Parsing",
   "jasmine#Creating spies",
   "jasmine#Expectations",
   "jasmine#Hooks",

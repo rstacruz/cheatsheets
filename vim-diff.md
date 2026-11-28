@@ -3,6 +3,7 @@ title: Vimdiff
 subtitle: Vim diff comparison mode
 logo: { set: icon-park-outline, name: difference-set }
 category: Vim
+created_at: 2018-12-06
 updated: 2026-11-26
 weight: -10
 intro: |

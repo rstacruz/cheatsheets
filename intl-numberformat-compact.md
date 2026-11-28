@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: notation option

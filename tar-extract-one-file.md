@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: file-zip }
 category: CLI
 layout: snippet
 last_verified_with: "tar 1.35."
+created_at: 2026-11-23
 updated: 2026-11-23
 links:
   - title: GNU tar manual

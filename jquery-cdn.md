@@ -1,5 +1,6 @@
 ---
 title: jQuery CDN
+created_at: 2014-06-21
 subtitle: Archived jQuery CDN reference
 category: JavaScript libraries
 tags: [Archived]

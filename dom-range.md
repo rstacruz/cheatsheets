@@ -6,6 +6,7 @@ category: Browser APIs
 intro: |
   Quick reference to the HTML [DOM createRange API](https://devdocs.io/dom/range).
 last_verified_with: "WHATWG DOM Standard."
+created_at: 2015-11-25
 updated: 2026-11-25
 tier: t3
 links:

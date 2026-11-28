@@ -6,6 +6,7 @@ logo: { src: /assets/logos/nginx.svg }
 category: Devops
 layout: snippet
 last_verified_with: "nginx 1.30.8."
+created_at: 2026-11-25
 updated: 2026-11-28
 links:
   - title: ngx_http_limit_req_module

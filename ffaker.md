@@ -4,6 +4,7 @@ subtitle: Fake data generator
 logo: { set: icon-park-outline, name: magic }
 category: Ruby libraries
 last_verified_with: "ffaker 2.25."
+created_at: 2012-03-29
 updated: 2026-11-25
 tier: t3
 ---

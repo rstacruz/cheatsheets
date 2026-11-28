@@ -14,6 +14,7 @@ links:
   - title: Ruby documentation
     url: https://docs.ruby-lang.org/en/
 last_verified_with: "Ruby 4.1.0."
+created_at: 2012-07-03
 updated: 2026-11-26
 ---
 

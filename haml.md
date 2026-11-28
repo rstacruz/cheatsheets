@@ -5,6 +5,7 @@ logo: { src: /assets/logos/haml.svg }
 category: Markup
 prism_languages: [haml]
 last_verified_with: "Haml 7.5.2."
+created_at: 2018-12-07
 updated: 2026-11-24
 tier: t3
 intro: |

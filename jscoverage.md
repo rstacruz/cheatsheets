@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   jscoverage was discontinued after 0.6.0 in 2015. Use
   [istanbul/nyc](https://istanbul.js.org/) instead.
+created_at: 2014-03-26
 updated: 2026-10-04
 intro: |
   A small guide into installing [jscoverage](https://www.npmjs.com/package/jscoverage). Also see [mocha-blanket](./mocha-blanket).

@@ -1,5 +1,6 @@
 ---
 title: Riot.js
+created_at: 2015-12-20
 subtitle: Tiny component UI library
 category: Hidden
 # Pre-Riot-4 tag API; riot.route and old lifecycle hooks are gone.

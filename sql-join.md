@@ -4,6 +4,7 @@ subtitle: Combine rows across tables
 logo: { set: icon-park-outline, name: database-network }
 category: Databases
 weight: -1
+created_at: 2015-11-27
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 last_verified_with: "SQLite 3.54.0, PostgreSQL 19, MySQL 9.7."

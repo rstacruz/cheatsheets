@@ -6,6 +6,7 @@ logo: { src: /assets/logos/nodejs.svg }
 category: Node.js
 layout: snippet
 last_verified_with: "Node.js 26.13.1."
+created_at: 2026-11-23
 updated: 2026-11-28
 tier: t3
 links:

@@ -3,6 +3,7 @@ title: Nix
 subtitle: Declarative package manager
 logo: { src: /assets/logos/nixos.svg }
 category: Package managers
+created_at: 2026-11-28
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "Nix 2.35.6."

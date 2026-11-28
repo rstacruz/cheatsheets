@@ -6,6 +6,7 @@ logo: { src: /assets/logos/vitest.svg }
 category: JavaScript testing
 layout: snippet
 last_verified_with: "Vitest 5.1.2."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: Mocking timers

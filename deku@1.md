@@ -1,5 +1,6 @@
 ---
 title: Deku v1
+created_at: 2015-12-26
 subtitle: Legacy virtual DOM library
 category: JavaScript libraries
 deprecated: true

@@ -10,6 +10,7 @@ links:
     url: https://rakshasa.github.io/rtorrent/
 tier: t3
 last_verified_with: "rTorrent 0.16.28."
+created_at: 2012-12-15
 updated: 2026-11-26
 ---
 

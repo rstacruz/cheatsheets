@@ -4,6 +4,7 @@ subtitle: Suite and test API
 logo: { src: /assets/logos/mocha.svg }
 category: JavaScript testing
 last_verified_with: "Mocha 12.0.3."
+created_at: 2015-10-05
 updated: 2026-11-25
 tier: t3
 intro: |

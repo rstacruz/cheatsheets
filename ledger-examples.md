@@ -4,6 +4,7 @@ subtitle: Double-entry accounting example set
 logo: { set: icon-park-outline, name: experiment }
 category: Plain-text accounting
 last_verified_with: "Ledger 3.4.1."
+created_at: 2014-10-08
 updated: 2026-11-25
 tier: t3
 intro: |

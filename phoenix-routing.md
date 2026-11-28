@@ -6,6 +6,7 @@ category: Elixir
 weight: -1
 tier: t3
 last_verified_with: "Phoenix 1.8.17."
+created_at: 2016-06-02
 updated: 2026-11-25
 intro: |
   Phoenix routes map URLs to controller actions. This sheet covers single routes, resources and their options, path helpers, nested resources, and scopes.

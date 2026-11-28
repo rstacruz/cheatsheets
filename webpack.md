@@ -12,6 +12,7 @@ links:
     url: https://github.com/webpack/webpack
 tier: t3
 last_verified_with: "webpack 5.113.0, webpack-cli 7.3.1."
+created_at: 2014-03-26
 updated: 2026-11-26
 ---
 

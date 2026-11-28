@@ -6,6 +6,7 @@ logo: { src: /assets/logos/git.svg }
 category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
+created_at: 2026-11-23
 updated: 2026-11-28
 tier: t3
 links:

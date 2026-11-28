@@ -6,6 +6,7 @@ logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "CSS Custom Properties Module Level 1, CSS Properties and Values API Level 1."
+created_at: 2026-11-24
 updated: 2026-11-28
 tier: t3
 links:

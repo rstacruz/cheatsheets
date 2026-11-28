@@ -12,6 +12,7 @@ links:
     url: https://weechat.org/files/doc/stable/weechat_user.en.html#key_bindings_buffers
 tier: t3
 last_verified_with: "WeeChat 4.10.4."
+created_at: 2013-08-24
 updated: 2026-11-26
 ---
 

@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: file-zip }
 category: CLI
 tier: t3
 last_verified_with: "GNU tar 1.35."
+created_at: 2022-08-11
 updated: 2026-11-26
 intro: Concatenate, Deflate, Inflate files
 links:

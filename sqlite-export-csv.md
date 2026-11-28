@@ -7,6 +7,7 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "SQLite 3.54.0."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: CSV export

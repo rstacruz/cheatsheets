@@ -3,6 +3,7 @@ title: Newman
 subtitle: Postman collection runner
 logo: { src: /assets/logos/postman.svg }
 category: API
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 last_verified_with: "Newman 6.2.3."

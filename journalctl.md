@@ -7,6 +7,7 @@ category: Linux
 layout: snippet
 tier: t3
 last_verified_with: "systemd 262."
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: journalctl(1)

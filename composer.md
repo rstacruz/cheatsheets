@@ -6,6 +6,7 @@ category: Package managers
 weight: -1
 authors:
   - github: benolot
+created_at: 2017-10-31
 updated: 2020-02-23
 tier: t3
 last_verified_with: "Composer 2.11.2."

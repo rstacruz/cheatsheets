@@ -3,6 +3,7 @@ title: Wget
 subtitle: Non-interactive network downloader
 logo: { src: /assets/logos/wget.svg, mono: true }
 category: Networking
+created_at: 2026-11-18
 updated: 2026-11-22
 last_verified_at: 2026-11-22
 last_verified_with: "GNU Wget 1.25.0."

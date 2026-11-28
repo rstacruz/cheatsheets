@@ -10,6 +10,7 @@ links:
     url: https://wiki.znc.in/ZNC
 tier: t3
 last_verified_with: "ZNC 1.10.3."
+created_at: 2013-01-03
 updated: 2026-11-26
 ---
 

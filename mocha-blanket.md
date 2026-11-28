@@ -1,5 +1,6 @@
 ---
 title: Mocha blanket
+created_at: 2014-11-05
 subtitle: Code coverage reporting
 category: Hidden
 # Built on blanket.js, which is abandoned (its README points to Istanbul/nyc).

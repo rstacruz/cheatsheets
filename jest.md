@@ -3,6 +3,7 @@ title: Jest
 subtitle: JavaScript test runner
 logo: { src: /assets/logos/jest.svg, mono: true }
 category: JavaScript testing
+created_at: 2017-03-14
 updated: 2026-11-25
 last_verified_with: "Jest 30.5.2."
 tier: t3

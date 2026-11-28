@@ -3,6 +3,7 @@ title: Input tag
 subtitle: Type and attribute reference
 logo: { set: icon-park-outline, name: textarea }
 category: HTML
+created_at: 2014-07-30
 updated: 2026-11-23
 tier: t3
 last_verified_with: "WHATWG HTML Living Standard."

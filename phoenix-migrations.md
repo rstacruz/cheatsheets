@@ -4,6 +4,7 @@ subtitle: Database migration tasks
 logo: { set: icon-park-outline, name: database-sync }
 category: Elixir
 weight: -1
+created_at: 2016-06-02
 updated: 2026-11-23
 last_verified_with: "Phoenix 1.8.17, Ecto 3.14.3, Ecto SQL 3.14.0."
 tier: t3

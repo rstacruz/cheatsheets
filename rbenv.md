@@ -5,6 +5,7 @@ subtitle: Ruby version manager
 logo: { set: icon-park-outline, name: toolkit }
 category: Ruby
 tier: t3
+created_at: 2017-10-11
 updated: 2026-11-26
 last_verified_with: "rbenv 1.3.2, ruby-build 20261119."
 weight: -1

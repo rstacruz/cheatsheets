@@ -7,6 +7,7 @@ prism_languages: [jade]
 weight: -1
 tier: t3
 last_verified_with: "Slim 5.2.2."
+created_at: 2015-07-17
 updated: 2026-11-26
 intro: |
   Slim is a lightweight Ruby template engine with indentation-based syntax.

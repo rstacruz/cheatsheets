@@ -4,6 +4,7 @@ subtitle: Syntax for async functions
 logo: { set: icon-park-outline, name: loading }
 category: JavaScript
 weight: -3
+created_at: 2026-10-04
 updated: 2026-11-25
 last_verified_with: "ECMAScript 2026."
 tier: t3

@@ -4,6 +4,7 @@ subtitle: Request handling classes
 logo: { set: icon-park-outline, name: control }
 category: Rails
 last_verified_with: "Rails 8.1.4.1."
+created_at: 2012-03-29
 updated: 2026-11-24
 tier: t3
 intro: |

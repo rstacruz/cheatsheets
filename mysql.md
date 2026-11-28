@@ -2,6 +2,7 @@
 title: MySQL
 subtitle: Relational database server
 logo: { src: /assets/logos/mysql.svg }
+created_at: 2018-11-19
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "MySQL 9.7.4 LTS."

@@ -9,6 +9,7 @@ archived: |
   [Jekyll for GitHub Pages](./jekyll-github) and the
   [GitHub Pages documentation](https://docs.github.com/en/pages).
 last_verified_with: "GitHub Pages docs, actions/deploy-pages v4."
+created_at: 2014-02-25
 updated: 2026-11-24
 intro: |
   GitHub Pages static hosting: custom domains, DNS records, and deployment workflows.

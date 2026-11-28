@@ -1,5 +1,6 @@
 ---
 title: Spine
+created_at: 2014-02-25
 subtitle: JavaScript MVC framework
 category: Hidden
 # No longer maintained; last release around 2014.

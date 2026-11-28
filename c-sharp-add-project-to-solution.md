@@ -6,6 +6,7 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: ".NET 11.0.100."
+created_at: 2026-11-26
 updated: 2026-11-28
 tier: t3
 links:

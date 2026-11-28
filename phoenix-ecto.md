@@ -3,6 +3,7 @@ title: "Phoenix: Ecto"
 subtitle: Database wrapper for Elixir
 logo: { set: icon-park-outline, name: data-sheet }
 category: Elixir
+created_at: 2016-06-03
 updated: 2026-11-22
 last_verified_with: "Ecto 3.14.3, Phoenix 1.8.17, Elixir 1.19.7."
 intro: |

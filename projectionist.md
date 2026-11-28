@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: target }
 category: Vim
 tier: t3
 last_verified_with: "vim-projectionist 1.3."
+created_at: 2015-11-13
 updated: 2026-11-25
 intro: |
   Vim-projectionist maps file paths to alternate files, templates, and commands. This sheet covers configuration, available options, and the commands it adds.

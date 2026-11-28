@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   This documents bugs in IE6–IE8, and Internet Explorer was retired in 2022.
   No replacement is needed for current browsers.
+created_at: 2012-12-18
 updated: 2018-03-06
 intro: |
   A bunch of bugs to take care of if you're going to target legacy IE browsers.

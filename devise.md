@@ -1,5 +1,6 @@
 ---
 title: Devise
+created_at: 2012-03-16
 subtitle: Rails authentication gem
 category: Hidden
 # Documents Devise 1.x on Rails 3; its helpers and before_filter fail on current versions.

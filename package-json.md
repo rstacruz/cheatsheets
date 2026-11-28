@@ -4,6 +4,7 @@ subtitle: Manifest for npm packages
 logo: { src: /assets/logos/npm.svg }
 category: Node.js libraries
 prism_languages: [json]
+created_at: 2013-05-29
 updated: 2026-11-25
 last_verified_with: "npm 12.2.3."
 tier: t3

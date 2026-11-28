@@ -12,6 +12,7 @@ links:
     url: https://jonas.github.io/tig/doc/manual.html
   - title: tigrc configuration
     url: https://jonas.github.io/tig/doc/tigrc.5.html
+created_at: 2012-03-16
 updated: 2026-11-26
 last_verified_with: "tig 2.6.1."
 weight: -3

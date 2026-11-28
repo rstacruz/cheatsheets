@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "intl-pluralrules 2.0.1, Node 26.13.1."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: intl-pluralrules on npm

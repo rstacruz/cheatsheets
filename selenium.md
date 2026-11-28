@@ -23,6 +23,7 @@ fragments:
   - "enable_bidi"
   - "driver.quit()"
 keywords: [WebDriver, browser automation, Python, UI testing, Selenium Manager]
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 last_verified_with: "Selenium 4.53.0 (Python bindings)."

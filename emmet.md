@@ -7,6 +7,7 @@ logo: { src: /assets/logos/emmet.svg }
 category: Markup
 prism_languages: [html, css]
 last_verified_with: "Emmet 2.4."
+created_at: 2018-12-07
 updated: 2026-11-25
 tier: t3
 intro: |

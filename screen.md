@@ -17,6 +17,7 @@ links:
     url: https://www.gnu.org/software/screen/manual/screen.html#Commands
 tier: t3
 last_verified_with: "GNU Screen 5.0.3."
+created_at: 2021-01-07
 updated: 2026-11-26
 ---
 

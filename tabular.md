@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: table }
 category: Vim
 tier: t3
 last_verified_with: "Tabular 1.0.0."
+created_at: 2014-02-25
 updated: 2026-11-26
 weight: -1
 intro: |

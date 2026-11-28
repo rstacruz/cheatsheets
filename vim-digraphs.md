@@ -12,6 +12,7 @@ links:
     url: https://vimhelp.org/digraph.txt.html#digraphs-use
 tier: t3
 last_verified_with: "Vim 9.2."
+created_at: 2015-04-19
 updated: 2026-11-26
 ---
 

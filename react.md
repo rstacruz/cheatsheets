@@ -4,6 +4,7 @@ subtitle: UI library
 logo: { src: /assets/logos/react.svg }
 category: JavaScript frameworks
 tags: [Featured]
+created_at: 2014-03-22
 updated: 2026-11-24
 last_verified_at: 2026-11-24
 last_verified_with: "React 19.0–19.3 APIs."

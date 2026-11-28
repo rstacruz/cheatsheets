@@ -6,6 +6,7 @@ category: Shell
 intro: |
   Quick reference to ANSI color codes.
 last_verified_with: "ECMA-48 5th edition, ANSI X3.64."
+created_at: 2013-10-14
 updated: 2026-11-25
 tier: t3
 links:

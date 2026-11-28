@@ -4,6 +4,7 @@ subtitle: HTTP mocking library
 logo: { set: icon-park-outline, name: api }
 category: JavaScript testing
 last_verified_with: "nock 15.0.6."
+created_at: 2014-02-25
 updated: 2026-11-24
 tier: t3
 intro: |

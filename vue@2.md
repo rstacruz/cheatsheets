@@ -4,6 +4,7 @@ subtitle: Vue 2 options API
 category: JavaScript libraries
 deprecated: true
 deprecated_by: /vue
+created_at: 2015-12-26
 updated: 2019-12-26
 weight: -10
 intro: |

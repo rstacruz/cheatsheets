@@ -8,6 +8,7 @@ archived: |
   `co` was superseded by native async/await; its last release was 4.6.0 in
   2015. See
   [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
+created_at: 2015-09-21
 updated: 2017-10-27
 weight: -1
 intro: |

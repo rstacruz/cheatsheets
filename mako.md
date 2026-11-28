@@ -4,6 +4,7 @@ subtitle: Python template compiler
 logo: { set: icon-park-outline, name: code }
 category: Python
 last_verified_with: "Mako 1.4.3."
+created_at: 2021-09-27
 updated: 2026-11-24
 tier: t3
 intro: |

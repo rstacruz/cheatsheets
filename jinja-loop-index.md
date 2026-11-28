@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Python
 layout: snippet
 last_verified_with: "Jinja 3.1.6."
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: For

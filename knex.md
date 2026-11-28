@@ -3,6 +3,7 @@ title: Knex
 subtitle: SQL query builder
 logo: { src: /assets/logos/knex.svg }
 last_verified_with: "Knex 3.3.0."
+created_at: 2017-09-23
 updated: 2026-11-25
 tier: t3
 category: Databases

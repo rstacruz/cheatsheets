@@ -14,6 +14,7 @@ links:
     url: https://manpages.ubuntu.com/manpages/noble/en/man1/dpkg.1.html
 tier: t3
 last_verified_with: "Ubuntu 24.04 LTS."
+created_at: 2012-03-16
 updated: 2026-11-26
 ---
 

@@ -3,6 +3,7 @@ title: Bash for loop
 subtitle: Iterate lists, ranges, and files
 logo: { src: /assets/logos/bash.svg }
 category: Shell
+created_at: 2026-11-27
 updated: 2026-11-27
 last_verified_at: 2026-11-27
 last_verified_with: "Bash 5.3.0."

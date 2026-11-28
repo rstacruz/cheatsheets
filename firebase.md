@@ -1,5 +1,6 @@
 ---
 title: Firebase
+created_at: 2014-10-23
 subtitle: Backend as a service
 category: Hidden
 # Documents the pre-2016 Firebase API (`new Firebase()`), removed in SDK 3.

@@ -1,5 +1,6 @@
 ---
 title: Social media images
+created_at: 2015-04-06
 category: Hidden
 subtitle: Social media image sizes
 # 2013-era Facebook and Twitter dimensions; current og:image is 1200x630.

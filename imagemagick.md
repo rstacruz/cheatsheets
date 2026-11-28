@@ -3,6 +3,7 @@ title: Imagemagick
 category: Media tools
 subtitle: Image conversion and editing suite
 logo: { src: /assets/logos/imagemagick.svg }
+created_at: 2013-01-25
 updated: 2026-11-25
 tier: t3
 last_verified_with: "ImageMagick 7.1.2-36."

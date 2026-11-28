@@ -7,6 +7,7 @@ category: Linux
 layout: snippet
 tier: t3
 last_verified_with: "NixOS 26.05."
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: nixos-rebuild(8)

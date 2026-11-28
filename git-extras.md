@@ -6,6 +6,7 @@ category: Git
 intro: |
   Quick reference to some utilities in the [git-extras](https://github.com/tj/git-extras) utilities.
 last_verified_with: "git-extras 7.5."
+created_at: 2014-09-05
 updated: 2026-11-25
 tier: t3
 links:

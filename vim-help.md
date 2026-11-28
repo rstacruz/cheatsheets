@@ -12,6 +12,7 @@ links:
     url: https://vimhelp.org/helphelp.txt.html#help-notation
   - title: Tags
     url: https://vimhelp.org/tagsrch.txt.html#tag
+created_at: 2015-04-21
 updated: 2026-11-26
 last_verified_with: "Vim 9.2."
 tier: t3

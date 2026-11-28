@@ -4,6 +4,7 @@ subtitle: Macro-based code generation
 logo: { src: /assets/logos/elixir.svg, mono: true }
 category: Elixir
 last_verified_with: "Elixir 1.20.5."
+created_at: 2016-06-19
 updated: 2026-11-24
 tier: t3
 intro: |

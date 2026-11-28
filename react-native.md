@@ -6,6 +6,7 @@ category: JavaScript frameworks
 tier: t2
 last_verified_with: "React Native 0.88.1, Expo SDK 58.1.0, React Navigation 7.5.2."
 last_verified_at: 2026-11-28
+created_at: 2026-11-28
 updated: 2026-11-28
 fragments:
   - "npx expo start"

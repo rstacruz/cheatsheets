@@ -6,6 +6,7 @@ logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
+created_at: 2026-11-24
 updated: 2026-11-24
 tier: t3
 links:

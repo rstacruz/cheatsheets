@@ -6,6 +6,7 @@ logo: { src: /assets/logos/vite.svg }
 category: Build tools
 layout: snippet
 last_verified_with: "Vite 8.3.8, Node 26.13.1."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: resolve.alias

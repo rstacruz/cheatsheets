@@ -5,6 +5,7 @@ subtitle: Call, pin, and reuse actions
 category: Devops
 layout: snippet
 last_verified_with: "actions/setup-node 7.1.0, actions/checkout 7.0.1, codeql-action 4."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: steps.uses

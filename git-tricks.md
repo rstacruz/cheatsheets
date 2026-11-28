@@ -6,6 +6,7 @@ category: Hidden
 tags: [Archived]
 archived: |
   This catch-all of niche Git recipes duplicates the maintained Git cheatsheet and ages poorly between releases; verified against Git 2.56.0 on 2026-11-23. Use the [Git cheatsheet](./git) and [Git's documentation](https://git-scm.com/docs) instead.
+created_at: 2013-01-08
 updated: 2026-11-23
 last_verified_with: "Git 2.56.0."
 ---

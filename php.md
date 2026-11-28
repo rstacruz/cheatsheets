@@ -3,6 +3,7 @@ title: PHP
 subtitle: General-purpose scripting language
 logo: { src: /assets/logos/php.svg, mono: true }
 category: C-like
+created_at: 2026-11-21
 updated: 2026-11-21
 last_verified_at: 2026-11-22
 last_verified_with: "PHP 8.5.12."

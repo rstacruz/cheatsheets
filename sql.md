@@ -4,6 +4,7 @@ subtitle: Relational query language
 logo: { set: icon-park-outline, name: data }
 category: Databases
 weight: -10
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 tier: t2

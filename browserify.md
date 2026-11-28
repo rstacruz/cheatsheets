@@ -1,5 +1,6 @@
 ---
 title: Browserify
+created_at: 2014-07-14
 subtitle: JavaScript module bundler
 category: Hidden
 # No longer in active development; legacy transforms; superseded by modern bundlers.

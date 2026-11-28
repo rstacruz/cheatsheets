@@ -10,6 +10,7 @@ links:
     url: https://ruby.github.io/rdoc/
 tier: t3
 last_verified_with: "RDoc 8.1.0."
+created_at: 2012-03-16
 updated: 2026-11-26
 ---
 

@@ -3,6 +3,7 @@ title: Starlight
 subtitle: Documentation theme for Astro
 logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
+created_at: 2026-11-27
 updated: 2026-11-27
 last_verified_at: 2026-11-27
 last_verified_with: "Starlight 0.43.2, Astro 7.4.13."

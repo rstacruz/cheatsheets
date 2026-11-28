@@ -9,6 +9,7 @@ archived: |
   acceleration; `com.apple.mouse.scaling -1` no longer turns acceleration off.
   See [Mouse settings](https://support.apple.com/guide/mac-help/mouse-settings-mh29222/mac)
   in Apple's Mac User Guide.
+created_at: 2018-03-20
 updated: 2018-03-20
 weight: -1
 keywords:

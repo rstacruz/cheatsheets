@@ -8,6 +8,7 @@ archived: |
   cssnext was deprecated in favour of
   [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env);
   its repository is archived.
+created_at: 2017-03-05
 updated: 2017-10-30
 weight: -3
 ---

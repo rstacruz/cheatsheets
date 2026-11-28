@@ -3,6 +3,7 @@ title: scp
 subtitle: Secure file copy
 logo: { set: icon-park-outline, name: copy }
 category: Networking
+created_at: 2018-12-06
 updated: 2026-11-24
 last_verified_with: "OpenSSH 10.6."
 authors:

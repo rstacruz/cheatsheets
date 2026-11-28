@@ -1,5 +1,6 @@
 ---
 title: Machinist
+created_at: 2012-03-21
 subtitle: Ruby fixture library
 category: Hidden
 # No longer in active development since 2013.

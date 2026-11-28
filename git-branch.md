@@ -3,6 +3,7 @@ title: Git branches
 subtitle: Branch management workflow
 logo: { set: icon-park-outline, name: branch }
 category: Git
+created_at: 2014-09-11
 updated: 2026-11-23
 tier: t3
 last_verified_with: "Git 2.56.0."

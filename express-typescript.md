@@ -5,6 +5,7 @@ subtitle: Typed handlers and bodies
 logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
+created_at: 2026-11-26
 updated: 2026-11-28
 last_verified_with: "Express 5.3.0, TypeScript 7.0.2, Node 26.13.1."
 tier: t3

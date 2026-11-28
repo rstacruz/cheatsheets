@@ -3,6 +3,7 @@ title: Share links
 subtitle: Social share link markup
 logo: { set: icon-park-outline, name: share }
 category: HTML
+created_at: 2017-09-04
 updated: 2026-11-24
 last_verified_with: "X intent, Facebook sharer.php, LinkedIn share-offsite, wa.me, t.me."
 tier: t3

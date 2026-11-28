@@ -5,6 +5,7 @@ description: "rclone commands: config, list remotes, copy, sync, check and gener
 subtitle: Cloud storage sync tool
 logo: { src: /assets/logos/rclone.svg }
 category: Networking
+created_at: 2025-11-24
 updated: 2026-11-24
 last_verified_with: "rclone 1.76.0."
 tier: t3

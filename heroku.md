@@ -3,6 +3,7 @@ title: Heroku
 subtitle: Cloud application hosting platform
 logo: { src: /assets/logos/heroku.svg, mono: true }
 category: Devops
+created_at: 2012-03-16
 updated: 2026-11-25
 tier: t3
 last_verified_with: "Heroku CLI 11.14.0."

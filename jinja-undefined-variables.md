@@ -72,7 +72,7 @@ env.from_string("{{ missing }}").render()
 # jinja2.exceptions.UndefinedError:
 #   'missing' is undefined
 ```
-<!-- {: data-highlight="StrictUndefined"} -->
+<!-- {: data-highlight="undefined=StrictUndefined"} -->
 
 **`StrictUndefined` raises instead of rendering an empty string.** See [StrictUndefined](https://jinja.palletsprojects.com/en/stable/api/#jinja2.StrictUndefined).
 

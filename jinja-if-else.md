@@ -25,7 +25,7 @@ links:
 
 {% if score >= 90 %}A{% else %}B{% endif %}
 ```
-<!-- {: data-highlight='{% if score >= 90 %}'} -->
+<!-- {: data-highlight='{% if score >= 90 %}; {% else %}'} -->
 
 #### Output
 
@@ -90,7 +90,7 @@ minor
 both
 ```
 
-**Join tests with `and`, `or`, and `not`.** See [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions).
+**Combine conditions with `and`, `or`, and `not`.** See [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions).
 
 ### Test a value
 <!-- {: .-snippet} -->
@@ -106,4 +106,4 @@ both
 False True
 ```
 
-**`is` checks presence and null values.** See [Tests](https://jinja.palletsprojects.com/en/stable/templates/#tests).
+**Checks whether a name is defined; use `is none` for null.** See [Tests](https://jinja.palletsprojects.com/en/stable/templates/#tests).

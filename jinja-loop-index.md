@@ -8,10 +8,10 @@ layout: snippet
 last_verified_with: "Jinja 3.1.6."
 updated: 2026-11-28
 links:
-  - title: The loop variable
-    url: https://jinja.palletsprojects.com/en/stable/templates/#loop-variable
-  - title: For loops
+  - title: For
     url: https://jinja.palletsprojects.com/en/stable/templates/#for
+  - title: Loop controls
+    url: https://jinja.palletsprojects.com/en/stable/templates/#loop-controls
 ---
 
 ## Loop variables
@@ -35,7 +35,7 @@ links:
 3. item 2
 ```
 
-**Counts iterations from one.** See [loop.index](https://jinja.palletsprojects.com/en/stable/templates/#loop.index).
+**Counts iterations from one.** See [loop.index](https://jinja.palletsprojects.com/en/stable/templates/#for).
 
 ### Start from zero
 <!-- {: .-snippet} -->
@@ -55,7 +55,7 @@ links:
 2: item 2
 ```
 
-**Counts iterations from zero for array indexes.** See [loop.index0](https://jinja.palletsprojects.com/en/stable/templates/#loop.index0).
+**Counts iterations from zero for array indexes.** See [loop.index0](https://jinja.palletsprojects.com/en/stable/templates/#for).
 
 ### Mark first and last
 <!-- {: .-snippet} -->
@@ -74,7 +74,7 @@ links:
 1: False / True
 ```
 
-**Reports whether the current iteration is the first or last.** See [loop.first](https://jinja.palletsprojects.com/en/stable/templates/#loop.first).
+**Reports whether the current iteration is the first or last.** See [loop.first](https://jinja.palletsprojects.com/en/stable/templates/#for).
 
 ### Count from the end
 <!-- {: .-snippet} -->
@@ -94,7 +94,7 @@ links:
 2: 1 of 3
 ```
 
-**`revindex` counts down to one; `length` is the item count.** See [loop.revindex](https://jinja.palletsprojects.com/en/stable/templates/#loop.revindex).
+**`revindex` counts down to one; `length` is the item count.** See [loop.revindex](https://jinja.palletsprojects.com/en/stable/templates/#for).
 
 ### Reach the outer loop
 <!-- {: .-snippet} -->
@@ -117,4 +117,4 @@ links:
 2.1: c
 ```
 
-**Saves the outer loop before entering the inner one.** See [The loop variable](https://jinja.palletsprojects.com/en/stable/templates/#loop-variable).
+**Saves the outer loop before entering the inner one.** See [Loop variable](https://jinja.palletsprojects.com/en/stable/templates/#for).

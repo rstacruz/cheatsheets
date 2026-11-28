@@ -65,7 +65,7 @@ links:
 
 {{ field("email") }}
 ```
-<!-- {: data-highlight="from"} -->
+<!-- {: data-highlight='{% from "forms.html" import input as field %}'} -->
 
 **Imports one macro directly and renames it.** See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
 
@@ -86,7 +86,7 @@ links:
 ```
 <!-- {: data-highlight="with context"} -->
 
-**`without context` hides caller variables from an include; `with context` shares them with imports.** See [Import with context](https://jinja.palletsprojects.com/en/stable/templates/#import-with-context).
+**`without context` hides caller variables from an include; `with context` shares them with imports.** See [Import with context](https://jinja.palletsprojects.com/en/stable/templates/#import-context-behavior).
 
 ### Ignore a missing template
 <!-- {: .-snippet} -->

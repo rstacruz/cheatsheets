@@ -4,19 +4,6 @@ import { fetchFuse, parseFuse } from '~/lib/fuseSearch/fuseSearch'
 export async function setup(input: HTMLInputElement) {
   let fuse
 
-  const form = input.closest('form')
-  const button = form?.querySelector<HTMLButtonElement>(
-    '[data-js-search-submit]'
-  )
-
-  if (button) {
-    button.addEventListener('click', (event) => {
-      event.preventDefault()
-      const query = input.value.trim()
-      if (query) location.assign(`/search?q=${encodeURIComponent(query)}`)
-    })
-  }
-
   autocomplete<{ label: string; value: string }>({
     input,
     fetch: async (text: string, update) => {

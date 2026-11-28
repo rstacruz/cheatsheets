@@ -122,6 +122,16 @@ const styles = {
       }
       sync()
       input?.addEventListener('input', sync)
+      button?.addEventListener('click', (event) => {
+        event.preventDefault()
+        const query = input?.value.trim() ?? ''
+        if (!query) return
+        if (input?.hasAttribute('data-js-no-autocomplete')) {
+          form.requestSubmit()
+        } else {
+          location.assign(`/search?q=${encodeURIComponent(query)}`)
+        }
+      })
 
       form.addEventListener('submit', (event) => {
         event.preventDefault()

@@ -3,9 +3,9 @@ title: Cursor CLI
 subtitle: Cursor terminal agent
 logo: { src: /assets/logos/cursor.svg, mono: true }
 category: Agents
-updated: 2026-11-15
-last_verified_at: 2026-11-15
-last_verified_with: "Cursor CLI commands and flags from the official CLI docs."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "Cursor CLI 2026.11.22."
 tier: t1
 fragments:
   - "agent"
@@ -89,6 +89,20 @@ agent --resume <chat-id>  # resume a specific chat
 
 See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 
+### Persistent sessions
+
+```bash
+agent persist              # survive a disconnect
+/detach                    # leave it running
+agent persist list         # find sessions
+agent persist attach <id>  # reconnect
+```
+<!-- {: data-highlight="agent persist"} -->
+
+`agent persist stop <id>` ends a session and `agent persist --resume <chat-id>` continues an existing chat.
+
+See: [Changelog](https://cursor.com/docs/cli/changelog)
+
 ## CLI reference
 
 ### Commands
@@ -101,20 +115,24 @@ See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 | `agent ls`          | Pick a previous chat to resume     |
 | `agent resume`      | Resume the latest chat             |
 | `agent create-chat` | Create an empty chat, print its ID |
+| `agent persist`     | Keep a session after disconnect    |
 
 <!-- {: .-shortcuts} -->
 
 #### Setup
 
-| Command               | Description                       |
-| --------------------- | --------------------------------- |
-| `agent login`         | Sign in with a browser            |
-| `agent logout`        | Clear stored credentials          |
-| `agent status`        | Show auth status (`whoami`)       |
-| `agent about`         | Version, system, and account info |
-| `agent models`        | List models for this account      |
-| `agent update`        | Update to the latest build        |
-| `agent generate-rule` | Generate a `.cursor/rules` file   |
+| Command                             | Description                       |
+| ----------------------------------- | --------------------------------- |
+| `agent login`                       | Sign in with a browser            |
+| `agent logout`                      | Clear stored credentials          |
+| `agent status`                      | Show auth status (`whoami`)       |
+| `agent about`                       | Version, system, and account info |
+| --- | --- |
+| `agent models`                      | List models for this account      |
+| `agent update`                      | Update to the latest build        |
+| `agent generate-rule`               | Generate a `.cursor/rules` file   |
+| `agent uninstall-shell-integration` | Remove shell integration          |
+| `agent help [command]`              | Show help for a command           |
 
 <!-- {: .-shortcuts} -->
 
@@ -125,7 +143,7 @@ See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 | `agent mcp`                       | Manage MCP servers                  |
 | `agent sandbox`                   | Configure the sandbox, or run in it |
 | `agent acp`                       | Run as an ACP server over stdio     |
-| `agent worker`                    | Run a private Cloud Agent worker    |
+| `agent worker start`              | Run a private Cloud Agent worker    |
 | `agent install-shell-integration` | Add shell integration to `~/.zshrc` |
 
 <!-- {: .-shortcuts} -->
@@ -144,6 +162,8 @@ See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 | ------------------------- | --------------------------------- |
 | `--mode <mode>`           | `plan` or `ask`                   |
 | `--plan`                  | Start in Plan mode                |
+| `--auto-review`           | Start in Auto-review mode         |
+| `--add-dir <path>`        | Add a directory, repeatable       |
 | `--resume [chatId]`       | Resume a chat                     |
 | `--continue`              | Resume the previous chat          |
 | ------------------------- | --------------------------------- |
@@ -165,6 +185,7 @@ See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 | `--worktree-base <ref>` | Base ref for the new worktree         |
 | `--skip-worktree-setup` | Skip `.cursor/worktrees.json` setup   |
 | `--plugin-dir <path>`   | Load a local plugin directory         |
+| `--format <fmt>`        | `text` or `json` for status/about     |
 | ----------------------- | ------------------------------------- |
 | `--yolo`                | Alias for `--force`                   |
 | `-v, --version`         | Print the version                     |
@@ -206,7 +227,7 @@ agent -p --output-format stream-json "fix the tests"
 
 `stream-json` emits `system`, `user`, `assistant`, `tool_call`, and `result` events.
 
-Add `--stream-partial-output` for text deltas; skip assistant events carrying `model_call_id`.
+Add `--stream-partial-output` for text deltas; skip assistant events with `model_call_id` or without `timestamp_ms`.
 
 See: [Output format](https://cursor.com/docs/cli/reference/output-format)
 
@@ -220,10 +241,13 @@ See: [Output format](https://cursor.com/docs/cli/reference/output-format)
 | `/resume`        | Pick a recent chat to resume    |
 | `/fork`          | Fork the current chat           |
 | `/rename <name>` | Rename the chat                 |
+| --- | --- |
 | `/rewind`        | Jump back to an earlier message |
 | `/summarize`     | Summarize to free up context    |
+| `/btw`           | Ask a read-only side question   |
+| `/context`       | Show what fills the context     |
 
-`/new` also answers to `/clear`, `/new-chat`, and `/newchat`; `/summarize` to `/compress`.
+`/new` also answers to `/clear`, `/new-chat`, and `/newchat`; `/summarize` to `/compress` and `/compact`; `/fork` to `/branch` and `/duplicate`.
 
 See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 
@@ -239,6 +263,7 @@ See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 | `/model [filter]`   | Choose a model                |
 | `/max-mode`         | Toggle Max Mode               |
 | `/run-everything`   | Toggle Run Everything         |
+| `/auto-review`      | Toggle Auto-review mode       |
 | ------------------- | ----------------------------- |
 | `/sandbox`          | Configure sandbox and network |
 | `/config`           | Edit CLI settings             |
@@ -254,7 +279,12 @@ See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 | ----------------------- | -------------------------------- |
 | `/mcp`                  | Manage servers, list their tools |
 | `/plugin`               | Manage plugins and marketplaces  |
+| `/skills`               | Browse and invoke skills         |
+| `/rules`                | Browse and edit rules            |
+| --- | --- |
+| `/commands`             | Browse and edit custom commands  |
 | `/logs`                 | Show the debug log path          |
+| `/usage`                | Show plan usage and spend        |
 | `/copy`                 | Copy a previous message          |
 | `/copy-request-id`      | Copy the last request ID         |
 | `/copy-conversation-id` | Copy the conversation ID         |
@@ -267,6 +297,8 @@ See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 | Command              | Description                  |
 | -------------------- | ---------------------------- |
 | `/setup-terminal`    | Fix newline keybindings      |
+| `/detach`            | Leave a session running      |
+| `/add-dir <path>`    | Add another root dir         |
 | `/line-numbers`      | Toggle line numbers          |
 | `/show-thinking`     | Toggle thinking blocks       |
 | `/status-indicators` | Toggle terminal title status |
@@ -279,6 +311,7 @@ See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 | Command               | Description                       |
 | --------------------- | --------------------------------- |
 | `/about`              | Version, system, and account info |
+| `/update`             | Update the CLI in place           |
 | `/feedback <message>` | Send feedback to the team         |
 | `/logout`             | Sign out                          |
 | `/quit`               | Exit (also `/exit`)               |
@@ -304,7 +337,7 @@ See: [Modes](https://cursor.com/docs/cli/using#modes)
 | Shortcut      | Action                                 |
 | ------------- | -------------------------------------- |
 | `Shift+Tab`   | Rotate Agent, Plan, Ask                |
-| `Shift+Enter` | Newline in supporting terminals       |
+| `Shift+Enter` | Newline in supporting terminals        |
 | `Ctrl+J`      | Newline in any terminal                |
 | `\+Enter`     | Newline in any terminal                |
 | ------------- | -------------------------------------- |
@@ -314,6 +347,10 @@ See: [Modes](https://cursor.com/docs/cli/using#modes)
 | `Enter`       | Steer a running turn                   |
 | `Esc`         | Leave shell mode                       |
 | `Ctrl+D`      | Exit (press twice)                     |
+| `Ctrl+Y`      | Open the resume picker                 |
+| `Ctrl+G`      | Compose in `$EDITOR`                   |
+| `Ctrl+L`      | Clear the screen                       |
+| `?`           | Show the shortcut cheat sheet          |
 
 <!-- {: .-shortcuts} -->
 
@@ -343,7 +380,7 @@ cd packages/web && npm test   # chain cd, it does not persist
 ```
 <!-- {: data-highlight="/shell"} -->
 
-Commands run in your login shell for up to 30 seconds. Servers and interactive prompts are not supported; `Ctrl+O` expands output and `Esc` exits.
+Commands run in your login shell for up to 30 seconds. Set `CURSOR_LOGIN_SHELL=0` to skip login scripts; servers and interactive prompts are not supported. `Ctrl+O` expands output and `Esc` exits.
 
 See: [Shell mode](https://cursor.com/docs/cli/shell-mode)
 
@@ -402,7 +439,7 @@ See: [Changelog](https://cursor.com/docs/cli/changelog)
 
 <!-- {: .-shortcuts} -->
 
-Auto-review sandboxes shell commands and sends the rest to a classifier. Set the mode with `approvalMode` or `/run-everything`; `--force` (or `--yolo`) runs everything `permissions.deny` and team policy allow.
+Auto-review sandboxes shell commands and sends the rest to a classifier. Set the mode with `approvalMode`, `--auto-review`, or `/auto-review`; `--force` (or `--yolo`) runs everything `permissions.deny` and team policy allow.
 
 See: [Run modes](https://cursor.com/docs/agent/security/run-modes)
 
@@ -484,6 +521,22 @@ $CURSOR_CONFIG_DIR/cli-config.json  # custom directory
 
 See: [Configuration](https://cursor.com/docs/cli/reference/configuration)
 
+### Options
+
+| Key                        | Purpose                                    |
+| -------------------------- | ------------------------------------------ |
+| `approvalMode`             | `allowlist`, `auto-review`, `unrestricted` |
+| `sandbox.mode`             | Sandbox override                           |
+| `sandbox.networkAccess`    | Network access in the sandbox              |
+| `sandbox.readBoundary`     | `system` or `workspace` read access        |
+| --- | --- |
+| `notifications`            | Notify when a turn finishes                |
+| `hints`                    | Show CLI hints                             |
+| `network.useHttp1ForAgent` | Use HTTP/1.1 for agent connections         |
+| `autoAcceptWebSearch`      | Skip web search approvals                  |
+
+See: [Configuration](https://cursor.com/docs/cli/reference/configuration)
+
 ### Rules and AGENTS.md
 
 #### Files
@@ -506,7 +559,7 @@ alwaysApply: false
 ```
 <!-- {: data-highlight="alwaysApply; globs; description"} -->
 
-`alwaysApply` runs a rule every session, `globs` scopes it to matching files, and `description` lets the agent pull it in. Without either, only `@`-mention loads it.
+`alwaysApply` runs a rule every session, `globs` scopes it to matching files, and `description` lets the agent pull it in. Without either, only `@`-mention loads it. Nested `AGENTS.md` files apply when the agent edits files in their directory.
 
 See: [Rules](https://cursor.com/docs/rules)
 
@@ -516,9 +569,10 @@ See: [Rules](https://cursor.com/docs/rules)
 agent mcp list
 agent mcp list-tools datadog
 agent mcp login datadog
+agent mcp enable datadog
 agent mcp disable datadog
 ```
-<!-- {: data-highlight="mcp list; mcp list-tools; mcp disable"} -->
+<!-- {: data-highlight="mcp list; mcp list-tools; mcp enable; mcp disable"} -->
 
 Servers live in `.cursor/mcp.json` or `~/.cursor/mcp.json`. `--approve-mcps` skips the approval prompt, and ACP sessions ignore team-level servers.
 
@@ -549,7 +603,9 @@ See: [Worktrees](https://cursor.com/docs/configuration/worktrees)
 | `NO_OPEN_BROWSER`     | Print the login URL instead     |
 | `HTTP_PROXY`          | Proxy for agent traffic         |
 | `HTTPS_PROXY`         | Proxy for TLS traffic           |
+| `NODE_USE_ENV_PROXY`  | Use proxy env vars for streams  |
 | `NODE_EXTRA_CA_CERTS` | Trust a TLS-inspecting proxy CA |
+| `CURSOR_LOGIN_SHELL`  | `0` skips shell login scripts   |
 | `COLORFGBG`           | Force the dark or light theme   |
 
 <!-- {: .-shortcuts} -->

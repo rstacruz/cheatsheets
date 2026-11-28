@@ -3,8 +3,8 @@ title: Herdr agents
 subtitle: Coding agent state detection
 logo: { src: /assets/logos/herdr.svg, mono: true }
 category: Agents
-updated: 2026-11-15
-last_verified_at: 2026-11-15
+updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "herdr 0.9.5."
 tier: t1
 fragments:
@@ -50,7 +50,7 @@ links:
 
 ```bash
 # needs an interactive shell at its prompt; never moves layout
-# returns once the agent is ready; timeout defaults to 30000 ms
+# returns when ready; timeout >3000 to 300000 ms (default 30000)
 herdr agent start reviewer --kind codex --pane w1:p2
 herdr agent start reviewer --kind codex --pane w1:p2 --timeout 30000
 herdr agent start reviewer --kind claude --pane w1:p2 \
@@ -58,9 +58,9 @@ herdr agent start reviewer --kind claude --pane w1:p2 \
 ```
 <!-- {: data-highlight="herdr agent start"} -->
 
-`--kind` takes a kind from Supported agents. Names must match `[a-z][a-z0-9_-]{0,31}` and be unique among live agents; a name clears when the agent exits.
+`--kind` takes a kind from Supported agents. Names match `[a-z][a-z0-9_-]{0,31}` and must be unique among live agents; a name clears on exit, release, or replacement.
 
-Targets take a live agent name or its pane ID; bare kinds are rejected.
+Targets take a live agent name or pane ID; bare kinds are rejected.
 
 See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#agent-identity-and-launch)
 
@@ -74,10 +74,11 @@ herdr agent wait reviewer --until blocked --timeout 120000
 ```
 <!-- {: data-highlight="--wait; --until"} -->
 
-`--wait` settles on the first `idle`, `done`, or `blocked` state. `--until`
-can be repeated. Submitting to a blocked agent is rejected before input.
+`--wait` settles on the first `idle`, `done`, or `blocked` state; `--until`
+narrows it and requires `--wait`. Repeat `--until` for several states.
+Submitting to a blocked agent returns `agent_blocked` before any input.
 
-Standalone `agent wait` uses the same defaults; `--timeout` bounds it.
+Standalone `agent wait` waits indefinitely without `--timeout`.
 
 See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#choose-the-control-surface)
 
@@ -101,11 +102,11 @@ See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#choose-the-
 | `working` | Actively running |
 | `blocked` | Needs input, approval, or a decision |
 | `done` | Finished; you have not looked at it yet |
-| `unknown` | Present, but Herdr cannot classify it |
+| `unknown` | Present; lifecycle not confidently classified |
 
-`done` is the unseen variant of `idle`; focus marks it seen, CLI reads do not.
+`done` is unseen `idle`; focus marks it seen. `unknown` does not prove success. `blocked` needs a recognized approval or question UI; unmatched prompts fall back to `idle`.
 
-The sidebar rolls state up: `blocked` marks its pane, tab, and workspace blocked; `working` makes the workspace active; `done` stays visible until viewed.
+The sidebar rolls states up; `done` stays visible until viewed.
 
 See: [Agents](https://herdr.dev/tui/docs/agents/#how-status-works)
 
@@ -131,7 +132,7 @@ herdr agent explain --file screen.txt --agent codex --json
 | `recent-unwrapped` | Recent output, soft wraps joined |
 | `detection` | Bottom-buffer snapshot used for detection |
 
-`agent get` shows the resolved state. `agent explain` reports detection, the matched rule, and idle fallbacks; add `--json` for machine output. Use `--ansi` when styling is evidence.
+`agent get` shows the resolved state. `agent explain` shows the final state, manifest source, matched rule, and idle fallback; add `--verbose` for full evidence or `--json` for machine output. Use `--ansi` when styling is evidence.
 
 See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/#agents)
 
@@ -142,7 +143,7 @@ herdr agent read reviewer --source recent --lines 200
 ```
 <!-- {: data-highlight="--lines 200"} -->
 
-With an idle alternate-screen agent, `--lines` beyond the visible screen scrolls its transcript. While the agent is busy, the read returns `agent_not_idle`.
+With an idle alternate-screen agent, `--lines` beyond the visible screen scrolls its transcript. An explicit history read while the agent is busy returns `agent_not_idle`.
 
 See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/#agents)
 
@@ -216,12 +217,12 @@ See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
 
 | Agent | Kind | Notes |
 | --- | --- | --- |
-| Amp | `amp` | detected only |
+| Amp | `amp` | state only |
 | Antigravity CLI | `agy` | integration; install `antigravity-cli` |
 | Claude Code | `claude` | integration |
-| Cline | `cline` | detected only, less tested |
-| Codex | `codex` | integration |
+| Cline | `cline` | state only, less tested |
 | --- | --- | --- |
+| Codex | `codex` | integration |
 | Command Code | — | reports its own state |
 | Crush | — | reports its own state |
 | Cursor Agent CLI | `cursor` | integration |
@@ -234,14 +235,14 @@ See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
 | --- | --- | --- |
 | Devin CLI | `devin` | integration |
 | Droid | `droid` | integration |
-| Gemini CLI | `gemini` | detected only, less tested |
+| Gemini CLI | `gemini` | state only, less tested |
 | GitHub Copilot CLI | `copilot` | integration |
-| Grok CLI | `grok` | integration |
 | --- | --- | --- |
+| Grok CLI | `grok` | integration |
 | Hermes Agent | `hermes` | integration |
 | Kilo Code CLI | `kilo` | integration; reports state |
 | Kimi Code CLI | `kimi` | integration; reports state |
-| Kiro CLI | `kiro` | detected; reports state |
+| Kiro CLI | `kiro` | reports state; no integration |
 
 See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
 
@@ -250,11 +251,11 @@ See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
 | Agent | Kind | Notes |
 | --- | --- | --- |
 | Letta Code | `letta` | integration; CLI install only |
-| Maki | `maki` | detected only |
+| Maki | `maki` | state only |
 | MastraCode | `mastracode` | integration; state needs it |
 | Muse Code | `muse` | reports its own state |
-| OMP | `omp` | integration; state needs it |
 | --- | --- | --- |
+| OMP | `omp` | integration; state needs it |
 | OpenCode | `opencode` | integration; reports state |
 | Pi | `pi` | integration; reports state |
 | Prime Agent | — | reports its own state |

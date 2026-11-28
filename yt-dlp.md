@@ -3,9 +3,9 @@ title: yt-dlp
 subtitle: Command-line video downloader
 logo: { set: icon-park-outline, name: video }
 category: Media tools
-updated: 2026-11-16
-last_verified_at: 2026-11-16
-last_verified_with: "yt-dlp 2026.10.26."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "yt-dlp 2026.11.23."
 tier: t1
 fragments:
   - "yt-dlp"
@@ -52,9 +52,9 @@ nix profile install nixpkgs#yt-dlp  # Nix
 yt-dlp --version                    # check it runs
 ```
 
-ffmpeg is required for merging, audio extraction, and embedding. Full YouTube support also needs a JS runtime such as deno.
+ffmpeg is required for merging, audio extraction, and embedding. Full YouTube support needs the `yt-dlp-ejs` package and a JS runtime such as deno.
 
-See: [Installation](https://github.com/yt-dlp/yt-dlp#installation), [Updating](https://github.com/yt-dlp/yt-dlp#update)
+See: [Installation](https://github.com/yt-dlp/yt-dlp#installation), [Updating](https://github.com/yt-dlp/yt-dlp#update), [EJS](https://github.com/yt-dlp/yt-dlp/wiki/EJS)
 
 ### First download
 
@@ -99,9 +99,9 @@ See: [Format selection](https://github.com/yt-dlp/yt-dlp#format-selection)
 ### Sort formats
 
 ```bash
-yt-dlp -S "res:1080" URL              # cap at 1080p
-yt-dlp -S "res:720,fps" URL           # 720p, then fps
-yt-dlp -S "+size" URL                 # smallest first
+yt-dlp -S "res:1080" URL          # prefer highest ≤1080p, else lowest
+yt-dlp -S "res:720,fps" URL       # 720p, then fps
+yt-dlp -S "+size" URL             # smallest first
 yt-dlp -S "vcodec:h264,acodec:aac" URL
 ```
 <!-- {: data-highlight="-S"} -->
@@ -210,10 +210,11 @@ yt-dlp -t mp3 URL    # audio, mp3
 yt-dlp -t aac URL    # audio, aac
 yt-dlp -t mp4 URL    # mp4 with h264/aac
 yt-dlp -t mkv URL    # mkv, any codecs
+yt-dlp -t sleep URL  # polite, slower fetches
 ```
 <!-- {: data-highlight="-t"} -->
 
-Presets bundle the common format and conversion flags. The names are stable across releases.
+Presets bundle common flags.
 
 See: [Preset aliases](https://github.com/yt-dlp/yt-dlp#preset-aliases)
 

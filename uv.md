@@ -3,9 +3,9 @@ title: uv
 subtitle: Python package and project manager
 logo: { src: /assets/logos/uv.svg }
 category: Package managers
-updated: 2026-11-21
-last_verified_at: 2026-11-22
-last_verified_with: "uv 0.13.9."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "uv 0.13.9 (runtime), uv 0.13.10 (docs)."
 tier: t1
 fragments:
   - "uv init"
@@ -44,7 +44,7 @@ links:
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-On Windows, use the PowerShell installer. `uv self update` upgrades uv.
+On Windows, use the PowerShell installer. Standalone installs upgrade with `uv self update`; package-manager installs use their own upgrade command.
 
 See: [Installation](https://docs.astral.sh/uv/getting-started/installation/)
 
@@ -57,11 +57,12 @@ uv init
 uv init hello
 uv init --app hello
 uv init --lib libby
+uv init --no-package hello
 uv init --bare
 ```
 <!-- {: data-highlight="--bare"} -->
 
-Creates `pyproject.toml`, `.python-version`, `README.md` and `.gitignore`; `--bare` writes only `pyproject.toml`.
+Defaults to a packaged `src/` app with `pyproject.toml`, `.python-version`, `README.md`, and `.gitignore`; `--no-package` uses a flat `main.py`, `--bare` writes only `pyproject.toml`.
 
 See: [Creating a project](https://docs.astral.sh/uv/concepts/projects/init/)
 
@@ -71,7 +72,7 @@ See: [Creating a project](https://docs.astral.sh/uv/concepts/projects/init/)
 uv version
 uv version 1.2.3
 uv version --bump minor
-uv version --dry-run
+uv version 2.0.0 --dry-run
 ```
 <!-- {: data-highlight="--bump minor"} -->
 
@@ -142,6 +143,7 @@ See: [Dependencies](https://docs.astral.sh/uv/concepts/projects/dependencies/)
 
 ```bash
 uv add --optional pdf reportlab
+uv sync --extra pdf
 uv sync --group docs
 uv sync --no-dev
 ```
@@ -168,15 +170,16 @@ See: [uv tree](https://docs.astral.sh/uv/reference/cli/#uv-tree)
 ## Python versions
 <!-- {: .-three-column} -->
 
-### List and install
+### List, install, upgrade
 
 ```bash
 uv python list
 uv python install 3.13
 uv python install 3.12 3.13
+uv python upgrade 3.13
 ```
 
-`uv python list` marks downloadable interpreters as `<download available>`.
+`uv python list` marks downloadable interpreters as `<download available>`; `uv python upgrade` moves managed versions to the latest patch release.
 
 See: [Python versions](https://docs.astral.sh/uv/concepts/python-versions/)
 
@@ -242,7 +245,7 @@ uv export --format cyclonedx1.5 -o sbom.json
 ```
 <!-- {: data-highlight="--format requirements.txt"} -->
 
-`cyclonedx1.5` is experimental.
+CycloneDX export is in preview.
 
 See: [Exporting](https://docs.astral.sh/uv/concepts/projects/export/)
 
@@ -267,6 +270,7 @@ See: [Syncing](https://docs.astral.sh/uv/concepts/projects/sync/)
 | `--locked` | Require an up-to-date lockfile |
 | `--frozen` | Use the lockfile without checking it |
 | `--dry-run` | Report changes without applying |
+| `--check` | Report whether environment matches project |
 | `--no-dev` | Skip the dev group |
 | `--group docs` | Include one group |
 | `-U` | Upgrade locked packages |
@@ -310,22 +314,24 @@ uv build
 uv build --sdist
 uv build --wheel
 uv build -o dist
+uv build --no-sources
 ```
 <!-- {: data-highlight="--sdist; --wheel"} -->
 
-Writes a source distribution and wheel into `dist/`.
+Writes a source distribution and wheel into `dist/`; use `--no-sources` when building for publication.
 
 See: [Building packages](https://docs.astral.sh/uv/guides/package/)
 
 ### Publish
 
 ```bash
-uv publish --token "$UV_PUBLISH_TOKEN"
+export UV_PUBLISH_TOKEN=pypi-...
+uv publish
 uv publish --trusted-publishing always
 uv publish --dry-run
 ```
-<!-- {: data-highlight="$UV_PUBLISH_TOKEN"} -->
+<!-- {: data-highlight="UV_PUBLISH_TOKEN"} -->
 
-Trusted publishing or `$UV_PUBLISH_TOKEN` keeps a literal token out of the command.
+`uv publish` reads `$UV_PUBLISH_TOKEN`; trusted publishing avoids a literal token.
 
 See: [Publishing packages](https://docs.astral.sh/uv/guides/package/#publishing-your-package)

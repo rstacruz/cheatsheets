@@ -94,7 +94,7 @@ terraform plan -minimal-refresh
 ```
 <!-- {: data-highlight="-detailed-exitcode; -minimal-refresh"} -->
 
-`-detailed-exitcode` returns 0 for no changes, 1 for errors, and 2 for changes. `-minimal-refresh` refreshes only resources with planned changes, so it can miss drift on unchanged ones.
+`-detailed-exitcode` returns 0 for no changes, 1 for errors, and 2 for changes. `-minimal-refresh` refreshes only resources with planned changes.
 
 See: [Terraform CLI](https://developer.hashicorp.com/terraform/cli/commands)
 
@@ -222,7 +222,7 @@ environment = "prod"
 ```
 <!-- {: data-highlight='environment = "prod"'} -->
 
-Precedence, lowest to highest: variable defaults, `TF_VAR_` variables, `terraform.tfvars`, `terraform.tfvars.json`, and `*.auto.tfvars(.json)`. CLI options (`-var-file`, `-var`) come last and apply in the order provided.
+Precedence, lowest to highest: variable defaults, `TF_VAR_` variables, `terraform.tfvars(.json)`, `*.auto.tfvars(.json)`, then `-var-file` and `-var`.
 
 See: [Assign variable values](https://developer.hashicorp.com/terraform/language/values/variables#assign-values-to-variables)
 

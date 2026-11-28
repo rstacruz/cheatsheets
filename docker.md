@@ -253,8 +253,6 @@ docker cp web:/etc/nginx/nginx.conf ./nginx.conf
 ```
 <!-- {: data-highlight="docker cp"} -->
 
-Copies in either direction; the container may be stopped.
-
 See: [docker cp](https://docs.docker.com/reference/cli/docker/container/cp/)
 
 ## Clean up

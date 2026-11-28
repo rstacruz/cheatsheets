@@ -13,7 +13,7 @@ const pages = await getPages()
 const snippetCategories = getSnippetsByCategory(pages)
 
 const t = {
-  title: 'Snippets',
+  title: 'Recipes',
   description: 'Short, single-task cheatsheets for everyday developer work.'
 }
 
@@ -40,7 +40,7 @@ const headingStyles = {
 <BaseLayout>
   <Fragment slot="head">
     <SEO
-      title="Snippets — Devhints.io cheatsheets"
+      title="Recipes — Devhints.io cheatsheets"
       links={{ canonical: `${site.url}/snippets` }}
       meta={{ description: t.description }}
     />

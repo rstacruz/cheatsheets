@@ -4,6 +4,7 @@ category: Media tools
 subtitle: ASCII art text renderer
 logo: { set: icon-park-outline, name: text }
 last_verified_with: "figlet 2.2.5."
+created_at: 2017-10-08
 updated: 2026-11-25
 tier: t3
 introduction: |

@@ -4,6 +4,7 @@ subtitle: Shell scripting language
 logo: { src: /assets/logos/bash.svg }
 category: Shell
 tags: [Featured]
+created_at: 2012-03-16
 updated: 2026-11-24
 last_verified_at: 2026-11-24
 last_verified_with: "Bash 5.3, Bash 5.3.20."

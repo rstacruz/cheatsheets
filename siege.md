@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: speed }
 category: Networking
 tier: t3
 last_verified_with: "Siege 4.2.2."
+created_at: 2016-08-25
 updated: 2026-11-26
 intro: |
   Siege is an HTTP and HTTPS load testing tool.

@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: data }
 category: Elixir
 weight: -1
 last_verified_with: "Erlang/OTP 29.1.2 (stdlib 8.1.1)."
+created_at: 2016-06-29
 updated: 2026-11-24
 tier: t3
 intro: |

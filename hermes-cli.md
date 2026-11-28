@@ -19,6 +19,7 @@ fragments:
   - "--tui"
   - "--cli"
   - "--usage-file"
+created_at: 2026-11-05
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "Hermes Agent 0.23.4."

@@ -14,6 +14,7 @@ links:
     url: https://textile-lang.com/doc/links
 tier: t3
 last_verified_with: "Textile 4.1.6."
+created_at: 2012-03-16
 updated: 2026-11-26
 weight: -1
 ---

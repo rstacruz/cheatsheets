@@ -3,6 +3,7 @@ title: Ractive.js
 subtitle: Template-driven UI library
 logo: { src: /assets/logos/ractive.svg }
 category: JavaScript libraries
+created_at: 2014-02-25
 updated: 2026-11-26
 intro: |
   Ractive is a template-driven UI library for JavaScript.

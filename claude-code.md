@@ -6,6 +6,7 @@ subtitle: AI coding agent
 logo: { src: /assets/logos/claude.svg }
 category: Agents
 tags: [Featured]
+created_at: 2025-08-24
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "Claude Code 2.1.330."

@@ -6,6 +6,7 @@ logo: { src: /assets/logos/cordova.svg, mono: true }
 intro: |
   A quick reference to common [Apache Cordova](https://cordova.apache.org/) commands.
 last_verified_with: "Cordova CLI 13.0."
+created_at: 2014-09-05
 updated: 2026-11-25
 tier: t3
 links:

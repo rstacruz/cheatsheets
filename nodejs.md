@@ -3,6 +3,7 @@ title: Node.js API
 subtitle: Server-side JavaScript API
 logo: { src: /assets/logos/nodejs.svg }
 category: Node.js
+created_at: 2013-05-29
 updated: 2026-11-26
 last_verified_with: "Node.js 26.13.1."
 tier: t3

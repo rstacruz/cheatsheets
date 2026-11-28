@@ -1,5 +1,6 @@
 ---
 title: "Archived test"
+created_at: 2026-10-31
 archived: This sheet is no longer maintained. See [Deku v2](/deku).
 ---
 

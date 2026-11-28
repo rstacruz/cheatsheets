@@ -10,6 +10,7 @@ links:
     url: https://github.com/pry/pry
 tier: t3
 last_verified_with: "Pry 0.16.1, pry-gem 1.0.0, pry-rails 0.3.11, hirb 0.7.3, pry-rescue 1.6.0, pry-remote 0.1.8."
+created_at: 2012-11-25
 updated: 2026-11-26
 ---
 

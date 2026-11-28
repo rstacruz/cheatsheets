@@ -6,6 +6,7 @@ category: Devops
 tier: t1
 prism_languages: [yaml]
 last_verified_with: "GitHub Actions workflow schema, actions/checkout 7.0.1, actions/cache 6.1.0, actions/upload-artifact 7.0.2."
+created_at: 2026-11-27
 updated: 2026-11-27
 last_verified_at: 2026-11-27
 fragments:

@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   This unfinished 2017 draft covers only a slice of Absinthe's schema API.
   Use the [Absinthe documentation](https://hexdocs.pm/absinthe/) instead.
+created_at: 2017-09-22
 updated: 2017-10-10
 intro: |
   [Absinthe](http://absinthe-graphql.org/) allows you to write GraphQL servers in Elixir.

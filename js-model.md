@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   js-model last shipped 0.11.0 around 2012 and has been unmaintained for a
   decade. Use MobX or plain objects instead.
+created_at: 2014-02-25
 updated: 2026-10-04
 ---
 

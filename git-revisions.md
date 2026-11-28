@@ -4,6 +4,7 @@ subtitle: Revision syntax reference
 logo: { set: icon-park-outline, name: list }
 category: Git
 last_verified_with: "Git 2.56.0."
+created_at: 2015-09-10
 updated: 2026-11-22
 tier: t3
 description: ""

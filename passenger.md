@@ -10,6 +10,7 @@ archived: |
   server block. Use
   [Passenger's documentation](https://www.phusionpassenger.com/docs/).
 last_verified_with: "Passenger 6.2.2."
+created_at: 2012-03-16
 updated: 2026-11-25
 intro: |
   Phusion Passenger serves Ruby applications through Nginx. This sheet shows the minimal server block that enables Passenger for an app's public directory.

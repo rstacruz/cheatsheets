@@ -6,6 +6,7 @@ category: Elixir
 weight: -5
 tier: t3
 last_verified_with: "Plug 1.20.4, Phoenix 1.8.17."
+created_at: 2016-06-02
 updated: 2026-11-25
 intro: |
   `Plug.Conn` carries request data and the response being built in Phoenix. This sheet covers request fields, headers, response helpers, accepts, and connected fields.

@@ -1,5 +1,6 @@
 ---
 title: "Deprecated by test"
+created_at: 2026-10-03
 category: Hidden
 deprecated_by: /deku
 ---

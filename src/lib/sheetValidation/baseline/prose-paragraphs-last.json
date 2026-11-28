@@ -37,8 +37,6 @@
   "goby#Lazy enumeration",
   "goby#`Diggable`",
   "ie#IE polyfills",
-  "intl-datetime#Options without a locale",
-  "intl-datetime#Parsing",
   "jscoverage#package.json",
   "mocha-blanket#Quickstart guide",
   "mocha-blanket#Travis + coveralls.io support",

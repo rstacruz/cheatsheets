@@ -1,5 +1,6 @@
 ---
 title: React.js (v16)
+created_at: 2014-03-22
 subtitle: Legacy class component API
 category: React
 deprecated: true

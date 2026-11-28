@@ -16,6 +16,7 @@ archived: |
   This unfinished page has just input and wrapper examples. Use the
   [Simple Form usage guide](https://github.com/heartcombo/simple_form#usage).
 last_verified_with: "Simple Form 5.4.1."
+created_at: 2014-02-25
 updated: 2026-11-26
 ---
 

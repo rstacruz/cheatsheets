@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   Camp has been abandoned; its last npm release was 18.1.1 in 2021. Use
   Express, Fastify, or Koa instead.
+created_at: 2017-09-21
 updated: 2017-09-21
 weight: -1
 intro: |

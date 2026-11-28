@@ -4,6 +4,7 @@ subtitle: JavaScript templating engine
 logo: { src: /assets/logos/handlebars.svg, mono: true }
 category: JavaScript libraries
 weight: -1
+created_at: 2017-08-28
 updated: 2026-11-24
 last_verified_with: "Handlebars 4.7.10, verified on Node 26.13.1."
 tier: t3

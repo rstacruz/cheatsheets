@@ -1,5 +1,6 @@
 ---
 title: Flux architecture
+created_at: 2015-02-26
 subtitle: Client-side application architecture
 category: Hidden
 # The Flux library was archived by Facebook in 2023; docs recommend migrating to Redux.

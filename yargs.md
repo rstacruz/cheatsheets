@@ -1,5 +1,6 @@
 ---
 title: Yargs
+created_at: 2015-04-05
 subtitle: Node CLI option parser
 category: Hidden
 # Documents the yargs singleton, removed in yargs 18 (2025).

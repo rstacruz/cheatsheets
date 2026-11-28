@@ -4,6 +4,7 @@ subtitle: First-playbook walkthrough
 logo: { src: /assets/logos/ansible.svg }
 category: Ansible
 last_verified_with: "ansible-core 2.22."
+created_at: 2014-02-25
 updated: 2026-11-25
 tier: t3
 description: |

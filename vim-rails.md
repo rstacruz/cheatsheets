@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: train }
 category: Vim
 html_class: key-codes
 last_verified_with: "vim-rails 5.4."
+created_at: 2015-04-21
 updated: 2026-11-24
 tier: t3
 intro: |

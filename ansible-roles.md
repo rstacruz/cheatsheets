@@ -4,6 +4,7 @@ subtitle: Role directory structure
 logo: { set: icon-park-outline, name: user-business }
 category: Ansible
 last_verified_with: "ansible-core 2.22."
+created_at: 2014-02-25
 updated: 2026-11-25
 tier: t3
 ---

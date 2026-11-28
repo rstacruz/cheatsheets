@@ -2,6 +2,7 @@
 title: GraphQL
 subtitle: API query language
 logo: { src: /assets/logos/graphql.svg }
+created_at: 2016-12-28
 updated: 2026-11-23
 last_verified_with: "GraphQL specification, graphql.org guides."
 tier: t3

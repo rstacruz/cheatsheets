@@ -4,6 +4,7 @@ subtitle: Rails admin interface framework
 logo: { set: icon-park-outline, name: dashboard }
 category: Ruby
 last_verified_with: "ActiveAdmin 3.5."
+created_at: 2012-11-25
 updated: 2026-11-25
 tier: t3
 ---

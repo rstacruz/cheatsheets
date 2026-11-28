@@ -1,5 +1,6 @@
 ---
 title: Vainglory
+created_at: 2016-10-09
 subtitle: Mobile MOBA game
 category: Hidden
 # Live service shut down in 2020; Community Edition development halted in 2020.

@@ -8,6 +8,7 @@ intro: |
 links:
   - title: "CSS Values and Units Level 4: resolution"
     url: https://www.w3.org/TR/css-values-4/#resolution
+created_at: 2014-02-25
 updated: 2026-11-26
 weight: -1
 tier: t3

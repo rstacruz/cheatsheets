@@ -3,6 +3,7 @@ title: Superagent
 subtitle: HTTP client for Node
 category: Hidden
 # Unfinished since 2018: res.error is an Error object, not a boolean, and noContent's 1223 status is obsolete.
+created_at: 2014-03-22
 updated: 2018-04-21
 tags: [Archived]
 archived: |

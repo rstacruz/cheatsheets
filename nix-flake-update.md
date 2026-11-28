@@ -7,6 +7,7 @@ category: Package managers
 layout: snippet
 tier: t3
 last_verified_with: "Nix 2.35.6."
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: nix flake update

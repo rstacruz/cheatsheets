@@ -4,6 +4,7 @@ category: CSS
 subtitle: CSS preprocessor
 logo: { src: /assets/logos/less.svg, mono: true }
 last_verified_with: "Less 4.9.1."
+created_at: 2014-06-25
 updated: 2026-11-25
 tier: t3
 intro: |

@@ -1,5 +1,6 @@
 ---
 title: Freenode
+created_at: 2013-10-14
 subtitle: IRC discussion network
 category: Hidden
 # The network collapsed in 2021; communities moved to Libera.Chat/OFTC.

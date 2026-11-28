@@ -12,7 +12,11 @@ const CREATED = { created_at: new Date('2020-01-01') }
 
 test('the schema accepts a single paragraph with soft line breaks', () => {
   const intro = 'A worktree is a second checkout.\nIt shares objects and refs.'
-  const result = SheetFrontmatterSchema.parse({ intro, links: LINKS })
+  const result = SheetFrontmatterSchema.parse({
+    ...CREATED,
+    intro,
+    links: LINKS
+  })
   expect(result.intro).toBe(intro)
 })
 

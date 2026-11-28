@@ -1,5 +1,6 @@
 ---
 title: Middleman 3
+created_at: 2012-03-29
 subtitle: Ruby static site generator
 category: JavaScript libraries
 tags: [Archived]

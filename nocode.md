@@ -3,6 +3,7 @@ title: Nocode
 category: Others
 subtitle: Satirical zero-code project
 logo: { set: icon-park-outline, name: forbid }
+created_at: 2018-03-17
 updated: 2026-11-25
 last_verified_with: "Nocode 1.0.0."
 tier: t3

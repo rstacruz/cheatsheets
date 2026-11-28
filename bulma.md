@@ -6,6 +6,7 @@ category: CSS
 prism_languages: [css, html]
 weight: -1
 last_verified_with: "Bulma 1.0."
+created_at: 2017-10-31
 updated: 2018-11-19
 tier: t3
 authors:

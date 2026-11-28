@@ -6,6 +6,7 @@ category: Hidden
 tags: [Archived]
 archived: |
   Email-client CSS support changes with each client release, so this static support table cannot stay current. Use [Can I email](https://www.caniemail.com/) instead.
+created_at: 2017-08-29
 updated: 2026-11-25
 last_verified_with: "WHATWG HTML Living Standard."
 intro: |

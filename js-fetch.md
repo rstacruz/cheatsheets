@@ -4,6 +4,7 @@ subtitle: Browser HTTP request function
 logo: { set: icon-park-outline, name: transfer-data }
 category: JavaScript
 weight: -3
+created_at: 2016-06-03
 updated: 2026-11-25
 last_verified_with: "ECMAScript 2026, Node.js 26.13.1."
 tier: t3

@@ -8,6 +8,7 @@ tags: [Archived]
 archived: |
   This unfinished reference stops at syntax basics and a handful of
   shortcuts. Use the [Org mode manual](https://orgmode.org/manual/).
+created_at: 2018-02-19
 updated: 2026-11-23
 last_verified_with: "GNU Emacs Org mode 9.8.10."
 intro: |

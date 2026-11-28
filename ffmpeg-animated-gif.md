@@ -6,6 +6,7 @@ logo: { src: /assets/logos/ffmpeg.svg, mono: true }
 category: Media tools
 layout: snippet
 last_verified_with: "ffmpeg 9.0.2."
+created_at: 2026-11-25
 updated: 2026-11-28
 tier: t3
 intro: |

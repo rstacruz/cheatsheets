@@ -5,6 +5,7 @@ subtitle: Add a Run workflow button
 category: Devops
 layout: snippet
 last_verified_with: "GitHub Actions workflow schema, gh 2.104.0."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: workflow_dispatch

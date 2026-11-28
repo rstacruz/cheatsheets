@@ -25,6 +25,9 @@ test('the schema requires fragments for t1 and t2 sheets', () => {
 
 test('the schema allows untiered and t3 sheets to omit fragments', () => {
   expect(
+    SheetFrontmatterSchema.parse({ created_at: CREATED_AT }).fragments
+  ).toBeUndefined()
+  expect(
     SheetFrontmatterSchema.parse({ ...VERIFIED, tier: 't3' }).fragments
   ).toBeUndefined()
 })

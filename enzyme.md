@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   Enzyme last shipped 3.11.0 in 2020 and has no adapter for React 18 or 19.
   New tests use [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+created_at: 2017-03-29
 updated: 2020-02-12
 weight: -1
 keywords:

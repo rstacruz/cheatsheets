@@ -1,5 +1,6 @@
 ---
 title: Rails tricks
+created_at: 2013-05-29
 subtitle: Assorted Rails tips
 category: Rails
 tags: [Archived]

@@ -10,6 +10,7 @@ links:
     url: https://www.gnu.org/software/sed/manual/sed.html
 tier: t3
 last_verified_with: "GNU sed 4.10."
+created_at: 2014-05-30
 updated: 2026-11-26
 ---
 

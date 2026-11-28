@@ -5,6 +5,7 @@ logo: { src: /assets/logos/elixir.svg, mono: true }
 category: Elixir
 tags: [New]
 last_verified_with: "Elixir 1.20."
+created_at: 2016-01-07
 updated: 2026-11-25
 tier: t3
 weight: -10

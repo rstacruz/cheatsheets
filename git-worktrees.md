@@ -21,6 +21,7 @@ fragments:
   - ".git/worktrees"
   - "../hotfix"
   - "prunable"
+created_at: 2026-11-18
 updated: 2026-11-18
 last_verified_at: 2026-11-18
 last_verified_with: "git 2.56.0."

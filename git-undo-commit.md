@@ -7,6 +7,7 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.1."
 tier: t3
+created_at: 2026-11-23
 updated: 2026-11-28
 intro: |
   [git reset](https://git-scm.com/docs/git-reset) and [git revert](https://git-scm.com/docs/git-revert) undo commits. This sheet covers staged, unstaged, discarded, and already pushed commits.

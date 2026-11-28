@@ -1,5 +1,6 @@
 ---
 title: Firefox
+created_at: 2013-01-25
 subtitle: Web browser
 tags: [Archived]
 archived: This sheet has not been updated with newer Firefox releases.

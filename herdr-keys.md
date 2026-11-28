@@ -3,6 +3,7 @@ title: Herdr keys
 subtitle: Terminal keyboard shortcuts
 logo: { src: /assets/logos/herdr.svg, mono: true }
 category: Agents
+created_at: 2026-10-31
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "herdr 0.9.5."

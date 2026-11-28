@@ -8,6 +8,7 @@ archived: |
   A pre-2018 list of Redux helper libraries; 7 of the 9 listed are unmaintained.
   Redux now recommends [Redux Toolkit](https://redux-toolkit.js.org/) for new
   projects.
+created_at: 2016-01-07
 updated: 2017-11-19
 ---
 

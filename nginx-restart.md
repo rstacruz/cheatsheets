@@ -6,6 +6,7 @@ logo: { src: /assets/logos/nginx.svg }
 category: Networking
 layout: snippet
 last_verified_with: "nginx 1.30.8, systemd 262."
+created_at: 2026-11-25
 updated: 2026-11-28
 links:
   - title: Controlling nginx

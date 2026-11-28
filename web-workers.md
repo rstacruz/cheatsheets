@@ -20,6 +20,7 @@ links:
     url: https://html.spec.whatwg.org/multipage/workers.html
 tier: t3
 last_verified_with: "HTML Living Standard, Web Workers."
+created_at: 2017-10-30
 updated: 2026-11-26
 ---
 

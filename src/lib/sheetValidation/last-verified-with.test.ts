@@ -11,7 +11,9 @@ const TIERED = {
 }
 
 test('last_verified_with is optional on untiered sheets', () => {
-  expect(SheetFrontmatterSchema.parse({}).last_verified_with).toBeUndefined()
+  expect(
+    SheetFrontmatterSchema.parse(CREATED).last_verified_with
+  ).toBeUndefined()
 })
 
 it.each(['t1', 't2', 't3'] as const)('requires a note on %s', (tier) => {
@@ -30,13 +32,19 @@ it.each(['t1', 't2', 't3'] as const)('accepts a note on %s', (tier) => {
 })
 
 test('the schema accepts a verification note', () => {
-  const parsed = SheetFrontmatterSchema.parse({ last_verified_with: note })
+  const parsed = SheetFrontmatterSchema.parse({
+    ...CREATED,
+    last_verified_with: note
+  })
   expect(parsed.last_verified_with).toBe(note)
 })
 
 test('the schema rejects notes longer than 160 characters', () => {
   expect(() =>
-    SheetFrontmatterSchema.parse({ last_verified_with: 'x'.repeat(161) })
+    SheetFrontmatterSchema.parse({
+      ...CREATED,
+      last_verified_with: 'x'.repeat(161)
+    })
   ).toThrow()
 })
 

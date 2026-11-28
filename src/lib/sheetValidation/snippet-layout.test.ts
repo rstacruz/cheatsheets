@@ -124,15 +124,20 @@ export function findSnippetLayoutIssues(source: string): Finding[] {
 const CREATED = { created_at: new Date('2020-01-01') }
 
 test('the schema accepts layout: snippet', () => {
-  expect(SheetFrontmatterSchema.parse({ layout: 'snippet' }).layout).toBe(
-    'snippet'
-  )
-  expect(() => SheetFrontmatterSchema.parse({ tier: 'snippet' })).toThrow()
+  expect(
+    SheetFrontmatterSchema.parse({ ...CREATED, layout: 'snippet' }).layout
+  ).toBe('snippet')
+  expect(() =>
+    SheetFrontmatterSchema.parse({ ...CREATED, tier: 'snippet' })
+  ).toThrow()
 })
 
 test('the schema accepts a link_title override', () => {
   expect(
-    SheetFrontmatterSchema.parse({ link_title: 'Git rename branch' }).link_title
+    SheetFrontmatterSchema.parse({
+      ...CREATED,
+      link_title: 'Git rename branch'
+    }).link_title
   ).toBe('Git rename branch')
 })
 

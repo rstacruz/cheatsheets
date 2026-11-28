@@ -4,6 +4,7 @@ subtitle: JavaScript linter
 logo: { set: icon-park-outline, name: audit }
 category: Build tools
 last_verified_with: "JSHint 2.13.6."
+created_at: 2014-03-22
 updated: 2026-11-25
 tier: t3
 intro: |

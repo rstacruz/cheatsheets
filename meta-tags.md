@@ -4,6 +4,7 @@ subtitle: Rails meta tag helper
 logo: { set: icon-park-outline, name: tag }
 category: Ruby libraries
 weight: -1
+created_at: 2016-06-01
 updated: 2026-11-25
 fragments:
   - "set_meta_tags"

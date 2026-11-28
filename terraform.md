@@ -19,6 +19,7 @@ fragments:
   - "data"
   - "count"
   - "depends_on"
+created_at: 2026-10-03
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "Terraform 1.17.2."

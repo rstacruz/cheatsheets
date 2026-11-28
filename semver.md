@@ -10,6 +10,7 @@ links:
     url: https://semver.org/spec/v2.0.0.html
   - title: node-semver README
     url: https://github.com/npm/node-semver
+created_at: 2014-07-15
 updated: 2026-11-26
 last_verified_with: "Semantic Versioning 2.0.0, node-semver 7.8.6."
 weight: -3

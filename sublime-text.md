@@ -12,6 +12,7 @@ links:
     url: https://www.sublimetext.com/docs/command_line.html
 tier: t3
 last_verified_with: "Sublime Text 4 build 4215."
+created_at: 2016-06-18
 updated: 2026-11-26
 ---
 

@@ -212,6 +212,26 @@ export const SheetFrontmatterSchema = z
       })
     }
 
+    if (value.created_at && value.updated && value.created_at > value.updated) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['created_at'],
+        message: '`created_at` must not be after `updated`'
+      })
+    }
+
+    if (
+      value.created_at &&
+      value.last_verified_at &&
+      value.created_at > value.last_verified_at
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['created_at'],
+        message: '`created_at` must not be after `last_verified_at`'
+      })
+    }
+
     if (!value.tier) return
     if (value.tier !== 't3' && !value.fragments) {
       ctx.addIssue({

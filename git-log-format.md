@@ -3,6 +3,7 @@ title: Git log format string
 subtitle: Log format placeholder reference
 logo: { set: icon-park-outline, name: format }
 category: Git
+created_at: 2014-10-07
 updated: 2026-11-23
 tier: t3
 last_verified_with: "Git 2.56.0."

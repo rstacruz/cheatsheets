@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   This reproduces the browser-specific property lists from a 2015 layout audit rather than current browser APIs. Use the [web.dev guide](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing) instead.
 description: ""
+created_at: 2014-07-14
 updated: 2026-11-23
 weight: -1
 intro: |

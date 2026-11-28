@@ -21,7 +21,9 @@ describe('logo frontmatter', () => {
     { set: 'logos', name: 'codex', mono: true },
     { src: '/assets/logos/herdr.svg', mono: true }
   ])('accepts %j', (logo) => {
-    expect(SheetFrontmatterSchema.parse({ logo }).logo).toEqual(logo)
+    expect(SheetFrontmatterSchema.parse({ ...CREATED, logo }).logo).toEqual(
+      logo
+    )
   })
 
   it.each([

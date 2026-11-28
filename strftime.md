@@ -8,6 +8,7 @@ logo: { set: icon-park-outline, name: format }
 weight: -5
 tier: t3
 last_verified_with: "POSIX.1-2024 strftime, Ruby 3.4, GNU coreutils 9.12."
+created_at: 2017-11-27
 updated: 2026-11-26
 intro: |
   The strftime format is the standard date formatting for UNIX. It's used in C, Ruby, and more.

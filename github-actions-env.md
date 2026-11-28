@@ -5,6 +5,7 @@ subtitle: Env, secrets, and GITHUB_ENV
 category: Devops
 layout: snippet
 last_verified_with: "GitHub Actions workflow schema."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: env

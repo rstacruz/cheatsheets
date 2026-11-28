@@ -3,6 +3,7 @@ title: Svelte
 subtitle: Compiled UI framework
 logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
+created_at: 2026-11-26
 updated: 2026-11-26
 last_verified_at: 2026-11-26
 last_verified_with: "Svelte 5.59.2, Node 26.13.1."

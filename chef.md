@@ -4,6 +4,7 @@ subtitle: Infrastructure automation platform
 logo: { src: /assets/logos/chef.svg }
 category: Devops
 last_verified_with: "Chef Infra Client 19.4."
+created_at: 2013-08-24
 updated: 2026-11-25
 tier: t3
 ---

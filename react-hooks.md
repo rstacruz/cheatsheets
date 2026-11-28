@@ -3,6 +3,7 @@ title: React hooks
 subtitle: State and effects in components
 logo: { src: /assets/logos/react.svg }
 category: JavaScript frameworks
+created_at: 2026-11-24
 updated: 2026-11-24
 last_verified_at: 2026-11-24
 last_verified_with: "React 19.3.1."

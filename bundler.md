@@ -4,6 +4,7 @@ subtitle: Ruby dependency manager
 logo: { set: icon-park-outline, name: box }
 category: Ruby
 last_verified_with: "Bundler 4.1."
+created_at: 2012-12-15
 updated: 2026-11-25
 tier: t3
 ---

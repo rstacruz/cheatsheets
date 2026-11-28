@@ -6,6 +6,7 @@ logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "WebKit CSS extensions (non-standard), MDN font-smooth."
+created_at: 2014-06-04
 updated: 2026-11-28
 tier: t3
 links:

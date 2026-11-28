@@ -1,5 +1,6 @@
 ---
 title: Sequelize
+created_at: 2013-05-29
 subtitle: Node.js SQL ORM
 category: Hidden
 # Documents Sequelize 2.x; success(), find(), updateAttributes() were removed in 3-5.

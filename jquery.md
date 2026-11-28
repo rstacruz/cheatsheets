@@ -11,6 +11,7 @@ archived: |
   [jQuery API documentation](https://api.jquery.com/).
 weight: -1
 last_verified_with: "jQuery 4.1.0."
+created_at: 2012-03-16
 updated: 2026-11-25
 intro: |
   [jQuery](https://api.jquery.com/) is a JavaScript library for selecting and traversing DOM elements. This sheet covers selectors, traversal methods, selector extensions, and CSS hooks.

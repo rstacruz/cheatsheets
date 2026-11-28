@@ -4,6 +4,7 @@ subtitle: Python templating engine
 logo: { src: /assets/logos/jinja.svg, mono: true }
 category: Python
 last_verified_with: "Jinja 3.1.6."
+created_at: 2021-09-27
 updated: 2026-11-28
 tier: t3
 intro: |

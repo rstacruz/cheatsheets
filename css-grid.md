@@ -4,6 +4,7 @@ subtitle: Two-dimensional layout system
 logo: { set: icon-park-outline, name: grid-two }
 category: CSS
 last_verified_with: "CSS Grid Layout Module Levels 1 and 2."
+created_at: 2018-12-07
 updated: 2026-11-25
 tier: t3
 prism_languages: [css]

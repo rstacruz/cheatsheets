@@ -4,6 +4,7 @@ subtitle: Node.js CLI framework
 logo: { set: icon-park-outline, name: keyboard }
 category: Node.js libraries
 last_verified_with: "Commander.js 15.1."
+created_at: 2013-10-14
 updated: 2026-11-25
 tier: t3
 links:

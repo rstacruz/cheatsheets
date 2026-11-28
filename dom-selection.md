@@ -6,6 +6,7 @@ category: Browser APIs
 intro: |
   Quick introduction to the HTML [DOM selection API](https://devdocs.io/dom/selection).
 last_verified_with: "WHATWG DOM Standard, Selection API."
+created_at: 2015-11-25
 updated: 2026-11-25
 tier: t3
 links:

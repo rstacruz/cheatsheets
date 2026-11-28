@@ -12,7 +12,14 @@ import {
 } from './queries'
 
 const pages = mapGlobToPages({
-  alpha: ['---', 'category: Test', 'weight: -1', '---', 'a'].join('\n'),
+  alpha: [
+    '---',
+    'category: Test',
+    'created_at: 2020-01-01',
+    'weight: -1',
+    '---',
+    'a'
+  ].join('\n'),
   beta: [
     '---',
     'category: Test',
@@ -31,7 +38,14 @@ const pages = mapGlobToPages({
     '---',
     'c'
   ].join('\n'),
-  delta: ['---', 'category: Test', 'weight: 1', '---', 'd'].join('\n'),
+  delta: [
+    '---',
+    'category: Test',
+    'created_at: 2020-01-01',
+    'weight: 1',
+    '---',
+    'd'
+  ].join('\n'),
   epsilon: [
     '---',
     'category: Test',

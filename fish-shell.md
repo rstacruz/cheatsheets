@@ -7,6 +7,7 @@ logo: { src: /assets/logos/fishshell.svg }
 category: Shell
 prism_languages: [fish]
 last_verified_with: "fish 4.9."
+created_at: 2015-05-26
 updated: 2026-11-14
 tier: t3
 weight: -1

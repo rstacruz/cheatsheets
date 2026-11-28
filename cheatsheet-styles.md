@@ -8,6 +8,7 @@ archived: |
   This unfinished styling demo is an internal reference, not a reader-facing
   cheatsheet. Use the repo's
   [writing guidelines](https://github.com/rstacruz/cheatsheets/blob/master/_docs/writing-guidelines.md).
+created_at: 2017-09-22
 updated: 2017-10-26
 intro: |
   This is a reference of styles that you can use on Devhints cheatsheets. How

@@ -4,6 +4,7 @@ subtitle: JavaScript package manager
 logo: { src: /assets/logos/yarn.svg }
 category: Package managers
 weight: -3
+created_at: 2016-10-12
 updated: 2026-11-26
 tier: t3
 last_verified_with: "Yarn 4.19.0."

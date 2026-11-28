@@ -23,6 +23,7 @@ fragments:
   - "git cherry-pick"
   - "git worktree add"
   - "git bisect"
+created_at: 2013-01-08
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 last_verified_with: "git 2.56.0."

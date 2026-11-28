@@ -7,6 +7,7 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: Search reference

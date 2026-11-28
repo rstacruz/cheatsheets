@@ -1,5 +1,6 @@
 ---
 title: Modella
+created_at: 2014-02-25
 subtitle: JavaScript model library
 category: Hidden
 # Last release 0.2.14 (2014); unmaintained.

@@ -10,6 +10,7 @@ links:
     url: https://rubygems.org
 tier: t3
 last_verified_with: "RubyGems 4.1.1."
+created_at: 2012-07-03
 updated: 2026-11-26
 ---
 

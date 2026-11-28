@@ -4,6 +4,7 @@ subtitle: Locale-aware string comparison
 logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 tier: t2
+created_at: 2026-11-26
 updated: 2026-11-26
 last_verified_at: 2026-11-26
 last_verified_with: "Node 26.13.1."

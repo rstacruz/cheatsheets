@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   Internet Explorer was retired on 15 June 2022. Test in current Edge, Chrome,
   Firefox, and Safari instead.
+created_at: 2012-12-18
 updated: 2018-03-06
 ---
 

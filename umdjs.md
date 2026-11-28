@@ -12,6 +12,7 @@ links:
     url: https://github.com/umdjs/umd/tree/master/templates
 tier: t3
 last_verified_with: "UMD templates (umdjs/umd master)."
+created_at: 2014-06-21
 updated: 2026-11-26
 ---
 

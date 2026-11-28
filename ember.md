@@ -1,5 +1,6 @@
 ---
 title: Ember.js
+created_at: 2014-02-25
 subtitle: Convention-driven web framework
 category: JavaScript libraries
 tags: [Archived]

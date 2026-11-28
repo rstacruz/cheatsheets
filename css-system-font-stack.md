@@ -6,6 +6,7 @@ logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "CSS Fonts Module Level 4."
+created_at: 2016-06-19
 updated: 2026-11-28
 tier: t3
 links:

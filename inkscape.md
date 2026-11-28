@@ -9,6 +9,7 @@ archived: |
   This unfinished shortcut list covers a few tools and leaves one binding
   unknown (`Alt`). Use
   [Inkscape's keyboard reference](https://inkscape.org/doc/keys.html).
+created_at: 2014-02-25
 updated: 2026-11-25
 last_verified_with: "Inkscape 1.4.4."
 intro: |

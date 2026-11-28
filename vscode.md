@@ -20,6 +20,7 @@ links:
     url: https://code.visualstudio.com/docs/configure/command-line
 tier: t3
 last_verified_with: "Visual Studio Code 1.148."
+created_at: 2018-02-01
 updated: 2026-11-26
 ---
 

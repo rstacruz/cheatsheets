@@ -6,6 +6,7 @@ logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: Project structure

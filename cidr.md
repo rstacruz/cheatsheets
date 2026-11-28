@@ -4,6 +4,7 @@ subtitle: IP address range notation
 logo: { set: icon-park-outline, name: globe }
 category: Networking
 last_verified_with: "RFC 4632."
+created_at: 2017-02-20
 updated: 2018-05-14
 tier: t3
 ---

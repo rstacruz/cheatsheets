@@ -10,12 +10,14 @@ title: React
 subtitle: UI library
 category: JavaScript libraries
 tags: [Featured]
+created_at: 2024-01-01
 updated: 2024-01-01
 last_verified_at: 2024-01-01
 ---
 ```
 
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
+- **Created at:** `YYYY-MM-DD` date the sheet was first added. Required on every sheet; must not be after `updated` or `last_verified_at`.
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
 - **Link title:** optional short title for homepage and other link lists. Falls back to `title`.
 - **Last verified with:** required for tiered sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.

@@ -7,6 +7,7 @@ category: JavaScript testing
 layout: snippet
 tier: t3
 last_verified_with: "Playwright 1.65.1."
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: Test generator

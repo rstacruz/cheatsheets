@@ -13,6 +13,7 @@ links:
 prism_languages: [vim]
 tier: t3
 last_verified_with: "Vim 9.2."
+created_at: 2015-01-16
 updated: 2026-11-26
 weight: -10
 ---

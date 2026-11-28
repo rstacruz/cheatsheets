@@ -19,6 +19,7 @@ fragments:
   - "[^note]"
   - "---"
   - "![[Note#^id]]"
+created_at: 2026-11-22
 updated: 2026-11-22
 last_verified_at: 2026-11-23
 keywords: [obsidian, obsidian markdown, wikilinks, callouts, embeds, block refs]

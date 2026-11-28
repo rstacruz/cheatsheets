@@ -4,6 +4,7 @@ subtitle: Change file permissions
 logo: { set: icon-park-outline, name: lock }
 category: Linux
 tier: t2
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 last_verified_with: "GNU coreutils 9.8 (chmod 9.8)."

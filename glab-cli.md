@@ -5,6 +5,7 @@ description: "GitLab CLI reference: authenticate, clone projects, open merge req
 subtitle: GitLab from the terminal
 logo: { src: /assets/logos/gitlab.svg }
 category: Git
+created_at: 2026-11-25
 updated: 2026-11-25
 last_verified_at: 2026-11-25
 last_verified_with: "glab 1.130.0."

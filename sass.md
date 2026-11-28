@@ -3,6 +3,7 @@ title: Sass
 subtitle: Mature CSS preprocessor
 logo: { src: /assets/logos/sass.svg }
 category: CSS
+created_at: 2012-07-03
 updated: 2026-11-26
 weight: -5
 keywords:

@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: file-search }
 category: CLI
 layout: snippet
 last_verified_with: "fd 10.5.1."
+created_at: 2026-11-23
 updated: 2026-11-28
 tier: t3
 links:

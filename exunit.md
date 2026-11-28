@@ -3,6 +3,7 @@ title: ExUnit
 subtitle: Elixir test framework
 logo: { set: icon-park-outline, name: flask }
 category: Elixir
+created_at: 2016-06-19
 updated: 2026-11-23
 tier: t3
 last_verified_with: "ExUnit 1.20.5."

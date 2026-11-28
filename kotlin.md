@@ -3,6 +3,7 @@ title: Kotlin
 subtitle: JVM programming language
 logo: { src: /assets/logos/kotlin.svg }
 category: C-like
+created_at: 2018-12-06
 updated: 2026-11-11
 last_verified_at: 2026-11-12
 last_verified_with: "Kotlin 2.4.21."

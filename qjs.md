@@ -1,5 +1,6 @@
 ---
 title: Q.js
+created_at: 2013-06-20
 subtitle: Promise library for JavaScript
 category: Hidden
 # Archived and deprecated in favour of native JavaScript Promises.

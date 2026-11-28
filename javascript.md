@@ -4,6 +4,7 @@ subtitle: Core scripting language
 logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 weight: -10
+created_at: 2012-10-11
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "Node.js 26.13.1 (V8 14.6)."

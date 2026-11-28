@@ -7,6 +7,7 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: git-stash manual

@@ -79,6 +79,9 @@ export const SheetFrontmatterSchema = z
       .array()
       .optional()
       .describe('`Featured` puts the sheet on the home page.'),
+    created_at: z
+      .date()
+      .describe('Date the sheet was first added. Required on every sheet.'),
     updated: z
       .date()
       .optional()
@@ -206,6 +209,26 @@ export const SheetFrontmatterSchema = z
         code: z.ZodIssueCode.custom,
         path: ['last_verified_at'],
         message: '`last_verified_at` must not be before `updated`'
+      })
+    }
+
+    if (value.created_at && value.updated && value.created_at > value.updated) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['created_at'],
+        message: '`created_at` must not be after `updated`'
+      })
+    }
+
+    if (
+      value.created_at &&
+      value.last_verified_at &&
+      value.created_at > value.last_verified_at
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['created_at'],
+        message: '`created_at` must not be after `last_verified_at`'
       })
     }
 

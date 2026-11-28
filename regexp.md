@@ -19,6 +19,7 @@ authors:
   - github: izzergh
   - github: kolapsys
   - github: samtrion
+created_at: 2014-02-25
 updated: 2026-11-26
 last_verified_with: "Node 26.13.1, PCRE2 10.49."
 description: |

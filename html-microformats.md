@@ -1,5 +1,6 @@
 ---
 title: Microformats
+created_at: 2015-03-09
 subtitle: Semantic HTML markup patterns
 category: Hidden
 # Predates microformats2; mixes hAtom classes with unattached schema.org microdata.

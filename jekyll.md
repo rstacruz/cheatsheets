@@ -5,6 +5,7 @@ logo: { src: /assets/logos/jekyll.svg, mono: true }
 jekyll_escape: true
 prism_languages: [bash, yaml, ruby]
 category: Markup
+created_at: 2013-10-14
 updated: 2026-11-22
 last_verified_with: "Jekyll 4.4.1, Ruby 3.4"
 tier: t3

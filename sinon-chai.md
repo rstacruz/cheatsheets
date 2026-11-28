@@ -5,6 +5,7 @@ logo: { src: /assets/logos/sinon.svg }
 category: JavaScript testing
 tier: t3
 last_verified_with: "Sinon-chai 4.0.1, Sinon 22.1.0."
+created_at: 2013-08-24
 updated: 2026-11-26
 intro: |
   Sinon-chai provides Chai assertions for Sinon spies, stubs, and mocks.

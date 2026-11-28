@@ -12,6 +12,7 @@ links:
     url: https://pubs.opengroup.org/onlinepubs/9799919799/utilities/mkfifo.html
 tier: t3
 last_verified_with: "GNU Bash 5.3."
+created_at: 2014-06-25
 updated: 2026-11-26
 ---
 

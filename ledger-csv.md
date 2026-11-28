@@ -3,6 +3,7 @@ title: Ledger CSV format
 subtitle: Ledger CSV export format
 logo: { set: icon-park-outline, name: file-excel }
 category: Plain-text accounting
+created_at: 2014-10-08
 updated: 2026-11-24
 last_verified_with: "Ledger 3.4.1."
 tier: t3

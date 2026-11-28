@@ -8,6 +8,7 @@ archived: |
   `window.applicationCache` was removed from browsers. Use
   [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
   instead.
+created_at: 2014-04-01
 updated: 2026-10-04
 ---
 

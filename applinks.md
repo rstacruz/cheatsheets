@@ -4,6 +4,7 @@ subtitle: Deep-link metadata standard
 logo: { set: icon-park-outline, name: deeplink }
 category: HTML
 last_verified_with: "App Links 1.0 metadata spec."
+created_at: 2014-06-07
 updated: 2026-11-24
 tier: t3
 intro: |

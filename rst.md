@@ -10,6 +10,7 @@ links:
     url: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html
 tier: t3
 last_verified_with: "Docutils 0.23."
+created_at: 2012-03-16
 updated: 2026-11-26
 ---
 

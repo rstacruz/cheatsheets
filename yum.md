@@ -5,6 +5,7 @@ description: "Yum commands: install, update, remove, search, list and repositori
 subtitle: RPM package manager
 logo: { set: icon-park-outline, name: box }
 category: Package managers
+created_at: 2024-02-14
 updated: 2026-11-24
 last_verified_with: "yum 3.4.3, dnf 4.24."
 tier: t3

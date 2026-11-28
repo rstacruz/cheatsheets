@@ -14,6 +14,7 @@ links:
     url: https://developer.hashicorp.com/vagrant/docs/synced-folders/basic_usage
 tier: t3
 last_verified_with: "Vagrant 2.4.9."
+created_at: 2014-02-25
 updated: 2026-11-26
 ---
 

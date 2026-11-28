@@ -4,6 +4,7 @@ subtitle: Command-line FTP client
 logo: { set: icon-park-outline, name: transfer-data }
 category: Networking
 last_verified_with: "NcFTP Client 3.3.0."
+created_at: 2012-07-03
 updated: 2026-11-25
 tier: t3
 intro: |

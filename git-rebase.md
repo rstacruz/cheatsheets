@@ -25,6 +25,7 @@ fragments:
   - "UU story.txt"
   - "git reflog"
   - "ORIG_HEAD"
+created_at: 2026-11-21
 updated: 2026-11-21
 last_verified_at: 2026-11-22
 last_verified_with: "git 2.56.0."

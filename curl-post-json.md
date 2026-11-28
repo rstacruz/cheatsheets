@@ -6,6 +6,7 @@ logo: { src: /assets/logos/curl.svg, mono: true }
 category: Networking
 layout: snippet
 last_verified_with: "curl 8.23.0."
+created_at: 2026-11-23
 updated: 2026-11-28
 tier: t3
 links:

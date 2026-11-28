@@ -5,6 +5,7 @@ subtitle: Steps, tabs and trees
 logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
+created_at: 2026-11-27
 updated: 2026-11-28
 last_verified_with: "Starlight 0.43.2, Astro 7.4.13."
 links:

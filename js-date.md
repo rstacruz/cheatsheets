@@ -4,6 +4,7 @@ subtitle: Date and time API
 logo: { set: icon-park-outline, name: calendar-dot }
 category: JavaScript
 weight: -3
+created_at: 2015-01-16
 updated: 2026-11-25
 last_verified_with: "ECMAScript 2026."
 tier: t3

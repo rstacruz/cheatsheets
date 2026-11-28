@@ -4,6 +4,7 @@ subtitle: OpenPGP encryption suite
 logo: { set: icon-park-outline, name: key }
 category: CLI
 tags: []
+created_at: 2017-10-18
 updated: 2026-11-25
 tier: t3
 last_verified_with: "GnuPG 2.5.24."

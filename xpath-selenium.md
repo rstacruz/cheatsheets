@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: code }
 category: JavaScript testing
 layout: snippet
 last_verified_with: "Selenium 4.54.0, Playwright 1.65.1."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: Selenium locator strategies

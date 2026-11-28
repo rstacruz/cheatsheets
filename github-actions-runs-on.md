@@ -5,6 +5,7 @@ subtitle: Hosted and self-hosted labels
 category: Devops
 layout: snippet
 last_verified_with: "GitHub Actions runner images, ubuntu 24.04 and macos 15 labels."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: GitHub-hosted runners

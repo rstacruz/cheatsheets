@@ -4,6 +4,7 @@ subtitle: Lightweight Ruby test suite
 logo: { set: icon-park-outline, name: test-tube }
 category: Ruby
 last_verified_with: "Minitest 6.1.0, minitest-mock 5.27.0, minitest-reporters 1.8.0."
+created_at: 2013-01-25
 updated: 2026-11-25
 tier: t3
 intro: |

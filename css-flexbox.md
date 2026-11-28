@@ -3,6 +3,7 @@ title: CSS flexbox
 subtitle: One-dimensional layout system
 logo: { set: icon-park-outline, name: layout-one }
 category: CSS
+created_at: 2014-04-28
 updated: 2026-11-23
 tier: t3
 last_verified_with: "CSS Flexible Box Layout Module Level 1."

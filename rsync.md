@@ -9,6 +9,7 @@ links:
     url: https://download.samba.org/pub/rsync/rsync.1
 category: Networking
 weight: -1
+created_at: 2013-03-26
 updated: 2026-11-26
 last_verified_with: "rsync 3.5.2."
 tier: t3

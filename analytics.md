@@ -1,5 +1,6 @@
 ---
 title: Analytics libraries
+created_at: 2014-09-05
 subtitle: Analytics library comparison
 category: Hidden
 # Universal Analytics stopped processing hits on 2023-07-01.

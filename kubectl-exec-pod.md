@@ -6,6 +6,7 @@ logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: kubectl exec

@@ -4,6 +4,7 @@ subtitle: Human-friendly HTTP client
 logo: { src: /assets/logos/httpie.svg }
 category: Networking
 weight: -3
+created_at: 2014-06-14
 updated: 2026-11-23
 last_verified_with: "HTTPie CLI 3.2.4."
 tier: t3

@@ -22,6 +22,7 @@ fragments:
   - "@id"
   - "not(expr)"
 weight: -5
+created_at: 2014-10-07
 updated: 2026-11-26
 last_verified_at: 2026-11-26
 last_verified_with: "XPath 1.0, Selenium 4.54.0, Playwright 1.65.1."

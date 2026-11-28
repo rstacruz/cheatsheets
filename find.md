@@ -4,6 +4,7 @@ subtitle: File search utility
 logo: { set: icon-park-outline, name: file-search }
 category: CLI
 last_verified_with: "GNU findutils 4.11."
+created_at: 2013-09-17
 updated: 2026-10-31
 tier: t3
 ---

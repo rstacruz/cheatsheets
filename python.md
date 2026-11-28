@@ -14,6 +14,7 @@ links:
     url: https://docs.python.org/3/library/stdtypes.html
   - title: Built-in functions
     url: https://docs.python.org/3/library/functions.html
+created_at: 2015-06-01
 updated: 2026-11-26
 last_verified_with: "Python 3.15.2."
 tier: t3

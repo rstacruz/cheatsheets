@@ -6,6 +6,7 @@ logo: { src: /assets/logos/redis.svg }
 category: Databases
 layout: snippet
 last_verified_with: "redis-cli 8.10.3."
+created_at: 2026-11-27
 updated: 2026-11-28
 tier: t3
 links:

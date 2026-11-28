@@ -4,6 +4,7 @@ subtitle: Speech synthesis API
 logo: { set: icon-park-outline, name: voice }
 category: Browser APIs
 weight: -1
+created_at: 2016-07-06
 updated: 2026-11-25
 last_verified_with: "ECMAScript 2026."
 tier: t3

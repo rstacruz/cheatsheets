@@ -3,6 +3,7 @@ title: top
 subtitle: Process monitor
 logo: { set: icon-park-outline, name: dashboard }
 category: CLI
+created_at: 2019-09-28
 updated: 2026-11-26
 intro: See the processes in your Unix machine.
 links:

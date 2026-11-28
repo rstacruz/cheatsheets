@@ -6,6 +6,7 @@ import { resolveLogo } from '../logo-render'
 import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
 const MIN_RATIO = 0.8
+const CREATED = { created_at: new Date('2020-01-01') }
 const MAX_RATIO = 1.25
 
 const pagesWithLogos = async () => {
@@ -20,7 +21,9 @@ describe('logo frontmatter', () => {
     { set: 'logos', name: 'codex', mono: true },
     { src: '/assets/logos/herdr.svg', mono: true }
   ])('accepts %j', (logo) => {
-    expect(SheetFrontmatterSchema.parse({ logo }).logo).toEqual(logo)
+    expect(SheetFrontmatterSchema.parse({ ...CREATED, logo }).logo).toEqual(
+      logo
+    )
   })
 
   it.each([
@@ -29,7 +32,7 @@ describe('logo frontmatter', () => {
     { src: 'herdr.svg' },
     { set: 'logos', name: '' }
   ])('rejects %j', (logo) => {
-    expect(() => SheetFrontmatterSchema.parse({ logo })).toThrow()
+    expect(() => SheetFrontmatterSchema.parse({ ...CREATED, logo })).toThrow()
   })
 })
 

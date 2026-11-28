@@ -12,6 +12,7 @@ links:
     url: https://github.com/rspec/rspec-rails
 tier: t3
 last_verified_with: "RSpec Rails 8.0, RSpec 3.13."
+created_at: 2015-03-30
 updated: 2026-11-26
 ---
 

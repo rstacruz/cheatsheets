@@ -3,6 +3,7 @@ title: PostgreSQL JSON
 subtitle: Types, operators and functions
 logo: { src: /assets/logos/postgresql.svg }
 category: Databases
+created_at: 2017-09-22
 updated: 2026-11-22
 last_verified_with: "PostgreSQL 19.0 (postgres:19 Docker image), psql 19.0."
 keywords: [postgres, jsonb, jsonpath, json functions]

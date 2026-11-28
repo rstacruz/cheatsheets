@@ -6,6 +6,7 @@ logo: { src: /assets/logos/claude.svg }
 category: Agents
 layout: snippet
 last_verified_with: "Claude Code 2.1.330."
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 tier: t1

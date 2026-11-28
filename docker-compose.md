@@ -5,6 +5,7 @@ logo: { src: /assets/logos/docker.svg }
 category: Containers
 prism_languages: [yaml]
 weight: -1
+created_at: 2016-06-29
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "Docker 29.9.3, Compose 5.7.0."

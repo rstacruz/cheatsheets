@@ -1,5 +1,6 @@
 ---
 title: React-router
+created_at: 2015-08-05
 subtitle: Routing library for React
 category: Hidden
 # Documents the pre-v4 Router.run/handler API, removed in React Router 4.

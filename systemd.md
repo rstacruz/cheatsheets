@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: control }
 category: Linux
 tier: t3
 last_verified_with: "systemd 262."
+created_at: 2026-11-28
 updated: 2026-11-28
 intro: |
   systemd manages services, timers, and logs on most Linux systems. This reference covers unit files, systemctl, and journalctl.

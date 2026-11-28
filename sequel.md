@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: data-server }
 category: Ruby libraries
 tier: t3
 last_verified_with: "Sequel 5.110.0."
+created_at: 2013-10-14
 updated: 2026-11-26
 intro: |
   Sequel is a database toolkit for Ruby.

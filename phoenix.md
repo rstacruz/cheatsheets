@@ -11,6 +11,7 @@ links:
     url: https://hexdocs.pm/phoenix/overview.html
   - title: Phoenix source
     url: https://github.com/phoenixframework/phoenix
+created_at: 2016-06-02
 updated: 2026-11-22
 last_verified_with: "Phoenix 1.8.17, Phoenix LiveView 1.2.15, Elixir 1.19.7, Erlang/OTP 28."
 tier: t3

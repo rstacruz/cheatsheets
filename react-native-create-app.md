@@ -8,6 +8,7 @@ layout: snippet
 tier: t3
 last_verified_with: "React Native 0.88.1, Expo SDK 58.1.0."
 last_verified_at: 2026-11-28
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: Create an Expo project

@@ -4,6 +4,7 @@ subtitle: Locale-aware number formatter
 logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 tier: t2
+created_at: 2026-11-18
 updated: 2026-11-18
 last_verified_at: 2026-11-26
 last_verified_with: "Node 26.13.1."

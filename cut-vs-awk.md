@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: terminal }
 category: CLI
 layout: snippet
 last_verified_with: "GNU coreutils 9.12, GNU Awk 5.4."
+created_at: 2026-11-23
 updated: 2026-11-28
 tier: t3
 links:

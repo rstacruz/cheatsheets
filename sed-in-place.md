@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: edit }
 category: CLI
 layout: snippet
 last_verified_with: "GNU sed 4.10."
+created_at: 2026-11-23
 updated: 2026-11-28
 links:
   - title: GNU sed manual

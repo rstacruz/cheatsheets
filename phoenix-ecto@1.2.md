@@ -1,5 +1,6 @@
 ---
 title: "Phoenix: Ecto models"
+created_at: 2016-06-03
 subtitle: Legacy Ecto model API
 category: Elixir
 deprecated: true

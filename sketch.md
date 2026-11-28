@@ -3,6 +3,7 @@ title: Sketch
 subtitle: Mac vector design app
 logo: { src: /assets/logos/sketch.svg }
 category: Apps
+created_at: 2014-10-23
 updated: 2026-11-26
 keywords:
   - "⌘K: Command Bar"

@@ -3,6 +3,7 @@ title: Express
 subtitle: Node.js web framework
 logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
+created_at: 2013-05-29
 updated: 2026-11-26
 last_verified_at: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."

@@ -12,6 +12,7 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 tier: t3
 last_verified_with: "ECMAScript 2026."
+created_at: 2014-09-30
 updated: 2026-11-25
 ---
 

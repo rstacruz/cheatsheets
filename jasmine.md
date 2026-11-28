@@ -1,5 +1,6 @@
 ---
 title: Jasmine
+created_at: 2012-07-03
 subtitle: BDD test framework
 category: Hidden
 # Documents the removed Jasmine 1.x spy API and HTML reporter (Jasmine 2.0, 2015).

@@ -3,6 +3,7 @@ title: JavaScript lazy shortcuts
 subtitle: Type coercion shorthand
 logo: { set: icon-park-outline, name: hourglass }
 category: JavaScript
+created_at: 2017-03-07
 updated: 2026-11-25
 last_verified_with: "ECMAScript 2026."
 tier: t3

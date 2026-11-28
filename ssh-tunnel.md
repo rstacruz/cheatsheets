@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: link }
 category: Networking
 layout: snippet
 last_verified_with: "OpenSSH 10.6p1."
+created_at: 2026-11-23
 updated: 2026-11-28
 links:
   - title: ssh(1) manual

@@ -3,6 +3,7 @@ title: git log
 subtitle: Commit history viewer
 logo: { set: icon-park-outline, name: history }
 category: Git
+created_at: 2015-11-23
 updated: 2026-11-23
 tier: t3
 last_verified_with: "Git 2.56.0."

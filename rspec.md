@@ -10,6 +10,7 @@ links:
     url: https://rspec.info/
 tier: t3
 last_verified_with: "RSpec 3.13, rspec-mocks 3.13.8."
+created_at: 2012-03-21
 updated: 2026-11-26
 ---
 

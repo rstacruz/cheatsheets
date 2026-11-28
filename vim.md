@@ -4,6 +4,7 @@ subtitle: Modal text editor
 logo: { src: /assets/logos/vim.svg }
 category: Vim
 tags: [Featured]
+created_at: 2012-03-16
 updated: 2026-11-11
 last_verified_at: 2026-11-12
 last_verified_with: "Vim 9.2."

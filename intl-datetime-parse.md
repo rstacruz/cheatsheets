@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: Date.parse()

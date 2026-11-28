@@ -19,6 +19,7 @@ fragments:
   - "z"
   - "cc"
   - "<C-a>"
+created_at: 2026-11-16
 updated: 2026-11-16
 last_verified_at: 2026-11-16
 last_verified_with: "Yazi 26.9.1."

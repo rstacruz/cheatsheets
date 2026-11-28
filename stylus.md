@@ -16,6 +16,7 @@ prism_languages: [stylus]
 weight: -3
 tier: t3
 last_verified_with: "Stylus 0.64.0."
+created_at: 2012-10-11
 updated: 2026-11-26
 ---
 

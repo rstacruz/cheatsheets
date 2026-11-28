@@ -9,6 +9,7 @@ intro: |
 links:
   - title: Stream API documentation
     url: https://nodejs.org/api/stream.html
+created_at: 2017-07-30
 updated: 2026-11-22
 last_verified_with: "Node.js 26.13.1."
 tier: t3

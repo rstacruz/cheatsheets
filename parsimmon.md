@@ -4,6 +4,7 @@ subtitle: Parser combinator library
 logo: { set: icon-park-outline, name: tree-diagram }
 category: Node.js libraries
 last_verified_with: "Parsimmon 1.18.1."
+created_at: 2016-12-12
 updated: 2026-11-25
 tier: t3
 intro: |

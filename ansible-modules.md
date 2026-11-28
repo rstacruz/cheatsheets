@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: puzzle }
 category: Ansible
 prism_languages: [yaml]
 last_verified_with: "ansible-core 2.22."
+created_at: 2014-02-25
 updated: 2026-11-22
 tier: t3
 keywords:

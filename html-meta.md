@@ -3,6 +3,7 @@ title: HTML meta tags
 subtitle: Document metadata tags
 logo: { set: icon-park-outline, name: label }
 category: HTML
+created_at: 2014-06-25
 updated: 2026-11-25
 tier: t3
 last_verified_with: "WHATWG HTML Living Standard, Open Graph protocol."

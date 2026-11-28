@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: Day.js difference

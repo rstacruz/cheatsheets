@@ -4,6 +4,7 @@ subtitle: Built-in function reference
 logo: { set: icon-park-outline, name: code-brackets }
 category: Vim
 last_verified_with: "Vim 9.2."
+created_at: 2015-06-01
 updated: 2026-11-24
 tier: t3
 intro: |

@@ -7,6 +7,7 @@ category: JavaScript
 layout: snippet
 tier: t3
 last_verified_with: "Node.js 26.13.1."
+created_at: 2026-11-28
 updated: 2026-11-28
 intro: |
   `await sleep(ms)` pauses an async function without blocking the event loop.

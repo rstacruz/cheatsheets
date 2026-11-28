@@ -3,6 +3,7 @@ title: Goby
 subtitle: Ruby-like scripting language
 prism_languages: [ruby]
 weight: -3
+created_at: 2018-12-06
 updated: 2018-12-06
 category: Hidden
 # Development stopped; the goby-lang/goby repository was archived in July 2025.

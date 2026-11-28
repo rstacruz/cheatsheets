@@ -6,6 +6,7 @@ logo: { src: /assets/logos/vue.svg }
 category: Devops
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: VuePress deployment

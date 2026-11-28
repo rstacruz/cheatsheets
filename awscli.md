@@ -4,6 +4,7 @@ subtitle: Command-line interface for AWS
 logo: { set: icon-park-outline, name: terminal }
 category: Devops
 last_verified_with: "AWS CLI 2.42."
+created_at: 2015-07-17
 updated: 2026-11-25
 tier: t3
 ---

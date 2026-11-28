@@ -6,6 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
+created_at: 2026-11-26
 updated: 2026-11-28
 links:
   - title: Template syntax

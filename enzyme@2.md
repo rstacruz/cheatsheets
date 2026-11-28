@@ -2,6 +2,7 @@
 title: Enzyme v2
 subtitle: Legacy React test utility
 category: React
+created_at: 2017-03-29
 updated: 2017-10-12
 weight: -1
 deprecated: true

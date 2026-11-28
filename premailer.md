@@ -14,6 +14,7 @@ links:
   - title: Premailer
     url: https://github.com/premailer/premailer/
 last_verified_with: "Premailer 1.33.0."
+created_at: 2014-02-25
 updated: 2026-11-25
 ---
 

@@ -8,6 +8,7 @@ archived: |
   The polyfill.io domain was hijacked and shut down in the June 2024
   supply-chain attack. Remove references to it; serve polyfills from
   [cdnjs](https://cdnjs.com/) or bundle them yourself.
+created_at: 2017-10-26
 updated: 2024-06-26
 intro: |
   Polyfill.io is a service that serves JavaScript polyfills.

@@ -1,5 +1,6 @@
 ---
 title: Vimscript snippets
+created_at: 2015-05-06
 subtitle: Common code recipes
 category: Hidden
 # Recipes duplicated by /vimscript and /vimscript-functions.

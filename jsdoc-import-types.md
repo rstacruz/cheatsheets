@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: file-code }
 category: JavaScript
 layout: snippet
 last_verified_with: "TypeScript 7.0.2."
+created_at: 2026-11-23
 updated: 2026-11-28
 tier: t3
 intro: |

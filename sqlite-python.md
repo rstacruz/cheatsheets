@@ -7,6 +7,7 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "Python 3.14.10, SQLite 3.54.0."
+created_at: 2026-11-27
 updated: 2026-11-28
 links:
   - title: Python sqlite3

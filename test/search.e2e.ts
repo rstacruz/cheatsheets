@@ -1,21 +1,17 @@
 import { expect, test, type Page } from '@playwright/test'
 
-const STATUS = '[data-js-search-status]'
-
 test('/?q=git+rebase loads ranked search results', async ({ page }) => {
   await page.goto('/?q=git+rebase')
 
   await expect(page).toHaveURL(/\/search\?q=git%20rebase$/)
   await expect(page.getByPlaceholder('Search...')).toHaveValue('git rebase')
-  await expect(page.locator(STATUS)).toHaveText(
-    '8 cheatsheets for “git rebase”'
-  )
+  await waitForResults(page, 8)
   await expect(page.locator('[data-slug="git-rebase"]')).toBeVisible()
 })
 
 test('the top hit is the first visible result', async ({ page }) => {
   await page.goto('/search?q=react')
-  await expect(page.locator(STATUS)).toHaveText('24 cheatsheets for “react”')
+  await waitForResults(page, 24)
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveCount(0)
   const slugs = await page
@@ -38,7 +34,7 @@ test('a landing query hides the browse list until results load', async ({
 
   await page.goto('/search?q=react')
   await expect(page.locator('[data-js-search-results]')).toBeHidden()
-  await expect(page.locator(STATUS)).toHaveText('24 cheatsheets for “react”')
+  await waitForResults(page, 24)
   await expect(page.locator('[data-js-search-results]')).toBeVisible()
 })
 
@@ -49,7 +45,7 @@ test('typing filters in place without autocomplete suggestions', async ({
   const input = page.getByPlaceholder('Search...')
 
   await input.fill('git stash')
-  await expect(page.locator(STATUS)).toHaveText('8 cheatsheets for “git stash”')
+  await waitForResults(page, 8)
   await expect(page.getByRole('option')).toHaveCount(0)
   await expect(page).toHaveURL(/\/search$/)
 
@@ -69,7 +65,7 @@ test('a single result redirects straight to the sheet', async ({ page }) => {
 test('cards and snippets are ranked in separate sections', async ({ page }) => {
   await page.goto('/search?q=git%20stash')
 
-  await expect(page.locator(STATUS)).toHaveText('8 cheatsheets for “git stash”')
+  await waitForResults(page, 8)
   expect(await visibleSlugsInGroup(page, 'Git')).toEqual(['git-stash'])
   expect((await visibleSlugsInGroup(page, 'Snippets')).slice(0, 3)).toEqual([
     'git-stash-show',
@@ -86,7 +82,7 @@ test('clearing the query restores the original browse order', async ({
   const original = await visibleSlugsInGroup(page, 'Git')
 
   await page.goto('/search?q=git%20stash')
-  await expect(page.locator(STATUS)).toHaveText('8 cheatsheets for “git stash”')
+  await waitForResults(page, 8)
 
   const input = page.getByPlaceholder('Search...')
   await input.fill('')
@@ -100,34 +96,32 @@ test('typed refinement updates in place and Back restores the query', async ({
   page
 }) => {
   await page.goto('/search?q=git%20stash')
-  await expect(page.locator(STATUS)).toHaveText('8 cheatsheets for “git stash”')
+  await waitForResults(page, 8)
 
   const input = page.getByPlaceholder('Search...')
   await input.fill('git rebase')
   await input.press('Enter')
 
   await expect(page).toHaveURL(/\/search\?q=git%20rebase$/)
-  await expect(page.locator(STATUS)).toHaveText(
-    '8 cheatsheets for “git rebase”'
-  )
+  await waitForResults(page, 8)
   await expect(page.locator('[data-slug="git-rebase"]')).toBeVisible()
   await expect(page.locator('[data-slug="git-stash"]')).toBeHidden()
 
   await page.goBack()
   await expect(page).toHaveURL(/\/search\?q=git%20stash$/)
-  await expect(page.locator(STATUS)).toHaveText('8 cheatsheets for “git stash”')
+  await waitForResults(page, 8)
 })
 
 test('refining to a single hit stays on the search page', async ({ page }) => {
   await page.goto('/search?q=git%20stash')
-  await expect(page.locator(STATUS)).toHaveText('8 cheatsheets for “git stash”')
+  await waitForResults(page, 8)
 
   const input = page.getByPlaceholder('Search...')
   await input.fill('es6')
   await input.press('Enter')
 
   await expect(page.locator('[data-slug="es6"]')).toBeVisible()
-  await expect(page.locator(STATUS)).toHaveText('1 cheatsheet for “es6”')
+  await waitForResults(page, 1)
   await page.waitForTimeout(500)
   await expect(page).toHaveURL(/\/search\?q=es6$/)
 })
@@ -135,12 +129,23 @@ test('refining to a single hit stays on the search page', async ({ page }) => {
 test('an unknown query shows the empty state', async ({ page }) => {
   await page.goto('/search?q=skinamarink')
 
-  await expect(page.locator(STATUS)).toHaveText(
-    'No cheatsheets for “skinamarink”'
-  )
+  await waitForResults(page, 0)
   await expect(page.locator('[data-js-search-empty]')).toBeVisible()
   await expect(page.locator('[data-slug]:visible')).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'Git' })).toBeHidden()
+})
+
+test('homepage search button submits the typed query', async ({ page }) => {
+  await page.goto('/')
+  const input = page.getByPlaceholder('Search...')
+
+  await input.fill('git stash')
+  const button = page.getByRole('button', { name: 'Search', exact: true })
+  await expect(button).toBeVisible()
+  await button.click()
+
+  await expect(page).toHaveURL(/\/search\?q=git%20stash$/)
+  await waitForResults(page, 8)
 })
 
 function visibleSlugsInGroup(page: Page, heading: string): Promise<string[]> {
@@ -152,4 +157,10 @@ function visibleSlugsInGroup(page: Page, heading: string): Promise<string[]> {
     .evaluateAll((nodes) =>
       nodes.map((node) => node.getAttribute('data-slug') ?? '')
     )
+}
+
+async function waitForResults(page: Page, count: number) {
+  await expect(
+    page.locator('[data-js-search-results] [data-slug]:visible')
+  ).toHaveCount(count)
 }

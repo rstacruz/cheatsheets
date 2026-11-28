@@ -67,6 +67,15 @@ const styles = {
       small
         ? 'w-[48px] flex-[0_0_48px] [&>svg]:size-[24px]'
         : 'w-[64px] flex-[0_0_64px] [&>svg]:size-[32px]'
+    ),
+  submit: (small: boolean) =>
+    cx(
+      'SearchForm__submit',
+      'order-2 flex flex-none items-center gap-[8px] rounded-full px-[16px]',
+      'text-sm font-semibold text-primary-foreground no-underline',
+      'bg-[image:var(--brand-gradient)] hover:bg-none hover:bg-primary-active',
+      'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+      small ? 'h-[40px]' : 'h-[48px]'
     )
 }
 ---
@@ -85,9 +94,20 @@ const styles = {
       autocomplete="off"
       data-js-no-autocomplete={props.noAutocomplete ? '' : undefined}
     />
-    <span class={styles.icon(small)}>
+    <span class={styles.icon(small)} data-js-search-icon>
       <Icon name="md-search" size={small ? 24 : 32} />
     </span>
+    {props.noAutocomplete !== true && (
+      <button
+        type="button"
+        class={styles.submit(small)}
+        data-js-search-submit
+        style="display: none"
+      >
+        <Icon name="md-search" size={small ? 20 : 24} />
+        <span>Search</span>
+      </button>
+    )}
   </label>
 </form>
 

@@ -3,7 +3,6 @@ import { fetchFuse, parseFuse, type Row } from '~/lib/fuseSearch/fuseSearch'
 import { getInitialRedirectSlug } from '~/lib/fuseSearch/searchLanding'
 import {
   getResultTitle,
-  getStatusText,
   rankGroupOrder,
   rankGroupSlugs
 } from './SearchResults.core'
@@ -32,7 +31,6 @@ function setShown(element: HTMLElement, shown: boolean) {
 export function setupSearchResults() {
   const form = requiredElement<HTMLFormElement>('[data-js-search-form]')
   const input = requiredElement<HTMLInputElement>('[data-js-search-input]')
-  const status = requiredElement('[data-js-search-status]')
   const empty = requiredElement('[data-js-search-empty]')
   const groupRoot = requiredElement('[data-js-search-groups]')
   const groups = Array.from(
@@ -104,7 +102,6 @@ export function setupSearchResults() {
     for (const index of order) groupRoot.append(groups[index].element)
 
     empty.hidden = !(query.length > 0 && matched.size === 0)
-    status.textContent = getStatusText(query, matched.size)
     document.title = getResultTitle(query, baseTitle)
     delete document.documentElement.dataset.searchPending
   }
@@ -146,7 +143,6 @@ export function setupSearchResults() {
       renderFromUrl(true)
     })
     .catch(() => {
-      status.textContent = 'Search is unavailable; all cheatsheets are listed.'
       delete document.documentElement.dataset.searchPending
     })
 }

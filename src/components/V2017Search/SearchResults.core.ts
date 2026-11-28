@@ -39,13 +39,6 @@ export function rankGroupOrder(
   )
 }
 
-export function getStatusText(query: string, count: number): string {
-  if (!query) return ''
-  if (count === 0) return `No cheatsheets for “${query}”`
-  const noun = count === 1 ? 'cheatsheet' : 'cheatsheets'
-  return `${count} ${noun} for “${query}”`
-}
-
 export function getResultTitle(query: string, baseTitle: string): string {
   return query ? `${query} — ${baseTitle}` : baseTitle
 }

@@ -4,6 +4,7 @@ subtitle: Terminal coding agent
 logo: { src: /assets/logos/codex.svg, mono: true }
 category: Agents
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "codex-cli 0.172.0."
 tier: t1
 fragments:

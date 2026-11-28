@@ -6,6 +6,7 @@ subtitle: Node.js process manager
 logo: { src: /assets/logos/pm2.svg, mono: true }
 category: Node.js libraries
 updated: 2026-11-18
+last_verified_at: 2026-11-18
 last_verified_with: "PM2 7.1.2."
 tier: t2
 fragments:

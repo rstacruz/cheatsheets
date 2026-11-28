@@ -5,6 +5,7 @@ logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 tier: t2
 updated: 2026-11-27
+last_verified_at: 2026-11-27
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."
 fragments:
   - "vuepress dev"

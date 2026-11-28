@@ -5,6 +5,7 @@ logo: { src: /assets/logos/bash.svg }
 category: Shell
 tags: [Featured]
 updated: 2026-11-24
+last_verified_at: 2026-11-24
 last_verified_with: "Bash 5.3, Bash 5.3.20."
 tier: t2
 fragments:

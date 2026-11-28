@@ -3,7 +3,10 @@ import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 const twelve = Array.from({ length: 12 }, (_, index) => `f${index}`)
 const twenty = Array.from({ length: 20 }, (_, index) => `f${index}`)
 
-const VERIFIED = { last_verified_with: 'verified' }
+const VERIFIED = {
+  last_verified_with: 'verified',
+  last_verified_at: new Date('2026-11-28')
+}
 
 test('the schema requires fragments for t1 and t2 sheets', () => {
   expect(() =>

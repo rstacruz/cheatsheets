@@ -55,6 +55,7 @@ const pages = mapGlobToPages({
     'last_verified_with: "Tool 1.0."',
     'fragments: [a, b, c, d, e, f, g, h, i, j, k, l]',
     'updated: 2024-06-01',
+    'last_verified_at: 2024-06-01',
     '---',
     't'
   ].join('\n'),

@@ -4,6 +4,7 @@ subtitle: Coding agent state detection
 logo: { src: /assets/logos/herdr.svg, mono: true }
 category: Agents
 updated: 2026-11-15
+last_verified_at: 2026-11-15
 last_verified_with: "herdr 0.9.5."
 tier: t1
 fragments:

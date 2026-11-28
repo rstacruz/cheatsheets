@@ -4,6 +4,7 @@ subtitle: Slash command reference
 logo: { src: /assets/logos/claude.svg }
 category: Agents
 updated: 2026-11-18
+last_verified_at: 2026-11-18
 last_verified_with: "Claude Code slash commands from the official commands reference."
 tier: t1
 fragments:

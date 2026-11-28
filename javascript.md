@@ -5,6 +5,7 @@ logo: { src: /assets/logos/javascript.svg }
 category: JavaScript
 weight: -10
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "Node.js 26.13.1 (V8 14.6)."
 tier: t2
 fragments:

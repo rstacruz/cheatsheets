@@ -4,6 +4,7 @@ subtitle: Cat clone with syntax highlighting
 logo: { src: /assets/logos/bat.svg, mono: true }
 category: Shell
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 last_verified_with: "bat 0.26.1."
 tier: t2
 fragments:

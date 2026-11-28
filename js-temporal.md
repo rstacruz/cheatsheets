@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: calendar }
 category: JavaScript
 weight: -2
 updated: 2026-11-24
+last_verified_at: 2026-11-25
 last_verified_with: "Temporal, Node 26.13, Bun 1.4.5."
 tier: t2
 fragments:

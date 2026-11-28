@@ -6,6 +6,7 @@ subtitle: GitLab from the terminal
 logo: { src: /assets/logos/gitlab.svg }
 category: Git
 updated: 2026-11-25
+last_verified_at: 2026-11-25
 last_verified_with: "glab 1.130.0."
 tier: t1
 fragments:

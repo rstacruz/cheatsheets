@@ -4,6 +4,7 @@ subtitle: Iterate lists, ranges, and files
 logo: { src: /assets/logos/bash.svg }
 category: Shell
 updated: 2026-11-27
+last_verified_at: 2026-11-27
 last_verified_with: "Bash 5.3.0."
 tier: t2
 fragments:

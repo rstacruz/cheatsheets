@@ -5,6 +5,7 @@ logo: { src: /assets/logos/vim.svg }
 category: Vim
 tags: [Featured]
 updated: 2026-11-11
+last_verified_at: 2026-11-12
 last_verified_with: "Vim 9.2."
 tier: t2
 fragments:

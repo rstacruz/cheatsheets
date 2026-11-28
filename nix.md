@@ -177,6 +177,7 @@ See: [Functions and imports](https://nix.dev/tutorials/nix-language.html)
 See: [Built-in operators](https://nix.dev/manual/nix/stable/language/operators.html)
 
 ## Nix expressions
+<!-- {: .-three-column} -->
 
 ### Select and test attributes
 
@@ -309,7 +310,7 @@ nix flake metadata
 ```
 <!-- {: data-highlight="nix flake show; nix flake metadata"} -->
 
-`show` lists outputs; `metadata` prints inputs and the lock file path.
+`show` lists outputs; `metadata` prints inputs and the resolved source path.
 
 See: [nix flake show](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-show.html)
 
@@ -369,7 +370,7 @@ git add flake.nix default.nix
 ```
 <!-- {: data-highlight="git add"} -->
 
-Flakes only see Git-tracked files, so stage new files before building.
+In a Git repo, flakes only see tracked files, so stage new files before building.
 
 See: [Flakes: running commands](https://nix.dev/concepts/flakes.html)
 

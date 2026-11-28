@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Passing state across modules
     url: https://svelte.dev/docs/svelte/$state#Passing-state-across-modules
@@ -31,7 +31,7 @@ export function increment() {
 ```
 <!-- {: data-highlight="$state({ count: 0 })"} -->
 
-**Keeps one reactive object for every importer.** Modules can't export a reassigned `let`, and during SSR the module is shared by every request; see [Universal reactivity](https://svelte.dev/docs/svelte/$state#Passing-state-across-modules).
+**Keeps one reactive object.** Every importer shares it; modules can't export a reassigned `let`, and during SSR the module is shared by every request. See [Universal reactivity](https://svelte.dev/docs/svelte/$state#Passing-state-across-modules).
 
 ### Wrap state in a class
 <!-- {: .-snippet} -->
@@ -90,7 +90,7 @@ export const [getUser, setUser] = createContext()
 <p>{user.name}</p>
 ```
 
-**Shares state with descendants only.** `createContext` returns typed `get`, `set`, and `has` helpers; a nested provider overrides the value for its subtree, as [createContext](https://svelte.dev/docs/svelte/svelte#createContext) shows.
+**Shares state with descendants only.** `createContext` returns typed `get`, `set`, and `has` helpers; a nested provider overrides the value for its subtree. See [createContext](https://svelte.dev/docs/svelte/svelte#createContext).
 
 ### Fall back to a store
 <!-- {: .-snippet} -->
@@ -117,4 +117,4 @@ export const count = writable(0)
 </button>
 ```
 
-**Keeps the subscription API for libraries.** Components read `$count` and call `count.update(...)` to write it; see [Stores](https://svelte.dev/docs/svelte/stores).
+**Keeps a subscription API.** It suits libraries: components read `$count` and call `count.update(...)` to write it. See [Stores](https://svelte.dev/docs/svelte/stores).

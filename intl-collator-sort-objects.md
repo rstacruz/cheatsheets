@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.Collator
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator
@@ -49,7 +49,7 @@ const byLastThenFirst = (a, b) => (
 ```
 <!-- {: data-highlight="compare(a.last, b.last); compare(a.first, b.first)"} -->
 
-**Uses the second key only on ties.** `||` short-circuits when the first comparison is non-zero; see [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare).
+**Breaks ties with a key.** The second key is used only on ties. `||` short-circuits when the first comparison is non-zero; see [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare).
 
 ### Sort descending
 <!-- {: .-snippet} -->

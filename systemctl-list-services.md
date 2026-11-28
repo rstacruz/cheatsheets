@@ -27,7 +27,7 @@ systemctl list-units --type=service \
 ```
 <!-- {: data-highlight="--state=running"} -->
 
-**Lists services that are active now.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Lists running services.** Only services that are active now appear. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### All service unit files
 <!-- {: .-snippet} -->
@@ -37,7 +37,7 @@ systemctl list-unit-files --type=service
 ```
 <!-- {: data-highlight="--type=service"} -->
 
-**Lists installed services with their boot state.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Lists installed services.** The output includes their boot state. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### Failed services
 <!-- {: .-snippet} -->
@@ -48,7 +48,7 @@ systemctl list-units --type=service \
 ```
 <!-- {: data-highlight="--state=failed"} -->
 
-**Shows services that exited badly.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Shows failed services.** These are services that exited badly. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### One service
 <!-- {: .-snippet} -->
@@ -66,7 +66,7 @@ systemctl is-active atd.service
 systemctl status atd.service --no-pager
 ```
 
-**Checks a single service's state and details.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Checks one service.** The commands report its state and details. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### User services
 <!-- {: .-snippet} -->
@@ -77,4 +77,4 @@ systemctl --user list-units \
 ```
 <!-- {: data-highlight="--user"} -->
 
-**Lists your own user services.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Lists user services.** These are services under your own account. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).

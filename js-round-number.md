@@ -44,7 +44,7 @@ Math.trunc(-4.9) // → -4
 ```
 <!-- {: data-highlight="Math.ceil; Math.floor; Math.trunc"} -->
 
-**Picks a direction instead of the nearest value.** `trunc` simply drops the fraction; see [Math.floor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
+**Picks a direction,** instead of the nearest value. `trunc` simply drops the fraction; See [Math.floor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
 
 ### Two decimal places
 <!-- {: .-snippet} -->
@@ -59,7 +59,7 @@ n.toFixed(2)
 ```
 <!-- {: data-highlight="toFixed"} -->
 
-**Returns a number or a formatted string.** `toFixed` returns a string; the `Math.round` form still uses binary floats; see [toFixed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed).
+**Returns numbers or strings,** depending on the method. `toFixed` returns a string; the `Math.round` form still uses binary floats; See [toFixed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed).
 
 ### Display formatting
 <!-- {: .-snippet} -->

@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1, Node 22.23.5, 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: adapter-node
     url: https://svelte.dev/docs/kit/adapter-node
@@ -23,7 +23,7 @@ npm i -D @sveltejs/adapter-node
 ```
 <!-- {: data-highlight="adapter-node"} -->
 
-**Adds a Node adapter to the project.** Other adapters target serverless and static hosts; see [Adapters](https://svelte.dev/docs/kit/adapters).
+**Adds a Node adapter.** Other adapters target serverless and static hosts. See [Adapters](https://svelte.dev/docs/kit/adapters).
 
 ### Configure the adapter
 <!-- {: .-snippet} -->
@@ -52,7 +52,7 @@ node build
 ```
 <!-- {: data-highlight="node build"} -->
 
-**Runs the output on port 3000.** The server needs `package.json` and production dependencies; see [Deploying](https://svelte.dev/docs/kit/adapter-node#Deploying).
+**Runs the output.** It starts on port 3000, and the server needs `package.json` and production dependencies. See [Deploying](https://svelte.dev/docs/kit/adapter-node#Deploying).
 
 ### Set the port and origin
 <!-- {: .-snippet} -->

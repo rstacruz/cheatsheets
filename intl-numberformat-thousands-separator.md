@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: useGrouping option
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping
@@ -26,7 +26,7 @@ nf.format(1234.5)   // → '1,234.5'
 ```
 <!-- {: data-highlight="'en-US'"} -->
 
-**Groups digits in threes for `en-US` by default.** Grouping rules come from the locale; see [useGrouping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping).
+**Groups digits in threes,** for `en-US` by default. Grouping rules come from the locale; See [useGrouping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping).
 
 ### Turn grouping off
 <!-- {: .-snippet} -->

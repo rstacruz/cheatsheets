@@ -6,7 +6,7 @@ logo: { src: /assets/logos/git.svg }
 category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
-updated: 2026-11-23
+updated: 2026-11-28
 tier: t3
 links:
   - title: git-branch manual
@@ -46,7 +46,7 @@ git push origin --delete old-name
 ```
 <!-- {: data-highlight="--delete"} -->
 
-**Removes the branch on the remote.** Local branches and other clones are untouched. See the [git-push manual](https://git-scm.com/docs/git-push#Documentation/git-push.txt---delete).
+**Removes a remote branch.** Local branches and other clones are untouched. See [git-push manual](https://git-scm.com/docs/git-push#Documentation/git-push.txt---delete).
 
 ### Stale tracking refs
 <!-- {: .-snippet} -->

@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Day.js format
     url: https://day.js.org/docs/en/display/format
@@ -24,7 +24,7 @@ dayjs('2014-06-09').format('YYYY-MM-DD')
 ```
 <!-- {: data-highlight="'YYYY-MM-DD'"} -->
 
-**Renders the date with a token string.** Tokens are case-sensitive: `MM` is the month and `mm` is the minute; see [Format](https://day.js.org/docs/en/display/format).
+**Renders with tokens.** Pass a token string to format the date; tokens are case-sensitive: `MM` is the month and `mm` is the minute. See [Format](https://day.js.org/docs/en/display/format).
 
 ### Month and day names
 <!-- {: .-snippet} -->
@@ -35,7 +35,7 @@ dayjs('2014-06-09').format('dddd, MMMM D')
 ```
 <!-- {: data-highlight="'dddd, MMMM D'"} -->
 
-**Spells out names from the active locale.** `ddd` and `MMM` shorten them; see [Format](https://day.js.org/docs/en/display/format).
+**Spells out locale names.** Month and day names come from the active locale; `ddd` and `MMM` shorten them. See [Format](https://day.js.org/docs/en/display/format).
 
 ### Named formats
 <!-- {: .-snippet} -->
@@ -63,7 +63,7 @@ dayjs('2014-06-09').format('Do MMMM YYYY')
 ```
 <!-- {: data-highlight="'Do MMMM YYYY'"} -->
 
-**Adds the ordinal suffix with `Do`.** The `Q` token gives the quarter; see [Advanced format](https://day.js.org/docs/en/plugin/advanced-format).
+**Adds an ordinal suffix.** Use `Do` for the ordinal; the `Q` token gives the quarter. See [Advanced format](https://day.js.org/docs/en/plugin/advanced-format).
 
 ### Literal text
 <!-- {: .-snippet} -->

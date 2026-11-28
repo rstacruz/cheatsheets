@@ -32,7 +32,7 @@ nested.flat()
 ```
 <!-- {: data-highlight=".flat()"} -->
 
-**Joins nested arrays one level deep.** `flat()` returns a new array and leaves the source unchanged; see [Array.prototype.flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat).
+**Flattens one level.** `flat()` returns a new array and leaves the source unchanged. See [Array.prototype.flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat).
 
 ### All levels
 <!-- {: .-snippet} -->

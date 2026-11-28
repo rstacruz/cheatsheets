@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Bindings
     url: https://svelte.dev/docs/svelte/bind
@@ -30,7 +30,7 @@ links:
 ```
 <!-- {: data-highlight="bind:value={name}"} -->
 
-**Keeps the input and the variable in sync both ways.** No change handler is needed; see [Text bindings](https://svelte.dev/docs/svelte/bind#input-bind:value).
+**Syncs both ways.** The input and the variable stay in sync without a change handler. See [Text bindings](https://svelte.dev/docs/svelte/bind#input-bind:value).
 
 ### Bind numbers
 <!-- {: .-snippet} -->
@@ -45,7 +45,7 @@ links:
 ```
 <!-- {: data-highlight='type="number"'} -->
 
-**Coerces the value to a number.** Number and range inputs bind numbers, and an empty field binds `null`; see [Numeric inputs](https://svelte.dev/docs/svelte/bind#input-bind:value).
+**Coerces to a number.** Number and range inputs bind numbers, and an empty field binds `null`. See [Numeric inputs](https://svelte.dev/docs/svelte/bind#input-bind:value).
 
 ### Bind a checkbox and a group
 <!-- {: .-snippet} -->
@@ -68,7 +68,7 @@ links:
 ```
 <!-- {: data-highlight="bind:group={picked}"} -->
 
-**Collects checked values into an array.** A single checkbox uses `bind:checked` and holds a boolean; see [Group bindings](https://svelte.dev/docs/svelte/bind#input-bind:group).
+**Collects checked values.** Group bindings fill an array; a single checkbox uses `bind:checked` and holds a boolean. See [Group bindings](https://svelte.dev/docs/svelte/bind#input-bind:group).
 
 ### Bind a select
 <!-- {: .-snippet} -->
@@ -103,7 +103,7 @@ links:
 ```
 <!-- {: data-highlight="bind:value={get, set}"} -->
 
-**Uses a function binding to transform each write.** The getter feeds the input and the setter normalises what is stored; see [Function bindings](https://svelte.dev/docs/svelte/bind#Function-bindings).
+**Transforms each write.** A function binding uses a getter to feed the input and a setter to normalise what is stored. See [Function bindings](https://svelte.dev/docs/svelte/bind#Function-bindings).
 
 ### Get the DOM node
 <!-- {: .-snippet} -->

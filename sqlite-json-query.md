@@ -7,7 +7,7 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "SQLite 3.54.0."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: JSON functions
     url: https://sqlite.org/json1.html
@@ -32,7 +32,7 @@ click
 view
 ```
 
-**Reads one value from a JSON column.** The path starts at `$` and uses dots for keys; see [json_extract](https://sqlite.org/json1.html#the_json_extract_function).
+**Reads a JSON field.** It reads one value from a JSON column. The path starts at `$` and uses dots for keys; see [json_extract](https://sqlite.org/json1.html#the_json_extract_function).
 
 ### Return plain text
 <!-- {: .-snippet} -->
@@ -56,7 +56,7 @@ FROM events,
 ```
 <!-- {: data-highlight="json_each("} -->
 
-**Turns each array element into a row.** `json_each` is a table-valued function, so it works in a `FROM` clause; see [json_each](https://sqlite.org/json1.html#table_valued_functions_for_parsing_json_json_each_jsonb_each_json_tree_and_jsonb_tree_).
+**Expands array elements.** Each element becomes a row. `json_each` is a table-valued function, so it works in a `FROM` clause; see [json_each](https://sqlite.org/json1.html#table_valued_functions_for_parsing_json_json_each_jsonb_each_json_tree_and_jsonb_tree_).
 
 ### Filter rows
 <!-- {: .-snippet} -->
@@ -68,4 +68,4 @@ WHERE json_extract(payload, '$.type')
 ```
 <!-- {: data-highlight="WHERE json_extract("} -->
 
-**Keeps rows whose JSON field matches.** Index the expression for large tables; see [JSON functions](https://sqlite.org/json1.html).
+**Filters JSON rows.** It keeps rows whose JSON field matches. Index the expression for large tables; see [JSON functions](https://sqlite.org/json1.html).

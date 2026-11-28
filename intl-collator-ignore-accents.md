@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: sensitivity option
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#sensitivity
@@ -30,7 +30,7 @@ collator.compare('résumé', 'resume')
 ```
 <!-- {: data-highlight="sensitivity: 'base'"} -->
 
-**Treats accented letters as their base letter.** `base` also ignores case; use it for search matching rather than display; see [sensitivity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#sensitivity).
+**Treats accents as base letters,** so résumé matches resume. `base` also ignores case; use it for search matching rather than display; See [sensitivity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#sensitivity).
 
 ### Strip accents for exact comparison
 <!-- {: .-snippet} -->
@@ -45,7 +45,7 @@ strip('résumé')
 ```
 <!-- {: data-highlight="normalize('NFD')" } -->
 
-**Removes combining marks from the string.** Keep the original for display; the stripped copy is only for comparing or indexing; see [normalize()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize).
+**Removes combining marks,** from the string. Keep the original for display; the stripped copy is only for comparing or indexing; See [normalize()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize).
 
 ### Sort by base letters
 <!-- {: .-snippet} -->

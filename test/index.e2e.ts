@@ -119,6 +119,6 @@ test('/tests/keywords_test', async ({ page }) => {
   await expectMeta(page, {
     name: 'description',
     content:
-      'Intro test cheatsheet: Variables, Functions, Interpolation, Brace expansions, Loops.'
+      'Intro test cheatsheet. Test keyword metadata for variables, functions, interpolation, and shell loops.'
   })
 })

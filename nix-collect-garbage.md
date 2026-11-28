@@ -50,7 +50,7 @@ nix-collect-garbage --delete-older-than 14d
 
 **Deletes generations older than 14 days across all profiles.** See [garbage collection](https://nix.dev/manual/nix/stable/package-management/garbage-collection.html).
 
-### Deduplicate files
+### Optimise the store
 <!-- {: .-snippet} -->
 
 ```bash

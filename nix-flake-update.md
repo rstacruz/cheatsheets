@@ -28,7 +28,7 @@ nix flake update
 ```
 <!-- {: data-highlight="nix flake update"} -->
 
-**Recreates `flake.lock` with the newest revisions.** See [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
+**Updates every input in `flake.lock` to its newest revision.** See [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
 
 ### Update one input
 <!-- {: .-snippet} -->
@@ -36,7 +36,7 @@ nix flake update
 ```bash
 nix flake update nixpkgs
 ```
-<!-- {: data-highlight="nix flake update nixpkgs"} -->
+<!-- {: data-highlight="nixpkgs"} -->
 
 **Moves only the named input.** Other pins stay untouched; see [nix flake update](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake-update.html).
 

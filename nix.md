@@ -105,7 +105,7 @@ nix path-info -Sh ./result
 ```
 <!-- {: data-highlight="nix path-info"} -->
 
-Shows the store path behind `./result` and its closure size; `-r` applies the operation to the whole closure.
+Shows the store path behind `./result` and its closure size.
 
 See: [nix path-info](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-path-info.html)
 
@@ -138,7 +138,7 @@ in
 ```
 <!-- {: data-highlight="let"} -->
 
-`let` binds names; `with pkgs;` opens an attribute set for one small scope.
+`let` binds names for the expression after `in`.
 
 See: [Names and values](https://nix.dev/tutorials/nix-language.html)
 
@@ -152,7 +152,7 @@ in
 ```
 <!-- {: data-highlight="x:"} -->
 
-Functions take one argument; `{ pkgs, lib, ... }:` takes named attributes.
+Functions take one argument and return an expression.
 
 See: [Functions and imports](https://nix.dev/tutorials/nix-language.html)
 
@@ -176,7 +176,7 @@ See: [Functions and imports](https://nix.dev/tutorials/nix-language.html)
 
 See: [Built-in operators](https://nix.dev/manual/nix/stable/language/operators.html)
 
-## Nix expressions
+## Operators and syntax
 <!-- {: .-three-column} -->
 
 ### Select and test attributes
@@ -184,10 +184,11 @@ See: [Built-in operators](https://nix.dev/manual/nix/stable/language/operators.h
 ```nix
 pkgs.hello.meta.description
 pkgs ? hello
+pkgs.hello.meta.description or "none"
 ```
 <!-- {: data-highlight="?"} -->
 
-`?` tests whether an attribute exists; `or` supplies a fallback: `x.y or 1`.
+`?` tests whether an attribute exists; `or` supplies a fallback.
 
 See: [Attribute selection](https://nix.dev/manual/nix/stable/language/operators.html)
 
@@ -209,7 +210,13 @@ See: [Attribute selection](https://nix.dev/manual/nix/stable/language/operators.
 ''
 ```
 
-`''${` writes a literal `${`; interpolating `./file.nix` copies it into the store.
+#### Paths
+
+```nix
+"${./file.nix}"
+```
+
+Interpolating a path copies the file into the store.
 
 See: [String literals](https://nix.dev/manual/nix/stable/language/string-literals.html)
 
@@ -345,7 +352,7 @@ References are `flake-url#attribute`; a bare `nixpkgs#hello` uses the registry.
 
 See: [Flake references](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-flake.html)
 
-## Flake dependencies
+## Flake workflows
 <!-- {: .-three-column} -->
 
 ### Share one nixpkgs
@@ -557,7 +564,14 @@ sudo nixos-rebuild switch
 sudo nixos-rebuild test
 ```
 
-`switch` activates and sets the boot default; `boot` waits for the next boot.
+#### Boot on next start
+
+```bash
+sudo nixos-rebuild boot
+```
+<!-- {: data-highlight="nixos-rebuild boot"} -->
+
+`switch` activates and sets the boot default; `test` lasts until the next reboot; `boot` waits for the next boot.
 
 See: [NixOS manual: configuration changes](https://nixos.org/manual/nixos/stable/#sec-changing-config)
 
@@ -704,3 +718,12 @@ sudo nix-store --optimise
 Hard-links identical store files to reclaim disk space.
 
 See: [nix-store](https://nix.dev/manual/nix/stable/command-ref/nix-store.html)
+
+## Also see
+
+- [Install a Nix package](./nix-install-package)
+- [Update Nix flake inputs](./nix-flake-update)
+- [Create a Nix dev shell](./nix-dev-shell)
+- [Apply NixOS changes](./nixos-rebuild-switch)
+- [Roll back NixOS](./nixos-rollback)
+- [Clean the Nix store](./nix-collect-garbage)

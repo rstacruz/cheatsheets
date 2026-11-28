@@ -30,7 +30,7 @@ nix profile add nixpkgs#hello
 
 **Adds a package to your user profile.** It is available in new shells; see [nix profile](https://nix.dev/manual/nix/stable/command-ref/new-cli/nix3-profile.html).
 
-### Run it once
+### Run a program once
 <!-- {: .-snippet} -->
 
 ```bash

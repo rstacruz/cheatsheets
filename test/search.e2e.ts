@@ -35,6 +35,23 @@ test('cards and snippets are ranked in separate sections', async ({ page }) => {
   await expect(page.locator('[data-slug="git"]')).toBeHidden()
 })
 
+test('clearing the query restores the original browse order', async ({
+  page
+}) => {
+  await page.goto('/search')
+  const original = await visibleSlugsInGroup(page, 'Git')
+
+  await page.goto('/search?q=git%20stash')
+  await expect(page.locator(STATUS)).toHaveText('8 cheatsheets for “git stash”')
+
+  const input = page.getByPlaceholder('Search...')
+  await input.fill('')
+  await input.press('Enter')
+
+  await expect(page).toHaveURL(/\/search$/)
+  expect(await visibleSlugsInGroup(page, 'Git')).toEqual(original)
+})
+
 test('typed refinement updates in place and Back restores the query', async ({
   page
 }) => {

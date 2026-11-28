@@ -35,7 +35,21 @@ export function setupSearchResults() {
   const empty = requiredElement('[data-js-search-empty]')
   const groups = Array.from(
     document.querySelectorAll<HTMLElement>('[data-js-search-group]')
-  )
+  ).map((element) => {
+    const nodes = Array.from(
+      element.querySelectorAll<HTMLElement>('[data-slug]')
+    )
+    return {
+      element,
+      header: element.querySelector<HTMLElement>('[data-js-searchable-header]'),
+      container: element.querySelector<HTMLElement>(
+        '[data-js-search-container]'
+      ),
+      nodes,
+      slugs: nodes.map((node) => node.dataset.slug ?? ''),
+      nodeBySlug: new Map(nodes.map((node) => [node.dataset.slug ?? '', node]))
+    }
+  })
   const baseTitle = document.title
   const landingQuery = queryFromUrl()
   let index: SearchIndex | undefined
@@ -52,25 +66,16 @@ export function setupSearchResults() {
   function render(query: string, resultSlugs: string[]) {
     const matched = new Set<string>()
 
-    for (const group of groups) {
-      const header = group.querySelector<HTMLElement>(
-        '[data-js-searchable-header]'
-      )
-      const container = group.querySelector<HTMLElement>(
-        '[data-js-search-container]'
-      )
-      const nodes = Array.from(
-        group.querySelectorAll<HTMLElement>('[data-slug]')
-      )
-      const nodeBySlug = new Map(
-        nodes.map((node) => [node.dataset.slug ?? '', node])
-      )
-      const ranking = rankGroupSlugs(
-        nodes.map((node) => node.dataset.slug ?? ''),
-        resultSlugs,
-        query.length > 0
-      )
-      const parent = container ?? group
+    for (const {
+      element,
+      header,
+      container,
+      nodes,
+      slugs,
+      nodeBySlug
+    } of groups) {
+      const ranking = rankGroupSlugs(slugs, resultSlugs, query.length > 0)
+      const parent = container ?? element
 
       for (const slug of ranking.ordered) {
         const node = nodeBySlug.get(slug)
@@ -86,7 +91,7 @@ export function setupSearchResults() {
       const hasResults = ranking.visible.length > 0
       if (header) setShown(header, !query || hasResults)
       if (container) setShown(container, !query || hasResults)
-      setShown(group, !query || hasResults)
+      setShown(element, !query || hasResults)
     }
 
     empty.hidden = !(query.length > 0 && matched.size === 0)

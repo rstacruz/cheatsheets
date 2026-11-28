@@ -33,7 +33,7 @@ links:
 ```
 <!-- {: data-highlight='{% include "header.html" %}'} -->
 
-**Renders the template's output in place, sharing the caller's context.** See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
+**Use include to render another template's markup in place, sharing the caller's context.** See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
 
 ### Import macros
 <!-- {: .-snippet} -->
@@ -55,7 +55,7 @@ links:
 ```
 <!-- {: data-highlight='{% import "forms.html" as forms %}'} -->
 
-**Loads macros under a namespace so names cannot collide.** See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
+**Use import for reusable macros under a namespace so names cannot collide.** See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
 
 ### Import selected macros
 <!-- {: .-snippet} -->

@@ -43,33 +43,33 @@ links:
 
 **Sorts the list before joining it into a string.** See [join](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.join).
 
-### Supply a default
+### Default a missing city
 <!-- {: .-snippet} -->
 
 ```jinja2
-{{ name | default("guest") }}  {# guest #}
+{{ city | default("Paris") }}  {# Paris #}
 ```
-<!-- {: data-highlight='default("guest")'} -->
+<!-- {: data-highlight='default("Paris")'} -->
 
-**Uses the fallback only when `name` is undefined.** See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
+**Uses the fallback only when `city` is undefined.** See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
 
-### Cover falsy values
+### Default a zero value
 <!-- {: .-snippet} -->
 
 #### Setup
 
 ```jinja2
-{% set flag = "" %}
+{% set count = 0 %}
 ```
 
 #### Use
 
 ```jinja2
-{{ flag | default("n/a", true) }}  {# n/a #}
+{{ count | default("none", true) }}  {# none #}
 ```
-<!-- {: data-highlight='default("n/a", true)'} -->
+<!-- {: data-highlight='default("none", true)'} -->
 
-**Pass `true` to replace empty strings, `0`, and `false` too.** See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
+**Pass `true` to replace `0`, empty strings, and `false` too.** See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
 
 ### Select and map
 <!-- {: .-snippet} -->
@@ -99,7 +99,7 @@ links:
 <!-- {: .-snippet} -->
 
 ```jinja2
-{% set data = {"ok": true, "n": 2} %}
+{% set data = {"n": 2, "ok": true} %}
 
 {{ data | tojson }}
 ```

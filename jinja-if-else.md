@@ -1,5 +1,5 @@
 ---
-title: How to write Jinja if else
+title: How to use if/else in Jinja
 link_title: Jinja if else
 subtitle: Branch inside templates
 logo: { set: icon-park-outline, name: branch }
@@ -92,18 +92,22 @@ both
 
 **Combine conditions with `and`, `or`, and `not`.** See [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions).
 
-### Test a value
+### Branch on a defined name
 <!-- {: .-snippet} -->
 
 ```jinja2
-{{ foo is defined }} {{ foo is undefined }}
+{% if foo is defined -%}
+{{ foo }}
+{%- else -%}
+anonymous
+{%- endif %}
 ```
-<!-- {: data-highlight="is defined; is undefined"} -->
+<!-- {: data-highlight="if foo is defined; else"} -->
 
 #### Output
 
 ```text
-False True
+anonymous
 ```
 
-**Checks whether a name is defined; use `is none` for null.** See [Tests](https://jinja.palletsprojects.com/en/stable/templates/#tests).
+**Branches on whether the name exists in the context.** See [Tests](https://jinja.palletsprojects.com/en/stable/templates/#tests).

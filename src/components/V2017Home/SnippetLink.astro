@@ -23,7 +23,7 @@ const styles = {
 }
 ---
 
-<a href={`/${page.slug}`} class={styles.link}>
+<a href={`/${page.slug}`} data-slug={page.slug} class={styles.link}>
   <Logo logo={page.frontmatter.logo} size={20} class="self-center" />
   <span class={styles.title}>
     {page.frontmatter.link_title ?? page.frontmatter.title ?? page.slug}

@@ -3,6 +3,7 @@ title: fzf
 subtitle: Interactive fuzzy finder for terminals
 logo: { set: icon-park-outline, name: search }
 category: Terminal
+created_at: 2026-11-28
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "fzf 0.75.0."

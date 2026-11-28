@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: search }
 category: Terminal
 layout: snippet
 last_verified_with: "fzf 0.75.0."
+created_at: 2026-11-28
 updated: 2026-11-28
 tier: t3
 links:

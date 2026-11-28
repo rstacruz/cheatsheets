@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: color-card }
 category: Shell
 layout: snippet
 last_verified_with: "ECMA-48 5th edition, Bash 5.3.0."
+created_at: 2026-11-28
 updated: 2026-11-28
 tier: t3
 links:

@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: color-card }
 category: Shell
 layout: snippet
 last_verified_with: "ncurses 6.6."
+created_at: 2026-11-28
 updated: 2026-11-28
 tier: t3
 links:
@@ -33,7 +34,7 @@ TERM=xterm-256color tput colors
 ```
 <!-- {: data-highlight="256"} -->
 
-**Reports the palette size for `$TERM`.** Use this to decide between 8, 256, and RGB colors; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
+**Reports palette size.** Use this to decide between 8, 256, and RGB colors; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
 
 ### Set foreground
 <!-- {: .-snippet} -->
@@ -50,7 +51,7 @@ TERM=xterm-256color tput setaf 1
 ```
 <!-- {: data-highlight="31m"} -->
 
-**Sets the foreground color by terminfo index.** `setaf 1` emits red on xterm, so scripts avoid hard-coded escapes; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
+**Sets a terminfo foreground.** `setaf 1` emits red on xterm, so scripts avoid hard-coded escapes; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
 
 ### Set background
 <!-- {: .-snippet} -->
@@ -67,7 +68,7 @@ TERM=xterm-256color tput setab 2
 ```
 <!-- {: data-highlight="42m"} -->
 
-**Sets the background color by terminfo index.** `setab 2` emits a green background; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
+**Sets a terminfo background.** `setab 2` emits a green background; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
 
 ### Reset attributes
 <!-- {: .-snippet} -->

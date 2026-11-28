@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: color-card }
 category: Shell
 layout: snippet
 last_verified_with: "ECMA-48 5th edition, Bash 5.3.0."
+created_at: 2026-11-28
 updated: 2026-11-28
 tier: t3
 links:
@@ -43,7 +44,7 @@ printf '\033[?25h'
 ```
 <!-- {: data-highlight="?25h"} -->
 
-**Turns the text cursor back on.** Always pair the hide sequence with this one so an interrupted script does not leave the cursor hidden; see [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html).
+**Turns the cursor back on.** Always pair the hide sequence with this one so an interrupted script does not leave the cursor hidden; see [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html).
 
 ### Restore on exit
 <!-- {: .-snippet} -->
@@ -54,4 +55,4 @@ printf '\033[?25l'
 ```
 <!-- {: data-highlight="trap"} -->
 
-**Restores the cursor when the script ends.** The `EXIT` trap also runs on interruption, but not on `SIGKILL`; see [trap](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-trap).
+**Restores the cursor on exit.** The `EXIT` trap also runs on interruption, but not on `SIGKILL`; see [trap](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-trap).

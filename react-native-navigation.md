@@ -18,7 +18,7 @@ links:
     url: /react-native
 ---
 
-## Navigate
+## Set up navigation
 <!-- {: .-snippets} -->
 
 ### Install in Expo
@@ -37,6 +37,8 @@ npx expo install @react-navigation/native \
 ### Define a stack
 <!-- {: .-snippet} -->
 
+#### Stack
+
 ```jsx
 const RootStack = createNativeStackNavigator({
   screens: {
@@ -44,11 +46,16 @@ const RootStack = createNativeStackNavigator({
     Details: DetailsScreen
   }
 })
+```
+<!-- {: data-highlight="createNativeStackNavigator"} -->
 
+#### Root component
+
+```jsx
 const Navigation =
   createStaticNavigation(RootStack)
 ```
-<!-- {: data-highlight="createNativeStackNavigator"} -->
+<!-- {: data-highlight="createStaticNavigation"} -->
 
 **Declares routes** under `screens` and creates the root component. See [Hello React Navigation](https://reactnavigation.org/docs/hello-react-navigation).
 
@@ -71,11 +78,11 @@ navigation.navigate('Details')
 const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
   screens: {
-    Home: HomeScreen,
-    Details: DetailsScreen
+    Details: DetailsScreen,
+    Home: HomeScreen
   }
 })
 ```
 <!-- {: data-highlight="initialRouteName"} -->
 
-**Opens `Home`** instead of the first declared route. See [Hello React Navigation](https://reactnavigation.org/docs/hello-react-navigation#configuring-the-navigator).
+**Opens `Home`** even when `Details` is declared first. See [Hello React Navigation](https://reactnavigation.org/docs/hello-react-navigation#configuring-the-navigator).

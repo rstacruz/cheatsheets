@@ -29,7 +29,7 @@ npx expo start
 ```
 <!-- {: data-highlight="npx expo start"} -->
 
-**Starts the dev server.** Press `J` in this terminal to open React Native DevTools. See [Debugging tools](https://docs.expo.dev/debugging/tools/#debugging-with-react-native-devtools).
+**Starts the dev server**; press `J` in this terminal to open React Native DevTools. See [Debugging tools](https://docs.expo.dev/debugging/tools/#debugging-with-react-native-devtools).
 
 ### Open the dev menu
 <!-- {: .-snippet} -->

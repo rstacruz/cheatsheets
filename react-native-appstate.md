@@ -16,7 +16,7 @@ links:
     url: /react-native
 ---
 
-## App state
+## Detect app state
 <!-- {: .-snippets} -->
 
 ### Current state

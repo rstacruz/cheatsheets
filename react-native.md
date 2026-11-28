@@ -21,9 +21,9 @@ fragments:
   - "useColorScheme"
   - "Platform.OS"
   - "AppState"
-  - "expo prebuild"
+  - "run:android"
   - "adb logcat"
-  - "useNavigation"
+  - "keyevent 82"
 keywords:
   - React Native components
   - Expo CLI
@@ -193,7 +193,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold'
-  }
+  },
+  accent: {color: 'tomato'}
 })
 ```
 <!-- {: data-highlight="StyleSheet.create"} -->
@@ -201,7 +202,11 @@ const styles = StyleSheet.create({
 #### Apply
 
 ```jsx
-<Text style={styles.title}>Hello</Text>
+<Text
+  style={[styles.title, styles.accent]}
+>
+  Hello
+</Text>
 ```
 <!-- {: data-highlight="styles.title"} -->
 
@@ -215,7 +220,8 @@ See: [Style](https://reactnative.dev/docs/style)
 <View style={{
   flex: 1,
   flexDirection: 'row',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+  gap: 8
 }}>
   <Text>Left</Text>
 </View>
@@ -302,15 +308,17 @@ npx expo install @react-navigation/native \
 
 ```sh
 npm install @react-navigation/native \
-  @react-navigation/native-stack
+  @react-navigation/native-stack \
+  react-native-screens \
+  react-native-safe-area-context
 ```
 <!-- {: data-highlight="npm install @react-navigation/native"} -->
-
-CLI projects also install `react-native-screens` and `react-native-safe-area-context`.
 
 See: [Getting started](https://reactnavigation.org/docs/getting-started/)
 
 ### Stack navigator
+
+#### Stack
 
 ```jsx
 const RootStack = createNativeStackNavigator({
@@ -319,10 +327,15 @@ const RootStack = createNativeStackNavigator({
     Details: DetailsScreen
   }
 })
-
-const Navigation = createStaticNavigation(RootStack)
 ```
 <!-- {: data-highlight="createNativeStackNavigator"} -->
+
+#### Root component
+
+```jsx
+const Navigation = createStaticNavigation(RootStack)
+```
+<!-- {: data-highlight="createStaticNavigation"} -->
 
 Call `createStaticNavigation` once at the app root.
 

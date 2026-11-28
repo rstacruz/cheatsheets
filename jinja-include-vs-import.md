@@ -33,7 +33,7 @@ links:
 ```
 <!-- {: data-highlight='{% include "header.html" %}'} -->
 
-**Use include to render,** markup in place with the caller's context. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
+**Use include to render.** Markup renders in place with the caller's context. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
 
 ### Import macros
 <!-- {: .-snippet} -->
@@ -55,7 +55,7 @@ links:
 ```
 <!-- {: data-highlight='{% import "forms.html" as forms %}'} -->
 
-**Use import for macros,** load them under a namespace. See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
+**Use import for macros.** Load them under a namespace. See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
 
 ### Import selected macros
 <!-- {: .-snippet} -->
@@ -67,7 +67,7 @@ links:
 ```
 <!-- {: data-highlight='{% from "forms.html" import input as field %}'} -->
 
-**Imports one macro,** under the name `field`. See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
+**Imports one macro.** It takes the name `field`. See [Import](https://jinja.palletsprojects.com/en/stable/templates/#import).
 
 ### Control the context
 <!-- {: .-snippet} -->
@@ -86,7 +86,7 @@ links:
 ```
 <!-- {: data-highlight="with context"} -->
 
-**Controls context,** hiding variables from includes or sharing with imports. See [Import with context](https://jinja.palletsprojects.com/en/stable/templates/#import-context-behavior).
+**Controls context.** Includes can hide variables; imports can share them. See [Import with context](https://jinja.palletsprojects.com/en/stable/templates/#import-context-behavior).
 
 ### Ignore a missing template
 <!-- {: .-snippet} -->
@@ -96,4 +96,4 @@ links:
 ```
 <!-- {: data-highlight="ignore missing"} -->
 
-**Skips absent templates,** rendering nothing when the file is missing. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
+**Skips absent templates.** Nothing renders when the file is missing. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).

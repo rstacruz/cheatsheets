@@ -25,7 +25,7 @@ links:
 ```
 <!-- {: data-highlight='default("guest")'} -->
 
-**Falls back on undefined,** so `name` becomes `guest`. See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
+**Falls back on undefined.** `name` becomes `guest`. See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
 
 ### Cover falsy values
 <!-- {: .-snippet} -->
@@ -43,7 +43,7 @@ links:
 ```
 <!-- {: data-highlight='default("n/a", true)'} -->
 
-**Covers falsy values,** replacing empty strings, `0`, and `false`. See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
+**Covers falsy values.** It replaces empty strings, `0`, and `false`. See [default](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.default).
 
 ### Check for undefined
 <!-- {: .-snippet} -->
@@ -59,7 +59,7 @@ links:
 False True
 ```
 
-**Tests for presence,** before reading a missing name. See [Tests](https://jinja.palletsprojects.com/en/stable/templates/#tests).
+**Tests for presence.** Check before reading a missing name. See [Tests](https://jinja.palletsprojects.com/en/stable/templates/#tests).
 
 ### Fail on missing values
 <!-- {: .-snippet} -->
@@ -74,7 +74,7 @@ env.from_string("{{ missing }}").render()
 ```
 <!-- {: data-highlight="undefined=StrictUndefined"} -->
 
-**Raises on missing,** instead of rendering an empty string. See [StrictUndefined](https://jinja.palletsprojects.com/en/stable/api/#jinja2.StrictUndefined).
+**Raises on missing.** No empty string is rendered. See [StrictUndefined](https://jinja.palletsprojects.com/en/stable/api/#jinja2.StrictUndefined).
 
 ### Keep arithmetic safe
 <!-- {: .-snippet} -->
@@ -84,4 +84,4 @@ env.from_string("{{ missing }}").render()
 ```
 <!-- {: data-highlight="(missing | default(0))"} -->
 
-**Defaults before math,** so addition stays safe. See [Undefined](https://jinja.palletsprojects.com/en/stable/api/#jinja2.Undefined).
+**Defaults before math.** Addition stays safe. See [Undefined](https://jinja.palletsprojects.com/en/stable/api/#jinja2.Undefined).

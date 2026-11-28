@@ -33,7 +33,7 @@ links:
 A
 ```
 
-**Renders one branch,** choosing `A` or `B`. See [If](https://jinja.palletsprojects.com/en/stable/templates/#if).
+**Renders one branch.** It chooses `A` or `B`. See [If](https://jinja.palletsprojects.com/en/stable/templates/#if).
 
 ### Add an elif branch
 <!-- {: .-snippet} -->
@@ -54,7 +54,7 @@ A
 B
 ```
 
-**Chains fallback checks,** with `elif` after the first `if`. See [Control structures](https://jinja.palletsprojects.com/en/stable/templates/#list-of-control-structures).
+**Chains fallback checks.** `elif` follows the first `if`. See [Control structures](https://jinja.palletsprojects.com/en/stable/templates/#list-of-control-structures).
 
 ### Write an inline conditional
 <!-- {: .-snippet} -->
@@ -72,7 +72,7 @@ B
 minor
 ```
 
-**Chooses inline,** without opening a block. See [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions).
+**Chooses inline.** No block tags are needed. See [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions).
 
 ### Combine conditions
 <!-- {: .-snippet} -->
@@ -90,7 +90,7 @@ minor
 both
 ```
 
-**Combines conditions,** using `and`, `or`, and `not`. See [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions).
+**Combines conditions.** Use `and`, `or`, and `not`. See [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions).
 
 ### Branch on a defined name
 <!-- {: .-snippet} -->
@@ -110,4 +110,4 @@ anonymous
 anonymous
 ```
 
-**Branches on defined,** so a missing name takes `else`. See [Tests](https://jinja.palletsprojects.com/en/stable/templates/#tests).
+**Branches on defined.** A missing name takes `else`. See [Tests](https://jinja.palletsprojects.com/en/stable/templates/#tests).

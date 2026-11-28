@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "intl-pluralrules 2.0.1, Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: intl-pluralrules on npm
     url: https://www.npmjs.com/package/intl-pluralrules
@@ -35,7 +35,7 @@ import 'intl-pluralrules'
 ```
 <!-- {: data-highlight="intl-pluralrules"} -->
 
-**Loads it before any translation code.** The package loads only when the native API is incomplete, then fills in methods and locale data. See [README](https://github.com/eemeli/intl-pluralrules).
+**Loads it before translations.** It must run before any translation code; the package loads only when the native API is incomplete, then fills in methods and locale data. See [README](https://github.com/eemeli/intl-pluralrules).
 
 ### Import on Hermes
 <!-- {: .-snippet} -->

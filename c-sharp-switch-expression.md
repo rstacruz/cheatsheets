@@ -6,7 +6,7 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."
-updated: 2026-11-26
+updated: 2026-11-28
 tier: t3
 links:
   - title: Switch expression
@@ -33,7 +33,7 @@ Console.WriteLine(Label(2));   // small
 ```
 <!-- {: data-highlight="1 or 2"} -->
 
-**Returns the value of the matching arm.** `_` catches everything else; see [Switch expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression).
+**Returns the arm's value,** from the one that matches. `_` catches everything else; See [Switch expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression).
 
 ### Match ranges
 <!-- {: .-snippet} -->
@@ -72,4 +72,4 @@ Console.WriteLine(Kind("hello"));  // long
 ```
 <!-- {: data-highlight="string s when s.Length > 3"} -->
 
-**Adds a condition to a type pattern.** `when` runs only after the type matches; see [when](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/when).
+**Adds a guard,** as a condition on the type pattern. `when` runs only after the type matches; See [when](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/when).

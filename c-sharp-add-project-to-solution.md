@@ -6,7 +6,7 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: ".NET 11.0.100."
-updated: 2026-11-26
+updated: 2026-11-28
 tier: t3
 links:
   - title: dotnet sln
@@ -25,7 +25,7 @@ dotnet new console -o api
 ```
 <!-- {: data-highlight="dotnet new sln"} -->
 
-**Starts a solution beside a project.** `new sln` writes `shop.slnx` in .NET 11; see [dotnet sln](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln).
+**Starts a solution.** It sits beside a project; `new sln` writes `shop.slnx` in .NET 11. See [dotnet sln](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln).
 
 ### Add projects
 <!-- {: .-snippet} -->

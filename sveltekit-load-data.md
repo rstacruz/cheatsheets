@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Loading data
     url: https://svelte.dev/docs/kit/load
@@ -52,7 +52,7 @@ export const load: PageServerLoad = async ({
 ```
 <!-- {: data-highlight="PageProps"} -->
 
-**Receives the load result as a prop.** The `load` return value arrives in the page as `data`; see [Page data](https://svelte.dev/docs/kit/load#Page-data).
+**Receives data as a prop.** The `load` return value arrives in the page as `data`. See [Page data](https://svelte.dev/docs/kit/load#Page-data).
 
 ### Load on both sides
 <!-- {: .-snippet} -->
@@ -71,7 +71,7 @@ export async function load({ fetch }) {
 ```
 <!-- {: data-highlight="await fetch("} -->
 
-**Runs on the server, then in the browser.** A `+page.ts` load is universal, and its `fetch` handles cookies and relative URLs; see [Universal vs server](https://svelte.dev/docs/kit/load#Universal-vs-server).
+**Runs on the server first.** A `+page.ts` load is universal and then runs in the browser; its `fetch` handles cookies and relative URLs. See [Universal vs server](https://svelte.dev/docs/kit/load#Universal-vs-server).
 
 ### Read the query string
 <!-- {: .-snippet} -->
@@ -87,7 +87,7 @@ export function load({ url }) {
 ```
 <!-- {: data-highlight="searchParams.get"} -->
 
-**Reads `?q=` and `?page=` from the request.** Both load flavours receive the page `url`; see [Using URL data](https://svelte.dev/docs/kit/load#Using-URL-data).
+**Reads query parameters.** Both load flavours receive the page `url`, including `?q=` and `?page=`. See [Using URL data](https://svelte.dev/docs/kit/load#Using-URL-data).
 
 ### Fail with a 404
 <!-- {: .-snippet} -->
@@ -99,7 +99,7 @@ if (!post) error(404, 'Not found')
 ```
 <!-- {: data-highlight="error(404"} -->
 
-**Throws a 404 the page can render.** `error()` throws, so do not catch it in the load; see [Errors](https://svelte.dev/docs/kit/errors).
+**Throws a 404.** The page can render the error; `error()` throws, so do not catch it in the load. See [Errors](https://svelte.dev/docs/kit/errors).
 
 ### Share data with a layout
 <!-- {: .-snippet} -->
@@ -113,4 +113,4 @@ export function load() {
 ```
 <!-- {: data-highlight="section"} -->
 
-**Adds `section` to every child page's data.** Layout returns merge into the page `data` prop; see [Layout data](https://svelte.dev/docs/kit/load#Layout-data).
+**Adds data from a layout.** Layout returns merge into the page `data` prop, adding `section` to every child page. See [Layout data](https://svelte.dev/docs/kit/load#Layout-data).

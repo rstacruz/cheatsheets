@@ -1,6 +1,6 @@
 # Snippets
 
-A snippet is a short, single-task sheet. Set `layout: snippet` to get a 900px page, an article-style H1 without "cheatsheet", and two-column cards: code on the left, a bold one-sentence summary and link on the right. Use exactly one H2 marked `.-snippets`, and mark every H3 `.-snippet`.
+A snippet is a short, single-task sheet. Set `layout: snippet` to get a 900px page, an article-style H1 without "cheatsheet", and two-column cards: code on the left, a bold summary of at most five words, expounding text, and a `See [link](url)` on the right. Use exactly one H2 marked `.-snippets`, and mark every H3 `.-snippet`.
 
 Set `title` to the article heading ("How to undo a Git commit") and `link_title` to the short label used in snippet lists ("Git undo commit"). All snippets are grouped by category on `/snippets`; the homepage shows a weekly rotating selection with a link to that page.
 

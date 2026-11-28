@@ -52,7 +52,7 @@ console.log('second')
 ```
 <!-- {: data-highlight="await sleep"} -->
 
-**Runs steps with a delay between them.** Each `await` resumes only after its timer resolves; see [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await).
+**Delays between steps.** Each `await` resumes only after its timer resolves. See [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await).
 
 ### Time out a promise
 <!-- {: .-snippet} -->
@@ -67,4 +67,4 @@ const result = await Promise.race([
 ```
 <!-- {: data-highlight="Promise.race"} -->
 
-**Returns the faster of two promises.** Use a timer branch to stop waiting on a slow call; see [Promise.race](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race).
+**Returns the faster promise.** Race a timer branch against the call to stop waiting on a slow response. See [Promise.race](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race).

@@ -6,7 +6,7 @@ logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Default theme config
     url: https://ecosystem.vuejs.press/themes/default/config.html#basic-config
@@ -35,7 +35,7 @@ export default defineUserConfig({
 ```
 <!-- {: data-highlight="nav:"} -->
 
-**Adds a link item to the navbar.** External links open in a new tab; add `noIcon: true` to hide the external-link icon. See [nav](https://ecosystem.vuejs.press/themes/default/config.html#basic-config).
+**Adds navbar links.** External links open in a new tab; add `noIcon: true` to hide the external-link icon. See [nav](https://ecosystem.vuejs.press/themes/default/config.html#basic-config).
 
 ### Add a dropdown
 <!-- {: .-snippet} -->
@@ -66,4 +66,4 @@ nav: [
 ```
 <!-- {: data-highlight="activeMatch"} -->
 
-**Keeps the item active on child pages.** By default only an exact link match is active; the value is a regular expression string. See [activeMatch](https://ecosystem.vuejs.press/themes/default/config.html#basic-config).
+**Keeps the item active.** Use `activeMatch` so child pages count too; by default only an exact link match is active, and the value is a regular expression string. See [activeMatch](https://ecosystem.vuejs.press/themes/default/config.html#basic-config).

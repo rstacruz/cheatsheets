@@ -6,7 +6,7 @@ logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "CSS Fonts Module Level 4."
-updated: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: MDN font-family
@@ -28,7 +28,7 @@ body {
 ```
 <!-- {: data-highlight="system-ui"} -->
 
-**Uses the operating system's UI font.** `system-ui` maps to San Francisco on macOS, Segoe UI on Windows, and the desktop default on Linux; see [system-ui](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#system-ui).
+**Uses the OS UI font.** `system-ui` maps to San Francisco on macOS, Segoe UI on Windows, and the desktop default on Linux. See [system-ui](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#system-ui).
 
 ### Named system fonts
 <!-- {: .-snippet} -->
@@ -42,7 +42,7 @@ body {
 ```
 <!-- {: data-highlight="-apple-system"} -->
 
-**Falls back to named fonts for older browsers.** The list walks macOS, Windows, Android, and Linux fonts before reaching `sans-serif`; see [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#values).
+**Falls back to named fonts.** Older browsers get a list walking macOS, Windows, Android, and Linux fonts before `sans-serif`. See [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#values).
 
 ### Monospace stack
 <!-- {: .-snippet} -->

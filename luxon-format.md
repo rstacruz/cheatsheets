@@ -6,7 +6,7 @@ logo: { src: /assets/logos/luxon.svg }
 category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Luxon formatting
     url: https://moment.github.io/luxon/#/formatting
@@ -37,7 +37,7 @@ d.toFormat('cccc, LLLL d')
 ```
 <!-- {: data-highlight="'cccc, LLLL d'"} -->
 
-**Spells out weekday and month names.** `ccc` and `LLL` shorten them; see [Tokens](https://moment.github.io/luxon/#/formatting?id=table-of-tokens).
+**Spells out names.** Use `ccc` and `LLL` to shorten them; See [Tokens](https://moment.github.io/luxon/#/formatting?id=table-of-tokens).
 
 ### Presets
 <!-- {: .-snippet} -->
@@ -69,7 +69,7 @@ d.setLocale('fr')
 ```
 <!-- {: data-highlight="setLocale('fr')"} -->
 
-**Renders in another locale for one instance.** No locale files are needed; see [Locales](https://moment.github.io/luxon/#/intl?id=how-locales-work).
+**Renders in another locale.** Applies to one instance; no locale files are needed; See [Locales](https://moment.github.io/luxon/#/intl?id=how-locales-work).
 
 ### ISO output
 <!-- {: .-snippet} -->

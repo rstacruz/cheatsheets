@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Template syntax
     url: https://svelte.dev/docs/svelte/basic-markup
@@ -73,4 +73,4 @@ links:
 ```
 <!-- {: data-highlight="{#if hidden}"} -->
 
-**Wraps the block in an HTML comment.** Svelte does not parse inside it, so the block is not compiled or rendered; see [Template syntax](https://svelte.dev/docs/svelte/basic-markup).
+**Wraps markup in a comment.** The HTML comment hides the block: Svelte does not parse inside it, so it is not compiled or rendered. See [Template syntax](https://svelte.dev/docs/svelte/basic-markup).

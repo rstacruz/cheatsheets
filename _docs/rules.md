@@ -891,10 +891,52 @@ claude -p "list failing tests" \
 
 🤖 Check: `snippet/bold-summary`.
 
-Start each explanation paragraph with a bold one-sentence summary of what the snippet does, then add detail and the link.
+Start each explanation paragraph with a bold summary of at most five words, then add detail and a `See [link](url)`.
 
 ```md
 **Creates a scheduled task.** `--every` compiles to cron, and schedules default to UTC. See [schedules](https://paseo.sh/docs/schedules-cli#create).
+```
+
+### snippet/bold-summary-words
+
+🤖 Check: `snippet/bold-summary-words`.
+
+Keep the bold lead to five words or fewer. Move longer summaries into the expounding text instead.
+
+```md
+**Renders in place.** Sharing the caller's context. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
+```
+
+### snippet/bold-summary-period
+
+🤖 Check: `snippet/bold-summary-period`.
+
+End the bold summary with a period, not a comma. Move the detail into the non-bold text that follows.
+
+```md
+**Renders in place.** Sharing the caller's context. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
+```
+
+Avoid `**Renders in place,** sharing the caller's context.`
+
+### snippet/summary-expounds
+
+🤖 Check: `snippet/summary-expounds`.
+
+Follow the bold lead with non-bold text before the `See` link. A bare `See [link]` is not an explanation.
+
+```md
+**Renders in place.** Sharing the caller's context. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
+```
+
+### snippet/see-link
+
+🤖 Check: `snippet/see-link`.
+
+End the paragraph with `See [label](url)`, using an inline Markdown link. `See the`, `See also`, and lowercase `see` count; a link without `See` does not.
+
+```md
+**Renders in place.** Sharing the caller's context. See [Include](https://jinja.palletsprojects.com/en/stable/templates/#include).
 ```
 
 ## Checks

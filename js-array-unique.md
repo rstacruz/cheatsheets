@@ -32,7 +32,7 @@ const unique = [...new Set(list)]
 ```
 <!-- {: data-highlight="new Set"} -->
 
-**Keeps the first occurrence of each value.** `Set` compares primitives by value; see [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set).
+**Keeps first occurrences.** `Set` compares primitives by value and keeps the first copy of each. See [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set).
 
 ### Objects by a key
 <!-- {: .-snippet} -->
@@ -45,4 +45,4 @@ const unique = [...seen.values()]
 ```
 <!-- {: data-highlight="new Map"} -->
 
-**Keeps the last object for each key.** `Map` overwrites earlier entries with the same key; see [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
+**Keeps the last object.** It keeps one object per key; `Map` overwrites earlier entries with the same key. See [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).

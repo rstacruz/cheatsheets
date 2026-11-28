@@ -6,7 +6,7 @@ logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Namespaces
     url: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
@@ -25,7 +25,7 @@ kubectl get pods -n staging
 ```
 <!-- {: data-highlight="-n staging"} -->
 
-**Runs a single command in another namespace.** Nothing changes on disk, so the next command goes back to the current default. See [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+**Runs one command elsewhere.** It runs in another namespace. Nothing changes on disk, so the next command goes back to the current default. See [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
 
 ### For every command
 <!-- {: .-snippet} -->
@@ -36,7 +36,7 @@ kubectl config set-context --current \
 ```
 <!-- {: data-highlight="--current"} -->
 
-**Changes the current context's default namespace.** Every later command uses `staging` until you change it again. See [kubectl config set-context](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/kubectl_config_set-context/).
+**Changes the default namespace.** It applies to the current context. Every later command uses `staging` until you change it again. See [kubectl config set-context](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/kubectl_config_set-context/).
 
 ### Check the default
 <!-- {: .-snippet} -->
@@ -57,4 +57,4 @@ kubectl get namespaces
 ```
 <!-- {: data-highlight="kubectl get namespaces"} -->
 
-**Shows the namespaces you can reach.** Shorten the resource to `ns`; add `-A` to a listing command, such as `kubectl get pods -A`, to search every namespace. See [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+**Shows reachable namespaces.** These are the namespaces you can reach. Shorten the resource to `ns`; add `-A` to a listing command, such as `kubectl get pods -A`, to search every namespace. See [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).

@@ -6,7 +6,7 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."
-updated: 2026-11-26
+updated: 2026-11-28
 tier: t3
 links:
   - title: Enumerable.Distinct
@@ -48,7 +48,7 @@ record Person(string Name, string City);
 ```
 <!-- {: data-highlight="DistinctBy"} -->
 
-**Keeps the first item per key.** `DistinctBy` compares the projected value; see [DistinctBy](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.distinctby).
+**Keeps the first item.** It keeps one item per key; `DistinctBy` compares the projected value. See [DistinctBy](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.distinctby).
 
 ### Ignore case
 <!-- {: .-snippet} -->

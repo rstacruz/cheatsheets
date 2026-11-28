@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: code }
 category: HTML
 layout: snippet
 last_verified_with: "XPath 1.0."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: XPath string functions
     url: https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains
@@ -25,7 +25,7 @@ links:
 ```
 <!-- {: data-highlight="contains(text(),"} -->
 
-**Matches buttons whose first direct text node contains `Go`.** For nested or split text, use `contains(., 'Go')`; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
+**Finds `Go` in text.** It matches buttons whose first direct text node contains `Go`. For nested or split text, use `contains(., 'Go')`; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
 
 ### Attribute
 <!-- {: .-snippet} -->
@@ -35,7 +35,7 @@ links:
 ```
 <!-- {: data-highlight="contains(@href,"} -->
 
-**Matches part of an attribute value.** The test is case-sensitive; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
+**Matches attribute parts.** It matches part of an attribute value. The test is case-sensitive; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
 
 ### Multiple values
 <!-- {: .-snippet} -->
@@ -79,4 +79,4 @@ links:
 ```
 <!-- {: data-highlight="contains(@class,"} -->
 
-**`.` reads all descendant text; `@class` reads the attribute.** Partial class matching also hits `save-outline`; for exact tokens see [select by class](./xpath-by-class).
+**Reads text and class.** `.` reads all descendant text; `@class` reads the attribute. Partial class matching also hits `save-outline`; for exact tokens see [select by class](./xpath-by-class).

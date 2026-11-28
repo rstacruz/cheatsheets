@@ -5,7 +5,7 @@ subtitle: Read strings from req.query
 logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
-updated: 2026-11-26
+updated: 2026-11-28
 last_verified_with: "Express 5.3.0, Node 26.13.1."
 tier: t3
 keywords: [express query params, express req.query, express query string]
@@ -56,7 +56,7 @@ app.get('/search', (req, res) => {
 ```
 <!-- {: data-highlight="Number(req.query.page)"} -->
 
-**Coerces the string and falls back to `1`.** `Number(undefined)` is `NaN`, which is falsy. See [req.query](https://expressjs.com/en/5x/api/request/#reqquery).
+**Coerces and falls back.** The string becomes a number, falling back to `1`. `Number(undefined)` is `NaN`, which is falsy. See [req.query](https://expressjs.com/en/5x/api/request/#reqquery).
 
 ### Nested keys
 <!-- {: .-snippet} -->
@@ -67,4 +67,4 @@ req.query['user[name]'] // 'ann'
 ```
 <!-- {: data-highlight="req.query['user[name]']"} -->
 
-**Express 5 keeps nested keys flat by default.** Set `app.set('query parser', 'extended')` to parse them into objects. See the [migration guide](https://expressjs.com/en/guide/migrating-5.html#reqquery).
+**Keeps nested keys flat.** Express 5 does this by default. Set `app.set('query parser', 'extended')` to parse them into objects. See the [migration guide](https://expressjs.com/en/guide/migrating-5.html#reqquery).

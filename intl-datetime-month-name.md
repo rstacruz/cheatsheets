@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: month option
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#month
@@ -45,7 +45,7 @@ monthName(10) // → 'November'
 ```
 <!-- {: .-wrap data-highlight="monthName(10)"} -->
 
-**Turns a zero-based index into a name.** `getMonth()` and date libraries both count from zero, so `10` is November; see [getMonth()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth).
+**Names a month.** It turns a zero-based index into a name. `getMonth()` and date libraries both count from zero, so `10` is November; see [getMonth()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth).
 
 ### Choose a width
 <!-- {: .-snippet} -->
@@ -62,7 +62,7 @@ widths.map((width) => (
 ```
 <!-- {: .-wrap data-highlight="['short', 'narrow']"} -->
 
-**Widths shorten the name; locale rules still apply.** `narrow` can collide across months (March and May are both `M`), so keep it for tight tables; see [month](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#month).
+**Shortens the name.** Widths shorten it, but locale rules still apply. `narrow` can collide across months (March and May are both `M`), so keep it for tight tables; see [month](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#month).
 
 ### Add the year
 <!-- {: .-snippet} -->
@@ -76,7 +76,7 @@ new Intl.DateTimeFormat('en-US', {
 ```
 <!-- {: .-wrap data-highlight="year: 'numeric'"} -->
 
-**Pairs the name with a year.** Order follows the locale, so `fr-FR` prints `novembre 2026`; see [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat).
+**Adds a year.** The month name is paired with a year. Order follows the locale, so `fr-FR` prints `novembre 2026`; see [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat).
 
 ### Translate the name
 <!-- {: .-snippet} -->
@@ -89,4 +89,4 @@ new Intl.DateTimeFormat('fr-FR', {
 ```
 <!-- {: .-wrap data-highlight="'fr-FR'"} -->
 
-**Ships the translations with the runtime.** You never maintain a month table; the locale tag alone picks the spelling; see [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+**Ships translations.** The runtime ships them. You never maintain a month table; the locale tag alone picks the spelling; see [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).

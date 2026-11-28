@@ -189,6 +189,7 @@ function fixture(tier: string, stamp: string, category = 'Test') {
   return [
     '---',
     `category: ${category}`,
+    'created_at: 2010-01-01',
     `tier: ${tier}`,
     'last_verified_with: "Tool 1.0."',
     'fragments: [a, b, c, d, e, f, g, h, i, j, k, l]',

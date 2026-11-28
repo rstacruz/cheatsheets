@@ -511,6 +511,17 @@ Float.parse("34.1")      # → {34.1, ""}
 ```
 ````
 
+### frontmatter/created-at
+
+🤖 Check: `frontmatter/created-at`.
+
+Set `created_at` to the `YYYY-MM-DD` date the sheet was first added. It is required on every sheet and must not be after `updated` or `last_verified_at`.
+
+````yaml
+created_at: 2012-03-16
+updated: 2026-11-24
+````
+
 ### frontmatter/introduction
 
 🤖 Check: `frontmatter/introduction`.

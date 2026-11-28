@@ -3,6 +3,7 @@ import { getPages } from '../page'
 
 const UPDATED = new Date('2026-11-18')
 const TIERED = {
+  created_at: new Date('2020-01-01'),
   fragments: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'],
   last_verified_with: 'Bash 5.3.',
   last_verified_at: UPDATED

@@ -121,6 +121,8 @@ export function findSnippetLayoutIssues(source: string): Finding[] {
   return found
 }
 
+const CREATED = { created_at: new Date('2020-01-01') }
+
 test('the schema accepts layout: snippet', () => {
   expect(SheetFrontmatterSchema.parse({ layout: 'snippet' }).layout).toBe(
     'snippet'

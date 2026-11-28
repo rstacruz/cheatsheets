@@ -2,7 +2,10 @@ import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
 const note = 'Conventional Commits 1.0.0, curl 8.23.0.'
 
+const CREATED = { created_at: new Date('2020-01-01') }
+
 const TIERED = {
+  ...CREATED,
   fragments: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'],
   last_verified_at: new Date('2026-11-28')
 }
@@ -44,7 +47,7 @@ it.each([
   'Verified 11/22/2026'
 ])('rejects dates in the note: %s', (value) => {
   expect(() =>
-    SheetFrontmatterSchema.parse({ last_verified_with: value })
+    SheetFrontmatterSchema.parse({ ...CREATED, last_verified_with: value })
   ).toThrow(/must not contain dates/)
 })
 
@@ -52,7 +55,7 @@ it.each(['yt-dlp 2026.10.26.', 'mise v2026.11.1.', 'C# 12 APIs.'])(
   'accepts version-shaped numbers: %s',
   (value) => {
     expect(
-      SheetFrontmatterSchema.parse({ last_verified_with: value })
+      SheetFrontmatterSchema.parse({ ...CREATED, last_verified_with: value })
         .last_verified_with
     ).toBe(value)
   }
@@ -62,7 +65,7 @@ it.each(['git 2.56.0 (PR #2383)', 'curl 8.23.0 #123'])(
   'rejects PR numbers in the note: %s',
   (value) => {
     expect(() =>
-      SheetFrontmatterSchema.parse({ last_verified_with: value })
+      SheetFrontmatterSchema.parse({ ...CREATED, last_verified_with: value })
     ).toThrow(/must not contain PR numbers/)
   }
 )

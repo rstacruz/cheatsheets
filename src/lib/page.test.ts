@@ -52,6 +52,7 @@ test('intro length cap', () => {
       bash: [
         '---',
         'title: Bash',
+        'created_at: 2020-01-01',
         `intro: ${intro}`,
         'links:',
         '  - title: Docs',
@@ -78,6 +79,7 @@ test('links cap', () => {
     mapGlobToPages({
       bash: [
         '---',
+        'created_at: 2020-01-01',
         'title: Bash',
         'links:',
         ...Array.from(
@@ -97,6 +99,7 @@ test('deprecated frontmatter', () => {
   const result = mapGlobToPages({
     old: [
       '---',
+      'created_at: 2020-01-01',
       'title: Old',
       'deprecated: true',
       'deprecated_by: /new',
@@ -150,6 +153,7 @@ describe('mapGlobToPages()', () => {
     const result = mapGlobToPages({
       '101': [
         '---',
+        'created_at: 2020-01-01',
         'title: 101',
         'description: Custom description',
         '---',

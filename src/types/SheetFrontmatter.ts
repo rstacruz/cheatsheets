@@ -79,6 +79,9 @@ export const SheetFrontmatterSchema = z
       .array()
       .optional()
       .describe('`Featured` puts the sheet on the home page.'),
+    created_at: z
+      .date()
+      .describe('Date the sheet was first added. Required on every sheet.'),
     updated: z
       .date()
       .optional()

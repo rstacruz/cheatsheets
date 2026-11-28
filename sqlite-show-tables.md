@@ -7,7 +7,7 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "SQLite 3.54.0."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Command-line shell
     url: https://sqlite.org/cli.html
@@ -66,7 +66,7 @@ sqlite3 app.db "PRAGMA table_info(posts);"
 2|title|TEXT|0||0
 ```
 
-**Lists each column with its type.** The second field is the name and the last field is `1` for primary-key columns; see [table_info](https://sqlite.org/pragma.html#pragma_table_info).
+**Lists columns.** Each column appears with its type; the second field is the name and the last field is `1` for primary-key columns. See [table_info](https://sqlite.org/pragma.html#pragma_table_info).
 
 ### Show indexes
 <!-- {: .-snippet} -->

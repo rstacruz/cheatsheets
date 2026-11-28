@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: edit }
 category: CLI
 layout: snippet
 last_verified_with: "GNU sed 4.10."
-updated: 2026-11-23
+updated: 2026-11-28
 links:
   - title: GNU sed manual
     url: https://www.gnu.org/software/sed/manual/sed.html
@@ -39,7 +39,7 @@ bar bar
 bar baz
 ```
 
-**Edits a file without a backup.** `g` replaces every match on each line. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).
+**Edits a file in place.** No backup is kept; `g` replaces every match on each line. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).
 
 ### Keep a backup
 <!-- {: .-snippet} -->

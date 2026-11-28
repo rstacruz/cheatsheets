@@ -6,7 +6,7 @@ logo: { src: /assets/logos/vue.svg }
 category: Devops
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: VuePress deployment
     url: https://v2.vuepress.vuejs.org/guide/deployment.html#github-pages
@@ -27,7 +27,7 @@ export default defineUserConfig({
 ```
 <!-- {: data-highlight="base"} -->
 
-**Serves the site under the repository path.** A project site at `https://user.github.io/my-docs/` needs `base: '/my-docs/'`; a user site or custom domain uses `'/'`. See [base](https://v2.vuepress.vuejs.org/reference/config.html#base).
+**Serves under the repo path.** The site is served under the repository path. A project site at `https://user.github.io/my-docs/` needs `base: '/my-docs/'`; a user site or custom domain uses `'/'`. See [base](https://v2.vuepress.vuejs.org/reference/config.html#base).
 
 ### Deploy from Actions
 <!-- {: .-snippet} -->
@@ -66,4 +66,4 @@ jobs:
 ```
 <!-- {: data-highlight="actions/deploy-pages@v5"} -->
 
-**Publishes on every push to `main`.** Set Settings → Pages → Source to "GitHub Actions" once; the workflow uploads `docs/.vuepress/dist` and deploys it. See [GitHub Pages](https://v2.vuepress.vuejs.org/guide/deployment.html#github-pages).
+**Publishes from Actions.** It publishes on every push to `main`. Set Settings → Pages → Source to "GitHub Actions" once; the workflow uploads `docs/.vuepress/dist` and deploys it. See [GitHub Pages](https://v2.vuepress.vuejs.org/guide/deployment.html#github-pages).

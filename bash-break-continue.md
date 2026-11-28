@@ -6,7 +6,7 @@ logo: { src: /assets/logos/bash.svg }
 category: Shell
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash for loop cheatsheet
@@ -29,7 +29,7 @@ done
 ```
 <!-- {: data-highlight="break"} -->
 
-**Leaves the loop as soon as the test passes.** Nothing after `break` in the body runs, and the loop does not resume; see [looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html).
+**Leaves the loop early.** It exits as soon as the test passes: nothing after `break` in the body runs, and the loop does not resume. See [looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html).
 
 ### Skip an iteration
 <!-- {: .-snippet} -->

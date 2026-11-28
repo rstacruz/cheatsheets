@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: notation option
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation
@@ -44,7 +44,7 @@ compact.format(2000000)  // → '2 million'
 ```
 <!-- {: data-highlight="compactDisplay: 'long'"} -->
 
-**Spells the unit out with `compactDisplay: 'long'`.** The default is `'short'`; see [compactDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#compactdisplay).
+**Spells out the unit.** Use `compactDisplay: 'long'`; the default is `'short'`. See [compactDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#compactdisplay).
 
 ### Control the decimals
 <!-- {: .-snippet} -->
@@ -59,4 +59,4 @@ compact.format(1234)     // → '1K'
 ```
 <!-- {: data-highlight="maximumFractionDigits: 0"} -->
 
-**Drops the fraction from the compact output.** Compact notation otherwise rounds by significant digits; see [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
+**Drops the fraction.** Compact notation otherwise rounds by significant digits. See [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).

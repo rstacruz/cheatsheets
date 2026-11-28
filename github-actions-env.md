@@ -5,7 +5,7 @@ subtitle: Env, secrets, and GITHUB_ENV
 category: Devops
 layout: snippet
 last_verified_with: "GitHub Actions workflow schema."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: env
     url: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#env
@@ -64,7 +64,7 @@ jobs:
 ```
 <!-- {: data-highlight="secrets.DEPLOY_TOKEN"} -->
 
-**Maps a secret to a variable.** Secrets are masked in logs; pass them through `env`, not inline in the command. See [secrets](https://docs.github.com/en/actions/concepts/security/secrets).
+**Passes a secret.** It maps to a variable; secrets are masked in logs, so pass them through `env`, not inline in the command. See [secrets](https://docs.github.com/en/actions/concepts/security/secrets).
 
 ### Export from a step
 <!-- {: .-snippet} -->
@@ -75,7 +75,7 @@ jobs:
 ```
 <!-- {: data-highlight="GITHUB_ENV"} -->
 
-**Sets a variable for later steps.** The value applies to the rest of the job only. See [GITHUB_ENV](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-environment-variable).
+**Exports from a step.** The variable is available to later steps in the rest of the job only. See [GITHUB_ENV](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#setting-an-environment-variable).
 
 ### Use a repository variable
 <!-- {: .-snippet} -->

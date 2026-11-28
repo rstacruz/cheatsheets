@@ -6,7 +6,7 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Transitions
     url: https://svelte.dev/docs/svelte/transition
@@ -33,7 +33,7 @@ links:
 ```
 <!-- {: data-highlight="transition:fade"} -->
 
-**Runs the same transition on enter and exit.** Svelte waits for the out transition before removing the node; see [Transitions](https://svelte.dev/docs/svelte/transition).
+**Runs one transition,** on both enter and exit. Svelte waits for the out transition before removing the node; See [Transitions](https://svelte.dev/docs/svelte/transition).
 
 ### Pass transition options
 <!-- {: .-snippet} -->
@@ -53,7 +53,7 @@ links:
 ```
 <!-- {: data-highlight="duration: 200"} -->
 
-**Takes the effect's parameters as an object.** `in:` runs only on arrival, and `duration` is in milliseconds; see [Transition parameters](https://svelte.dev/docs/svelte/transition#Transition-parameters).
+**Takes parameters as an object,** for the effect; `in:` runs only on arrival, and `duration` is in milliseconds; See [Transition parameters](https://svelte.dev/docs/svelte/transition#Transition-parameters).
 
 ### Mix in and out transitions
 <!-- {: .-snippet} -->
@@ -73,7 +73,7 @@ links:
 ```
 <!-- {: data-highlight="in:fly; out:fade"} -->
 
-**Uses different effects for each direction.** Pairing `in:` and `out:` is the usual way to get an asymmetric motion; see [in and out](https://svelte.dev/docs/svelte/in-and-out).
+**Uses different effects,** one for each direction. Pairing `in:` and `out:` is the usual way to get an asymmetric motion; See [in and out](https://svelte.dev/docs/svelte/in-and-out).
 
 ### Animate a reordered list
 <!-- {: .-snippet} -->
@@ -93,7 +93,7 @@ links:
 ```
 <!-- {: data-highlight="animate:flip"} -->
 
-**Moves items between their old and new positions.** `animate:flip` needs a keyed `{#each}` block; see [Animating lists](https://svelte.dev/docs/svelte/animate).
+**Moves items between positions,** old and new. `animate:flip` needs a keyed `{#each}` block; See [Animating lists](https://svelte.dev/docs/svelte/animate).
 
 ### Run a transition globally
 <!-- {: .-snippet} -->
@@ -114,4 +114,4 @@ links:
 ```
 <!-- {: data-highlight="transition:fade|global"} -->
 
-**Plays even when the outer block is removed.** Transitions are local by default, so without `|global` toggling `visible` would skip the fade; see [Local vs global](https://svelte.dev/docs/svelte/transition#Local-vs-global).
+**Plays globally,** even when the outer block is removed. Transitions are local by default, so without `|global` toggling `visible` would skip the fade; See [Local vs global](https://svelte.dev/docs/svelte/transition#Local-vs-global).

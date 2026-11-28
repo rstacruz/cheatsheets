@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Day.js difference
     url: https://day.js.org/docs/en/display/difference
@@ -26,7 +26,7 @@ end.diff(start, 'days')   // 10
 ```
 <!-- {: data-highlight=".diff(start, 'days')"} -->
 
-**Counts whole days between two dates.** The result truncates toward zero, so a partial day is dropped; see [Difference](https://day.js.org/docs/en/display/difference).
+**Counts whole days.** Days are counted between two dates. The result truncates toward zero, so a partial day is dropped; see [Difference](https://day.js.org/docs/en/display/difference).
 
 ### Fractional days
 <!-- {: .-snippet} -->
@@ -39,7 +39,7 @@ end.diff(start, 'days', true)   // 10.5
 ```
 <!-- {: data-highlight=", true"} -->
 
-**Returns a float with the third argument.** Without it the result is truncated; see [Difference](https://day.js.org/docs/en/display/difference).
+**Returns a float.** The third argument enables it. Without it the result is truncated; see [Difference](https://day.js.org/docs/en/display/difference).
 
 ### Hours and minutes
 <!-- {: .-snippet} -->
@@ -53,7 +53,7 @@ end.diff(start, 'minutes')   // 15120
 ```
 <!-- {: data-highlight="'hours'"} -->
 
-**Converts the gap to another unit.** `seconds` and `weeks` work too; see [Difference](https://day.js.org/docs/en/display/difference).
+**Converts the gap.** The second argument sets another unit. `seconds` and `weeks` work too; see [Difference](https://day.js.org/docs/en/display/difference).
 
 ### Months truncate
 <!-- {: .-snippet} -->
@@ -86,4 +86,4 @@ dayjs.duration(end.diff(start)).humanize()
 ```
 <!-- {: data-highlight="humanize()"} -->
 
-**Turns the milliseconds into a readable span.** `diff()` already returns milliseconds; see [Duration](https://day.js.org/docs/en/durations/humanize).
+**Humanizes the gap.** It turns the milliseconds into a readable span. `diff()` already returns milliseconds; see [Duration](https://day.js.org/docs/en/durations/humanize).

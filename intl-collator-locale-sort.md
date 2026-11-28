@@ -6,7 +6,7 @@ logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+updated: 2026-11-28
 links:
   - title: locales argument
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
@@ -29,7 +29,7 @@ words.sort(swedish.compare)
 ```
 <!-- {: data-highlight="Intl.Collator('sv')"} -->
 
-**Puts `å`, `ä`, and `ö` after `z`.** Swedish treats them as separate letters, not accented a and o; see [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+**Sorts `å`, `ä`, `ö` last.** Swedish places them after `z` as separate letters, not accented a and o. See [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
 ### German order
 <!-- {: .-snippet} -->
@@ -55,4 +55,4 @@ const spanish = new Intl.Collator('es')
 ```
 <!-- {: data-highlight="Intl.Collator('es')"} -->
 
-**Places `ñ` between `n` and `o`.** Spanish gives the letter its own alphabet slot; see [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+**Sorts `ñ` after `n`.** Spanish gives the letter its own alphabet slot, between `n` and `o`. See [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).

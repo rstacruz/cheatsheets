@@ -6,7 +6,7 @@ logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Project structure
     url: https://nextjs.org/docs/app/getting-started/project-structure
@@ -43,4 +43,4 @@ app/
 ```
 <!-- {: data-highlight="(marketing)"} -->
 
-**Keeps these folders out of the URL.** Route groups, `(name)`, share a layout without adding a segment; a leading underscore opts a folder out of routing. See [route groups](https://nextjs.org/docs/app/api-reference/file-conventions/route-groups).
+**Excludes folders from URLs.** These folders stay out of the URL. Route groups, `(name)`, share a layout without adding a segment; a leading underscore opts a folder out of routing. See [route groups](https://nextjs.org/docs/app/api-reference/file-conventions/route-groups).

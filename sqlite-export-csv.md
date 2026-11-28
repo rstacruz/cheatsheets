@@ -7,7 +7,7 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "SQLite 3.54.0."
-updated: 2026-11-27
+updated: 2026-11-28
 links:
   - title: CSV export
     url: https://sqlite.org/cli.html#export_to_csv
@@ -25,7 +25,7 @@ sqlite3 app.db ".mode csv" ".headers on" \
 ```
 <!-- {: data-highlight=".once users.csv"} -->
 
-**Writes one result to a file.** `.once` reverts to stdout after the query; see [CSV export](https://sqlite.org/cli.html#export_to_csv).
+**Writes one result.** `.once` sends a single query's output to a file and reverts to stdout afterwards. See [CSV export](https://sqlite.org/cli.html#export_to_csv).
 
 ### Export from the shell
 <!-- {: .-snippet} -->
@@ -36,7 +36,7 @@ sqlite3 -header -csv app.db \
 ```
 <!-- {: data-highlight="-header -csv"} -->
 
-**Sets the format with CLI flags.** The output is redirected by the shell, so no dot-commands are needed; see [command-line shell](https://sqlite.org/cli.html#export_to_csv).
+**Sets format with flags.** The shell redirects the output, so no dot-commands are needed. See [command-line shell](https://sqlite.org/cli.html#export_to_csv).
 
 ### Export every result
 <!-- {: .-snippet} -->

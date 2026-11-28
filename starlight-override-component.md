@@ -5,7 +5,7 @@ subtitle: Replace built-in UI
 logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
-updated: 2026-11-27
+updated: 2026-11-28
 last_verified_with: "Starlight 0.43.2, Astro 7.4.13."
 links:
   - title: Overriding components
@@ -29,7 +29,7 @@ starlight({
 ```
 <!-- {: data-highlight="components:"} -->
 
-**Swaps a built-in component for yours.** The key is the override name, not the default file's path; see [overrides](https://starlight.astro.build/guides/overriding-components/).
+**Swaps a component,** a built-in one for yours. The key is the override name, not the default file's path; See [overrides](https://starlight.astro.build/guides/overriding-components/).
 
 ### Wrap the default component
 <!-- {: .-snippet} -->
@@ -45,7 +45,7 @@ import Default from
 ```
 <!-- {: data-highlight="<Default>"} -->
 
-**Keeps the built-in UI and adds to it.** Import the original and render `<slot />` so children survive; see [reuse a component](https://starlight.astro.build/guides/overriding-components/#reuse-a-built-in-component).
+**Keeps the built-in UI,** and adds to it. Import the original and render `<slot />` so children survive; See [reuse a component](https://starlight.astro.build/guides/overriding-components/#reuse-a-built-in-component).
 
 ### Read the page data
 <!-- {: .-snippet} -->

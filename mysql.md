@@ -120,8 +120,6 @@ SELECT * FROM t WHERE id = 1 FOR UPDATE SKIP LOCKED;
 ```
 <!-- {: data-highlight="FOR UPDATE; FOR SHARE"} -->
 
-InnoDB locks scanned index records; `SKIP LOCKED` avoids rows locked by other transactions.
-
 See: [Locking reads](https://dev.mysql.com/doc/refman/9.7/en/innodb-locking-reads.html)
 
 ## Modifying data

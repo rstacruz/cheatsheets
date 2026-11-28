@@ -311,17 +311,24 @@ const latestPages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2026-11-28',
+    ...REQUIRED,
     '---',
     'a'
   ].join('\n'),
-  ant: ['---', 'category: Test', 'created_at: 2026-11-28', '---', 'a'].join(
-    '\n'
-  ),
+  ant: [
+    '---',
+    'category: Test',
+    'created_at: 2026-11-28',
+    ...REQUIRED,
+    '---',
+    'a'
+  ].join('\n'),
   alpha: [
     '---',
     'category: Test',
     'created_at: 2026-11-20',
     'updated: 2026-11-28',
+    ...REQUIRED,
     '---',
     'a'
   ].join('\n'),
@@ -331,6 +338,7 @@ const latestPages = mapGlobToPages({
     'category: Test',
     'created_at: 2026-11-27',
     'updated: 2026-11-28',
+    ...LINKS,
     'layout: snippet',
     '---',
     's'
@@ -339,6 +347,7 @@ const latestPages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'updated: 2026-11-28',
     '---',
     'z'
@@ -347,6 +356,7 @@ const latestPages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2026-11-29',
+    ...REQUIRED,
     'deprecated: true',
     '---',
     'b'
@@ -356,6 +366,7 @@ const latestPages = mapGlobToPages({
     'category: Test',
     'created_at: 2026-11-29',
     'deprecated_by: /alpha',
+    ...REQUIRED,
     '---',
     's'
   ].join('\n'),
@@ -371,6 +382,7 @@ const latestPages = mapGlobToPages({
     '---',
     'category: Hidden',
     'created_at: 2026-11-30',
+    ...REQUIRED,
     '---',
     'h'
   ].join('\n'),
@@ -378,6 +390,7 @@ const latestPages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2026-12-01',
+    ...REQUIRED,
     '---',
     'f'
   ].join('\n')

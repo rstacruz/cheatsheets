@@ -88,6 +88,8 @@ Every `data-highlight` token must illustrate the card's main message. Tint the f
 
 **Anchor on the keyword the card is named after.** Start with the clause or command that gives the card its title: `WHERE` on "Filter rows", `ORDER BY` and `LIMIT` on "Sort and limit", `CREATE TABLE` on "Create table". A narrower option such as `DISTINCT`, `OFFSET`, or `PRIMARY KEY` is a bad default; tint it only when that option is the card's subject.
 
+For CLI sheets, an H3 that names an everyday operation (`Upload`, `List`, `Delete`, `Presigned URLs`) takes the command that performs it; a flag explained in the prose is still secondary.
+
 **Good:** the card is about creating a table, so the command is tinted.
 
 ````md
@@ -131,6 +133,30 @@ bat -d notes.txt
 bat -d --diff-context=1 notes.txt
 ```
 <!-- {: data-highlight="--diff-context=1"} -->
+````
+
+**Good:** the card is about uploading, so the command is tinted.
+
+````md
+### Upload
+
+```bash
+aws s3 cp file.txt s3://mybucket/
+aws s3 cp dist/ s3://mybucket/dist/ --exclude "*" --include "*.js"
+```
+<!-- {: data-highlight="aws s3 cp"} -->
+````
+
+**Bad:** the tint lands on filters that the prose already explains.
+
+````md
+### Upload
+
+```bash
+aws s3 cp file.txt s3://mybucket/
+aws s3 cp dist/ s3://mybucket/dist/ --exclude "*" --include "*.js"
+```
+<!-- {: data-highlight="--exclude; --include"} -->
 ````
 
 ### code/highlight-the-token

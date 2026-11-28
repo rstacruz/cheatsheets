@@ -50,7 +50,7 @@ aws s3 cp dist/ s3://mybucket/dist/ --recursive \
   --exclude "*" --include "*.js" --include "*.css"
 aws s3 cp file.txt s3://mybucket/ --no-overwrite
 ```
-<!-- {: data-highlight="--exclude; --include"} -->
+<!-- {: data-highlight="aws s3 cp"} -->
 
 #### Options
 
@@ -117,7 +117,7 @@ aws s3 cp s3://source-bucket/ s3://dest-bucket/ --recursive
 aws s3 cp s3://source-bucket/key s3://dest-bucket/key \
   --source-region us-west-2 --copy-props default
 ```
-<!-- {: data-highlight="--source-region us-west-2; --copy-props default"} -->
+<!-- {: data-highlight="aws s3 cp s3://"} -->
 
 `--region` names the destination's region; `--source-region` names the
 source's. `--copy-props` controls which properties the copy preserves.
@@ -131,7 +131,7 @@ aws s3 presign s3://mybucket/report.pdf
 aws s3 presign s3://mybucket/report.pdf --expires-in 3600
 aws s3 presign s3://mybucket/report.pdf --expires-in 604800
 ```
-<!-- {: data-highlight="--expires-in"} -->
+<!-- {: data-highlight="aws s3 presign"} -->
 
 Each URL grants temporary GET access, one hour by default; `--expires-in`
 caps at 604800 seconds (7 days).
@@ -150,7 +150,7 @@ aws s3 ls s3://mybucket/logs/ --recursive \
 aws s3api list-objects-v2 --bucket mybucket --prefix logs/ \
   --query 'Contents[].{Key:Key,Size:Size}' --output table
 ```
-<!-- {: data-highlight="--recursive"} -->
+<!-- {: data-highlight="aws s3 ls"} -->
 
 `ls` on a bucket lists root objects and prefixes; `--recursive` walks every
 key.
@@ -195,7 +195,7 @@ aws s3 rm s3://mybucket/tmp/ --recursive --dryrun
 aws s3 rm s3://mybucket/tmp/ --recursive   # destructive
 aws s3api delete-objects --bucket mybucket --delete file://delete.json
 ```
-<!-- {: data-highlight="--dryrun"} -->
+<!-- {: data-highlight="aws s3 rm"} -->
 
 #### delete.json
 
@@ -214,21 +214,29 @@ See: [aws s3 rm](https://docs.aws.amazon.com/cli/latest/reference/s3/rm.html),
 
 ## Buckets
 
-### Create and delete
+### Create a bucket
 
 ```bash
 aws s3 mb s3://mybucket --region us-west-2
 aws s3api list-buckets --query 'Buckets[].Name' --output text
 aws s3api get-bucket-location --bucket mybucket --output text
-aws s3 rb s3://mybucket --force   # destructive
 ```
-<!-- {: data-highlight="aws s3 mb; aws s3 rb"} -->
+<!-- {: data-highlight="aws s3 mb"} -->
 
 Bucket names are globally unique; `mb` creates one in the given region.
+
+See: [aws s3 mb](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html)
+
+### Delete a bucket
+
+```bash
+aws s3 rb s3://mybucket --force   # destructive
+```
+<!-- {: data-highlight="aws s3 rb"} -->
+
 `rb --force` cannot empty a versioned bucket: delete its versions first.
 
-See: [aws s3 mb](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html),
-[aws s3 rb](https://docs.aws.amazon.com/cli/latest/reference/s3/rb.html)
+See: [aws s3 rb](https://docs.aws.amazon.com/cli/latest/reference/s3/rb.html)
 
 ### Versioning and lifecycle
 

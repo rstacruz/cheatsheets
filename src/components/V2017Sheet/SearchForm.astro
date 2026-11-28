@@ -60,22 +60,17 @@ const styles = {
         ? 'h-[48px] py-[8px] pr-[8px] text-base'
         : 'h-[64px] py-[16px] pr-[16px] text-lg'
     ),
-  icon: (small: boolean) =>
-    cx(
-      'SearchForm__icon',
-      'order-2 grid place-items-center text-heading',
-      small
-        ? 'w-[48px] flex-[0_0_48px] [&>svg]:size-[24px]'
-        : 'w-[64px] flex-[0_0_64px] [&>svg]:size-[32px]'
-    ),
   submit: (small: boolean) =>
     cx(
       'SearchForm__submit',
-      'order-2 flex flex-none items-center gap-[8px] rounded-full px-[16px]',
-      'text-sm font-semibold text-primary-foreground no-underline',
-      'bg-[image:var(--brand-gradient)] hover:bg-none hover:bg-primary-active',
+      'order-2 mr-3 flex flex-none items-center justify-center rounded-full bg-transparent',
+      'text-sm font-semibold no-underline text-heading transition-colors',
+      'data-[active=true]:bg-[image:var(--brand-gradient)]',
+      'data-[active=true]:text-primary-foreground',
+      'data-[active=true]:hover:bg-none data-[active=true]:hover:bg-primary-active',
       'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
-      small ? 'h-[40px]' : 'h-[48px]'
+      'px-[12px] data-[active=true]:px-[16px]',
+      small ? 'h-[40px] [&>svg]:size-[20px]' : 'h-[48px] [&>svg]:size-[24px]'
     )
 }
 ---
@@ -94,30 +89,41 @@ const styles = {
       autocomplete="off"
       data-js-no-autocomplete={props.noAutocomplete ? '' : undefined}
     />
-    <span class={styles.icon(small)} data-js-search-icon>
-      <Icon name="md-search" size={small ? 24 : 32} />
-    </span>
-    {props.noAutocomplete !== true && (
-      <button
-        type="button"
-        class={styles.submit(small)}
-        data-js-search-submit
-        style="display: none"
-      >
-        <Icon name="md-search" size={small ? 20 : 24} />
-        <span>Search</span>
-      </button>
-    )}
+    <button
+      type="button"
+      class={styles.submit(small)}
+      data-js-search-submit
+      aria-label="Search"
+      aria-disabled="true"
+      data-active="false"
+    >
+      <Icon name="md-search" size={small ? 20 : 24} />
+    </button>
   </label>
 </form>
 
 <script>
   import { onScrollVisible } from '~/lib/domutils/onScrollVisible'
 
-  // Prevent <enter> from submitting the form
   document
     .querySelectorAll<HTMLFormElement>('[data-js-search-form]')
     .forEach((form) => {
+      const input = form.querySelector<HTMLInputElement>(
+        '[data-js-search-input]'
+      )
+      const button = form.querySelector<HTMLButtonElement>(
+        '[data-js-search-submit]'
+      )
+      const sync = () => {
+        const active = Boolean(input?.value.trim())
+        if (button) {
+          button.dataset.active = String(active)
+          button.setAttribute('aria-disabled', String(!active))
+        }
+      }
+      sync()
+      input?.addEventListener('input', sync)
+
       form.addEventListener('submit', (event) => {
         event.preventDefault()
       })

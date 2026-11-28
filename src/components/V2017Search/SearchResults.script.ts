@@ -30,6 +30,9 @@ function setShown(element: HTMLElement, shown: boolean) {
 export function setupSearchResults() {
   const form = requiredElement<HTMLFormElement>('[data-js-search-form]')
   const input = requiredElement<HTMLInputElement>('[data-js-search-input]')
+  const submit = form.querySelector<HTMLButtonElement>(
+    '[data-js-search-submit]'
+  )
   const empty = requiredElement('[data-js-search-empty]')
   const groupRoot = requiredElement('[data-js-search-groups]')
   const groups = Array.from(
@@ -128,6 +131,7 @@ export function setupSearchResults() {
     history.pushState({}, '', url)
     renderFromUrl()
   })
+  submit?.addEventListener('click', () => form.requestSubmit())
 
   input.addEventListener('input', () => {
     if (!index) return

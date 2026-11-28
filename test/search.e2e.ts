@@ -140,10 +140,13 @@ test('an unknown query shows the empty state', async ({ page }) => {
 test('homepage search button submits the typed query', async ({ page }) => {
   await page.goto('/')
   const input = page.getByPlaceholder('Search...')
+  const button = page.getByRole('button', { name: 'Search', exact: true })
+
+  await expect(button).toBeVisible()
+  await expect(button).toHaveAttribute('aria-disabled', 'true')
 
   await input.fill('git stash')
-  const button = page.getByRole('button', { name: 'Search', exact: true })
-  await expect(button).toBeVisible()
+  await expect(button).toHaveAttribute('aria-disabled', 'false')
   await button.click()
 
   await expect(page).toHaveURL(/\/search\?q=git%20stash$/)

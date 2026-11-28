@@ -5,19 +5,11 @@ export async function setup(input: HTMLInputElement) {
   let fuse
 
   const form = input.closest('form')
-  const icon = form?.querySelector<HTMLElement>('[data-js-search-icon]')
   const button = form?.querySelector<HTMLButtonElement>(
     '[data-js-search-submit]'
   )
 
-  if (button && icon) {
-    const sync = () => {
-      const active = input.value.trim().length > 0
-      icon.style.display = active ? 'none' : 'grid'
-      button.style.display = active ? 'inline-flex' : 'none'
-    }
-    sync()
-    input.addEventListener('input', sync)
+  if (button) {
     button.addEventListener('click', (event) => {
       event.preventDefault()
       const query = input.value.trim()

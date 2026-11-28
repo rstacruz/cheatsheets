@@ -41,7 +41,9 @@ test('a landing query hides the browse list until results load', async ({
 test('typing filters in place without autocomplete suggestions', async ({
   page
 }) => {
+  const indexLoaded = page.waitForResponse('**/searchindex.json')
   await page.goto('/search')
+  await indexLoaded
   const input = page.getByPlaceholder('Search...')
 
   await input.fill('git stash')

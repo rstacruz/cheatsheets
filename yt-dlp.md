@@ -214,7 +214,7 @@ yt-dlp -t sleep URL  # polite, slower fetches
 ```
 <!-- {: data-highlight="-t"} -->
 
-Presets bundle common flags. Names stay stable; upstream may adjust what they expand to.
+Presets bundle common flags.
 
 See: [Preset aliases](https://github.com/yt-dlp/yt-dlp#preset-aliases)
 

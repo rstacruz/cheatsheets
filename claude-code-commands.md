@@ -210,9 +210,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/skill-doctor`       | Show skill context cost             |
 | `/auto-mode-setup`    | Draft auto-mode entries             |
 | `/claude-approvals`   | Edit approval policies (v2.1.331+)  |
-| `/powerup`            | Open feature lessons                |
-| `/radio`              | Open Claude FM in browser           |
-| `/stickers`           | Check sticker availability          |
+
+`/heapdump` writes a `.heapsnapshot` with your full conversation and credentials; don't share it.
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
@@ -241,7 +240,7 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/plugin`         | Manage plugins                 |
 | `/reload-plugins` | Apply plugin changes           |
 | ----------------- | ------------------------------ |
-| `/agents`         | Prompt to set up subagents     |
+| `/agents`         | Print a reminder to set up subagents |
 | `/skills`         | List and filter skills         |
 | `/reload-skills`  | Rescan skill directories       |
 | `/doctor`         | Run a setup checkup            |
@@ -285,14 +284,6 @@ See: [Claude Code on the web](https://code.claude.com/docs/en/claude-code-on-the
 | `/update-config`            | Apply a settings change        |
 | `/fewer-permission-prompts` | Build an allowlist             |
 | `/artifacts`                | List and attach artifacts      |
-| `/artifact-capabilities`    | Load artifact capabilities     |
-| `/artifact-diagramming`     | Load artifact diagram rules    |
-| `/motion`                   | Make an animation artifact     |
-| `/whiteboard`               | Make a whiteboard artifact     |
-| `/design-sync`              | Sync a React design system     |
-| `/design-login`             | Sign in for design sync        |
-| `/plugin-authoring`         | Load plugin mod reference      |
-| `/workflow-authoring`       | Load workflow script reference |
 
 Type `/` to browse available commands and skills.
 

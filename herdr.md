@@ -128,9 +128,7 @@ herdr     # launch, or reattach to a session
 claude    # run an agent; Herdr detects it
 ```
 
-Herdr is mouse-native: click panes, tabs, and workspaces, drag borders, and right-click for menus.
-
-Keyboard control is optional. Split with `prefix+v`, open a tab with `prefix+c`, and detach with `prefix+q`; panes and agents keep running.
+Split with `prefix+v`, open a tab with `prefix+c`, and detach with `prefix+q`; panes and agents keep running.
 
 See: [Quick start](https://herdr.dev/tui/docs/quick-start/)
 
@@ -163,7 +161,7 @@ See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 ```bash
 herdr agent start reviewer --kind claude --pane w1:p1
 herdr agent prompt reviewer "review this diff" --wait
-herdr agent wait reviewer --until blocked
+herdr agent wait reviewer --until blocked --timeout 120000
 herdr agent read w1:p1 --lines 120
 herdr agent attach reviewer
 ```
@@ -241,7 +239,7 @@ prefix = "ctrl+a"
 new_tab = ["prefix+c", "ctrl+alt+c"]
 ```
 
-Every binding is configurable, including the prefix. A binding can be a key or an array of keys; `prefix+?` lists bindings. `herdr config reset-keys` backs up `config.toml` and drops custom `[keys]`; restart or `herdr server reload-config` to apply.
+Every binding is configurable, including the prefix. A binding can be a key or an array of keys; `prefix+?` lists bindings. `herdr config reset-keys` backs up `config.toml` and drops custom `[keys]` and `[[keys.command]]`; restart or `herdr server reload-config` to apply.
 
 See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)
 

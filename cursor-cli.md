@@ -489,7 +489,7 @@ See: [Sandboxing](https://cursor.com/docs/agent/security/run-modes#sandboxing)
 
 ### Sandbox limits
 
-`.git/hooks` and other protected paths stay off limits. On Linux, Landlock (kernel 6.2+) and unprivileged user namespaces are required; without them the CLI asks for approval. Restricted hosts may need Cursor's AppArmor profile.
+`.git/hooks` and other protected paths stay off limits. On Linux, Landlock (kernel 6.2+) and unprivileged user namespaces are required; without them the CLI asks for approval.
 
 See: [Sandboxing](https://cursor.com/docs/agent/security/run-modes#sandboxing)
 
@@ -532,7 +532,7 @@ See: [Configuration](https://cursor.com/docs/cli/reference/configuration)
 | --- | --- |
 | `notifications`            | Notify when a turn finishes                |
 | `hints`                    | Show CLI hints                             |
-| `network.useHttp1ForAgent` | Use HTTP/1.1 for proxies                   |
+| `network.useHttp1ForAgent` | Use HTTP/1.1 for agent connections         |
 | `autoAcceptWebSearch`      | Skip web search approvals                  |
 
 See: [Configuration](https://cursor.com/docs/cli/reference/configuration)

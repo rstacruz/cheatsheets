@@ -149,7 +149,7 @@ uv sync --no-dev
 ```
 <!-- {: data-highlight="--optional"} -->
 
-`--dev` is shorthand for `--group dev`; `--optional` adds an extra. Set `default-groups` under `[tool.uv]` to change which groups sync by default.
+`--dev` is shorthand for `--group dev`; `--optional` adds an extra.
 
 See: [Dependency groups](https://docs.astral.sh/uv/concepts/projects/dependencies/#dependency-groups)
 

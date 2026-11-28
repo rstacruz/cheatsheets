@@ -445,7 +445,7 @@ See: [JSON output](https://code.claude.com/docs/en/hooks#json-output)
 | `continue: false` | Stop Claude entirely; `stopReason` explains |
 | `permissionDecision` | Allow, deny, ask, or defer a tool call |
 | `systemMessage` | Warn the user |
-| `terminalSequence` | Emit an allowlisted terminal sequence |
+| `terminalSequence` | Emit an allowlisted OSC sequence |
 <!-- {: .-headers} -->
 
 `permissionDecision` and `additionalContext` live in `hookSpecificOutput` with `hookEventName`.

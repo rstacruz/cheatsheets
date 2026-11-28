@@ -13,6 +13,11 @@ keywords:
   - "%H - Commit hash"
   - "%an - Author"
   - "%aD - Author date"
+intro: |
+  Format git log output with placeholders for commit hashes, authors, dates, refs, and bodies.
+links:
+  - title: Pretty formats
+    url: https://git-scm.com/docs/git-log#_pretty_formats
 ---
 
 ## Log format

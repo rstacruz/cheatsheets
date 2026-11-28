@@ -7,6 +7,13 @@ created_at: 2015-11-23
 updated: 2026-11-23
 tier: t3
 last_verified_with: "Git 2.56.0."
+intro: |
+  Inspect commit history with git log using revision ranges, filters, searches, and formatting.
+links:
+  - title: git log documentation
+    url: https://git-scm.com/docs/git-log
+  - title: gitrevisions
+    url: https://git-scm.com/docs/gitrevisions
 ---
 
 ### Revision ranges

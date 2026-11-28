@@ -13,11 +13,18 @@ tags: [Featured]
 created_at: 2024-01-01
 updated: 2024-01-01
 last_verified_at: 2024-01-01
+intro: |
+  React is a JavaScript library for building user interfaces.
+links:
+  - title: React documentation
+    url: https://react.dev/
 ---
 ```
 
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Created at:** `YYYY-MM-DD` date the sheet was first added. Required on every sheet; must not be after `updated` or `last_verified_at`.
+- **Intro:** one Markdown paragraph under 25 words, shown as the first card. Required except on snippet and archived sheets; see [frontmatter/introduction](rules.md#frontmatterintroduction).
+- **Links:** one to four links shown in the Introduction card. Required except on archived sheets; snippet pages turn them into a Related links card.
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
 - **Link title:** optional short title for homepage and other link lists. Falls back to `title`.
 - **Last verified with:** required for tiered sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
@@ -101,7 +108,7 @@ Run `pnpm vitest run src/lib/categories.test.ts` after moving sheets.
 
 See [Snippets](snippets.md) for the format and rules.
 
-Set `layout: snippet` for a microsheet built from one-command cards. Set `title` to an article-style heading; it becomes both the `<title>` and the H1, without a "cheatsheet" suffix. Set `link_title` to the short label used in homepage links. The `intro:` field is ignored; a **Related links** card is generated from `links` at the end of the page. Use exactly one H2 marked `.-snippets`, and mark every H3 `.-snippet`. Each H3 holds one or more code blocks (with optional H4 labels) followed by one explanation paragraph that opens with a bold summary and includes the upstream documentation link.
+Set `layout: snippet` for a microsheet built from one-command cards. Set `title` to an article-style heading; it becomes both the `<title>` and the H1, without a "cheatsheet" suffix. Set `link_title` to the short label used in homepage links. `intro:` is not needed; a **Related links** card is generated from `links` at the end of the page. Use exactly one H2 marked `.-snippets`, and mark every H3 `.-snippet`. Each H3 holds one or more code blocks (with optional H4 labels) followed by one explanation paragraph that opens with a bold summary and includes the upstream documentation link.
 
 ```yaml
 ---

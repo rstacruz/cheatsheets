@@ -6,7 +6,13 @@ import { resolveLogo } from '../logo-render'
 import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
 const MIN_RATIO = 0.8
-const CREATED = { created_at: new Date('2020-01-01') }
+const REQUIRED = {
+  intro: 'Hello',
+  links: [{ title: 'Docs', url: 'https://example.com' }]
+}
+
+const CREATED = { created_at: new Date('2020-01-01'), ...REQUIRED }
+
 const MAX_RATIO = 1.25
 
 const pagesWithLogos = async () => {

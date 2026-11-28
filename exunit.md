@@ -7,6 +7,13 @@ created_at: 2016-06-19
 updated: 2026-11-23
 tier: t3
 last_verified_with: "ExUnit 1.20.5."
+intro: |
+  Write and run Elixir tests with ExUnit, including assertions, async cases, and IO capture.
+links:
+  - title: ExUnit.Case
+    url: https://hexdocs.pm/ex_unit/ExUnit.Case.html#test/2
+  - title: ExUnit documentation
+    url: https://hexdocs.pm/ex_unit/
 ---
 
 ### Test cases

@@ -7,6 +7,8 @@ last_verified_with: "Commander.js 15.1."
 created_at: 2013-10-14
 updated: 2026-11-25
 tier: t3
+intro: |
+  Commander.js reference for defining CLI options, commands, help output, and process exit handling.
 links:
   - title: https://github.com/tj/commander.js/
     url: https://github.com/tj/commander.js/

@@ -11,11 +11,15 @@ import {
   getTopPages
 } from './queries'
 
+const LINKS = ['links:', '  - title: Docs', '    url: https://example.com/docs']
+const REQUIRED = ['intro: Hello', ...LINKS]
+
 const pages = mapGlobToPages({
   alpha: [
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'weight: -1',
     '---',
     'a'
@@ -24,6 +28,7 @@ const pages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'weight: -2',
     'deprecated: true',
     '---',
@@ -33,6 +38,7 @@ const pages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'weight: 0',
     'deprecated_by: /alpha',
     '---',
@@ -42,6 +48,7 @@ const pages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'weight: 1',
     '---',
     'd'
@@ -50,6 +57,7 @@ const pages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'weight: 2',
     'archived: Old and unmaintained.',
     '---',
@@ -60,6 +68,7 @@ const pages = mapGlobToPages({
     'title: Snippet',
     'category: Test',
     'created_at: 2020-01-01',
+    ...LINKS,
     'layout: snippet',
     'tags: [Featured]',
     'updated: 2024-01-01',
@@ -70,6 +79,7 @@ const pages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'tier: t2',
     'last_verified_with: "Tool 1.0."',
     'fragments: [a, b, c, d, e, f, g, h, i, j, k, l]',
@@ -82,6 +92,7 @@ const pages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'updated: 2024-06-02',
     '---',
     'u'
@@ -90,6 +101,7 @@ const pages = mapGlobToPages({
     '---',
     'category: Test',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'tier: t3',
     'last_verified_with: "Tool 1.0."',
     'updated: 2024-06-03',
@@ -149,6 +161,7 @@ test('snippets are grouped by category in nav order', () => {
       'title: Zeta',
       'category: Git',
       'created_at: 2020-01-01',
+      ...LINKS,
       'layout: snippet',
       '---',
       'z'
@@ -158,6 +171,7 @@ test('snippets are grouped by category in nav order', () => {
       'title: Alpha',
       'category: CLI',
       'created_at: 2020-01-01',
+      ...LINKS,
       'layout: snippet',
       '---',
       'a'
@@ -167,6 +181,7 @@ test('snippets are grouped by category in nav order', () => {
       'title: Beta',
       'category: Git',
       'created_at: 2020-01-01',
+      ...LINKS,
       'layout: snippet',
       '---',
       'b'
@@ -176,6 +191,7 @@ test('snippets are grouped by category in nav order', () => {
       'title: Article',
       'category: CLI',
       'created_at: 2020-01-01',
+      ...REQUIRED,
       '---',
       'x'
     ].join('\n')
@@ -215,6 +231,7 @@ const archivePages = mapGlobToPages({
     'title: absinthe',
     'category: Hidden',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     '---',
     'a'
   ].join('\n'),
@@ -223,6 +240,7 @@ const archivePages = mapGlobToPages({
     'title: Zeta',
     'category: Hidden',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     '---',
     'z'
   ].join('\n'),
@@ -231,6 +249,7 @@ const archivePages = mapGlobToPages({
     'title: Basic',
     'category: Hidden',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     '---',
     'b'
   ].join('\n'),
@@ -239,6 +258,7 @@ const archivePages = mapGlobToPages({
     'title: Legacy',
     'category: JavaScript',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'deprecated: true',
     '---',
     'l'
@@ -248,6 +268,7 @@ const archivePages = mapGlobToPages({
     'title: Old',
     'category: JavaScript',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     'archived: No longer maintained.',
     '---',
     'o'
@@ -257,6 +278,7 @@ const archivePages = mapGlobToPages({
     'title: React',
     'category: JavaScript',
     'created_at: 2020-01-01',
+    ...REQUIRED,
     '---',
     'r'
   ].join('\n')

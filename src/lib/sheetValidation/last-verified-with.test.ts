@@ -2,7 +2,15 @@ import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
 const note = 'Conventional Commits 1.0.0, curl 8.23.0.'
 
-const CREATED = { created_at: new Date('2020-01-01') }
+const REQUIRED = {
+  intro: 'Hello',
+  links: [{ title: 'Docs', url: 'https://example.com' }]
+}
+
+const CREATED = {
+  created_at: new Date('2020-01-01'),
+  ...REQUIRED
+}
 
 const TIERED = {
   ...CREATED,

@@ -13,6 +13,15 @@ authors:
   - github: benolot
 description: |
   Basic guide on how to use Bulma, the lightweight css flexbox framework.
+intro: |
+  Bulma reference for responsive breakpoints, columns, modifiers, typography helpers, and WYSIWYG content.
+links:
+  - title: Responsive breakpoints
+    url: https://bulma.io/documentation/start/responsiveness/
+  - title: Columns
+    url: https://bulma.io/documentation/columns/basics/
+  - title: Typography helpers
+    url: https://bulma.io/documentation/helpers/typography-helpers/
 ---
 
 ### Screen sizes

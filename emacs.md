@@ -7,6 +7,13 @@ last_verified_with: "GNU Emacs 31.1."
 created_at: 2014-02-25
 updated: 2026-11-25
 tier: t3
+intro: |
+  Navigate files, run commands, and install packages with keyboard shortcuts in Emacs.
+links:
+  - title: GNU Emacs manual
+    url: https://www.gnu.org/software/emacs/manual/html_node/emacs/
+  - title: Moving Point
+    url: https://www.gnu.org/software/emacs/manual/html_node/emacs/Moving-Point.html
 ---
 
 ### Movements

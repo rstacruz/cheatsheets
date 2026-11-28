@@ -30,6 +30,8 @@ keywords:
   - go concurrency
   - go modules
   - go commands
+intro: |
+  Write and run Go programs covering syntax, modules, concurrency, testing, and build commands.
 links:
   - title: A tour of Go
     url: https://go.dev/tour/welcome/1

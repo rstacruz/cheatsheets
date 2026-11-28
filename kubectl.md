@@ -6,6 +6,7 @@ category: Containers
 tier: t2
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."
 updated: 2026-11-27
+last_verified_at: 2026-11-27
 fragments:
   - "kubectl get pods"
   - "kubectl describe"

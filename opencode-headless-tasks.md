@@ -7,6 +7,7 @@ category: Agents
 layout: snippet
 last_verified_with: "opencode 2.4.1."
 updated: 2026-11-23
+last_verified_at: 2026-11-26
 tier: t1
 fragments:
   - "opencode run"

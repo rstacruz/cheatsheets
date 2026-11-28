@@ -22,6 +22,7 @@ fragments:
   - "git stash show"
   - "--unreachable"
 updated: 2026-11-27
+last_verified_at: 2026-11-27
 last_verified_with: "git 2.56.0."
 intro: |
   `git stash` shelves uncommitted changes so you can switch tasks, then restores them later. This reference covers saving, inspecting, restoring, and recovering stashes.

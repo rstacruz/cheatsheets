@@ -6,6 +6,7 @@ subtitle: GitHub from the terminal
 logo: { src: /assets/logos/github.svg, mono: true }
 category: Git
 updated: 2026-11-24
+last_verified_at: 2026-11-24
 last_verified_with: "gh 2.104.0."
 tier: t1
 fragments:

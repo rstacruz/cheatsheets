@@ -4,6 +4,7 @@ subtitle: Non-interactive network downloader
 logo: { src: /assets/logos/wget.svg, mono: true }
 category: Networking
 updated: 2026-11-22
+last_verified_at: 2026-11-22
 last_verified_with: "GNU Wget 1.25.0."
 tier: t2
 fragments:

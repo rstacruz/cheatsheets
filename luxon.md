@@ -24,6 +24,7 @@ fragments:
   - ".toISODate()"
   - "invalidReason"
 updated: 2026-11-26
+last_verified_at: 2026-11-26
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
 intro: |
   [Luxon](https://moment.github.io/luxon/) is a date and time library built on `Intl`. This reference covers parsing, formatting, arithmetic, time zones, intervals and durations.

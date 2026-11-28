@@ -6,6 +6,7 @@ category: JavaScript libraries
 tags: [Featured]
 tier: t2
 updated: 2026-11-27
+last_verified_at: 2026-11-27
 last_verified_with: "Next.js 16.4.6, React 19.3.1."
 fragments:
   - "next dev"

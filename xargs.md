@@ -4,6 +4,7 @@ subtitle: Command-line argument builder
 logo: { set: icon-park-outline, name: command }
 category: Shell
 updated: 2026-11-21
+last_verified_at: 2026-11-22
 last_verified_with: "GNU xargs 0.8.0."
 tier: t2
 fragments:

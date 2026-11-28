@@ -5,6 +5,7 @@ logo: { src: /assets/logos/sqlite.svg, mono: true }
 category: Databases
 tier: t2
 updated: 2026-11-27
+last_verified_at: 2026-11-27
 last_verified_with: "SQLite 3.54.0, Python 3.14.10."
 fragments:
   - "sqlite3 app.db"

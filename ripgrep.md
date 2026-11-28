@@ -4,6 +4,7 @@ subtitle: Fast recursive search tool
 logo: { set: icon-park-outline, name: search }
 category: Shell
 updated: 2026-11-22
+last_verified_at: 2026-11-22
 last_verified_with: "ripgrep 15.2.0."
 tier: t2
 fragments:

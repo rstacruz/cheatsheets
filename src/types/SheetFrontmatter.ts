@@ -99,6 +99,12 @@ export const SheetFrontmatterSchema = z
       .describe(
         'Versions the examples target (max 160 chars). Required for tiered sheets.'
       ),
+    last_verified_at: z
+      .date()
+      .optional()
+      .describe(
+        'Date the sheet was last checked against upstream. Required for t1 and t2 sheets; never before `updated`.'
+      ),
     tier: z
       .enum(['t1', 't2', 't3'])
       .optional()
@@ -180,6 +186,29 @@ export const SheetFrontmatterSchema = z
     path: ['links']
   })
   .superRefine((value, ctx) => {
+    if (
+      (value.tier === 't1' || value.tier === 't2') &&
+      !value.last_verified_at
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['last_verified_at'],
+        message: '`last_verified_at` is required for t1 and t2 sheets'
+      })
+    }
+
+    if (
+      value.last_verified_at &&
+      value.updated &&
+      value.last_verified_at < value.updated
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['last_verified_at'],
+        message: '`last_verified_at` must not be before `updated`'
+      })
+    }
+
     if (!value.tier) return
     if (value.tier !== 't3' && !value.fragments) {
       ctx.addIssue({

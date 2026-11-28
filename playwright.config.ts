@@ -1,6 +1,18 @@
+import { createHash } from 'node:crypto'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from '@playwright/test'
 
-const port = process.env.PORT ?? 4321
+const PORT_BASE = 10000
+const PORT_RANGE = 10000
+
+function worktreePort(projectDir: string): number {
+  const digest = createHash('sha256').update(projectDir).digest('hex')
+  return PORT_BASE + (parseInt(digest.slice(0, 4), 16) % PORT_RANGE)
+}
+
+// Hash the checkout path so parallel worktrees don't compete for one port.
+const projectDir = fileURLToPath(new URL('.', import.meta.url))
+const port = process.env.PORT ?? worktreePort(projectDir)
 
 const isCI = Boolean(process.env.CI)
 

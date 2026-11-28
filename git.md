@@ -24,6 +24,7 @@ fragments:
   - "git worktree add"
   - "git bisect"
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 last_verified_with: "git 2.56.0."
 intro: |
   Git tracks source changes as commits on branches, synced through remotes. This reference covers the everyday commands, with links to the fuller Git sheets.

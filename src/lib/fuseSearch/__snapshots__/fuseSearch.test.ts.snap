@@ -4,14 +4,24 @@ exports[`Simple pages scenario > multi-result search 1`] = `
 [
   {
     "item": {
+      "category": undefined,
+      "headings": [],
+      "keywords": [
+        "hooks",
+      ],
       "slug": "react",
+      "subtitle": undefined,
       "title": "React",
     },
     "refIndex": 0,
   },
   {
     "item": {
+      "category": undefined,
+      "headings": [],
+      "keywords": undefined,
       "slug": "react-router",
+      "subtitle": undefined,
       "title": "React Router",
     },
     "refIndex": 2,
@@ -25,7 +35,13 @@ exports[`Simple pages scenario > one-result search 1`] = `
 [
   {
     "item": {
+      "category": "Vim",
+      "headings": [
+        "Motions",
+      ],
+      "keywords": undefined,
       "slug": "vim",
+      "subtitle": "Modal editor",
       "title": "Vim",
     },
     "refIndex": 1,

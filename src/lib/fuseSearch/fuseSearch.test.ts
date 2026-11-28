@@ -23,6 +23,18 @@ describe('Simple pages scenario', () => {
     query: 'skinamarink'
   })
 
+  test('matches a heading-only term', () => {
+    expect(fuse.search('motions').map((result) => result.item.slug)).toEqual([
+      'vim'
+    ])
+  })
+
+  test('matches a keyword-only term', () => {
+    expect(fuse.search('hooks').map((result) => result.item.slug)).toEqual([
+      'react'
+    ])
+  })
+
   beforeEach(() => {
     const externalData = buildFuseIndex(pages)
     fuse = parseFuse(externalData)

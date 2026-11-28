@@ -23,7 +23,6 @@ type Fetch = (input: RequestInfo | URL) => Promise<Response>
 let handler: Handler
 
 beforeEach(async () => {
-  // Fresh import: the handler caches its parsed index at module scope.
   vi.resetModules()
   handler = (await import('./search')).onRequestGet
 })

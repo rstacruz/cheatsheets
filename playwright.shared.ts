@@ -4,7 +4,6 @@ import { fileURLToPath } from 'node:url'
 const PORT_BASE = 10000
 const PORT_RANGE = 10000
 
-// Hash the checkout path so parallel worktrees don't compete for one port.
 export function worktreePort(projectDir: string): number {
   const digest = createHash('sha256').update(projectDir).digest('hex')
   return PORT_BASE + (parseInt(digest.slice(0, 4), 16) % PORT_RANGE)

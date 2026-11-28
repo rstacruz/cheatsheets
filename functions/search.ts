@@ -50,9 +50,7 @@ export async function onRequestGet({ request, env }: SearchContext) {
         }
       })
     }
-  } catch {
-    // Index failures fall through to the static browse list.
-  }
+  } catch {}
 
   return asset()
 }

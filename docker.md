@@ -68,24 +68,26 @@ docker run --rm -it -v "$PWD":/app -w /app node:24 npm test
 
 #### Options
 
-```bash
-docker run [options] IMAGE [COMMAND] [ARG...]
-  -a, --attach               # attach STDIN/STDOUT/STDERR
-  -i, --interactive          # keep STDIN open
-  -t, --tty                  # allocate a pseudo-TTY
-      --name NAME            # container name
-  -d, --detach               # run in the background
-      --rm                   # remove when it exits
-  -p, --publish 5000:5000    # host:container port map
-  -P, --publish-all          # publish all exposed ports
-      --expose 5432          # expose without publishing
-  -v, --volume "$PWD":/app   # bind mount (absolute path)
-      --env-file .env        # read env vars from a file
-  -e, --env NAME=hello       # set an env var
-      --network NETWORK      # connect to a network
-      --platform linux/amd64 # set target platform
-      --pull always          # missing (default), always, never
-```
+| Option                     | Description                          |
+| -------------------------- | ------------------------------------ |
+| `-a, --attach`             | Attach STDIN, STDOUT, and STDERR      |
+| `-i, --interactive`        | Keep STDIN open                       |
+| `-t, --tty`                | Allocate a pseudo-TTY                 |
+| ---                        | ---                                  |
+| `--name NAME`              | Set the container name                |
+| `-d, --detach`             | Run in the background                 |
+| `--rm`                     | Remove the container on exit          |
+| ---                        | ---                                  |
+| `-p, --publish 5000:5000`  | Map a host port to a container port   |
+| `-P, --publish-all`        | Publish all exposed ports             |
+| `--expose 5432`            | Expose a port without publishing      |
+| `-v, --volume "$PWD":/app` | Bind-mount an absolute path           |
+| `--env-file .env`          | Read environment variables from a file |
+| `-e, --env NAME=hello`     | Set an environment variable           |
+| ---                        | ---                                  |
+| `--network NETWORK`        | Connect to a network                  |
+| `--platform linux/amd64`   | Set the target platform               |
+| `--pull always`            | `missing` (default), `always`, `never` |
 
 Creates and starts a container from an image. Takes the same options as `docker create`, plus the detach options (`-d`, `--detach-keys`, `--sig-proxy`).
 
@@ -93,25 +95,59 @@ See: [docker run](https://docs.docker.com/reference/cli/docker/container/run/)
 
 ### `ps` - List containers
 
+#### Running containers
+
 ```bash
-docker ps                 # running containers
-docker ps -a              # include stopped containers
-docker ps -q              # IDs only
-docker ps --format 'table {{.Names}}\t{{.Status}}'
+docker ps
 ```
 <!-- {: data-highlight="docker ps"} -->
+
+#### Include stopped containers
+
+```bash
+docker ps -a
+```
+
+#### IDs only
+
+```bash
+docker ps -q
+```
+
+#### Custom format
+
+```bash
+docker ps --format 'table {{.Names}}\t{{.Status}}'
+```
 
 See: [docker ps](https://docs.docker.com/reference/cli/docker/container/ls/)
 
 ### `logs` - Show container logs
 
+#### All logs
+
 ```bash
 docker logs web
-docker logs -f web              # follow output
-docker logs --tail 100 web      # last 100 lines
-docker logs --since 10m web     # since a duration
 ```
 <!-- {: data-highlight="docker logs"} -->
+
+#### Follow output
+
+```bash
+docker logs -f web
+```
+
+#### Last lines
+
+```bash
+docker logs --tail 100 web
+```
+
+#### Since a duration
+
+```bash
+docker logs --since 10m web
+```
 
 See: [docker logs](https://docs.docker.com/reference/cli/docker/container/logs/)
 
@@ -216,23 +252,50 @@ See: [docker create](https://docs.docker.com/reference/cli/docker/container/crea
 
 ### `start` / `stop` - Start and stop
 
+#### Start
+
 ```bash
 docker start web
-docker stop web
-docker restart web
-docker kill web          # stop immediately (SIGKILL)
 ```
-<!-- {: data-highlight="docker start; docker stop; docker restart; docker kill"} -->
+<!-- {: data-highlight="docker start"} -->
+
+#### Stop
+
+```bash
+docker stop web
+```
+<!-- {: data-highlight="docker stop"} -->
+
+#### Restart
+
+```bash
+docker restart web
+```
+<!-- {: data-highlight="docker restart"} -->
+
+#### Kill
+
+```bash
+docker kill web
+```
+<!-- {: data-highlight="docker kill"} -->
 
 See: [docker start](https://docs.docker.com/reference/cli/docker/container/start/) and [docker stop](https://docs.docker.com/reference/cli/docker/container/stop/)
 
 ### `rm` - Delete containers
 
+#### By name
+
 ```bash
 docker rm web
-docker rm -f web         # force-remove a running container
 ```
 <!-- {: data-highlight="docker rm"} -->
+
+#### Force a running container
+
+```bash
+docker rm -f web
+```
 
 See: [docker rm](https://docs.docker.com/reference/cli/docker/container/rm/)
 
@@ -261,15 +324,24 @@ See: [docker cp](https://docs.docker.com/reference/cli/docker/container/cp/)
 
 ### `system prune`
 
+#### Stopped containers and cache
+
 ```bash
 docker system prune
-# stopped containers, networks, cache
-docker system prune -a
-# also unused images, all build cache
-docker system prune --volumes
-# also anonymous volumes
 ```
 <!-- {: data-highlight="docker system prune"} -->
+
+#### Unused images and all cache
+
+```bash
+docker system prune -a
+```
+
+#### Include anonymous volumes
+
+```bash
+docker system prune --volumes
+```
 
 Removes stopped containers, unused networks, dangling images, and unused build cache. `-a` also removes all unused images and build cache; `--volumes` also removes anonymous volumes.
 
@@ -288,37 +360,52 @@ See: [docker container prune](https://docs.docker.com/reference/cli/docker/conta
 
 ### `image prune`
 
+#### Dangling images
+
 ```bash
 docker image prune
-# dangling images
-docker image prune -a
-# all unused images
 ```
 <!-- {: data-highlight="docker image prune"} -->
+
+#### All unused images
+
+```bash
+docker image prune -a
+```
 
 See: [docker image prune](https://docs.docker.com/reference/cli/docker/image/prune/)
 
 ### `builder prune`
 
+#### Build cache
+
 ```bash
 docker builder prune
-# remove build cache
-docker builder prune -a
-# also internal/frontend images
 ```
 <!-- {: data-highlight="docker builder prune"} -->
+
+#### Include internal images
+
+```bash
+docker builder prune -a
+```
 
 See: [docker buildx prune](https://docs.docker.com/reference/cli/docker/buildx/prune/)
 
 ### `volume prune`
 
+#### Anonymous volumes
+
 ```bash
 docker volume prune
-# anonymous volumes
-docker volume prune -a
-# all unused volumes
 ```
 <!-- {: data-highlight="docker volume prune"} -->
+
+#### All unused volumes
+
+```bash
+docker volume prune -a
+```
 
 See: [docker volume prune](https://docs.docker.com/reference/cli/docker/volume/prune/)
 

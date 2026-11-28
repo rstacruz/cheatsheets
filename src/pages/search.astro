@@ -37,33 +37,35 @@ const t = {
     </div>
 
     <div class={homeStyles.pagesList} role="main" data-js-search-results>
-      {Object.values(pageCategories).map((category) => {
-        if (category.pages.length === 0) return null
+      <div class="contents" data-js-search-groups>
+        {Object.values(pageCategories).map((category) => {
+          if (category.pages.length === 0) return null
 
-        return (
+          return (
+            <section data-js-search-group class="contents">
+              <h2 class={homeStyles.category} data-js-searchable-header>
+                <span>{category.title}</span>
+              </h2>
+              {category.pages.map((page) => (
+                <PageListItem page={page} />
+              ))}
+            </section>
+          )
+        })}
+
+        {snippetPages.length > 0 && (
           <section data-js-search-group class="contents">
             <h2 class={homeStyles.category} data-js-searchable-header>
-              <span>{category.title}</span>
+              <span>{t.snippets}</span>
             </h2>
-            {category.pages.map((page) => (
-              <PageListItem page={page} />
-            ))}
+            <div class={homeStyles.snippetList} data-js-search-container>
+              {snippetPages.map((page) => (
+                <SnippetLink page={page} />
+              ))}
+            </div>
           </section>
-        )
-      })}
-
-      {snippetPages.length > 0 && (
-        <section data-js-search-group class="contents">
-          <h2 class={homeStyles.category} data-js-searchable-header>
-            <span>{t.snippets}</span>
-          </h2>
-          <div class={homeStyles.snippetList} data-js-search-container>
-            {snippetPages.map((page) => (
-              <SnippetLink page={page} />
-            ))}
-          </div>
-        </section>
-      )}
+        )}
+      </div>
 
       <div class={homeStyles.missingMessage}>
         <h3 class={homeStyles.missingTitle}>{t.seeSomethingMissing}</h3>

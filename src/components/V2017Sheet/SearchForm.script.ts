@@ -5,6 +5,9 @@ export async function setup(input: HTMLInputElement) {
   let fuse
 
   autocomplete<{ label: string; value: string }>({
+    // Keep Enter as "search in place" on the landing page; suggestions are
+    // still navigable by click or arrow keys.
+    disableAutoSelect: input.hasAttribute('data-js-no-autoselect'),
     input,
     fetch: async (text: string, update) => {
       fuse ??= parseFuse(await fetchFuse())

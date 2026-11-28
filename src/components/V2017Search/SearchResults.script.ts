@@ -25,7 +25,7 @@ function requiredElement<T extends HTMLElement = HTMLElement>(
 }
 
 function setShown(element: HTMLElement, shown: boolean) {
-  // Tailwind's flex/grid/contents classes outrank the UA [hidden] rule.
+  // Tailwind's flex/grid/contents classes outrank the UA [hidden] rule
   element.style.display = shown ? '' : 'none'
 }
 
@@ -124,7 +124,6 @@ export function setupSearchResults() {
     render(query, resultSlugs)
   }
 
-  // Wire handlers before the index fetch so Enter during loading is not lost.
   form.addEventListener('submit', (event) => {
     event.preventDefault()
     const query = input.value.trim()

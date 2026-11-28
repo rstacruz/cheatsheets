@@ -1,14 +1,9 @@
-/**
- * Pure helpers for the search landing page. DOM work lives in
- * SearchResults.script.ts.
- */
-
 export type GroupRanking = {
   ordered: string[]
   visible: string[]
 }
 
-/** Order one group's slugs by result rank; keep every card when there is no query. */
+/** Orders a group's slugs by result rank */
 export function rankGroupSlugs(
   slugs: readonly string[],
   resultSlugs: readonly string[],
@@ -21,7 +16,7 @@ export function rankGroupSlugs(
   return { ordered: matched, visible: matched }
 }
 
-/** Put the group with the best hit first; keep browse order without a query. */
+/** Orders groups by their best hit */
 export function rankGroupOrder(
   groupSlugs: readonly (readonly string[])[],
   resultSlugs: readonly string[],
@@ -47,7 +42,8 @@ export function rankGroupOrder(
 export function getStatusText(query: string, count: number): string {
   if (!query) return ''
   if (count === 0) return `No cheatsheets for “${query}”`
-  return `${count} cheatsheets for “${query}”`
+  const noun = count === 1 ? 'cheatsheet' : 'cheatsheets'
+  return `${count} ${noun} for “${query}”`
 }
 
 export function getResultTitle(query: string, baseTitle: string): string {

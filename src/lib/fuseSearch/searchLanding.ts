@@ -1,4 +1,4 @@
-/** Return the slug when a landed query has exactly one match. */
+/** Redirect slug for a single-hit query */
 export function getInitialRedirectSlug(
   query: string,
   resultSlugs: readonly string[]

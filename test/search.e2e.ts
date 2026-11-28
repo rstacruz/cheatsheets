@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test'
 
 const STATUS = '[data-js-search-status]'
 
-test('/?q=git+rebase hands off to a multi-result search', async ({ page }) => {
+test('/?q=git+rebase loads ranked search results', async ({ page }) => {
   await page.goto('/?q=git+rebase')
 
   await expect(page).toHaveURL(/\/search\?q=git%20rebase$/)
@@ -95,7 +95,7 @@ test('refining to a single hit stays on the search page', async ({ page }) => {
   await input.press('Enter')
 
   await expect(page.locator('[data-slug="es6"]')).toBeVisible()
-  await expect(page.locator(STATUS)).toHaveText('1 cheatsheets for “es6”')
+  await expect(page.locator(STATUS)).toHaveText('1 cheatsheet for “es6”')
   await page.waitForTimeout(500)
   await expect(page).toHaveURL(/\/search\?q=es6$/)
 })

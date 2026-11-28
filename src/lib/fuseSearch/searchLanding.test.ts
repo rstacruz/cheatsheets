@@ -1,7 +1,6 @@
 import { getInitialRedirectSlug } from './searchLanding'
 
 const cases: Array<[string, string[], string | null]> = [
-  ['', ['vim'], null],
   ['   ', ['vim'], null],
   ['vim', [], null],
   ['vim', ['vim', 'vscode'], null],

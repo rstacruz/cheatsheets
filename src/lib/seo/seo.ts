@@ -41,7 +41,7 @@ export function getSEOPropsForHome() {
 export function getSEOPropsForSearch() {
   const t = {
     title: 'Search cheatsheets — devhints.io',
-    description: 'Search devhints.io cheatsheets by title, topic, or keyword.'
+    description: 'Search devhints.io cheatsheets by title, heading, or keyword.'
   }
   const url = new URL('/search', site.url).toString()
   const image = 'https://assets.devhints.io/previews/index.jpg'

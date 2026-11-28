@@ -5,9 +5,9 @@ logo: { src: /assets/logos/docker.svg }
 category: Containers
 prism_languages: [yaml]
 weight: -1
-updated: 2026-11-11
-last_verified_at: 2026-11-12
-last_verified_with: "Docker 29.9.2."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "Docker 29.9.3, Compose 5.7.0."
 tier: t2
 fragments:
   - "compose up"
@@ -57,7 +57,7 @@ services:
     image: redis:8
 ```
 
-Compose reads `compose.yaml` by default; `docker-compose.yml` also works. The top-level `version` field is obsolete.
+Compose prefers `compose.yaml`; `compose.yml`, `docker-compose.yaml`, and `docker-compose.yml` also work. The top-level `version` field is obsolete.
 
 See: [Compose quickstart](https://docs.docker.com/compose/gettingstarted/)
 
@@ -95,7 +95,7 @@ See: [Compose release notes](https://github.com/docker/compose/releases)
 | `docker compose ls` | List running projects |
 | `docker compose watch` | Sync or rebuild on changes |
 
-Global flags: `-f FILE`, `-p NAME`, `--profile NAME`, `--env-file FILE`.
+Global flags: `-f FILE`, `-p NAME`, `--profile NAME`, `--env-file FILE`, `--dry-run`.
 
 See: [docker compose CLI reference](https://docs.docker.com/reference/cli/docker/compose/)
 
@@ -134,7 +134,7 @@ services:
 ```
 <!-- {: data-highlight="image:"} -->
 
-A context path builds from `./Dockerfile`; the mapping form adds a Dockerfile and build arguments. `image` accepts a registry path, tag, or digest.
+A string `build` names a directory with a `Dockerfile` at its root; the mapping form sets `dockerfile` and `args`. `image` accepts a registry path, tag, or digest.
 
 See: [build](https://docs.docker.com/reference/compose-file/build/)
 
@@ -164,7 +164,7 @@ services:
 
 Quote mappings to avoid YAML base-60 parsing. `expose` opens ports to linked services without publishing them.
 
-See: [ports](https://docs.docker.com/reference/compose-file/services/#ports) and [expose](https://docs.docker.com/reference/compose-file/services/#expose)
+See: [ports](https://docs.docker.com/reference/compose-file/workload-spec/#ports) and [expose](https://docs.docker.com/reference/compose-file/workload-spec/#expose)
 
 ### Command and entrypoint
 
@@ -188,7 +188,7 @@ services:
 
 `command` overrides the image's CMD; `entrypoint` overrides its ENTRYPOINT. Both accept a string or list.
 
-See: [command](https://docs.docker.com/reference/compose-file/services/#command) and [entrypoint](https://docs.docker.com/reference/compose-file/services/#entrypoint)
+See: [command](https://docs.docker.com/reference/compose-file/container-spec/#command) and [entrypoint](https://docs.docker.com/reference/compose-file/container-spec/#entrypoint)
 
 ### Environment
 
@@ -215,7 +215,7 @@ services:
 
 Environment values can use a mapping or a list. `env_file` loads variables from files.
 
-See: [environment](https://docs.docker.com/reference/compose-file/services/#environment)
+See: [environment](https://docs.docker.com/reference/compose-file/container-spec/#environment)
 
 ### Dependencies
 
@@ -255,7 +255,7 @@ Long syntax waits for health or successful completion and can restart dependents
 
 Links add an alias and implicit dependency; networks are preferred.
 
-See: [depends_on](https://docs.docker.com/reference/compose-file/services/#depends_on) and [links](https://docs.docker.com/reference/compose-file/services/#links)
+See: [depends_on](https://docs.docker.com/reference/compose-file/workload-spec/#depends_on) and [links](https://docs.docker.com/reference/compose-file/services/#links)
 
 ## Runtime
 
@@ -304,7 +304,7 @@ services:
 
 `test` accepts `CMD`, `CMD-SHELL`, or `NONE`; `start_interval` sets the probe rate during startup.
 
-See: [healthcheck](https://docs.docker.com/reference/compose-file/services/#healthcheck)
+See: [healthcheck](https://docs.docker.com/reference/compose-file/workload-spec/#healthcheck)
 
 ### User
 
@@ -317,7 +317,7 @@ services:
 
 Runs the container process as the given user and group.
 
-See: [user](https://docs.docker.com/reference/compose-file/services/#user)
+See: [user](https://docs.docker.com/reference/compose-file/container-spec/#user)
 
 ### Devices
 
@@ -331,7 +331,7 @@ services:
 
 Maps host devices into the container.
 
-See: [devices](https://docs.docker.com/reference/compose-file/services/#devices)
+See: [devices](https://docs.docker.com/reference/compose-file/container-spec/#devices)
 
 ### Labels
 
@@ -345,7 +345,7 @@ services:
 
 Labels add metadata to containers.
 
-See: [labels](https://docs.docker.com/reference/compose-file/services/#labels)
+See: [labels](https://docs.docker.com/reference/compose-file/container-spec/#labels)
 
 ## Networking and storage
 <!-- {: .-three-column} -->
@@ -395,7 +395,7 @@ services:
 
 `dns` sets resolvers; `extra_hosts` adds `/etc/hosts` entries.
 
-See: [dns](https://docs.docker.com/reference/compose-file/services/#dns) and [extra_hosts](https://docs.docker.com/reference/compose-file/services/#extra_hosts)
+See: [dns](https://docs.docker.com/reference/compose-file/container-spec/#dns) and [extra_hosts](https://docs.docker.com/reference/compose-file/container-spec/#extra_hosts)
 
 ### Volumes
 

@@ -6,7 +6,7 @@ subtitle: Container engine CLI
 logo: { src: /assets/logos/docker.svg }
 category: Containers
 tier: t2
-last_verified_with: "Docker 29.9.2."
+last_verified_with: "Docker 29.10.1."
 fragments:
   - "docker pull"
   - "docker run -it"
@@ -23,8 +23,8 @@ fragments:
   - "docker rmi"
   - "docker system df"
 tags: [Featured]
-updated: 2026-11-11
-last_verified_at: 2026-11-12
+updated: 2026-11-28
+last_verified_at: 2026-11-28
 keywords:
   - docker build
   - docker run
@@ -234,6 +234,26 @@ docker rm -f web         # force-remove a running container
 <!-- {: data-highlight="docker rm"} -->
 
 See: [docker rm](https://docs.docker.com/reference/cli/docker/container/rm/)
+
+### `inspect` - Show container details
+
+```bash
+docker inspect web
+docker inspect -f '{{.State.Status}}' web
+```
+<!-- {: data-highlight="docker inspect"} -->
+
+See: [docker inspect](https://docs.docker.com/reference/cli/docker/container/inspect/)
+
+### `cp` - Copy files to or from a container
+
+```bash
+docker cp ./app.js web:/app/app.js
+docker cp web:/etc/nginx/nginx.conf ./nginx.conf
+```
+<!-- {: data-highlight="docker cp"} -->
+
+See: [docker cp](https://docs.docker.com/reference/cli/docker/container/cp/)
 
 ## Clean up
 <!-- {: .-three-column} -->

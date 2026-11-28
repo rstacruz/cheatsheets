@@ -2,9 +2,9 @@
 title: MySQL
 subtitle: Relational database server
 logo: { src: /assets/logos/mysql.svg }
-updated: 2026-11-11
-last_verified_at: 2026-11-12
-last_verified_with: "MySQL 9.7 LTS."
+updated: 2026-11-28
+last_verified_at: 2026-11-28
+last_verified_with: "MySQL 9.7.4 LTS."
 tier: t2
 fragments:
   - "SELECT *"
@@ -22,6 +22,11 @@ fragments:
   - "CREATE DATABASE"
   - "COUNT(*)"
 category: Databases
+keywords:
+  - mysql sql commands
+  - mysql create table
+  - mysql joins
+  - mysql transactions
 intro: |
   [MySQL](https://dev.mysql.com/doc/refman/9.7/en/) is an open-source relational database. This reference covers MySQL 9.7 LTS SQL, clients, and server administration.
 links:
@@ -91,6 +96,32 @@ FROM t;
 
 See: [WITH](https://dev.mysql.com/doc/refman/9.7/en/with.html), [Window functions](https://dev.mysql.com/doc/refman/9.7/en/window-functions.html)
 
+### Explain plans
+
+```sql
+EXPLAIN SELECT * FROM t WHERE col = 1;
+EXPLAIN ANALYZE SELECT * FROM t WHERE col = 1;
+EXPLAIN FORMAT=JSON SELECT * FROM t WHERE col = 1;
+SHOW WARNINGS;
+```
+<!-- {: data-highlight="EXPLAIN; EXPLAIN ANALYZE"} -->
+
+`EXPLAIN ANALYZE` runs the query and reports actual row counts.
+
+See: [EXPLAIN](https://dev.mysql.com/doc/refman/9.7/en/explain.html)
+
+### Locking reads
+
+```sql
+SELECT * FROM t WHERE id = 1 FOR UPDATE;
+SELECT * FROM t WHERE id = 1 FOR SHARE;
+SELECT * FROM t WHERE id = 1 FOR UPDATE NOWAIT;
+SELECT * FROM t WHERE id = 1 FOR UPDATE SKIP LOCKED;
+```
+<!-- {: data-highlight="FOR UPDATE; FOR SHARE"} -->
+
+See: [Locking reads](https://dev.mysql.com/doc/refman/9.7/en/innodb-locking-reads.html)
+
 ## Modifying data
 
 ### Insert
@@ -130,6 +161,26 @@ TRUNCATE TABLE t;
 <!-- {: data-highlight="DELETE FROM; TRUNCATE TABLE"} -->
 
 See: [DELETE statement](https://dev.mysql.com/doc/refman/9.7/en/delete.html)
+
+### Transactions
+
+```sql
+START TRANSACTION;
+UPDATE t SET col1 = 'a' WHERE id = 1;
+COMMIT;
+
+START TRANSACTION;
+DELETE FROM t WHERE id = 2;
+ROLLBACK;
+
+SET AUTOCOMMIT = 0;
+SET AUTOCOMMIT = 1;
+```
+<!-- {: data-highlight="START TRANSACTION; COMMIT; ROLLBACK"} -->
+
+`START TRANSACTION` is preferred over `BEGIN`; DDL commits implicitly.
+
+See: [Transactions](https://dev.mysql.com/doc/refman/9.7/en/commit.html)
 
 ## Schema
 

@@ -7,7 +7,7 @@ changes, whatever its tier.
 | Tier   | Check cadence       | Typical sheets                                 |
 | ------ | ------------------- | ---------------------------------------------- |
 | `t1`   | 14 days             | Tools that ship changes weekly                 |
-| `t2`   | 42 days (6 weeks)   | Stable tools, languages, standards             |
+| `t2`   | 28 days (4 weeks)   | Stable tools, languages, standards             |
 | `t3`   | Best effort         | Legacy sheets that still get the tiered checks |
 | (none) | Best effort         | Everything else                                |
 
@@ -33,7 +33,7 @@ metadata commits); these are proxies, not recorded checks. Recheck
 Run `pnpm sheets:due --tier t1` or `--tier t2` after pulling `origin/master`.
 It prints a one-sentence summary, a blank line, then TSV rows under the
 `slug`, `last_verified_at`, `age` header; `--json` prints a pure array instead.
-A sheet is due when its stamp is 14 days (t1) or 42 days (t2) old or older,
+A sheet is due when its stamp is 14 days (t1) or 28 days (t2) old or older,
 oldest first. Sheets in open PRs labelled `sheet-refresh` are excluded by
 default. Create the label once:
 

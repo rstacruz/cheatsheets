@@ -22,7 +22,7 @@ function isIsoDate(value: string): boolean {
     parsed.toISOString().slice(0, 10) === value
   )
 }
-export const AGE_DAYS = { t1: 14, t2: 42 } as const
+export const AGE_DAYS = { t1: 14, t2: 28 } as const
 export type Tier = keyof typeof AGE_DAYS
 export type DueSheet = {
   slug: string

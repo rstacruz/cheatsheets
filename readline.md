@@ -21,6 +21,7 @@ fragments:
   - "M-."
   - "set -o vi"
 updated: 2026-11-16
+last_verified_at: 2026-11-16
 intro: |
   [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) edits
   the input line in bash, psql, python, and most REPLs. This reference covers

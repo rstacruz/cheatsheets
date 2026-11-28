@@ -4,6 +4,7 @@ subtitle: Terminal keyboard shortcuts
 logo: { src: /assets/logos/herdr.svg, mono: true }
 category: Agents
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "herdr 0.9.5."
 tier: t1
 fragments:

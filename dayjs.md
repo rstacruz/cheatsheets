@@ -24,6 +24,7 @@ fragments:
   - ".fromNow()"
   - ".locale('fr')"
 updated: 2026-11-26
+last_verified_at: 2026-11-26
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
 intro: |
   [Day.js](https://day.js.org/) is a small date library with a Moment-compatible API. This reference covers parsing, formatting, math, time zones, locales and durations.

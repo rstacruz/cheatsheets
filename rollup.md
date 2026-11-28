@@ -4,6 +4,7 @@ subtitle: JavaScript module bundler with tree-shaking
 logo: { src: /assets/logos/rollup.svg }
 category: Build tools
 updated: 2026-11-18
+last_verified_at: 2026-11-18
 authors:
   - github: ryanSN
 tier: t2

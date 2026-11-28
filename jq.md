@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: terminal }
 category: CLI
 tier: t2
 updated: 2026-11-18
+last_verified_at: 2026-11-18
 last_verified_with: "jq 1.8.2."
 fragments:
   - "jq '.'"

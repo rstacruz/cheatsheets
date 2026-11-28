@@ -28,6 +28,7 @@ keywords:
   - Playwright config
   - Playwright network mocking
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 last_verified_with: "Playwright 1.65.1."
 intro: |
   [Playwright](https://playwright.dev/) is a browser automation library and test runner for Chromium, Firefox, and WebKit. This covers the JavaScript and TypeScript API.

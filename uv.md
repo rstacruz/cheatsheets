@@ -4,6 +4,7 @@ subtitle: Python package and project manager
 logo: { src: /assets/logos/uv.svg }
 category: Package managers
 updated: 2026-11-21
+last_verified_at: 2026-11-22
 last_verified_with: "uv 0.13.9."
 tier: t1
 fragments:

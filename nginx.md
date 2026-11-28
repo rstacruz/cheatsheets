@@ -4,6 +4,7 @@ subtitle: Web server and reverse proxy
 logo: { src: /assets/logos/nginx.svg }
 category: Devops
 updated: 2026-11-25
+last_verified_at: 2026-11-25
 last_verified_with: "nginx 1.30.8."
 tier: t2
 fragments:

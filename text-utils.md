@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: text }
 category: Shell
 tier: t2
 updated: 2026-11-23
+last_verified_at: 2026-11-23
 last_verified_with: "GNU coreutils 9.12 (sort, uniq, cut, tr, tee)."
 fragments:
   - "sort -u"

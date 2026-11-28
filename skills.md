@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: layers }
 category: Agents
 tags: [Featured]
 updated: 2026-11-11
+last_verified_at: 2026-11-11
 last_verified_with: "Agent Skills specification (unversioned)."
 tier: t2
 fragments:

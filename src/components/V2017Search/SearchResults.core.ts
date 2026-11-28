@@ -21,6 +21,29 @@ export function rankGroupSlugs(
   return { ordered: matched, visible: matched }
 }
 
+/** Put the group with the best hit first; keep browse order without a query. */
+export function rankGroupOrder(
+  groupSlugs: readonly (readonly string[])[],
+  resultSlugs: readonly string[],
+  hasQuery: boolean
+): number[] {
+  const order = groupSlugs.map((_, index) => index)
+  if (!hasQuery) return order
+
+  const rankBySlug = new Map(resultSlugs.map((slug, rank) => [slug, rank]))
+  const bestRank = groupSlugs.map((slugs) => {
+    const ranks = slugs.flatMap((slug) => {
+      const rank = rankBySlug.get(slug)
+      return rank === undefined ? [] : [rank]
+    })
+    return ranks.length > 0 ? Math.min(...ranks) : Number.POSITIVE_INFINITY
+  })
+
+  return order.sort(
+    (a, b) => (bestRank[a] ?? Infinity) - (bestRank[b] ?? Infinity) || a - b
+  )
+}
+
 export function getStatusText(query: string, count: number): string {
   if (!query) return ''
   if (count === 0) return `No cheatsheets for “${query}”`

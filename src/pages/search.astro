@@ -10,7 +10,7 @@ import { getPages } from '~/lib/page'
 import { isListed } from '~/lib/page/accessors'
 import { getPagesByCategory, getSnippetPages } from '~/lib/page/queries'
 import { getSEOPropsForSearch } from '~/lib/seo/seo'
-import { headingStyles, homeStyles } from '~/styles/CommonStyles'
+import { homeStyles } from '~/styles/CommonStyles'
 
 const listedPages = Object.values(await getPages()).filter(isListed)
 const pages = Object.fromEntries(listedPages.map((page) => [page.slug, page]))
@@ -19,7 +19,6 @@ const snippetPages = getSnippetPages(pages)
 const seoProps = getSEOPropsForSearch()
 
 const t = {
-  title: 'Search cheatsheets',
   snippets: 'Snippets',
   seeSomethingMissing: 'See something missing?',
   requestCheatsheet: 'Request cheatsheet'
@@ -32,9 +31,6 @@ const t = {
   </Fragment>
   <TopNav noEdit />
   <div class={homeStyles.body}>
-    <div class={headingStyles.root}>
-      <h1 class={headingStyles.h1}>{t.title}</h1>
-    </div>
     <div role="banner">
       <SearchForm isLive noAutoSelect />
       <div class="mt-8"></div>

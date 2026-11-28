@@ -13,6 +13,18 @@ test('/?q=git+rebase hands off to a multi-result search', async ({ page }) => {
   await expect(page.locator('[data-slug="git-rebase"]')).toBeVisible()
 })
 
+test('the top hit is the first visible result', async ({ page }) => {
+  await page.goto('/search?q=react')
+
+  await expect(page.getByRole('heading', { level: 1 })).toHaveCount(0)
+  const slugs = await page
+    .locator('[data-js-search-results] [data-slug]:visible')
+    .evaluateAll((nodes) =>
+      nodes.map((node) => node.getAttribute('data-slug') ?? '')
+    )
+  expect(slugs[0]).toBe('react')
+})
+
 test('a single result redirects straight to the sheet', async ({ page }) => {
   await page.goto('/search?q=es6')
 

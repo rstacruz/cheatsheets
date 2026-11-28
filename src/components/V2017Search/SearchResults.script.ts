@@ -4,6 +4,7 @@ import { getInitialRedirectSlug } from '~/lib/fuseSearch/searchLanding'
 import {
   getResultTitle,
   getStatusText,
+  rankGroupOrder,
   rankGroupSlugs
 } from './SearchResults.core'
 
@@ -33,6 +34,7 @@ export function setupSearchResults() {
   const input = requiredElement<HTMLInputElement>('[data-js-search-input]')
   const status = requiredElement('[data-js-search-status]')
   const empty = requiredElement('[data-js-search-empty]')
+  const groupRoot = requiredElement('[data-js-search-groups]')
   const groups = Array.from(
     document.querySelectorAll<HTMLElement>('[data-js-search-group]')
   ).map((element) => {
@@ -93,6 +95,13 @@ export function setupSearchResults() {
       if (container) setShown(container, !query || hasResults)
       setShown(element, !query || hasResults)
     }
+
+    const order = rankGroupOrder(
+      groups.map((group) => group.slugs),
+      resultSlugs,
+      query.length > 0
+    )
+    for (const index of order) groupRoot.append(groups[index].element)
 
     empty.hidden = !(query.length > 0 && matched.size === 0)
     status.textContent = getStatusText(query, matched.size)

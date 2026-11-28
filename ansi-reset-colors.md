@@ -31,6 +31,7 @@ printf 'colored\033[0m plain\n'
 ```text
 colored\033[0m plain$
 ```
+<!-- {: data-highlight="\033[0m"} -->
 
 **Clears every style at once.** `0` restores default color, weight, and background; the output above is shown with `sed -n l`. See [SGR parameters](https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_parameters).
 

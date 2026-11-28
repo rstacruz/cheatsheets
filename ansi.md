@@ -7,6 +7,7 @@ intro: |
   Quick reference to ANSI escape sequences for colors, text styles, cursor movement, and screen clearing.
 last_verified_with: "ECMA-48 5th edition, ANSI X3.64, ISO/IEC 8613-6."
 updated: 2026-11-28
+last_verified_at: 2026-11-28
 tier: t2
 fragments:
   - '\033[31m'
@@ -40,7 +41,7 @@ links:
 ```bash
 printf '\033[31mred\033[0m\n'
 ```
-<!-- {: data-highlight="\033[31m"} -->
+<!-- {: data-highlight="\033[31m; \033[0m"} -->
 
 See: [SGR parameters](https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_parameters)
 
@@ -127,6 +128,9 @@ See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.ht
 
 Bright background support varies by terminal; see [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html).
 
+## Palettes
+<!-- {: .-three-column} -->
+
 ### Palette ranges
 
 | Codes | Palette |
@@ -174,6 +178,7 @@ printf '\033[38;2;255;0;0mred\033[0m\n'
 See: [24-bit color](https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit)
 
 ## Text styles
+<!-- {: .-three-column} -->
 
 ### Set styles
 
@@ -219,6 +224,7 @@ printf '\033[7mselected\033[0m\n'
 See: [SGR parameters](https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_parameters)
 
 ## Cursor
+<!-- {: .-three-column} -->
 
 ### Move cursor
 
@@ -284,7 +290,7 @@ See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.ht
 ```bash
 printf '\033[H\033[2J'
 ```
-<!-- {: data-highlight="2J"} -->
+<!-- {: data-highlight="2J; H"} -->
 
 #### Syntax
 

@@ -31,6 +31,7 @@ printf '\033[2J\033[H'
 ```text
 \033[2J\033[H$
 ```
+<!-- {: data-highlight="2J; H"} -->
 
 **Erases the screen and moves the cursor home.** `2J` clears the display and `H` puts the cursor at row 1, column 1; the output above is shown with `sed -n l`. See [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html).
 
@@ -67,5 +68,6 @@ TERM=xterm-256color tput clear
 ```text
 \033[H\033[2J\033[3J$
 ```
+<!-- {: data-highlight="3J"} -->
 
 **Lets terminfo choose the clear sequence.** `tput clear` also clears scrollback on xterm; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).

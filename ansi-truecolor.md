@@ -31,6 +31,7 @@ printf '\033[38;2;255;0;0mred\033[0m\n'
 ```text
 \033[38;2;255;0;0mred\033[0m$
 ```
+<!-- {: data-highlight="255"} -->
 
 **Prints red from an RGB triple.** `38;2;r;g;b` sets a 24-bit foreground; the output above is shown with `sed -n l`. See [24-bit color](https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit).
 

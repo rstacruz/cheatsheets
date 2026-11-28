@@ -31,6 +31,7 @@ TERM=xterm-256color tput colors
 ```text
 256
 ```
+<!-- {: data-highlight="256"} -->
 
 **Reports the palette size for `$TERM`.** Use this to decide between 8, 256, and RGB colors; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
 
@@ -47,6 +48,7 @@ TERM=xterm-256color tput setaf 1
 ```text
 \033[31m$
 ```
+<!-- {: data-highlight="31m"} -->
 
 **Sets the foreground color by terminfo index.** `setaf 1` emits red on xterm, so scripts avoid hard-coded escapes; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
 
@@ -63,6 +65,7 @@ TERM=xterm-256color tput setab 2
 ```text
 \033[42m$
 ```
+<!-- {: data-highlight="42m"} -->
 
 **Sets the background color by terminfo index.** `setab 2` emits a green background; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).
 
@@ -79,5 +82,6 @@ TERM=xterm-256color tput sgr0
 ```text
 \033(B\033[m$
 ```
+<!-- {: data-highlight="\033[m"} -->
 
 **Restores default colors and styles.** Capture it once at startup for cleanup; re-query if `$TERM` changes; see [tput(1)](https://man7.org/linux/man-pages/man1/tput.1.html).

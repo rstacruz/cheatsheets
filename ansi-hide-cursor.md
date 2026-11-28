@@ -31,6 +31,7 @@ printf '\033[?25l'
 ```text
 \033[?25l$
 ```
+<!-- {: data-highlight="?25l"} -->
 
 **Turns off the text cursor.** `?25l` is a private DEC mode; the output above is shown with `sed -n l`. See [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html).
 

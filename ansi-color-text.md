@@ -31,6 +31,7 @@ printf '\033[31mred\033[0m\n'
 ```text
 \033[31mred\033[0m$
 ```
+<!-- {: data-highlight="\033[31m"} -->
 
 **Prints red text.** `31` selects red and `0` resets the style; the output above is shown with `sed -n l`. See [ANSI escape code](https://en.wikipedia.org/wiki/ANSI_escape_code).
 

@@ -31,6 +31,7 @@ printf '\033[38;5;196mred\033[0m\n'
 ```text
 \033[38;5;196mred\033[0m$
 ```
+<!-- {: data-highlight="196m"} -->
 
 **Selects palette index 196 as the foreground.** `38;5;n` is the 256-color foreground form; the output above is shown with `sed -n l`. See [8-bit color](https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit).
 

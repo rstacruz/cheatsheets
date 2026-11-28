@@ -3,12 +3,22 @@ import { getPages } from '../page'
 
 const CREATED_AT = new Date('2020-01-01')
 
+const REQUIRED = {
+  intro: 'Hello',
+  links: [{ title: 'Docs', url: 'https://example.com' }]
+}
+
 test('requires created_at', () => {
-  expect(() => SheetFrontmatterSchema.parse({})).toThrow(/created_at/)
+  expect(() => SheetFrontmatterSchema.parse({ ...REQUIRED })).toThrow(
+    /created_at/
+  )
 })
 
 test('accepts a creation date', () => {
-  const parsed = SheetFrontmatterSchema.parse({ created_at: CREATED_AT })
+  const parsed = SheetFrontmatterSchema.parse({
+    ...REQUIRED,
+    created_at: CREATED_AT
+  })
   expect(parsed.created_at).toEqual(CREATED_AT)
 })
 
@@ -17,7 +27,11 @@ it.each([
   ['last_verified_at', { last_verified_at: new Date('2019-12-31') }]
 ])('rejects a creation date after %s', (_, later) => {
   expect(() =>
-    SheetFrontmatterSchema.parse({ created_at: CREATED_AT, ...later })
+    SheetFrontmatterSchema.parse({
+      ...REQUIRED,
+      created_at: CREATED_AT,
+      ...later
+    })
   ).toThrow(/must not be after/)
 })
 

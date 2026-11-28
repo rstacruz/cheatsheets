@@ -7,6 +7,13 @@ last_verified_with: "ffaker 2.25."
 created_at: 2012-03-29
 updated: 2026-11-25
 tier: t3
+intro: |
+  Generate fake addresses, names, companies, and other sample data with the FFaker Ruby gem.
+links:
+  - title: ffaker usage
+    url: https://github.com/ffaker/ffaker#usage
+  - title: FFaker reference
+    url: https://github.com/ffaker/ffaker/blob/main/REFERENCE.md
 ---
 
 ## FFaker

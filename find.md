@@ -7,6 +7,11 @@ last_verified_with: "GNU findutils 4.11."
 created_at: 2013-09-17
 updated: 2026-10-31
 tier: t3
+intro: |
+  Search directories with GNU find using name, type, size, time, and action conditions.
+links:
+  - title: find manual
+    url: https://man7.org/linux/man-pages/man1/find.1.html
 ---
 
 ### Usage

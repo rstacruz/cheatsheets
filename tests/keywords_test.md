@@ -11,6 +11,11 @@ keywords:
   - Loops
   - Conditional execution
   - Command substitution
+intro: |
+  Test keyword metadata for variables, functions, interpolation, and shell loops.
+links:
+  - title: Bash manual
+    url: https://www.gnu.org/software/bash/manual/bash.html
 ---
 
 ### Example test

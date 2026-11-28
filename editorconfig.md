@@ -9,6 +9,13 @@ updated: 2026-11-23
 tier: t3
 last_verified_with: "EditorConfig spec 0.17.2."
 category: Apps
+intro: |
+  Configure consistent indentation, line endings, and character sets across editors with EditorConfig files.
+links:
+  - title: EditorConfig
+    url: https://editorconfig.org/
+  - title: EditorConfig specification
+    url: https://spec.editorconfig.org/
 ---
 
 ### Short example

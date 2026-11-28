@@ -7,6 +7,11 @@ created_at: 2017-09-04
 updated: 2018-03-06
 deprecated: true
 deprecated_by: /phoenix
+intro: |
+  Explore the legacy Phoenix 1.2 directory structure and project layout.
+links:
+  - title: Phoenix cheatsheet
+    url: /phoenix
 ---
 
 See [Phoenix](./phoenix) for a more updated cheatsheet.

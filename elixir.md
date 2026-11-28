@@ -9,6 +9,13 @@ created_at: 2016-01-07
 updated: 2026-11-25
 tier: t3
 weight: -10
+intro: |
+  Learn Elixir syntax, pattern matching, collections, modules, and concurrency on the BEAM.
+links:
+  - title: Introduction
+    url: https://hexdocs.pm/elixir/introduction.html
+  - title: Elixir documentation
+    url: https://hexdocs.pm/elixir/
 ---
 
 ## Getting started

@@ -7,6 +7,15 @@ last_verified_with: "Bundler 4.1."
 created_at: 2012-12-15
 updated: 2026-11-25
 tier: t3
+intro: |
+  Bundler reference for installing and updating gems, Gemfile groups, Git sources, deployment, and local development.
+links:
+  - title: The Gemfile
+    url: https://guides.rubygems.org/gemfile/
+  - title: bundle install
+    url: https://guides.rubygems.org/command-reference/bundle-install/
+  - title: Using git sources
+    url: https://guides.rubygems.org/git/
 ---
 
 ### Commands

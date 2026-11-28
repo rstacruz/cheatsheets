@@ -8,6 +8,11 @@ created_at: 2017-08-29
 updated: 2026-11-25
 tier: t3
 weight: -3
+intro: |
+  Add static types to JavaScript with Flow annotations, inference, aliases, and generics.
+links:
+  - title: Flow documentation
+    url: https://flow.org/en/docs/
 ---
 
 ## Getting started

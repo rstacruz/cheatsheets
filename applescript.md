@@ -8,6 +8,13 @@ updated: 2018-12-06
 tier: t3
 category: Apps
 prism_languages: [applescript]
+intro: |
+  AppleScript reference for running scripts, showing notifications, writing comments, speech, beeps, delays, and handlers.
+links:
+  - title: AppleScript Language Guide
+    url: https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/
+  - title: Mac Automation Scripting Guide
+    url: https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/RunaScript.html
 ---
 
 ### Running

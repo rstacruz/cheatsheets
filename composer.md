@@ -12,6 +12,13 @@ tier: t3
 last_verified_with: "Composer 2.11.2."
 description: |
   Basic guide on how to use Composer, the PHP Package manager.
+intro: |
+  Composer reference for installing, updating, requiring, removing, and verifying PHP package dependencies.
+links:
+  - title: Composer CLI documentation
+    url: https://getcomposer.org/doc/03-cli.md#install-i
+  - title: Composer documentation
+    url: https://getcomposer.org/doc/
 ---
 
 All composer commands, depending on your install, may need to use `php composer.phar` in the install folder for composer, instead of global/plain `composer`.

@@ -176,19 +176,36 @@ export const SheetFrontmatterSchema = z
       })
       .optional()
       .describe(
-        'One Markdown paragraph (max 500 chars). Also used in meta descriptions.'
+        'One Markdown paragraph (max 500 chars). Required except on snippet and archived sheets. Also used in meta descriptions.'
       ),
     links: z
       .array(SheetLinkSchema)
+      .min(1)
       .max(4)
       .optional()
-      .describe('Links shown in the Introduction card (max 4).')
-  })
-  .refine((value) => !value.intro || (value.links?.length ?? 0) > 0, {
-    message: '`intro` requires at least one `links` entry',
-    path: ['links']
+      .describe(
+        'Links shown in the Introduction card (max 4). Required except on archived sheets.'
+      )
   })
   .superRefine((value, ctx) => {
+    const needsIntro = value.layout !== 'snippet' && !value.archived
+
+    if (needsIntro && !value.intro) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['intro'],
+        message: '`intro` is required except on snippet and archived sheets'
+      })
+    }
+
+    if (!value.archived && !(value.links?.length ?? 0)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['links'],
+        message: '`links` is required except on archived sheets'
+      })
+    }
+
     if (
       (value.tier === 't1' || value.tier === 't2') &&
       !value.last_verified_at

@@ -7,6 +7,13 @@ last_verified_with: "FFmpeg 9.1."
 created_at: 2014-02-25
 updated: 2026-11-25
 tier: t3
+intro: |
+  Transcode audio and video with FFmpeg using codec, bitrate, video, and audio options.
+links:
+  - title: FFmpeg documentation
+    url: https://ffmpeg.org/ffmpeg.html
+  - title: Main options
+    url: https://ffmpeg.org/ffmpeg.html#Main-options
 ---
 
 ### Common switches

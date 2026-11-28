@@ -9,6 +9,13 @@ updated: 2026-11-25
 tier: t3
 description: |
   A quick guide to getting started with your first Ansible playbook.
+intro: |
+  Walkthrough for installing Ansible, creating an inventory and playbook, and running your first playbook.
+links:
+  - title: Getting started
+    url: https://docs.ansible.com/projects/ansible/latest/getting_started/index.html
+  - title: Installation guide
+    url: https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html
 ---
 
 ### Install Ansible

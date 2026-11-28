@@ -7,6 +7,13 @@ last_verified_with: "ActiveAdmin 3.5."
 created_at: 2012-11-25
 updated: 2026-11-25
 tier: t3
+intro: |
+  Reference for customizing ActiveAdmin resource listings with scopes, sidebar filters, custom actions, columns, and helpers.
+links:
+  - title: Index scopes
+    url: https://activeadmin.info/docs/v3/3-index-pages.html#index-scopes
+  - title: Custom actions
+    url: https://activeadmin.info/docs/v3/8-custom-actions.html#member-actions
 ---
 
 ### Listing scopes

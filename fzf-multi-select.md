@@ -32,7 +32,7 @@ fzf -m
 <!-- {: .-snippet} -->
 
 ```bash
-fzf -m --print0 | xargs -0 vim
+fzf -m --print0 | xargs -0 -o vim
 ```
 <!-- {: data-highlight="--print0"} -->
 

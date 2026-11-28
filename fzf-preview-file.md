@@ -34,4 +34,4 @@ fzf --preview 'bat --color=always {}'
 ```
 <!-- {: data-highlight="--color=always"} -->
 
-**Colors the preview.** `bat` highlights source files; `cat` is enough for plain text. See [preview window](https://github.com/junegunn/fzf#preview-window).
+**Colors the preview.** `bat` adds syntax highlighting to source files. See [preview window](https://github.com/junegunn/fzf#preview-window).

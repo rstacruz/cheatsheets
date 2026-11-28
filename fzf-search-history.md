@@ -26,9 +26,9 @@ history | fzf
 ```
 <!-- {: data-highlight="history | fzf"} -->
 
-**Filters remembered commands.** Each matching line goes to stdout, ready to copy or rerun. See [key bindings](https://github.com/junegunn/fzf#key-bindings-for-command-line).
+**Finds a past command.** `history | fzf` narrows the list as you type; press Enter to print the chosen line with its history number. See [key bindings](https://github.com/junegunn/fzf#key-bindings-for-command-line).
 
-### Use Ctrl-R
+### Enable Ctrl-R in Bash
 <!-- {: .-snippet} -->
 
 ```bash
@@ -36,4 +36,4 @@ eval "$(fzf --bash)"
 ```
 <!-- {: data-highlight="--bash"} -->
 
-**Pastes onto the prompt.** After setup, `Ctrl+R` searches history and inserts the selected command. See [shell integration](https://github.com/junegunn/fzf#setting-up-shell-integration).
+**Pastes onto the prompt.** After setup, `Ctrl+R` searches history and inserts a command. Zsh uses `source <(fzf --zsh)`; fish uses `fzf --fish | source`. See [shell integration](https://github.com/junegunn/fzf#setting-up-shell-integration).

@@ -1,6 +1,7 @@
 ---
 title: How to use fzf search syntax
-subtitle: Match exact and negated terms
+subtitle: Filter with fzf search operators
+link_title: Search fzf syntax
 logo: { set: icon-park-outline, name: search }
 category: Terminal
 layout: snippet
@@ -54,4 +55,4 @@ printf 'core.go\ncore.rb\n' |
 ```
 <!-- {: data-highlight="core.go$ | core.rb$"} -->
 
-**Matches either term.** A single `|` term acts as OR between the terms around it. See [search syntax](https://github.com/junegunn/fzf#search-syntax).
+**Matches either term.** Put ` | ` between patterns in the search prompt. See [search syntax](https://github.com/junegunn/fzf#search-syntax).

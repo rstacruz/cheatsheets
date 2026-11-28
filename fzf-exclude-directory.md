@@ -22,11 +22,11 @@ links:
 <!-- {: .-snippet} -->
 
 ```bash
-fzf --walker-skip .git,node_modules,dist
+fzf --walker-skip dist,coverage
 ```
 <!-- {: data-highlight="--walker-skip"} -->
 
-**Skips directories by name.** The built-in walker takes a comma-separated list; `.git` and `node_modules` are already skipped. See [fzf usage](https://github.com/junegunn/fzf#usage).
+**Skips directories by name.** The built-in walker takes a comma-separated list of directory names. See [fzf usage](https://github.com/junegunn/fzf#usage).
 
 ### Filter with fd
 <!-- {: .-snippet} -->

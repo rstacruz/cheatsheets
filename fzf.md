@@ -87,13 +87,68 @@ fzf -m
 #### Pass them on
 
 ```bash
-fzf -m --print0 | xargs -0 vim
+fzf -m --print0 | xargs -0 -o vim
 ```
 <!-- {: data-highlight='--print0'} -->
 
 `Tab` and `Shift-Tab` mark items; Enter prints every marked line.
 
 See: [Using the finder](https://github.com/junegunn/fzf#using-the-finder)
+
+## Shell integration
+
+### Set up a shell
+
+#### Bash
+
+```bash
+eval "$(fzf --bash)"
+```
+<!-- {: data-highlight='--bash'} -->
+
+#### Zsh
+
+```bash
+source <(fzf --zsh)
+```
+
+#### Fish
+
+```fish
+fzf --fish | source
+```
+
+Add the line for your shell to its startup file to enable keys and completion.
+
+See: [Shell integration](https://github.com/junegunn/fzf#setting-up-shell-integration)
+
+### Default keys
+
+| Key      | Action                                    |
+| -------- | ----------------------------------------- |
+| `Ctrl+T` | Paste selected files onto the command line |
+| `Ctrl+R` | Paste a selected command from history      |
+| `Alt+C`  | Change to a selected directory             |
+| `Ctrl+K` / `Ctrl+J` | Move the cursor up or down       |
+| `Esc`    | Close the finder without selecting         |
+<!-- {: .-shortcuts} -->
+
+Move with the arrow keys too; `Enter` accepts the selection.
+
+See: [Key bindings](https://github.com/junegunn/fzf#key-bindings-for-command-line)
+
+### Fuzzy completion
+
+```bash
+vim **<Tab>
+cd ~/src/**<Tab>
+kill -9 **<Tab>
+```
+<!-- {: data-highlight='**<Tab>'} -->
+
+The `**` trigger completes paths, directories, PIDs, hosts, and environment variables.
+
+See: [Fuzzy completion](https://github.com/junegunn/fzf#fuzzy-completion)
 
 ## Search syntax
 
@@ -243,62 +298,7 @@ Popups need tmux 3.3+ or Zellij 0.44+; outside them the option is ignored.
 
 See: [Display modes](https://github.com/junegunn/fzf#display-modes)
 
-## Shell integration
-
-### Set up a shell
-
-#### Bash
-
-```bash
-eval "$(fzf --bash)"
-```
-<!-- {: data-highlight='--bash'} -->
-
-#### Zsh
-
-```bash
-source <(fzf --zsh)
-```
-
-#### Fish
-
-```fish
-fzf --fish | source
-```
-
-Add the line for your shell to its startup file to enable keys and completion.
-
-See: [Shell integration](https://github.com/junegunn/fzf#setting-up-shell-integration)
-
-### Default keys
-
-| Key      | Action                                    |
-| -------- | ----------------------------------------- |
-| `Ctrl+T` | Paste selected files onto the command line |
-| `Ctrl+R` | Paste a selected command from history      |
-| `Alt+C`  | Change to a selected directory             |
-| `Ctrl+K` / `Ctrl+J` | Move the cursor up or down       |
-| `Esc`    | Close the finder without selecting         |
-<!-- {: .-shortcuts} -->
-
-Move with the arrow keys too; `Enter` accepts the selection.
-
-See: [Key bindings](https://github.com/junegunn/fzf#key-bindings-for-command-line)
-
-### Fuzzy completion
-
-```bash
-vim **<Tab>
-cd ~/src/**<Tab>
-kill -9 **<Tab>
-```
-<!-- {: data-highlight='**<Tab>'} -->
-
-The `**` trigger completes paths, directories, PIDs, hosts, and environment variables.
-
-See: [Fuzzy completion](https://github.com/junegunn/fzf#fuzzy-completion)
-
-## Candidate sources
+## Ignore files
 
 ### Skip paths
 
@@ -307,7 +307,7 @@ fzf --walker-skip .git,node_modules,dist
 ```
 <!-- {: data-highlight='--walker-skip'} -->
 
-The built-in walker skips `.git` and `node_modules` by default. `--walker dir` lists directories only.
+The built-in walker skips `.git` and `node_modules` by default.
 
 See: `fzf --help` (--walker, --walker-skip)
 
@@ -357,7 +357,7 @@ fzf -0
 ```
 <!-- {: data-highlight='-1; -0'} -->
 
-`-1` accepts the only match; `-0` exits when there are no matches. Both help scripts avoid hanging.
+`-1` accepts the only match; `-0` exits when there are no matches. Use them when a script must not wait for input.
 
 See: `fzf --help` (-1, -0)
 

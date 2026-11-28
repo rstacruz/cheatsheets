@@ -26,13 +26,14 @@ fd --type f --strip-cwd-prefix | fzf
 ```
 <!-- {: data-highlight="fd --type f"} -->
 
-**Uses gitignore-aware search.** `fd` hides ignored paths, so fzf only sees candidate files. See [fd README](https://github.com/sharkdp/fd).
+**Respects .gitignore.** `fd` skips ignored paths before handing fzf the file list. See [fd README](https://github.com/sharkdp/fd).
 
 ### Set the default source
 <!-- {: .-snippet} -->
 
 ```bash
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND=\
+'fd --type f --strip-cwd-prefix'
 ```
 <!-- {: data-highlight="FZF_DEFAULT_COMMAND"} -->
 

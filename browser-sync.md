@@ -6,6 +6,7 @@ category: Build tools
 intro: |
   `npm i -g browser-sync`
 last_verified_with: "BrowserSync 3.0."
+created_at: 2015-04-04
 updated: 2026-11-25
 tier: t3
 links:

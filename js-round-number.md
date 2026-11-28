@@ -7,6 +7,7 @@ category: JavaScript
 layout: snippet
 tier: t3
 last_verified_with: "Node.js 26.13.1."
+created_at: 2026-11-28
 updated: 2026-11-28
 intro: |
   Use `Math.round`, `Math.floor`, `Math.ceil`, or `Math.trunc`; `toFixed` formats decimals as a string.
@@ -44,7 +45,7 @@ Math.trunc(-4.9) // → -4
 ```
 <!-- {: data-highlight="Math.ceil; Math.floor; Math.trunc"} -->
 
-**Picks a direction instead of the nearest value.** `trunc` simply drops the fraction; see [Math.floor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
+**Picks a direction,** instead of the nearest value. `trunc` simply drops the fraction; See [Math.floor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
 
 ### Two decimal places
 <!-- {: .-snippet} -->
@@ -59,7 +60,7 @@ n.toFixed(2)
 ```
 <!-- {: data-highlight="toFixed"} -->
 
-**Returns a number or a formatted string.** `toFixed` returns a string; the `Math.round` form still uses binary floats; see [toFixed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed).
+**Returns numbers or strings,** depending on the method. `toFixed` returns a string; the `Math.round` form still uses binary floats; See [toFixed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed).
 
 ### Display formatting
 <!-- {: .-snippet} -->

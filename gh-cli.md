@@ -5,6 +5,7 @@ description: "GitHub CLI reference: authenticate, clone repos, create and review
 subtitle: GitHub from the terminal
 logo: { src: /assets/logos/github.svg, mono: true }
 category: Git
+created_at: 2026-11-24
 updated: 2026-11-24
 last_verified_at: 2026-11-24
 last_verified_with: "gh 2.104.0."

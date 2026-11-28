@@ -5,6 +5,7 @@ description: "Moment.js format: parsing, add, subtract, time zones and duration.
 subtitle: Date manipulation library
 logo: { src: /assets/logos/moment.svg, mono: true }
 category: Date libraries
+created_at: 2014-06-14
 updated: 2026-11-25
 last_verified_with: "Moment.js 2.31.0, Moment Timezone 0.6.6."
 tier: t3

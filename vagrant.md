@@ -1,5 +1,6 @@
 ---
 title: Vagrant
+created_at: 2013-08-24
 subtitle: Virtual machine environment manager
 category: Hidden
 # files.vagrantup.com is gone; HCP Vagrant/Vagrant Cloud ends operations 2026-12-31.

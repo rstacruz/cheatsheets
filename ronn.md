@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   The original `ronn` gem is defunct (0.7.3, 2010). Use the
   [ronn-ng](https://github.com/apjanke/ronn-ng) fork instead.
+created_at: 2012-12-15
 updated: 2017-10-15
 weight: -1
 prism_languages: [bash, ruby, json, markdown]

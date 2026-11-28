@@ -7,7 +7,8 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "SQLite 3.54.0."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: UPSERT
     url: https://sqlite.org/lang_upsert.html
@@ -27,7 +28,7 @@ SET name = excluded.name;
 ```
 <!-- {: data-highlight="ON CONFLICT(id)"} -->
 
-**Updates the row when its key exists.** `excluded` holds the values the insert proposed; see [UPSERT](https://sqlite.org/lang_upsert.html).
+**Updates an existing row,** when its key exists. `excluded` holds the values the insert proposed; See [UPSERT](https://sqlite.org/lang_upsert.html).
 
 ### Do nothing on conflict
 <!-- {: .-snippet} -->
@@ -39,7 +40,7 @@ ON CONFLICT(id) DO NOTHING;
 ```
 <!-- {: data-highlight="DO NOTHING"} -->
 
-**Skips the insert instead of failing.** Only the targeted conflict is ignored, while `INSERT OR IGNORE` also ignores other constraint failures; see [UPSERT](https://sqlite.org/lang_upsert.html).
+**Skips the insert,** instead of failing. Only the targeted conflict is ignored, while `INSERT OR IGNORE` also ignores other constraint failures; See [UPSERT](https://sqlite.org/lang_upsert.html).
 
 ### Upsert on a unique column
 <!-- {: .-snippet} -->
@@ -52,4 +53,4 @@ SET name = excluded.name;
 ```
 <!-- {: data-highlight="ON CONFLICT(email)"} -->
 
-**Targets the unique index on `email`.** The conflict target must match a unique constraint; see [UPSERT](https://sqlite.org/lang_upsert.html).
+**Targets a unique index,** on `email`. The conflict target must match a unique constraint; See [UPSERT](https://sqlite.org/lang_upsert.html).

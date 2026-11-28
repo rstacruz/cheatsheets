@@ -4,7 +4,8 @@ subtitle: Python templating engine
 logo: { src: /assets/logos/jinja.svg, mono: true }
 category: Python
 last_verified_with: "Jinja 3.1.6."
-updated: 2026-11-24
+created_at: 2021-09-27
+updated: 2026-11-28
 tier: t3
 intro: |
   Jinja templates: expressions, control structures, inheritance, macros, and rendering from Python.
@@ -159,5 +160,13 @@ template.render(name="John Doe")
 Reach for `Environment` when you need a loader, autoescaping, filters or globals.
 
 See: [Environment](https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment)
+
+## Also see
+
+- [Jinja filters cheatsheet](./jinja-filters)
+- [Jinja loop index cheatsheet](./jinja-loop-index)
+- [Jinja if else cheatsheet](./jinja-if-else)
+- [Jinja undefined variables cheatsheet](./jinja-undefined-variables)
+- [Jinja include vs import cheatsheet](./jinja-include-vs-import)
 
 {% endraw %}

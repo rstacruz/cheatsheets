@@ -5,6 +5,7 @@ logo: { src: /assets/logos/docker.svg }
 category: Containers
 prism_languages: [docker]
 last_verified_with: "Docker Engine 29.10."
+created_at: 2015-06-21
 updated: 2026-11-25
 tier: t3
 intro: |

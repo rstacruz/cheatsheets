@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.DateTimeFormat
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
@@ -28,7 +29,7 @@ new Intl.DateTimeFormat(undefined, {
 ```
 <!-- {: .-wrap data-highlight="undefined"} -->
 
-**Falls back to the runtime's default locale.** In Node that is the `LANG` setting; in a browser it is the UI language, which is also `navigator.language`; see [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+**Uses the default locale.** When omitted, the runtime chooses it: in Node that is the `LANG` setting, and in a browser the UI language, also `navigator.language`. See [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
 ### Offer the whole preference list
 <!-- {: .-snippet} -->
@@ -41,7 +42,7 @@ new Intl.DateTimeFormat(navigator.languages, {
 ```
 <!-- {: .-wrap data-highlight="navigator.languages"} -->
 
-**Tries each tag in order and takes the first supported one.** `navigator.languages` holds the full preference list, so pass it instead of `navigator.language`; see [navigator.languages](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/languages).
+**Tries tags in order.** `navigator.languages` holds the full preference list, so pass it instead of `navigator.language`; the first supported one wins. See [navigator.languages](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/languages).
 
 ### Check what was chosen
 <!-- {: .-snippet} -->
@@ -52,7 +53,7 @@ Intl.DateTimeFormat().resolvedOptions().locale
 ```
 <!-- {: .-wrap data-highlight="resolvedOptions().locale"} -->
 
-**Reports the locale after negotiation and defaults.** Test translations against this value rather than assuming the browser language won; see [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions).
+**Reports the chosen locale.** It reflects negotiation and defaults; test translations against this value rather than assuming the browser language won. See [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions).
 
 ### Keep server and client in sync
 <!-- {: .-snippet} -->
@@ -68,4 +69,4 @@ fmt.format(new Date('2026-11-26T15:30:00Z'))
 ```
 <!-- {: .-wrap data-highlight="timeZone: 'UTC'"} -->
 
-**Pinning locale and zone keeps SSR and browser output identical.** A locale read from `navigator` differs between server and client and breaks hydration; see [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl).
+**Pins locale and zone.** That keeps SSR and browser output identical; a locale read from `navigator` differs between server and client and breaks hydration. See [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl).

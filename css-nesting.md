@@ -6,7 +6,8 @@ logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "CSS Nesting Module Level 1."
-updated: 2026-11-24
+created_at: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: MDN CSS nesting
@@ -48,7 +49,7 @@ links:
 ```
 <!-- {: data-highlight="&:hover"} -->
 
-**Nests a pseudo-class on the parent.** `&` resolves to the outer selector, so this becomes `.button:hover`; see [nesting selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector).
+**Nests a parent pseudo-class.** `&` resolves to the outer selector, so this becomes `.button:hover`. See [nesting selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector).
 
 ### Compound selector
 <!-- {: .-snippet} -->
@@ -62,7 +63,7 @@ links:
 ```
 <!-- {: data-highlight="&.featured"} -->
 
-**Joins classes on the same element.** Without `&`, the nested selector gets a space and matches a descendant instead; see [compound selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using#compound_selectors).
+**Joins classes on one element.** Without `&`, the nested selector gets a space and matches a descendant instead. See [compound selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using#compound_selectors).
 
 ### Media query
 <!-- {: .-snippet} -->
@@ -92,4 +93,4 @@ links:
 ```
 <!-- {: data-highlight="& + &"} -->
 
-**Styles a card that follows another card.** `& + &` matches any `.card` that immediately follows another `.card`; see [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using#combinators).
+**Styles a following card.** `& + &` matches any `.card` that immediately follows another `.card`. See [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using#combinators).

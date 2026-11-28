@@ -6,7 +6,8 @@ logo: { src: /assets/logos/luxon.svg }
 category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Luxon durations
     url: https://moment.github.io/luxon/#/tour?id=durations
@@ -30,7 +31,7 @@ Duration.fromISO('PT1H30M').as('minutes')
 ```
 <!-- {: data-highlight="Duration.fromObject"} -->
 
-**Builds a duration from units or ISO 8601.** It stays a unit bag, not an instant; see [Durations](https://moment.github.io/luxon/#/tour?id=durations).
+**Builds a duration from units.** ISO 8601 works too; it stays a unit bag, not an instant; See [Durations](https://moment.github.io/luxon/#/tour?id=durations).
 
 ### Format tokens
 <!-- {: .-snippet} -->
@@ -72,7 +73,7 @@ Duration.fromObject({ minutes: 150 })
 ```
 <!-- {: data-highlight="shiftTo("} -->
 
-**Carries whole units into the named ones.** `as()` returns a fraction instead; see [shiftTo](https://moment.github.io/luxon/api-docs/index.html).
+**Carries units into named ones.** Whole units only; `as()` returns a fraction; See [shiftTo](https://moment.github.io/luxon/api-docs/index.html).
 
 ### From two dates
 <!-- {: .-snippet} -->
@@ -90,4 +91,4 @@ span.toObject()
 ```
 <!-- {: data-highlight="end.diff("} -->
 
-**A `diff()` already returns a duration.** Pass units to break it down; see [Diff](https://moment.github.io/luxon/#/math?id=diffs).
+**A `diff()` returns a duration.** Pass units to break it down; See [Diff](https://moment.github.io/luxon/#/math?id=diffs).

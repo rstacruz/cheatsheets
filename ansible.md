@@ -1,5 +1,6 @@
 ---
 title: Ansible
+created_at: 2014-02-25
 subtitle: Configuration management tool
 category: Hidden
 # Documents Ansible 1.x syntax; only_if and $var were removed, sudo/user replaced by become.

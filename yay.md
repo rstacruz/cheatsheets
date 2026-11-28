@@ -3,6 +3,7 @@ title: Yay
 subtitle: AUR helper for Arch Linux
 logo: { src: /assets/logos/archlinux.svg }
 category: Package managers
+created_at: 2026-11-22
 updated: 2026-11-22
 last_verified_at: 2026-11-22
 last_verified_with: "yay v13.0.0."

@@ -16,6 +16,7 @@ links:
     url: https://github.com/watchexec/watchexec/blob/main/doc/watchexec.1.md
 tier: t3
 last_verified_with: "watchexec 2.8.0."
+created_at: 2017-10-18
 updated: 2026-11-26
 ---
 

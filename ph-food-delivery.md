@@ -1,5 +1,6 @@
 ---
 title: Food delivery (Philippines)
+created_at: 2017-10-01
 subtitle: Manila restaurant delivery numbers
 category: Hidden
 # Metro Manila landlines became 8 digits in 2019; most listed delivery sites are gone.

@@ -7,7 +7,8 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.1."
 tier: t3
-updated: 2026-11-23
+created_at: 2026-11-23
+updated: 2026-11-28
 intro: |
   [git reset](https://git-scm.com/docs/git-reset) and [git revert](https://git-scm.com/docs/git-revert) undo commits. This sheet covers staged, unstaged, discarded, and already pushed commits.
 links:
@@ -28,7 +29,7 @@ git reset --soft HEAD~1
 ```
 <!-- {: data-highlight="--soft"} -->
 
-**Undoes the commit but keeps changes staged.** Moves HEAD back one commit and stages the changes; see [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---soft).
+**Undoes the commit.** With `--soft`, HEAD moves back one commit and the changes stay staged. See [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---soft).
 
 ### Keep changes unstaged
 <!-- {: .-snippet} -->
@@ -38,7 +39,7 @@ git reset --mixed HEAD~1
 ```
 <!-- {: data-highlight="--mixed"} -->
 
-**Undoes the commit and unstages changes.** Moves HEAD back but keeps the working files; see [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---mixed).
+**Undoes and unstages.** With `--mixed`, HEAD moves back but the working files are kept. See [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---mixed).
 
 ### Discard changes
 <!-- {: .-snippet} -->
@@ -48,7 +49,7 @@ git reset --hard HEAD~1
 ```
 <!-- {: data-highlight="--hard"} -->
 
-**Discards the commit and its changes.** Deletes them from the working tree; only use it for unpublished work. See [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---hard).
+**Discards the commit.** Its changes are deleted from the working tree, so use it only for unpublished work. See [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---hard).
 
 ### Undo a pushed commit
 <!-- {: .-snippet} -->

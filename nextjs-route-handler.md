@@ -6,7 +6,8 @@ logo: { src: /assets/logos/nextjs.svg, mono: true }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Route Handlers
     url: https://nextjs.org/docs/app/getting-started/route-handlers
@@ -27,7 +28,7 @@ export async function GET() {
 ```
 <!-- {: data-highlight="Response.json"} -->
 
-**Returns JSON from a route file.** A `route.ts` handles HTTP methods directly and cannot sit beside a `page.tsx` in the same segment. See [Route Handlers](https://nextjs.org/docs/app/getting-started/route-handlers).
+**Returns JSON.** A `route.ts` handles HTTP methods directly and cannot sit beside a `page.tsx` in the same segment. See [Route Handlers](https://nextjs.org/docs/app/getting-started/route-handlers).
 
 ### Read query params
 <!-- {: .-snippet} -->
@@ -58,4 +59,4 @@ export async function POST(request: Request) {
 ```
 <!-- {: data-highlight="request.json()"} -->
 
-**Reads JSON from the request body.** Return a status code in the second argument; unsupported methods answer with 405. See [HTTP methods](https://nextjs.org/docs/app/getting-started/route-handlers).
+**Reads a POST body.** It parses JSON from the request; return a status code in the second argument, and unsupported methods answer with 405. See [HTTP methods](https://nextjs.org/docs/app/getting-started/route-handlers).

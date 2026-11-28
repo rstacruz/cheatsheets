@@ -7,7 +7,8 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: git-stash manual
     url: https://git-scm.com/docs/git-stash
@@ -46,4 +47,4 @@ git stash drop
 ```
 <!-- {: data-highlight="git stash drop"} -->
 
-**Removes the entry after the content is applied.** Check the file before dropping; see [git stash drop](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-drop-q--quietstash).
+**Removes the entry,** after the content is applied. Check the file before dropping; See [git stash drop](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-drop-q--quietstash).

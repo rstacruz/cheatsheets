@@ -1,5 +1,6 @@
 ---
 title: Google Analytics
+created_at: 2013-03-26
 subtitle: Legacy analytics tracking API
 tags: [Archived]
 archived: This sheet describes an older version of Google Analytics (UA).

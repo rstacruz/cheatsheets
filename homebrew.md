@@ -3,6 +3,7 @@ title: Homebrew
 subtitle: Package manager for macOS
 logo: { src: /assets/logos/homebrew.svg }
 weight: -3
+created_at: 2012-07-03
 updated: 2026-11-25
 tier: t3
 last_verified_with: "Homebrew 7.0.16."

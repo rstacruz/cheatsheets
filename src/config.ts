@@ -53,6 +53,7 @@ export const categories = [
   'Markup',
   'CLI',
   'Shell',
+  'Terminal',
   'Networking',
   'Media tools',
   'Package managers',

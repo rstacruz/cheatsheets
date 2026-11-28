@@ -7,7 +7,8 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "SQLite 3.54.0."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: .import
     url: https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats
@@ -25,7 +26,7 @@ sqlite3 app.db \
 ```
 <!-- {: data-highlight=".import"} -->
 
-**Creates the table from the header row.** Columns have no declared type; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
+**Creates a table from headers.** The header row names the columns, which have no declared type. See [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
 
 ### Import into an existing table
 <!-- {: .-snippet} -->
@@ -36,7 +37,7 @@ sqlite3 app.db \
 ```
 <!-- {: data-highlight="--skip 1"} -->
 
-**Loads rows into a table that already exists.** `--skip 1` drops the header, and columns fill in table order; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
+**Loads rows into a table.** The table must already exist; `--skip 1` drops the header, and columns fill in table order. See [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
 
 ### Check the imported rows
 <!-- {: .-snippet} -->

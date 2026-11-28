@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: globe }
 category: Internationalization
 tags: [Featured]
 tier: t2
+created_at: 2018-05-10
 updated: 2026-11-26
 last_verified_at: 2026-11-26
 last_verified_with: "Node 26.13.1 (full ICU)."

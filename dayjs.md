@@ -23,6 +23,7 @@ fragments:
   - "duration(2)"
   - ".fromNow()"
   - ".locale('fr')"
+created_at: 2026-11-26
 updated: 2026-11-26
 last_verified_at: 2026-11-26
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."

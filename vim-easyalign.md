@@ -16,6 +16,7 @@ links:
     url: https://github.com/junegunn/vim-easy-align#list-of-options
 tier: t3
 last_verified_with: "vim-easy-align 2.10.0, Vim 9.2."
+created_at: 2015-04-21
 updated: 2026-11-26
 ---
 

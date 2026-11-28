@@ -4,6 +4,7 @@ subtitle: Modern JavaScript features
 logo: { set: icon-park-outline, name: lightning }
 category: JavaScript
 last_verified_with: "ECMAScript 2018."
+created_at: 2015-01-20
 updated: 2026-11-25
 tier: t3
 weight: -10

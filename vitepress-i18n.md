@@ -7,7 +7,8 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Internationalization
     url: https://vitepress.dev/guide/i18n
@@ -33,7 +34,7 @@ docs/
 ```
 <!-- {: data-highlight="fr/"} -->
 
-**Puts each language in its own folder.** The root locale stays at `/` and `fr/` pages serve from `/fr/`. See [i18n](https://vitepress.dev/guide/i18n).
+**Uses one folder per language.** The root locale stays at `/`; pages under `fr/` are served from `/fr/`. See [i18n](https://vitepress.dev/guide/i18n).
 
 ### Register the locales
 <!-- {: .-snippet} -->
@@ -55,7 +56,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="locales:"} -->
 
-**Adds a language menu to the nav bar.** `label` is the menu text and `link` the locale's first page. See [locales](https://vitepress.dev/guide/i18n).
+**Adds a language menu.** It appears in the nav bar; `label` is the menu text and `link` the locale's first page. See [locales](https://vitepress.dev/guide/i18n).
 
 ### Translate theme labels
 <!-- {: .-snippet} -->

@@ -3,6 +3,7 @@ title: Phoenix 1.2
 subtitle: Legacy Phoenix framework
 category: Elixir
 weight: -1
+created_at: 2017-09-04
 updated: 2018-03-06
 deprecated: true
 deprecated_by: /phoenix

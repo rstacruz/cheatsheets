@@ -3,8 +3,14 @@ import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
 const MAX_WORDS = 5
 
-const fiveWords = { subtitle: 'one two three four five' }
-const sixWords = { subtitle: 'one two three four five six' }
+const fiveWords = {
+  created_at: new Date('2020-01-01'),
+  subtitle: 'one two three four five'
+}
+const sixWords = {
+  created_at: new Date('2020-01-01'),
+  subtitle: 'one two three four five six'
+}
 
 test('the schema accepts a five-word subtitle', () => {
   expect(SheetFrontmatterSchema.parse(fiveWords).subtitle).toBe(

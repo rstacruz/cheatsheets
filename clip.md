@@ -3,6 +3,7 @@ title: Command Line Interface Pages
 subtitle: CLI cheatsheet format
 logo: { set: icon-park-outline, name: page }
 category: CLI
+created_at: 2023-03-13
 updated: 2026-11-24
 last_verified_with: "CLI Pages syntax 2.7.0."
 keywords:

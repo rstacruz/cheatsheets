@@ -56,7 +56,6 @@
   "go#packages",
   "goby#block",
   "graphql#mutations",
-  "grep#usage",
   "herdr-keys#activate",
   "herdr-keys#movement",
   "jasmine#expectations",

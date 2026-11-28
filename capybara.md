@@ -5,6 +5,7 @@ logo: { set: icon-park-outline, name: bug }
 category: Ruby libraries
 weight: -5
 last_verified_with: "Capybara 3.40."
+created_at: 2012-03-16
 updated: 2020-06-13
 tier: t3
 ---

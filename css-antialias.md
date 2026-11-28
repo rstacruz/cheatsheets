@@ -6,7 +6,8 @@ logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "WebKit CSS extensions (non-standard), MDN font-smooth."
-updated: 2026-11-24
+created_at: 2014-06-04
+updated: 2026-11-28
 tier: t3
 links:
   - title: MDN font-smooth
@@ -27,7 +28,7 @@ body {
 ```
 <!-- {: data-highlight="antialiased"} -->
 
-**Switches macOS text to grayscale antialiasing.** Both properties are non-standard, inherited, and ignored outside macOS; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
+**Smooths macOS text.** It switches text to grayscale antialiasing. Both properties are non-standard, inherited, and ignored outside macOS; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
 
 ### Restore the default
 <!-- {: .-snippet} -->

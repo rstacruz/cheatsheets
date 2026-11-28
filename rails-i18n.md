@@ -14,6 +14,7 @@ links:
     url: https://api.rubyonrails.org/classes/ActiveSupport/NumberHelper.html
 tier: t3
 last_verified_with: "Rails 8.1.4.1."
+created_at: 2014-02-25
 updated: 2026-11-26
 ---
 

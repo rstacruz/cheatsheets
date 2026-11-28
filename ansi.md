@@ -6,6 +6,7 @@ category: Shell
 intro: |
   Quick reference to ANSI escape sequences for colors, text styles, cursor movement, and screen clearing.
 last_verified_with: "ECMA-48 5th edition, ANSI X3.64, ISO/IEC 8613-6."
+created_at: 2013-10-14
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 tier: t2

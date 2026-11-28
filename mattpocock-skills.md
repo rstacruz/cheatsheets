@@ -4,6 +4,7 @@ subtitle: Spec-to-PR agent workflow
 logo: { set: icon-park-outline, name: toolkit }
 category: Agents
 tier: t2
+created_at: 2026-11-22
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 last_verified_with: mattpocock-skills 1.3.2.

@@ -11,6 +11,7 @@ links:
   - title: Pug API getting started
     url: https://pugjs.org/api/getting-started.html
 prism_languages: [jade]
+created_at: 2017-08-31
 updated: 2026-11-26
 weight: -3
 tier: t3

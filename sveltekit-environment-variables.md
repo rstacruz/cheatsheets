@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Environment variables
     url: https://svelte.dev/docs/kit/environment-variables
@@ -30,7 +31,7 @@ export const variables = defineEnvVars({
 ```
 <!-- {: data-highlight="defineEnvVars"} -->
 
-**Declares the variables the app may read.** `{ public: true }` exposes one; add a `schema` to validate at startup; see [Environment variables](https://svelte.dev/docs/kit/environment-variables).
+**Declares app variables.** `{ public: true }` exposes one; add a `schema` to validate at startup. See [Environment variables](https://svelte.dev/docs/kit/environment-variables).
 
 ### Import a secret
 <!-- {: .-snippet} -->
@@ -65,7 +66,7 @@ export const variables = defineEnvVars({
 ```
 <!-- {: data-highlight="static: true"} -->
 
-**Replaces the value in the bundle.** Static values allow dead-code elimination; see [Static variables](https://svelte.dev/docs/kit/environment-variables#Static-variables).
+**Inlines at build time.** It replaces the value in the bundle, and static values allow dead-code elimination. See [Static variables](https://svelte.dev/docs/kit/environment-variables#Static-variables).
 
 ### Use a value in app.html
 <!-- {: .-snippet} -->
@@ -80,4 +81,4 @@ export const variables = defineEnvVars({
 ```
 <!-- {: data-highlight="%sveltekit.env.PUBLIC_APP_NAME%"} -->
 
-**Injects a public value into the template.** Only public variables work in `app.html`; see [Public variables](https://svelte.dev/docs/kit/environment-variables#Public-variables).
+**Injects into the template.** Only public variables work in `app.html`. See [Public variables](https://svelte.dev/docs/kit/environment-variables#Public-variables).

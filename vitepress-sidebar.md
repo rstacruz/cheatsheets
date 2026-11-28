@@ -7,7 +7,8 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Sidebar reference
     url: https://vitepress.dev/reference/default-theme-sidebar
@@ -40,7 +41,7 @@ themeConfig: {
 ```
 <!-- {: data-highlight="sidebar:"} -->
 
-**Lists links under a section heading.** Each top-level group needs `text` and `items`; links start with `/` and map to a page. See [sidebar](https://vitepress.dev/reference/default-theme-sidebar).
+**Lists links under a heading.** Each top-level section needs `text` and `items`; links start with `/` and map to a page. See [sidebar](https://vitepress.dev/reference/default-theme-sidebar).
 
 ### Show separate sidebars
 <!-- {: .-snippet} -->
@@ -89,4 +90,4 @@ sidebar: false
 ```
 <!-- {: data-highlight="sidebar: false"} -->
 
-**Removes the sidebar for one page.** Use it on landing pages; `aside: false` hides the table of contents but keeps navigation. See [frontmatter sidebar](https://vitepress.dev/reference/frontmatter-config#sidebar).
+**Removes the sidebar.** It applies to one page; use it on landing pages, while `aside: false` hides the table of contents but keeps navigation. See [frontmatter sidebar](https://vitepress.dev/reference/frontmatter-config#sidebar).

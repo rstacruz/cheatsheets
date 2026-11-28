@@ -6,6 +6,7 @@ category: JavaScript testing
 weight: -1
 tier: t3
 last_verified_with: "Sinon 22.1.0."
+created_at: 2013-05-29
 updated: 2026-11-26
 intro: |
   Sinon records calls, replaces functions, and fakes time in JavaScript tests.

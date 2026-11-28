@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Day.js timezone plugin
     url: https://day.js.org/docs/en/plugin/timezone
@@ -29,7 +30,7 @@ dayjs.extend(tz)
 ```
 <!-- {: data-highlight="dayjs.extend(utc)"} -->
 
-**Enables UTC and IANA zone support.** Extend `utc` first, because the timezone plugin calls it; see [Time zone](https://day.js.org/docs/en/plugin/timezone).
+**Extends the plugins.** It enables UTC and IANA zone support. Extend `utc` first, because the timezone plugin calls it; see [Time zone](https://day.js.org/docs/en/plugin/timezone).
 
 ### Convert an instant
 <!-- {: .-snippet} -->
@@ -42,7 +43,7 @@ dayjs.utc('2014-06-09T13:32Z')
 ```
 <!-- {: data-highlight=".tz('America/New_York')"} -->
 
-**Moves the clock while keeping the instant.** Use it to display a stored moment in a chosen zone; see [Time zone](https://day.js.org/docs/en/plugin/timezone).
+**Shows another zone.** It moves the clock while keeping the instant. Use it to display a stored moment in a chosen zone; see [Time zone](https://day.js.org/docs/en/plugin/timezone).
 
 ### Create in a zone
 <!-- {: .-snippet} -->
@@ -54,7 +55,7 @@ dayjs.tz('2026-03-08 09:00', 'America/New_York')
 ```
 <!-- {: data-highlight="dayjs.tz("} -->
 
-**Reads naive input as wall time in that zone.** Plain `dayjs()` would read it in the system zone instead; see [Time zone](https://day.js.org/docs/en/plugin/timezone).
+**Reads wall time.** Naive input is read as wall time in that zone. Plain `dayjs()` would read it in the system zone instead; see [Time zone](https://day.js.org/docs/en/plugin/timezone).
 
 ### Guess the system zone
 <!-- {: .-snippet} -->
@@ -64,7 +65,7 @@ dayjs.tz.guess()   // "America/New_York"
 ```
 <!-- {: data-highlight="tz.guess()"} -->
 
-**Asks `Intl` for the system zone.** It needs the timezone plugin and full ICU data; see [Guessing](https://day.js.org/docs/en/plugin/timezone).
+**Guesses the zone.** It asks `Intl` for the system zone. It needs the timezone plugin and full ICU data; see [Guessing](https://day.js.org/docs/en/plugin/timezone).
 
 ### Fixed offsets
 <!-- {: .-snippet} -->
@@ -77,4 +78,4 @@ dayjs.utc('2014-06-09T13:32Z')
 ```
 <!-- {: data-highlight=".utcOffset(-300)"} -->
 
-**Sets a fixed offset in minutes.** It ignores DST, so prefer `tz()` for real places; see [UTC offset](https://day.js.org/docs/en/plugin/utc).
+**Sets a fixed offset.** The value is in minutes. It ignores DST, so prefer `tz()` for real places; see [UTC offset](https://day.js.org/docs/en/plugin/utc).

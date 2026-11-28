@@ -6,7 +6,8 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 tier: t3
 links:
   - title: GroupBy
@@ -48,7 +49,7 @@ Console.WriteLine(byLetter['a'].Count);   // 2
 ```
 <!-- {: data-highlight="ToDictionary"} -->
 
-**Maps each key to its list.** `ToDictionary` materialises groups; see [ToDictionary](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.todictionary).
+**Maps keys to lists.** `ToDictionary` materialises the groups. See [ToDictionary](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.todictionary).
 
 ### Count each group
 <!-- {: .-snippet} -->

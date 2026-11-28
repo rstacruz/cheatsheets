@@ -7,6 +7,7 @@ logo: { set: icon-park-outline, name: box }
 category: Ruby libraries
 weight: -3
 last_verified_with: "factory_bot 6.6."
+created_at: 2014-02-25
 updated: 2026-11-25
 tier: t3
 keywords:

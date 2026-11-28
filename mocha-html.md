@@ -4,6 +4,7 @@ subtitle: Browser test page template
 logo: { src: /assets/logos/mocha.svg }
 category: JavaScript testing
 last_verified_with: "Mocha 12.0.3, Chai 6.3.0."
+created_at: 2014-10-09
 updated: 2026-11-24
 tier: t3
 intro: |

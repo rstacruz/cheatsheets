@@ -6,7 +6,8 @@ logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "CSS Custom Properties Module Level 1, CSS Properties and Values API Level 1."
-updated: 2026-11-24
+created_at: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: MDN custom properties
@@ -34,7 +35,7 @@ a {
 ```
 <!-- {: data-highlight="var(--accent)"} -->
 
-**Declares a custom property on `:root`.** Custom properties inherit, so every element can read `--accent`; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+**Declares a custom property.** It lives on `:root` and inherits, so every element can read `--accent`. See [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 ### Fallback value
 <!-- {: .-snippet} -->
@@ -46,7 +47,7 @@ a {
 ```
 <!-- {: data-highlight="var(--accent, tomato)"} -->
 
-**Provides a fallback for an undefined token.** `var(--accent, tomato)` uses `tomato` when `--accent` is missing; a defined value that is invalid for the property does not fall back; see [var()](https://developer.mozilla.org/en-US/docs/Web/CSS/var).
+**Provides a fallback value.** `var(--accent, tomato)` uses `tomato` when `--accent` is missing; a defined value that is invalid for the property does not fall back. See [var()](https://developer.mozilla.org/en-US/docs/Web/CSS/var).
 
 ### Theme override
 <!-- {: .-snippet} -->

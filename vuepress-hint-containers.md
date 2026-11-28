@@ -6,7 +6,8 @@ logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Hint containers
     url: https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers
@@ -49,4 +50,4 @@ The output is in `docs/.vuepress/dist`.
 ```
 <!-- {: data-highlight="::: details"} -->
 
-**Starts collapsed and expands on click.** Add a title after `details` to label the toggle; it defaults to `Details`, and `{no-title}` is ignored for this container. See [details](https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers).
+**Starts collapsed.** It expands on click; add a title after `details` to label the toggle, which defaults to `Details`, and `{no-title}` is ignored for this container. See [details](https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers).

@@ -7,6 +7,7 @@ tags: [Archived]
 archived: |
   GitHub discontinued Atom in 2022 and archived its repositories. Use
   [VS Code](https://code.visualstudio.com/) or another maintained editor.
+created_at: 2014-10-23
 updated: 2021-09-10
 ---
 

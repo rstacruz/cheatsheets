@@ -4,6 +4,7 @@ subtitle: TAP test harness
 logo: { set: icon-park-outline, name: test-tube }
 category: JavaScript testing
 last_verified_with: "tape 5.11.0, Node.js 26.13.1."
+created_at: 2016-01-07
 updated: 2026-11-24
 tier: t3
 intro: |

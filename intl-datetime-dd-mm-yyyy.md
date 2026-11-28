@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.DateTimeFormat
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
@@ -30,7 +31,7 @@ new Intl.DateTimeFormat('en-GB', {
 ```
 <!-- {: .-wrap data-highlight="'en-GB'"} -->
 
-**`en-GB` orders fields day, month, year.** `Intl` has no pattern strings, so the field order comes from the locale; see [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat).
+**Uses a day-first locale.** `en-GB` orders fields day, month, year; `Intl` has no pattern strings, so the order comes from the locale. See [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat).
 
 ### Use a two-digit year
 <!-- {: .-snippet} -->
@@ -45,7 +46,7 @@ new Intl.DateTimeFormat('en-GB', {
 ```
 <!-- {: .-wrap data-highlight="year: '2-digit'"} -->
 
-**Shortens the year to two digits.** ISO 8601 interchange dates require a four-digit year, so keep this width for display only; see [year](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#year).
+**Shortens the year.** Use two digits for display only: ISO 8601 interchange dates require a four-digit year. See [year](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#year).
 
 ### Build the string by hand
 <!-- {: .-snippet} -->
@@ -64,7 +65,7 @@ out // → '26/11/2026'
 ```
 <!-- {: data-highlight="pad(d.getDate())"} -->
 
-**Gives full control over the order.** `getMonth()` is zero-based, so add one; hand-built strings skip locale rules such as Arabic-Indic digits; see [getDate()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate).
+**Controls the field order.** Hand-building gives full control; `getMonth()` is zero-based, so add one, but this skips locale rules such as Arabic-Indic digits. See [getDate()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate).
 
 ### Mind the time zone
 <!-- {: .-snippet} -->
@@ -90,4 +91,4 @@ new Intl.DateTimeFormat('en-GB', {
 ```
 <!-- {: .-wrap data-highlight="timeZone: 'UTC'"} -->
 
-**Without `timeZone`, the browser's zone decides the day.** The same instant falls on the 25th in Los Angeles and the 26th in UTC; see [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).
+**Sets the time zone.** Without `timeZone`, the browser's zone decides the day: the same instant falls on the 25th in Los Angeles and the 26th in UTC. See [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).

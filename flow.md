@@ -4,6 +4,7 @@ subtitle: JavaScript type checker
 logo: { src: /assets/logos/flow.svg }
 category: Build tools
 last_verified_with: "Flow 0.342."
+created_at: 2017-08-29
 updated: 2026-11-25
 tier: t3
 weight: -3

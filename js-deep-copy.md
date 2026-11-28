@@ -7,6 +7,7 @@ category: JavaScript
 layout: snippet
 tier: t3
 last_verified_with: "Node.js 26.13.1."
+created_at: 2026-11-28
 updated: 2026-11-28
 intro: |
   `structuredClone` copies nested objects and arrays; spread and `Object.assign` copy only one level.
@@ -35,7 +36,7 @@ original.tags
 ```
 <!-- {: data-highlight="structuredClone"} -->
 
-**Copies nested values without sharing them.** `structuredClone` also handles `Date` and `Map`; see [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone).
+**Copies nested values.** They are not shared with the source; `structuredClone` also handles `Date` and `Map`. See [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone).
 
 ### Shallow spread
 <!-- {: .-snippet} -->
@@ -50,7 +51,7 @@ original.tags
 ```
 <!-- {: data-highlight="{ ...original }"} -->
 
-**Shares nested objects with the source.** Spread copies only the top level; see [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+**Shares nested objects.** Spread copies only the top level, leaving nested objects shared with the source. See [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
 
 ### JSON fallback
 <!-- {: .-snippet} -->

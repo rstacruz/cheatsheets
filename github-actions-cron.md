@@ -5,7 +5,8 @@ subtitle: Cron triggers in UTC
 category: Devops
 layout: snippet
 last_verified_with: "GitHub Actions workflow schema."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: schedule event
     url: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
@@ -24,7 +25,7 @@ on:
 ```
 <!-- {: data-highlight="cron: '0 6 * * 1-5'"} -->
 
-**Runs at 06:00 UTC on weekdays.** The shortest interval is 5 minutes, and each run uses the latest commit on the default branch. See [schedule](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+**Runs at 06:00 UTC,** on weekdays. The shortest interval is 5 minutes, and each run uses the latest commit on the default branch. See [schedule](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 ### Read the cron fields
 <!-- {: .-snippet} -->
@@ -51,7 +52,7 @@ on:
 ```
 <!-- {: data-highlight="timezone:"} -->
 
-**Shifts the schedule without rewriting the cron.** The timezone is an IANA name; omit it to stay on UTC. See [schedule](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+**Shifts the schedule,** without rewriting the cron. The timezone is an IANA name; omit it to stay on UTC. See [schedule](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 ### Allow manual runs too
 <!-- {: .-snippet} -->
@@ -63,7 +64,7 @@ on:
   workflow_dispatch:
 ```
 
-**Lets you test the job on demand.** A manual run uses the branch you pick; a scheduled run always uses the default branch. See [workflow_dispatch](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch).
+**Tests the job on demand,** with a manual run. A manual run uses the branch you pick; a scheduled run always uses the default branch. See [workflow_dispatch](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch).
 
 ### Check why a schedule never ran
 <!-- {: .-snippet} -->
@@ -73,4 +74,4 @@ gh run list --workflow=nightly.yml
 ```
 <!-- {: data-highlight="gh run list"} -->
 
-**Lists recent runs and their trigger.** A disabled workflow shows none; enable it with `gh workflow enable`. See [gh run list](https://cli.github.com/manual/gh_run_list).
+**Lists recent runs,** and their trigger. A disabled workflow shows none; enable it with `gh workflow enable`. See [gh run list](https://cli.github.com/manual/gh_run_list).

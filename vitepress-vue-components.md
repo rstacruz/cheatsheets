@@ -7,7 +7,8 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Vue 3.5.13, Node 26.13.1."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Using Vue in Markdown
     url: https://vitepress.dev/guide/using-vue
@@ -34,7 +35,7 @@ import Counter from '../ui/Counter.vue'
 ```
 <!-- {: data-highlight="<Counter />"} -->
 
-**Renders the component above the prose.** The block's `script setup` runs per page, so the import only exists there. See [using components](https://vitepress.dev/guide/using-vue#using-components).
+**Renders above the prose.** The component appears above the prose; the block's `script setup` runs per page, so the import only exists there. See [using components](https://vitepress.dev/guide/using-vue#using-components).
 
 ### Write the component
 <!-- {: .-snippet} -->
@@ -76,4 +77,4 @@ export default {
 ```
 <!-- {: data-highlight="app.component('Counter', Counter)"} -->
 
-**Skips the import on every page.** Global components are available in all Markdown files once registered. See [global components](https://vitepress.dev/guide/extending-default-theme#registering-global-components).
+**Skips the import.** You need no import on each page: global components are available in all Markdown files once registered. See [global components](https://vitepress.dev/guide/extending-default-theme#registering-global-components).

@@ -5,6 +5,7 @@ logo: { src: /assets/logos/go.svg }
 prism_languages: [go, bash]
 weight: -3
 category: C-like
+created_at: 2017-09-15
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "Go 1.27.4."

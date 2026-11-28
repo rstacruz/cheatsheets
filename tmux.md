@@ -4,7 +4,8 @@ seo_title: tmux cheatsheet — sessions, windows, panes
 description: "tmux sessions: windows, panes, copy mode and key bindings. Copy-paste command reference."
 subtitle: Terminal multiplexer
 logo: { src: /assets/logos/tmux.svg }
-category: Shell
+category: Terminal
+created_at: 2012-03-16
 updated: 2026-11-18
 last_verified_at: 2026-11-18
 last_verified_with: "tmux 3.8."

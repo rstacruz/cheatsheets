@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: toISOString()
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
@@ -27,7 +28,7 @@ new Date('2026-11-26T15:30:00Z')
 ```
 <!-- {: .-wrap data-highlight="slice(0, 10)"} -->
 
-**Cuts the ISO string to ten characters.** `toISOString()` prints UTC, so a local evening can show the next day; see [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
+**Keeps ten characters.** `slice(0, 10)` cuts the ISO string; `toISOString()` prints UTC, so a local evening can show the next day. See [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
 
 ### Format the local date
 <!-- {: .-snippet} -->
@@ -46,7 +47,7 @@ iso // → '2026-11-26'
 ```
 <!-- {: data-highlight="pad(d.getMonth() + 1)"} -->
 
-**Builds the string from local fields.** `getMonth()` is zero-based, so add one before padding; see [getDate()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate).
+**Builds from local fields.** It formats the string from local fields; `getMonth()` is zero-based, so add one before padding. See [getDate()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate).
 
 ### Keep the time
 <!-- {: .-snippet} -->

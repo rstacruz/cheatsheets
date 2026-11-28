@@ -8,6 +8,7 @@ archived: |
   Universal Analytics stopped processing hits on 1 July 2023. Use
   [Google Analytics 4](https://developers.google.com/analytics/devguides/collection/ga4)
   or the `gtag.js` snippet instead.
+created_at: 2017-10-29
 updated: 2017-10-29
 intro: |
   Google Analytics's analytics.js is deprecated.

@@ -1,5 +1,6 @@
 ---
 title: Saucelabs
+created_at: 2015-07-17
 subtitle: Cross-browser testing service
 category: Hidden
 # The Open Sauce signup page is gone and zuul, the runner it uses, was archived in 2021.

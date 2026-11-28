@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: code }
 category: JavaScript testing
 layout: snippet
 last_verified_with: "Selenium 4.54.0, Playwright 1.65.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Selenium locator strategies
     url: https://www.selenium.dev/documentation/webdriver/elements/locators/
@@ -31,7 +32,7 @@ field = driver.find_element(
 ```
 <!-- {: data-highlight="By.XPATH"} -->
 
-**Uses `By.XPATH` for any XPath expression.** `find_elements()` returns a list instead; see [locator strategies](https://www.selenium.dev/documentation/webdriver/elements/locators/).
+**Uses `By.XPATH` expressions.** It handles any XPath expression; `find_elements()` returns a list instead. See [locator strategies](https://www.selenium.dev/documentation/webdriver/elements/locators/).
 
 ### Selenium Java
 <!-- {: .-snippet} -->
@@ -43,7 +44,7 @@ WebElement field = driver.findElement(
 ```
 <!-- {: data-highlight="By.xpath"} -->
 
-**Java uses `By.xpath` with the expression as a string.** `findElements` collects all matches; see [locator strategies](https://www.selenium.dev/documentation/webdriver/elements/locators/).
+**Java uses `By.xpath`.** It takes the expression as a string; `findElements` collects all matches. See [locator strategies](https://www.selenium.dev/documentation/webdriver/elements/locators/).
 
 ### Playwright
 <!-- {: .-snippet} -->
@@ -78,7 +79,7 @@ driver.find_element(
 ```
 <!-- {: data-highlight="/html/body/div[2]"} -->
 
-**Uses a landmark instead of the document root.** Absolute paths break when markup changes; see [abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev) and the [XPath cheatsheet](./xpath).
+**Uses a landmark, not root.** Absolute paths from the document root break when markup changes. See [abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev) and the [XPath cheatsheet](./xpath).
 
 ### Class idiom
 <!-- {: .-snippet} -->
@@ -113,4 +114,4 @@ field = WebDriverWait(driver, 10).until(
 ```
 <!-- {: data-highlight="WebDriverWait(driver, 10)"} -->
 
-**Waits for the node before interacting.** `presence_of_element_located` checks that the element is attached; see [waits](https://www.selenium.dev/documentation/webdriver/waits/).
+**Waits for the node.** `presence_of_element_located` checks that the element is attached before you interact with it. See [waits](https://www.selenium.dev/documentation/webdriver/waits/).

@@ -6,7 +6,8 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 tier: t3
 links:
   - title: Task.WhenAll
@@ -37,7 +38,7 @@ static async Task<int> LoadAsync(int id)
 ```
 <!-- {: data-highlight="Task.WhenAll"} -->
 
-**Runs tasks at the same time.** Start each task before awaiting; `WhenAll` gathers the results. See [Task.WhenAll](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenall).
+**Runs tasks together,** at the same time. Start each task before awaiting; `WhenAll` gathers the results. See [Task.WhenAll](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenall).
 
 ### Map a list to tasks
 <!-- {: .-snippet} -->
@@ -57,7 +58,7 @@ static async Task<int> LoadAsync(int id)
 ```
 <!-- {: data-highlight="ids.Select(LoadAsync)"} -->
 
-**Fans out one task per item.** `WhenAll` keeps the order of the input; see [Task.WhenAll](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenall).
+**Fans out tasks,** one per item. `WhenAll` keeps the order of the input; See [Task.WhenAll](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenall).
 
 ### Race a timeout
 <!-- {: .-snippet} -->
@@ -80,4 +81,4 @@ static async Task<int> LoadAsync(int id)
 ```
 <!-- {: data-highlight="Task.WhenAny"} -->
 
-**Races the work against a timer.** `WhenAny` returns the first task to finish; see [Task.WhenAny](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenany).
+**Races the work,** against a timer. `WhenAny` returns the first task to finish; See [Task.WhenAny](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenany).

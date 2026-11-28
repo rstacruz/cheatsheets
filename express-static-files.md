@@ -5,7 +5,8 @@ subtitle: Serve a folder with express.static
 logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 last_verified_with: "Express 5.3.0, Node 26.13.1."
 tier: t3
 keywords: [express static files, express.static, express public folder]
@@ -28,7 +29,7 @@ app.use(express.static('public'))
 ```
 <!-- {: data-highlight="express.static"} -->
 
-**Serves files from `public` at the site root.** An `index.html` in the folder answers `/`. See [serving static files](https://expressjs.com/en/starter/static-files.html).
+**Serves files at root.** Files come from `public`, and an `index.html` in that folder answers `/`. See [serving static files](https://expressjs.com/en/starter/static-files.html).
 
 ### Absolute path
 <!-- {: .-snippet} -->
@@ -45,7 +46,7 @@ app.use(express.static(dir))
 ```
 <!-- {: data-highlight="import.meta.dirname"} -->
 
-**Keeps the directory correct from any cwd.** `import.meta.dirname` needs Node 20.11 or newer; relative roots resolve against `process.cwd()`. See [serving static files](https://expressjs.com/en/starter/static-files.html).
+**Resolves from any cwd.** `import.meta.dirname` needs Node 20.11 or newer; relative roots resolve against `process.cwd()`. See [serving static files](https://expressjs.com/en/starter/static-files.html).
 
 ### Mount at a prefix
 <!-- {: .-snippet} -->

@@ -3,6 +3,7 @@ title: Backbone.js
 subtitle: Frontend MVC library
 logo: { src: /assets/logos/backbone.svg, mono: true }
 last_verified_with: "Backbone.js 1.6."
+created_at: 2013-03-26
 updated: 2018-12-06
 tier: t3
 category: JavaScript libraries

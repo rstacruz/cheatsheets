@@ -12,10 +12,18 @@ import {
 } from './queries'
 
 const pages = mapGlobToPages({
-  alpha: ['---', 'category: Test', 'weight: -1', '---', 'a'].join('\n'),
+  alpha: [
+    '---',
+    'category: Test',
+    'created_at: 2020-01-01',
+    'weight: -1',
+    '---',
+    'a'
+  ].join('\n'),
   beta: [
     '---',
     'category: Test',
+    'created_at: 2020-01-01',
     'weight: -2',
     'deprecated: true',
     '---',
@@ -24,15 +32,24 @@ const pages = mapGlobToPages({
   gamma: [
     '---',
     'category: Test',
+    'created_at: 2020-01-01',
     'weight: 0',
     'deprecated_by: /alpha',
     '---',
     'c'
   ].join('\n'),
-  delta: ['---', 'category: Test', 'weight: 1', '---', 'd'].join('\n'),
+  delta: [
+    '---',
+    'category: Test',
+    'created_at: 2020-01-01',
+    'weight: 1',
+    '---',
+    'd'
+  ].join('\n'),
   epsilon: [
     '---',
     'category: Test',
+    'created_at: 2020-01-01',
     'weight: 2',
     'archived: Old and unmaintained.',
     '---',
@@ -42,6 +59,7 @@ const pages = mapGlobToPages({
     '---',
     'title: Snippet',
     'category: Test',
+    'created_at: 2020-01-01',
     'layout: snippet',
     'tags: [Featured]',
     'updated: 2024-01-01',
@@ -51,6 +69,7 @@ const pages = mapGlobToPages({
   tiered: [
     '---',
     'category: Test',
+    'created_at: 2020-01-01',
     'tier: t2',
     'last_verified_with: "Tool 1.0."',
     'fragments: [a, b, c, d, e, f, g, h, i, j, k, l]',
@@ -59,12 +78,18 @@ const pages = mapGlobToPages({
     '---',
     't'
   ].join('\n'),
-  untiered: ['---', 'category: Test', 'updated: 2024-06-02', '---', 'u'].join(
-    '\n'
-  ),
+  untiered: [
+    '---',
+    'category: Test',
+    'created_at: 2020-01-01',
+    'updated: 2024-06-02',
+    '---',
+    'u'
+  ].join('\n'),
   tieredT3: [
     '---',
     'category: Test',
+    'created_at: 2020-01-01',
     'tier: t3',
     'last_verified_with: "Tool 1.0."',
     'updated: 2024-06-03',
@@ -123,6 +148,7 @@ test('snippets are grouped by category in nav order', () => {
       '---',
       'title: Zeta',
       'category: Git',
+      'created_at: 2020-01-01',
       'layout: snippet',
       '---',
       'z'
@@ -131,6 +157,7 @@ test('snippets are grouped by category in nav order', () => {
       '---',
       'title: Alpha',
       'category: CLI',
+      'created_at: 2020-01-01',
       'layout: snippet',
       '---',
       'a'
@@ -139,11 +166,19 @@ test('snippets are grouped by category in nav order', () => {
       '---',
       'title: Beta',
       'category: Git',
+      'created_at: 2020-01-01',
       'layout: snippet',
       '---',
       'b'
     ].join('\n'),
-    article: ['---', 'title: Article', 'category: CLI', '---', 'x'].join('\n')
+    article: [
+      '---',
+      'title: Article',
+      'category: CLI',
+      'created_at: 2020-01-01',
+      '---',
+      'x'
+    ].join('\n')
   })
 
   const grouped = getSnippetsByCategory(snippetPages)
@@ -175,17 +210,35 @@ test('archived sheets are unlisted', () => {
 })
 
 const archivePages = mapGlobToPages({
-  absinthe: ['---', 'title: absinthe', 'category: Hidden', '---', 'a'].join(
-    '\n'
-  ),
-  Zeta: ['---', 'title: Zeta', 'category: Hidden', '---', 'z'].join('\n'),
-  'tests/basic': ['---', 'title: Basic', 'category: Hidden', '---', 'b'].join(
-    '\n'
-  ),
+  absinthe: [
+    '---',
+    'title: absinthe',
+    'category: Hidden',
+    'created_at: 2020-01-01',
+    '---',
+    'a'
+  ].join('\n'),
+  Zeta: [
+    '---',
+    'title: Zeta',
+    'category: Hidden',
+    'created_at: 2020-01-01',
+    '---',
+    'z'
+  ].join('\n'),
+  'tests/basic': [
+    '---',
+    'title: Basic',
+    'category: Hidden',
+    'created_at: 2020-01-01',
+    '---',
+    'b'
+  ].join('\n'),
   legacy: [
     '---',
     'title: Legacy',
     'category: JavaScript',
+    'created_at: 2020-01-01',
     'deprecated: true',
     '---',
     'l'
@@ -194,11 +247,19 @@ const archivePages = mapGlobToPages({
     '---',
     'title: Old',
     'category: JavaScript',
+    'created_at: 2020-01-01',
     'archived: No longer maintained.',
     '---',
     'o'
   ].join('\n'),
-  react: ['---', 'title: React', 'category: JavaScript', '---', 'r'].join('\n')
+  react: [
+    '---',
+    'title: React',
+    'category: JavaScript',
+    'created_at: 2020-01-01',
+    '---',
+    'r'
+  ].join('\n')
 })
 
 test('archive pages are hidden, deprecated, or archived sheets sorted by title, case-insensitively', () => {

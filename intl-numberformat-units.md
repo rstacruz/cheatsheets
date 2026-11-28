@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.NumberFormat unit style
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2
@@ -28,7 +29,7 @@ speed.format(50)   // → '50 km/h'
 ```
 <!-- {: data-highlight="unit: 'kilometer-per-hour'"} -->
 
-**Sets `style: 'unit'` with a unit identifier.** `unit` takes a fixed identifier such as `kilometer-per-hour`, not free text; see [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2).
+**Sets the unit style.** `unit` takes a fixed identifier such as `kilometer-per-hour`, not free text. See [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2).
 
 ### Choose the unit label
 <!-- {: .-snippet} -->
@@ -46,7 +47,7 @@ liter('long').format(2.5)    // → '2.5 liters'
 ```
 <!-- {: data-highlight="'narrow'; 'long'"} -->
 
-**Switches `unitDisplay` between an abbreviation and a phrase.** The default is `'short'`, which prints `2.5 L`; see [unitDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unitdisplay).
+**Switches `unitDisplay`.** Choose an abbreviation or a phrase; the default `'short'` prints `2.5 L`. See [unitDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unitdisplay).
 
 ### File sizes
 <!-- {: .-snippet} -->
@@ -60,4 +61,4 @@ new Intl.NumberFormat('en-US', {
 ```
 <!-- {: data-highlight="unit: 'megabyte'"} -->
 
-**Labels a number as megabytes without converting it.** Convert bytes to megabytes yourself before formatting; see [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2).
+**Labels megabytes.** It does not convert the value: convert bytes to megabytes yourself before formatting. See [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2).

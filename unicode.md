@@ -3,6 +3,7 @@ title: Unicode symbols
 category: Others
 subtitle: Reference for symbol codepoints
 logo: { src: /assets/logos/unicode.svg }
+created_at: 2014-09-17
 updated: 2026-11-24
 last_verified_with: "Unicode 18.0.0 charts."
 tier: t3

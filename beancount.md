@@ -20,6 +20,7 @@ fragments:
   - "pad"
   - "commodity"
   - "close"
+created_at: 2026-11-16
 updated: 2026-11-16
 last_verified_at: 2026-11-16
 keywords:

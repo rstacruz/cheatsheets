@@ -8,6 +8,7 @@ archived: |
   Meow 6 replaced the minimist options and 10.0 became ESM-only; current
   versions require `importMeta` and a `flags` schema. See the
   [README](https://github.com/sindresorhus/meow).
+created_at: 2015-12-26
 updated: 2017-10-30
 weight: -1
 intro: |

@@ -1,5 +1,6 @@
 ---
 title: Deku v2
+created_at: 2015-12-26
 subtitle: Tiny virtual DOM library
 category: Hidden
 # Abandoned; the v2 rewrite never left RC (2.0.0-rc16, 2016).

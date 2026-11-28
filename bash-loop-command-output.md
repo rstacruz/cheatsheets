@@ -6,7 +6,8 @@ logo: { src: /assets/logos/bash.svg }
 category: Shell
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash for loop cheatsheet
@@ -28,7 +29,7 @@ done < <(git ls-files)
 ```
 <!-- {: data-highlight="< <("} -->
 
-**Runs the command once and reads its stdout.** Process substitution keeps spaces and avoids the subshell a pipe creates; see [process substitution](https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html).
+**Runs the command once,** and reads its stdout. Process substitution keeps spaces and avoids the subshell a pipe creates; See [process substitution](https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html).
 
 ### Keep a counter
 <!-- {: .-snippet} -->
@@ -42,7 +43,7 @@ echo "$n"    # 0
 ```
 <!-- {: data-highlight="| while read"} -->
 
-**Shows why a pipe loses state.** The whole `while` runs in a subshell, so `n` stays `0`; see [pipelines](https://www.gnu.org/software/bash/manual/html_node/Pipelines.html).
+**Shows state loss,** caused by a pipe. The whole `while` runs in a subshell, so `n` stays `0`; See [pipelines](https://www.gnu.org/software/bash/manual/html_node/Pipelines.html).
 
 ### One word per iteration
 <!-- {: .-snippet} -->

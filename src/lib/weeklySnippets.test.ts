@@ -14,6 +14,7 @@ const pages = Object.values(
           '---',
           `title: Snippet ${index}`,
           'category: Git',
+          'created_at: 2020-01-01',
           'layout: snippet',
           '---',
           'x'

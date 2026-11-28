@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Auth
     url: https://svelte.dev/docs/kit/auth
@@ -58,7 +59,7 @@ export const handle: Handle = async (
 ```
 <!-- {: data-highlight="findUser(session)"} -->
 
-**Looks up the session before every request.** The hook fills `locals` once, before loads and actions; see [handle](https://svelte.dev/docs/kit/hooks#handle).
+**Looks up the session.** The hook does this before every request and fills `locals` once, before loads and actions. See [handle](https://svelte.dev/docs/kit/hooks#handle).
 
 ### Guard a path
 <!-- {: .-snippet} -->
@@ -75,7 +76,7 @@ if (isAdmin && !event.locals.user) {
 ```
 <!-- {: data-highlight="includes('admin')"} -->
 
-**Matches the routed page by segment.** Route groups prefix ids (`/(app)/admin`) and `/%61dmin` resolves to `/admin`; prerendered pages bypass `handle`; see [Auth](https://svelte.dev/docs/kit/auth).
+**Matches by segment.** It guards the routed page: route groups prefix ids (`/(app)/admin`), `/%61dmin` resolves to `/admin`, and prerendered pages bypass `handle`. See [Auth](https://svelte.dev/docs/kit/auth).
 
 ### Read the user in a load
 <!-- {: .-snippet} -->
@@ -89,4 +90,4 @@ export function load({ locals }) {
 ```
 <!-- {: data-highlight="locals.user"} -->
 
-**Passes the user to the page.** The load receives the same `locals` the hook populated; see [locals](https://svelte.dev/docs/kit/hooks#handle-locals).
+**Passes the user along.** The load passes the user to the page and receives the same `locals` the hook populated. See [locals](https://svelte.dev/docs/kit/hooks#handle-locals).

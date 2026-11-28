@@ -4,6 +4,7 @@ subtitle: Manual page viewer
 logo: { set: icon-park-outline, name: help }
 category: CLI
 last_verified_with: "man-pages 6.20."
+created_at: 2012-12-15
 updated: 2026-11-25
 tier: t3
 intro: |

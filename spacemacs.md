@@ -3,6 +3,7 @@ title: Spacemacs
 subtitle: Emacs configuration distribution
 logo: { src: /assets/logos/spacemacs.svg }
 category: Hidden
+created_at: 2018-02-16
 updated: 2026-11-26
 # Unfinished since 2018: layer shortcuts without configuration guidance.
 tags: [Archived]

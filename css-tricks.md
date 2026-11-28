@@ -4,6 +4,7 @@ subtitle: Assorted CSS snippets
 logo: { set: icon-park-outline, name: magic-wand }
 category: CSS
 last_verified_with: "CSS Snapshot 2026."
+created_at: 2017-08-29
 updated: 2026-11-25
 tier: t3
 ---

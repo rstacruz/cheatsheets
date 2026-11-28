@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: each blocks
     url: https://svelte.dev/docs/svelte/each
@@ -27,7 +28,7 @@ links:
 ```
 <!-- {: data-highlight="(user.id)"} -->
 
-**Gives every item a stable identity.** When the array reorders, Svelte moves the existing nodes instead of patching them in place; see [each blocks](https://svelte.dev/docs/svelte/each).
+**Gives items a stable identity.** When the array reorders, Svelte moves the existing nodes instead of patching them in place. See [each blocks](https://svelte.dev/docs/svelte/each).
 
 ### Keep typed input in place
 <!-- {: .-snippet} -->
@@ -45,7 +46,7 @@ links:
 {/each}
 ```
 
-**Keeps DOM state with the item it belongs to.** Without a key, a reorder reuses each `<input>` for a different row and the text you typed stays behind; see [each blocks](https://svelte.dev/docs/svelte/each).
+**Keeps DOM state per item.** Without a key, a reorder reuses each `<input>` for a different row and the text you typed stays behind. See [each blocks](https://svelte.dev/docs/svelte/each).
 
 ### Avoid the index as a key
 <!-- {: .-snippet} -->
@@ -58,7 +59,7 @@ links:
 ```
 <!-- {: data-highlight="(i)"} -->
 
-**Pins identity to position.** Sorting or deleting an item then reuses the wrong component state; key by a stable field instead, as [each blocks](https://svelte.dev/docs/svelte/each#Keyed-each-blocks) shows.
+**Pins identity to position.** Sorting or deleting an item reuses the wrong component state; key by a stable field instead. See [each blocks](https://svelte.dev/docs/svelte/each#Keyed-each-blocks).
 
 ### Reset a component with a key block
 <!-- {: .-snippet} -->
@@ -85,4 +86,4 @@ links:
 ```
 <!-- {: data-highlight="(group.id); (item.id)"} -->
 
-**Keys each level separately.** Both loops keep identity across reorders inside their own list; an item moved to another group is recreated, as [each blocks](https://svelte.dev/docs/svelte/each) explains.
+**Keys each level separately.** Both loops keep identity across reorders inside their own list; an item moved to another group is recreated. See [each blocks](https://svelte.dev/docs/svelte/each).

@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: formatToParts()
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts
@@ -34,7 +35,7 @@ nf.formatToParts(1234.5)
 ```
 <!-- {: data-highlight="formatToParts"} -->
 
-**Splits the formatted string into typed pieces.** Join every `value` to reproduce `format()`; see [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts).
+**Splits the string into parts.** The formatted string is split into typed pieces. Join every `value` to reproduce `format()`; see [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts).
 
 ### Wrap the currency sign
 <!-- {: .-snippet} -->
@@ -55,7 +56,7 @@ html  // → '<b>$</b>1,234.50'
 ```
 <!-- {: data-highlight="type === 'currency'"} -->
 
-**Maps the parts to markup and joins them.** Check `type` instead of matching text, because symbols and spacing vary by locale; see [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts).
+**Maps parts to markup.** It joins them. Check `type` instead of matching text, because symbols and spacing vary by locale; see [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts).
 
 ### Superscript the fraction
 <!-- {: .-snippet} -->
@@ -77,4 +78,4 @@ html  // → '1.<sup>50</sup>'
 ```
 <!-- {: data-highlight="type === 'fraction'"} -->
 
-**Wraps the fraction digits in a superscript.** Pad with `minimumFractionDigits` so the part holds `50`; see [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts).
+**Superscript the fraction.** Fraction digits are wrapped in a superscript. Pad with `minimumFractionDigits` so the part holds `50`; see [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts).

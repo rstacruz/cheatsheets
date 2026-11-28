@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: minimumFractionDigits
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumfractiondigits
@@ -29,7 +30,7 @@ nf.format(1.005)  // → '1.01'
 ```
 <!-- {: data-highlight="minimumFractionDigits; maximumFractionDigits"} -->
 
-**Sets both fraction limits to 2.** `minimumFractionDigits` pads short fractions and `maximumFractionDigits` rounds the rest; see [minimumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumfractiondigits).
+**Pads to two places.** `minimumFractionDigits` pads short fractions and `maximumFractionDigits` rounds the rest. See [minimumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumfractiondigits).
 
 ### Round without padding
 <!-- {: .-snippet} -->
@@ -44,7 +45,7 @@ nf.format(1.005)   // → '1.01'
 ```
 <!-- {: data-highlight="maximumFractionDigits: 2"} -->
 
-**Caps the fraction at two digits without padding.** `1.5` stays `1.5`, and the default minimum is 0; see [maximumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumfractiondigits).
+**Caps the fraction.** It rounds to two digits without padding: `1.5` stays `1.5`, and the default minimum is 0. See [maximumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumfractiondigits).
 
 ### Change the rounding mode
 <!-- {: .-snippet} -->
@@ -60,4 +61,4 @@ floor.format(-1.9)  // → '-2'
 ```
 <!-- {: data-highlight="roundingMode: 'floor'"} -->
 
-**Rounds toward negative infinity with `'floor'`.** Other modes include `'ceil'`, `'trunc'`, and `'halfEven'`; the default is `'halfExpand'`. See [roundingMode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode).
+**Rounds with `'floor'`.** It rounds toward negative infinity; other modes include `'ceil'`, `'trunc'`, and `'halfEven'`, and the default is `'halfExpand'`. See [roundingMode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode).

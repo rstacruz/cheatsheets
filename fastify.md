@@ -4,6 +4,7 @@ subtitle: Fast Node.js web framework
 logo: { src: /assets/logos/fastify.svg, mono: true }
 category: Node.js libraries
 last_verified_with: "Fastify 5.12."
+created_at: 2017-09-21
 updated: 2026-11-26
 tier: t3
 intro: |

@@ -6,7 +6,8 @@ logo: { src: /assets/logos/kubernetes.svg }
 category: Containers
 layout: snippet
 last_verified_with: "kubectl 1.37.2, Kubernetes 1.32."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: kubectl get
     url: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/
@@ -37,7 +38,7 @@ kubectl get secret db -o json \
 ```
 <!-- {: data-highlight="map_values(@base64d)"} -->
 
-**Decodes the whole secret at once.** `jq`'s `@base64d` handles each value, which saves looking up keys one by one. See [jq manual](https://jqlang.github.io/jq/manual/).
+**Decodes every key.** It handles the whole secret at once; `jq`'s `@base64d` decodes each value, so you need not look up keys one by one. See [jq manual](https://jqlang.github.io/jq/manual/).
 
 ### List the keys
 <!-- {: .-snippet} -->
@@ -47,7 +48,7 @@ kubectl get secret db -o json | jq '.data | keys'
 ```
 <!-- {: data-highlight="keys"} -->
 
-**Shows which keys the secret holds.** The keys are readable without decoding because only the values are base64. See [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
+**Shows the secret's keys.** They are readable without decoding because only the values are base64. See [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
 
 ### Decode in a template
 <!-- {: .-snippet} -->
@@ -58,4 +59,4 @@ kubectl get secret db \
 ```
 <!-- {: data-highlight="base64decode"} -->
 
-**Decodes with kubectl alone, without `jq` or `base64`.** Go templates run inside kubectl, which helps on minimal machines and CI images. See [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
+**Decodes inside kubectl.** No `jq` or `base64` is needed: Go templates run inside kubectl, which helps on minimal machines and CI images. See [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).

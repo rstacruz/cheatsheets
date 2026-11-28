@@ -6,7 +6,8 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 tier: t3
 links:
   - title: Records
@@ -35,7 +36,7 @@ var ada = new Person("Ada", 36);
 Console.WriteLine(ada.Name);   // Ada
 ```
 
-**Declares a type in one line.** The positional parameters become properties; see [Records](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record).
+**Declares a type.** It takes one line, and the positional parameters become properties. See [Records](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record).
 
 ### Copy with changes
 <!-- {: .-snippet} -->
@@ -57,7 +58,7 @@ Console.WriteLine(older);
 ```
 <!-- {: data-highlight="with { Age = 37 }"} -->
 
-**Copies a record with one property changed.** The original stays untouched; see [with expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/with-expression).
+**Copies with changes.** A `with` expression changes one property on the copy and leaves the original untouched. See [with expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/with-expression).
 
 ### Compare by value
 <!-- {: .-snippet} -->
@@ -103,4 +104,4 @@ var q = p with { X = 3 };
 Console.WriteLine(q);   // Point { X = 3, Y = 2 }
 ```
 
-**Adds value equality to a struct.** `record struct` stays a value type; see [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#record-struct).
+**Adds value equality.** A `record struct` gets generated equality but stays a value type. See [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#record-struct).

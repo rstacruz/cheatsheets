@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Array.prototype.sort()
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -55,4 +56,4 @@ values.sort(collator.compare)
 ```
 <!-- {: data-highlight="sort()" } -->
 
-**Shows why a comparator is required.** The default converts each number to a string and compares code units; see [sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
+**Shows the default order.** It converts each number to a string and compares code units, so a comparator is required. See [sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).

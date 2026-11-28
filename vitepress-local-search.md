@@ -7,7 +7,8 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Search reference
     url: https://vitepress.dev/reference/default-theme-search
@@ -34,7 +35,7 @@ themeConfig: {
 ```
 <!-- {: data-highlight="provider: 'local'"} -->
 
-**Builds a search index from the pages.** No account or build step beyond `docs:build`. See [local search](https://vitepress.dev/reference/default-theme-search#local-search).
+**Builds a search index.** It indexes the pages locally, with no account and no build step beyond `docs:build`. See [local search](https://vitepress.dev/reference/default-theme-search#local-search).
 
 ### Show detail lines
 <!-- {: .-snippet} -->
@@ -49,7 +50,7 @@ search: {
 ```
 <!-- {: data-highlight="detailedView: true"} -->
 
-**Adds page context under each hit.** Results then show the surrounding heading and text, not just the title. See [local search options](https://vitepress.dev/reference/default-theme-search#local-search).
+**Adds page context.** Each result shows the surrounding heading and text, not just the title. See [local search options](https://vitepress.dev/reference/default-theme-search#local-search).
 
 ### Require every word
 <!-- {: .-snippet} -->
@@ -68,7 +69,7 @@ search: {
 ```
 <!-- {: data-highlight="combineWith: 'AND'"} -->
 
-**Narrows results to pages with all the terms.** The default `OR` matches any word; `AND` is stricter. See [miniSearch options](https://vitepress.dev/reference/default-theme-search#minisearch-options).
+**Requires all search terms.** The default `OR` matches any word, while `AND` narrows results to pages containing every term. See [miniSearch options](https://vitepress.dev/reference/default-theme-search#minisearch-options).
 
 ### Translate the UI
 <!-- {: .-snippet} -->
@@ -91,4 +92,4 @@ search: {
 ```
 <!-- {: data-highlight="locales:"} -->
 
-**Replaces the search labels per locale.** Keys match the `locales` keys in your site config. See [i18n](https://vitepress.dev/reference/default-theme-search#local-search-i18n).
+**Translates search labels.** The translation keys match the `locales` keys in your site config. See [i18n](https://vitepress.dev/reference/default-theme-search#local-search-i18n).

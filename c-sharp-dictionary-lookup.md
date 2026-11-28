@@ -6,7 +6,8 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 tier: t3
 links:
   - title: Dictionary<TKey,TValue>
@@ -34,7 +35,7 @@ else
 ```
 <!-- {: data-highlight="TryGetValue"} -->
 
-**Returns false for a missing key.** `TryGetValue` doesn't throw when the key is missing; see [TryGetValue](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.trygetvalue).
+**Checks for a key.** `TryGetValue` returns false rather than throwing when the key is missing. See [TryGetValue](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.trygetvalue).
 
 ### Fall back to a default
 <!-- {: .-snippet} -->
@@ -52,7 +53,7 @@ Console.WriteLine($"{age} {known}");   // -1 True
 ```
 <!-- {: data-highlight="GetValueOrDefault"} -->
 
-**Returns a fallback instead of throwing.** The indexer throws `KeyNotFoundException`; see [GetValueOrDefault](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.collectionextensions.getvalueordefault).
+**Returns a fallback.** Use it instead of the indexer, which throws `KeyNotFoundException`. See [GetValueOrDefault](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.collectionextensions.getvalueordefault).
 
 ### Add or update
 <!-- {: .-snippet} -->
@@ -68,4 +69,4 @@ Console.WriteLine(counts["ada"]);   // 2
 ```
 <!-- {: data-highlight='["ada"] = 1; += 1; TryAdd'} -->
 
-**Writes a key, adding or updating it.** `TryAdd` leaves an existing key alone; see [TryAdd](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.tryadd).
+**Writes a key.** The indexer adds or updates it, while `TryAdd` leaves an existing key alone. See [TryAdd](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.tryadd).

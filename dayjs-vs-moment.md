@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Moment 2.30.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Day.js documentation
     url: https://day.js.org/docs/en/parse/parse
@@ -40,7 +41,7 @@ d.add(1, 'day').format('YYYY-MM-DD')
 d.format('YYYY-MM-DD') // "2014-06-09"
 ```
 
-**Moment mutates; Day.js returns a new object.** Code that reuses the value behaves differently in Moment; see [Immutability](https://day.js.org/docs/en/parse/parse).
+**Moment mutates.** Day.js returns a new object, so code that reuses the value behaves differently in Moment. See [Immutability](https://day.js.org/docs/en/parse/parse).
 
 ### Plugins
 <!-- {: .-snippet} -->
@@ -85,7 +86,7 @@ dayjs('2014-06-09').format('LL')
 ```
 <!-- {: data-highlight="dayjs.extend(lf)"} -->
 
-**Moment's `L` formats are in core; Day.js needs the `localizedFormat` plugin.** Both load one locale file per language; see [Localized format](https://day.js.org/docs/en/plugin/localized-format).
+**Day.js needs a plugin.** Moment's `L` formats are in core, while Day.js uses `localizedFormat`; both load one locale file per language. See [Localized format](https://day.js.org/docs/en/plugin/localized-format).
 
 ### Time zones
 <!-- {: .-snippet} -->

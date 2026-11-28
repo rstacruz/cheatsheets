@@ -7,7 +7,8 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Build-time data loading
     url: https://vitepress.dev/guide/data-loading
@@ -78,4 +79,4 @@ export default defineLoader({
 ```
 <!-- {: data-highlight="declare const data: Post[]"} -->
 
-**Types both sides of the import.** `defineLoader` checks the return type and the `data` declaration types the page import. See [typed data loaders](https://vitepress.dev/guide/data-loading#typed-data-loaders).
+**Types both sides.** `defineLoader` checks the return type and the `data` declaration types the page import. See [typed data loaders](https://vitepress.dev/guide/data-loading#typed-data-loaders).

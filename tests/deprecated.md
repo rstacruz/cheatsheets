@@ -1,5 +1,6 @@
 ---
 title: "Deprecated test"
+created_at: 2026-10-03
 category: Hidden
 deprecated: true
 ---

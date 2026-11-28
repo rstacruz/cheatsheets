@@ -6,7 +6,8 @@ logo: { src: /assets/logos/luxon.svg }
 category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Luxon math
     url: https://moment.github.io/luxon/#/math?id=diffs
@@ -28,7 +29,7 @@ end.diff(start, 'days').days   // 1.5
 ```
 <!-- {: data-highlight="'days'"} -->
 
-**Returns a `Duration`, not a number.** Read `.days` or another unit from it; see [Diff](https://moment.github.io/luxon/#/math?id=diffs).
+**Returns a `Duration`.** Read `.days` or another unit from it; See [Diff](https://moment.github.io/luxon/#/math?id=diffs).
 
 ### Multi-unit
 <!-- {: .-snippet} -->
@@ -45,7 +46,7 @@ b.diff(a, ['days', 'hours', 'minutes'])
 ```
 <!-- {: data-highlight="toObject()"} -->
 
-**Breaks the gap into calendar units.** Each value is a whole number; see [Diff](https://moment.github.io/luxon/#/math?id=diffs).
+**Breaks the gap into units.** Calendar values are whole numbers; See [Diff](https://moment.github.io/luxon/#/math?id=diffs).
 
 ### Hours across DST
 <!-- {: .-snippet} -->

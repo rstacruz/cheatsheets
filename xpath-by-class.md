@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: code }
 category: HTML
 layout: snippet
 last_verified_with: "XPath 1.0."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: XPath string functions
     url: https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions
@@ -28,7 +29,7 @@ links:
 ```
 <!-- {: data-highlight="normalize-space(@class)"} -->
 
-**Matches `card` as one class token.** The padding stops `card` from matching `discarded`; see [normalize-space()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#normalize-space).
+**Matches `card` as a token.** The padding stops `card` from matching `discarded` in the class attribute. See [normalize-space()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#normalize-space).
 
 ### Several classes
 <!-- {: .-snippet} -->
@@ -44,7 +45,7 @@ links:
 ```
 <!-- {: data-highlight="card; active"} -->
 
-**Requires both tokens in any order.** Chained predicates each perform a token test; see [predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates).
+**Requires both tokens.** They can appear in any order; chained predicates each perform a token test. See [predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates).
 
 ### Partial class text
 <!-- {: .-snippet} -->
@@ -54,7 +55,7 @@ links:
 ```
 <!-- {: data-highlight="contains(@class, 'card')"} -->
 
-**Matches a substring of the class attribute.** A class like `card-header` also matches, so use the token form for exact classes; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
+**Matches a class substring.** A class like `card-header` also matches, so use the token form for exact classes. See [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
 
 ### Starts with
 <!-- {: .-snippet} -->
@@ -64,7 +65,7 @@ links:
 ```
 <!-- {: data-highlight="starts-with(@class,"} -->
 
-**Matches when the class attribute starts with `card-`.** Useful for BEM-style prefixes; see [starts-with()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#starts-with).
+**Matches a `card-` prefix.** It checks the class attribute, which is useful for BEM-style prefixes. See [starts-with()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#starts-with).
 
 ### Class plus position
 <!-- {: .-snippet} -->
@@ -74,4 +75,4 @@ links:
 ```
 <!-- {: data-highlight="[1]"} -->
 
-**Takes the first active item per parent.** Predicates apply left to right, so `[1]` comes after the class test; see [predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates).
+**Takes the first active item.** It is scoped per parent; predicates apply left to right, so `[1]` comes after the class test. See [predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates).

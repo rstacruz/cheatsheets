@@ -7,6 +7,7 @@ category: JavaScript testing
 layout: snippet
 tier: t3
 last_verified_with: "Playwright 1.65.1."
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: Test generator
@@ -27,7 +28,7 @@ npx playwright codegen \
 ```
 <!-- {: data-highlight="npx playwright codegen"} -->
 
-**Records clicks and fills as a test.** Stop recording and copy the code from the Inspector. See [test generator](https://playwright.dev/docs/codegen#running-codegen).
+**Records clicks and fills.** Stop recording, then copy the test code from the Inspector. See [test generator](https://playwright.dev/docs/codegen#running-codegen).
 
 ### Choose output language
 <!-- {: .-snippet} -->
@@ -39,7 +40,7 @@ npx playwright codegen \
 ```
 <!-- {: data-highlight="--target="} -->
 
-**Generates code in another language.** See [codegen options](https://playwright.dev/docs/codegen#running-codegen).
+**Generates code.** Choose the output language for the recorded steps. See [codegen options](https://playwright.dev/docs/codegen#running-codegen).
 
 ### Pick a locator
 <!-- {: .-snippet} -->
@@ -49,7 +50,7 @@ await page.pause()
 ```
 <!-- {: data-highlight="page.pause("} -->
 
-**Opens the Inspector in a running script.** Use Pick Locator to copy a generated locator. See [generating locators](https://playwright.dev/docs/codegen#generating-locators-1).
+**Opens the Inspector.** In a running script, use Pick Locator to copy a generated locator. See [generating locators](https://playwright.dev/docs/codegen#generating-locators-1).
 
 ### Emulate a device
 <!-- {: .-snippet} -->
@@ -61,7 +62,7 @@ npx playwright codegen \
 ```
 <!-- {: data-highlight="--device="} -->
 
-**Records with a device's viewport and user agent.** See [emulation](https://playwright.dev/docs/codegen#emulate-devices).
+**Records with a device.** The device supplies its viewport and user agent to the recording. See [emulation](https://playwright.dev/docs/codegen#emulate-devices).
 
 ### Reuse a login
 <!-- {: .-snippet} -->
@@ -73,4 +74,4 @@ npx playwright codegen \
 ```
 <!-- {: data-highlight="--save-storage="} -->
 
-**Saves cookies and local storage after login.** Pass `--load-storage=auth.json` to resume that session; keep the file private. See [authenticated state](https://playwright.dev/docs/codegen#preserve-authenticated-state).
+**Saves the login state.** Cookies and local storage are stored after login; pass `--load-storage=auth.json` to resume that session, and keep the file private. See [authenticated state](https://playwright.dev/docs/codegen#preserve-authenticated-state).

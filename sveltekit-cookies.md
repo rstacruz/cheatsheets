@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Cookies
     url: https://svelte.dev/docs/kit/@sveltejs-kit#Cookies
@@ -90,4 +91,4 @@ event.locals.user = session
 ```
 <!-- {: data-highlight="findUser(session)"} -->
 
-**Makes the user available to every server load.** The `Locals` type and `handle` wrapper live in the [auth guard snippet](./sveltekit-auth-guard); see [locals](https://svelte.dev/docs/kit/hooks#handle-locals).
+**Shares the user with loads.** Every server load can read it; the `Locals` type and `handle` wrapper live in the [auth guard snippet](./sveltekit-auth-guard). See [locals](https://svelte.dev/docs/kit/hooks#handle-locals).

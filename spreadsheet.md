@@ -4,6 +4,7 @@ category: Others
 subtitle: Spreadsheet formula reference
 logo: { set: icon-park-outline, name: table }
 last_verified_with: "LibreOffice Calc 26.8.3, Google Sheets."
+created_at: 2013-10-14
 updated: 2026-11-24
 tier: t3
 intro: |

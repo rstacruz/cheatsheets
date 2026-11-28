@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: $derived
     url: https://svelte.dev/docs/svelte/$derived
@@ -31,7 +32,7 @@ links:
 ```
 <!-- {: data-highlight="$derived(`${first} ${last}`)"} -->
 
-**Uses `$derived` for anything that can be computed.** It re-evaluates lazily, and unlike an effect it also runs during server rendering; see [`$derived`](https://svelte.dev/docs/svelte/$derived).
+**Uses `$derived`.** Use it for anything computable; it re-evaluates lazily and, unlike an effect, also runs during server rendering. See [`$derived`](https://svelte.dev/docs/svelte/$derived).
 
 ### Run a side effect with $effect
 <!-- {: .-snippet} -->
@@ -49,7 +50,7 @@ links:
 ```
 <!-- {: data-highlight="document.title"} -->
 
-**Uses `$effect` to reach outside the component.** Writing to the DOM, logging, or starting a browser API is effect work; see [`$effect`](https://svelte.dev/docs/svelte/$effect).
+**Uses `$effect`.** It reaches outside the component: writing to the DOM, logging, or starting a browser API is effect work. See [`$effect`](https://svelte.dev/docs/svelte/$effect).
 
 ### Watch a value and clean up
 <!-- {: .-snippet} -->
@@ -66,7 +67,7 @@ links:
 ```
 <!-- {: data-highlight="return () => ws.close()"} -->
 
-**Returns a cleanup from the effect.** It runs before the next effect and on unmount, so the old socket never lingers; see [Effect cleanup](https://svelte.dev/docs/svelte/$effect#Understanding-lifecycle).
+**Returns a cleanup.** The effect's cleanup runs before the next effect and on unmount, so the old socket never lingers. See [Effect cleanup](https://svelte.dev/docs/svelte/$effect#Understanding-lifecycle).
 
 ### Read without tracking
 <!-- {: .-snippet} -->
@@ -86,7 +87,7 @@ links:
 ```
 <!-- {: data-highlight="untrack("} -->
 
-**Keeps a read out of the dependency graph.** `untrack` stops `other` from re-triggering the effect; see [`untrack`](https://svelte.dev/docs/svelte/svelte#untrack).
+**Keeps a read untracked.** The read stays out of the dependency graph; `untrack` stops `other` from re-triggering the effect. See [`untrack`](https://svelte.dev/docs/svelte/svelte#untrack).
 
 ### Run before the DOM updates
 <!-- {: .-snippet} -->
@@ -110,4 +111,4 @@ links:
 ```
 <!-- {: data-highlight="$effect.pre"} -->
 
-**Reads the DOM before Svelte applies the update.** `height` is the pre-update measurement, which a plain `$effect` reports only once the DOM has grown; see [`$effect.pre`](https://svelte.dev/docs/svelte/$effect#$effect.pre).
+**Reads the pre-update DOM.** `$effect.pre` runs before Svelte applies the update: `height` is the pre-update measurement, which a plain `$effect` reports only once the DOM has grown. See [`$effect.pre`](https://svelte.dev/docs/svelte/$effect#$effect.pre).

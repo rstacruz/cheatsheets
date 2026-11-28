@@ -8,15 +8,21 @@ import { sheetSources } from './sheets'
 const CARD_TITLES = /^### (?:Introduction|About)$/
 
 const LINKS = [{ title: 'Docs', url: 'https://example.com' }]
+const CREATED = { created_at: new Date('2020-01-01') }
 
 test('the schema accepts a single paragraph with soft line breaks', () => {
   const intro = 'A worktree is a second checkout.\nIt shares objects and refs.'
-  const result = SheetFrontmatterSchema.parse({ intro, links: LINKS })
+  const result = SheetFrontmatterSchema.parse({
+    ...CREATED,
+    intro,
+    links: LINKS
+  })
   expect(result.intro).toBe(intro)
 })
 
 test('the schema rejects two paragraphs separated by a blank line', () => {
   const frontmatter = {
+    ...CREATED,
     intro: 'First sentence.\n\nSecond sentence.',
     links: LINKS
   }
@@ -29,6 +35,7 @@ it.each(['\n   \n', '\n\t\t\n', '\n \t \r\n'])(
   'the schema rejects a whitespace-only blank line %j',
   (blankLine) => {
     const frontmatter = {
+      ...CREATED,
       intro: `First sentence.${blankLine}Second sentence.`,
       links: LINKS
     }

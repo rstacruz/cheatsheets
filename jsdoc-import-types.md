@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: file-code }
 category: JavaScript
 layout: snippet
 last_verified_with: "TypeScript 7.0.2."
-updated: 2026-11-23
+created_at: 2026-11-23
+updated: 2026-11-28
 tier: t3
 intro: |
   TypeScript's [JSDoc import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types) bring type-only references into JavaScript files. This sheet shows `@typedef` aliases and `@import` syntaxes.
@@ -40,7 +41,7 @@ links:
 ```
 <!-- {: data-highlight="@import"} -->
 
-**Imports a named type without runtime code.** TypeScript 5.5+ supports this for `Bar`; see the [5.5 release notes](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5/).
+**Imports a named type.** It emits no runtime code; TypeScript 5.5+ supports this for `Bar`. See the [5.5 release notes](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5/).
 
 ### Default import
 <!-- {: .-snippet} -->
@@ -50,4 +51,4 @@ links:
 ```
 <!-- {: data-highlight="default as"} -->
 
-**Imports the default export as an alias.** Use this when you need a named type. The alias is type-only and creates no runtime binding. See [import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).
+**Imports the default export.** It becomes an alias when you need a named type; the alias is type-only and creates no runtime binding. See [import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).

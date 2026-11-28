@@ -6,7 +6,8 @@ logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/plugin-search 2.0.0-rc.142."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Search plugin
     url: https://ecosystem.vuejs.press/plugins/search/search.html
@@ -38,7 +39,7 @@ export default {
 ```
 <!-- {: data-highlight="searchPlugin()"} -->
 
-**Turns on the search box in the navbar.** Hotkeys default to `s` and `/`; pass `hotKeys: []` to disable them. See [usage](https://ecosystem.vuejs.press/plugins/search/search.html#usage).
+**Turns on search.** It shows the search box in the navbar; hotkeys default to `s` and `/`, and `hotKeys: []` disables them. See [usage](https://ecosystem.vuejs.press/plugins/search/search.html#usage).
 
 ### Index more fields
 <!-- {: .-snippet} -->
@@ -51,7 +52,7 @@ searchPlugin({
 ```
 <!-- {: data-highlight="getExtraFields"} -->
 
-**Adds frontmatter tags to the index.** By default the index holds page titles and headings, not the body text. See [getExtraFields](https://ecosystem.vuejs.press/plugins/search/search.html#options).
+**Adds frontmatter tags.** They join the index, which by default holds page titles and headings, not body text. See [getExtraFields](https://ecosystem.vuejs.press/plugins/search/search.html#options).
 
 ### Skip a page
 <!-- {: .-snippet} -->
@@ -64,4 +65,4 @@ searchPlugin({
 ```
 <!-- {: data-highlight="isSearchable"} -->
 
-**Keeps the home page out of the results.** Return `false` for any page that should not appear in search. See [isSearchable](https://ecosystem.vuejs.press/plugins/search/search.html#options).
+**Skips the home page.** Return `false` for any page that should not appear in the search results. See [isSearchable](https://ecosystem.vuejs.press/plugins/search/search.html#options).

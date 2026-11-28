@@ -7,6 +7,7 @@ archived: |
   This reproduces four license texts that SPDX maintains canonically (list 3.29.0, 2026-09-16). Use the [SPDX License List](https://spdx.org/licenses/) or [Choose a License](https://choosealicense.com/) instead.
 subtitle: Open source license texts
 section: Development
+created_at: 2015-04-06
 updated: 2026-11-23
 last_verified_with: "SPDX License List 3.29.0."
 ---

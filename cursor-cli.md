@@ -3,6 +3,7 @@ title: Cursor CLI
 subtitle: Cursor terminal agent
 logo: { src: /assets/logos/cursor.svg, mono: true }
 category: Agents
+created_at: 2026-11-15
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "Cursor CLI 2026.11.22."

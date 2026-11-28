@@ -4,6 +4,7 @@ subtitle: Encrypted remote shell client
 logo: { set: icon-park-outline, name: link }
 category: Networking
 tier: t2
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 last_verified_with: "OpenSSH 10.6p1."

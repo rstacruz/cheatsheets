@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.NumberFormat percent style
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#style
@@ -43,7 +44,7 @@ pct.format(0.256)  // → '25.6%'
 ```
 <!-- {: data-highlight="maximumFractionDigits: 1"} -->
 
-**Keeps one decimal with `maximumFractionDigits: 1`.** Percent style rounds to whole numbers by default; set `minimumFractionDigits` to pad shorter values. See [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
+**Keeps one decimal,** with `maximumFractionDigits: 1`. Percent style rounds to whole numbers by default; set `minimumFractionDigits` to pad shorter values. See [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
 
 ### Pass a fraction, not a percentage
 <!-- {: .-snippet} -->
@@ -58,4 +59,4 @@ pct.format(0.25)  // → '25%'
 ```
 <!-- {: data-highlight="format(25)"} -->
 
-**Percent style multiplies by 100, so `25` becomes `2,500%`.** Divide a user-entered percentage by 100 first; see [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#style).
+**Pass a fraction,** not a percentage: the style multiplies by 100, so `25` becomes `2,500%`. Divide a user-entered percentage by 100 first; See [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#style).

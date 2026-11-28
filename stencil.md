@@ -3,6 +3,7 @@ title: Stencil
 subtitle: Web component compiler
 logo: { src: /assets/logos/stencil.svg }
 category: Build tools
+created_at: 2017-10-11
 updated: 2026-11-26
 last_verified_with: "Stencil 4.45.5."
 tier: t3

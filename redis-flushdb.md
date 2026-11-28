@@ -6,7 +6,8 @@ logo: { src: /assets/logos/redis.svg }
 category: Databases
 layout: snippet
 last_verified_with: "Redis 8.10.3."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Redis cheatsheet
@@ -27,7 +28,7 @@ redis-cli FLUSHDB
 ```
 <!-- {: data-highlight="FLUSHDB"} -->
 
-**Deletes every key in the selected database, irreversibly.** Add `-n <db>` before `FLUSHDB` to pick a database. See [FLUSHDB](https://redis.io/docs/latest/commands/flushdb/).
+**Deletes every key.** This empties the selected database irreversibly; add `-n <db>` before `FLUSHDB` to pick a database. See [FLUSHDB](https://redis.io/docs/latest/commands/flushdb/).
 
 ### Check the key count
 <!-- {: .-snippet} -->
@@ -37,7 +38,7 @@ redis-cli DBSIZE
 ```
 <!-- {: data-highlight="DBSIZE"} -->
 
-**Counts keys in the current database; run before a flush for a pre-delete count.** See [DBSIZE](https://redis.io/docs/latest/commands/dbsize/).
+**Counts the keys.** `DBSIZE` counts keys in the current database; run it before a flush for a pre-delete count. See [DBSIZE](https://redis.io/docs/latest/commands/dbsize/).
 
 ### Avoid blocking the server
 <!-- {: .-snippet} -->

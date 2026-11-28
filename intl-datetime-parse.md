@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Date.parse()
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
@@ -26,7 +27,7 @@ new Date('2026-11-26').toISOString()
 ```
 <!-- {: .-wrap data-highlight="'2026-11-26'"} -->
 
-**A bare date parses as UTC midnight.** West of Greenwich it displays as the previous day, so `getDate()` returns `25` in Los Angeles; see [Date.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse).
+**A bare date is UTC.** It parses as midnight UTC, so west of Greenwich it displays as the previous day and `getDate()` returns `25` in Los Angeles. See [Date.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse).
 
 ### Add a time for local dates
 <!-- {: .-snippet} -->
@@ -37,7 +38,7 @@ new Date('2026-11-26T00:00:00').toISOString()
 ```
 <!-- {: .-wrap data-highlight="'2026-11-26T00:00:00'"} -->
 
-**A missing zone means local time.** Adding `T00:00:00` gives local midnight, which is 08:00 UTC in Los Angeles; see [date time string format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format).
+**Missing zone means local time.** Adding `T00:00:00` gives local midnight, which is 08:00 UTC in Los Angeles. See [date time string format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format).
 
 ### Build a UTC date
 <!-- {: .-snippet} -->
@@ -62,7 +63,7 @@ new Date(Number(y), Number(m) - 1, Number(d))
 ```
 <!-- {: .-wrap data-highlight="split('-')"} -->
 
-**Keeps the date in the local zone.** The numeric constructor treats fields as local time and the month as zero-based; see [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date).
+**Keeps the local zone.** The numeric constructor treats fields as local time and the month as zero-based. See [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date).
 
 ### Detect a failed parse
 <!-- {: .-snippet} -->
@@ -74,4 +75,4 @@ Number.isNaN(date.getTime()) // → true
 ```
 <!-- {: .-wrap data-highlight="Number.isNaN(date.getTime())"} -->
 
-**An invalid date never throws on construction.** Check the timestamp before formatting, because `format()` throws a `RangeError` on an invalid date; see [Date.getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime).
+**Invalid dates never throw.** Check the timestamp before formatting, because `format()` throws a `RangeError` on an invalid date. See [Date.getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime).

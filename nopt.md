@@ -4,6 +4,7 @@ subtitle: Option parsing library
 logo: { set: icon-park-outline, name: config }
 category: Node.js libraries
 last_verified_with: "nopt 10.0.1."
+created_at: 2014-07-30
 updated: 2026-11-25
 tier: t3
 links:

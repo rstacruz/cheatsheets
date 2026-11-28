@@ -6,7 +6,8 @@ logo: { src: /assets/logos/curl.svg, mono: true }
 category: Networking
 layout: snippet
 last_verified_with: "curl 8.23.0."
-updated: 2026-11-23
+created_at: 2026-11-23
+updated: 2026-11-28
 tier: t3
 links:
   - title: curl manual
@@ -38,7 +39,7 @@ curl -X POST https://api.example.com/items \
 ```
 <!-- {: data-highlight="@item.json"} -->
 
-**Sends a JSON body from a file.** `@file` keeps shell quoting out of the way. See [curl](https://curl.se/docs/manpage.html#-d).
+**Sends a JSON body,** from a file. `@file` keeps shell quoting out of the way. See [curl](https://curl.se/docs/manpage.html#-d).
 
 ### JSON shortcut
 <!-- {: .-snippet} -->

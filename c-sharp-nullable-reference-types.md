@@ -6,7 +6,8 @@ logo: { src: /assets/logos/csharp.svg }
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 tier: t3
 links:
   - title: Nullable reference types
@@ -28,7 +29,7 @@ links:
 ```
 <!-- {: data-highlight="<Nullable>enable</Nullable>"} -->
 
-**Checks nulls for the whole project.** New templates enable it by default; see [Nullable contexts](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-context).
+**Checks nulls project-wide.** Nulls are checked for the whole project. New templates enable it by default; see [Nullable contexts](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-context).
 
 ### Annotate the type
 <!-- {: .-snippet} -->
@@ -42,7 +43,7 @@ Console.WriteLine(name.Length);        // 3
 ```
 <!-- {: data-highlight="string? nickname"} -->
 
-**Marks a value that may be null.** Without `?`, assigning `null` produces a warning; see [Nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references).
+**Marks nullable types.** It flags a value that may be null. Without `?`, assigning `null` produces a warning; see [Nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references).
 
 ### Fall back when null
 <!-- {: .-snippet} -->
@@ -58,4 +59,4 @@ Console.WriteLine(name);   // Ada
 ```
 <!-- {: data-highlight="??="} -->
 
-**Falls back instead of dereferencing null.** `??` and `??=` supply a default; see [Null-coalescing](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator).
+**Falls back when null.** It avoids dereferencing null. `??` and `??=` supply a default; see [Null-coalescing](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator).

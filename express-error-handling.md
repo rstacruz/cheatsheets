@@ -5,7 +5,8 @@ subtitle: Error handlers and 404s
 logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 last_verified_with: "Express 5.3.0, Node 26.13.1."
 tier: t3
 keywords: [express error handling, express error middleware, express 404]
@@ -30,7 +31,7 @@ app.use((err, req, res, next) => {
 ```
 <!-- {: data-highlight="(err, req, res, next)"} -->
 
-**Catches every error passed with `next(err)`.** Register it last, after routes; the four parameters mark it as an error handler. See [error handling](https://expressjs.com/en/5x/guide/error-handling.html).
+**Catches errors.** It receives errors passed with `next(err)`; register it last, after routes, and give it four parameters to mark it as an error handler. See [error handling](https://expressjs.com/en/5x/guide/error-handling.html).
 
 ### Async errors
 <!-- {: .-snippet} -->
@@ -69,4 +70,4 @@ app.get('/admin', (req, res) => {
 ```
 <!-- {: data-highlight="err.status"} -->
 
-**Sets the code the error handler sends.** Any `Error` without `status` becomes a 500. See [error handling](https://expressjs.com/en/5x/guide/error-handling.html).
+**Sets a custom status.** The error handler sends it; any `Error` without `status` becomes a 500. See [error handling](https://expressjs.com/en/5x/guide/error-handling.html).

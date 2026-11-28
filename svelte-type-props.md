@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: TypeScript in Svelte
     url: https://svelte.dev/docs/svelte/typescript
@@ -53,7 +54,7 @@ links:
 ```
 <!-- {: data-highlight="size = 'sm'"} -->
 
-**Defaults belong in the destructuring pattern.** A prop with a default is still optional to callers, and `size` narrows to `'sm' | 'lg'`; see [`$props`](https://svelte.dev/docs/svelte/$props).
+**Defaults go in destructuring.** Put them in the destructuring pattern; a prop with a default is still optional to callers, and `size` narrows to `'sm' | 'lg'`. See [`$props`](https://svelte.dev/docs/svelte/$props).
 
 ### Type children
 <!-- {: .-snippet} -->
@@ -91,7 +92,7 @@ links:
 ```
 <!-- {: data-highlight="$bindable('')"} -->
 
-**Keeps a prop two-way while staying typed.** Parents that omit `bind:value` still get a one-way prop; see [`$bindable`](https://svelte.dev/docs/svelte/$bindable).
+**Keeps a prop typed.** It stays two-way for parents that use `bind:value`; those that omit it still get a one-way prop. See [`$bindable`](https://svelte.dev/docs/svelte/$bindable).
 
 ### Forward a component's props
 <!-- {: .-snippet} -->

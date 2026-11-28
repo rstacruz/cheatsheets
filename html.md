@@ -4,6 +4,7 @@ subtitle: Document markup language
 logo: { src: /assets/logos/html.svg }
 category: HTML
 last_verified_with: "WHATWG HTML Living Standard, MDN Web Docs."
+created_at: 2012-03-16
 updated: 2026-11-24
 tier: t3
 intro: |

@@ -1,5 +1,6 @@
 ---
 title: Ruby 2.1
+created_at: 2014-05-07
 subtitle: Ruby 2.1 feature summary
 category: Ruby
 tags: [Archived]

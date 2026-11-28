@@ -8,6 +8,7 @@ archived: |
   MobX 6 (2020) removed `autorunAsync`, `expr`, and `asStructure`/`asFlat`,
   and requires `makeObservable()` with decorators. See
   [mobx.js.org](https://mobx.js.org/).
+created_at: 2016-12-12
 updated: 2018-05-14
 ---
 

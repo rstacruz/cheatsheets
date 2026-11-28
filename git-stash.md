@@ -21,6 +21,7 @@ fragments:
   - "stash@{1}"
   - "git stash show"
   - "--unreachable"
+created_at: 2026-11-27
 updated: 2026-11-27
 last_verified_at: 2026-11-27
 last_verified_with: "git 2.56.0."

@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: list-numbers }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.NumberFormat currency style
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency
@@ -50,7 +51,7 @@ formatter('name').format(1234.5)
 ```
 <!-- {: data-highlight="'code'; 'name'"} -->
 
-**Switches `currencyDisplay` to the ISO code or a spelled-out name.** The default is `'symbol'`; see [currencyDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencydisplay).
+**Switches `currencyDisplay`.** It can show the ISO code or a spelled-out name. The default is `'symbol'`; see [currencyDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencydisplay).
 
 ### Accounting negatives
 <!-- {: .-snippet} -->
@@ -66,4 +67,4 @@ acct.format(-1234.5) // → '($1,234.50)'
 ```
 <!-- {: data-highlight="currencySign: 'accounting'"} -->
 
-**Wraps negative amounts in parentheses where the locale does.** `'standard'` (the default) prints `-$1,234.50`; see [currencySign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencysign).
+**Wraps negatives.** Negative amounts get parentheses where the locale does. `'standard'` (the default) prints `-$1,234.50`; see [currencySign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencysign).

@@ -6,7 +6,8 @@ logo: { src: /assets/logos/redis.svg }
 category: Databases
 layout: snippet
 last_verified_with: "Redis 8.10.3."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Redis cheatsheet
@@ -37,7 +38,7 @@ redis-cli PUBLISH news hello
 ```
 <!-- {: data-highlight="PUBLISH"} -->
 
-**Delivers a message to current subscribers.** The reply counts the clients that received it. See [PUBLISH](https://redis.io/docs/latest/commands/publish/).
+**Delivers a message,** to current subscribers. The reply counts the clients that received it. See [PUBLISH](https://redis.io/docs/latest/commands/publish/).
 
 ### Subscribe by pattern
 <!-- {: .-snippet} -->
@@ -49,7 +50,7 @@ redis-cli PUBLISH news.dev hello
 ```
 <!-- {: data-highlight="PSUBSCRIBE"} -->
 
-**Matches several channels with a glob pattern.** `news` alone does not match `news.*`. See [PSUBSCRIBE](https://redis.io/docs/latest/commands/psubscribe/).
+**Matches several channels,** with a glob pattern. `news` alone does not match `news.*`. See [PSUBSCRIBE](https://redis.io/docs/latest/commands/psubscribe/).
 
 ### Leave a subscription
 <!-- {: .-snippet} -->

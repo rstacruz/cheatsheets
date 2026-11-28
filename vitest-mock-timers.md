@@ -6,7 +6,8 @@ logo: { src: /assets/logos/vitest.svg }
 category: JavaScript testing
 layout: snippet
 last_verified_with: "Vitest 5.1.2."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Mocking timers
     url: https://vitest.dev/guide/mocking/timers
@@ -30,7 +31,7 @@ expect(save).toHaveBeenCalledOnce()
 ```
 <!-- {: data-highlight="vi.advanceTimersByTime"} -->
 
-**Runs the timers due in the next second.** `useFakeTimers()` replaces the global timer APIs; see [`advanceTimersByTime`](https://vitest.dev/api/vi#vi-advancetimersbytime).
+**Runs the due timers.** `useFakeTimers()` replaces the global timer APIs; the call runs those due in the next second. See [`advanceTimersByTime`](https://vitest.dev/api/vi#vi-advancetimersbytime).
 
 ### Run all timers
 <!-- {: .-snippet} -->
@@ -46,7 +47,7 @@ expect(tick).toHaveBeenCalledTimes(2)
 ```
 <!-- {: data-highlight="vi.runAllTimers"} -->
 
-**Flushes every queued timer, including ones scheduled along the way.** See [`runAllTimers`](https://vitest.dev/api/vi#vi-runalltimers).
+**Flushes every queued timer.** It also runs ones scheduled along the way. See [`runAllTimers`](https://vitest.dev/api/vi#vi-runalltimers).
 
 ### One round only
 <!-- {: .-snippet} -->
@@ -61,7 +62,7 @@ expect(tick).toHaveBeenCalledOnce()
 ```
 <!-- {: data-highlight="vi.runOnlyPendingTimers"} -->
 
-**Runs only the timers queued so far.** Use it when a timer reschedules itself; see [`runOnlyPendingTimers`](https://vitest.dev/api/vi#vi-runonlypendingtimers).
+**Runs queued timers once.** Use it when a timer reschedules itself; only those queued so far run. See [`runOnlyPendingTimers`](https://vitest.dev/api/vi#vi-runonlypendingtimers).
 
 ### Await async work
 <!-- {: .-snippet} -->
@@ -79,7 +80,7 @@ expect(done).toBe(true)
 ```
 <!-- {: data-highlight="vi.advanceTimersByTimeAsync"} -->
 
-**Advances time and lets pending promises settle.** The plain `advanceTimersByTime` call leaves them unresolved; see [`advanceTimersByTimeAsync`](https://vitest.dev/api/vi#vi-advancetimersbytimeasync).
+**Advances time and settles promises.** The plain `advanceTimersByTime` call leaves pending promises unresolved. See [`advanceTimersByTimeAsync`](https://vitest.dev/api/vi#vi-advancetimersbytimeasync).
 
 ### Freeze the clock
 <!-- {: .-snippet} -->
@@ -92,7 +93,7 @@ expect(new Date().getFullYear()).toBe(2026)
 ```
 <!-- {: data-highlight="vi.setSystemTime"} -->
 
-**Pins `Date` to a fixed moment.** The numeric constructor stays in local time; fake timers cover `Date` too. See [`setSystemTime`](https://vitest.dev/api/vi#vi-setsystemtime).
+**Pins `Date` to one moment.** The numeric constructor uses local time; fake timers cover `Date` too. See [`setSystemTime`](https://vitest.dev/api/vi#vi-setsystemtime).
 
 ### Restore real timers
 <!-- {: .-snippet} -->
@@ -104,4 +105,4 @@ afterEach(() => {
 ```
 <!-- {: data-highlight="vi.useRealTimers"} -->
 
-**Undoes the fake timers after each test.** Pass `toFake: ['setTimeout']` to `useFakeTimers()` to fake fewer APIs; see [`useRealTimers`](https://vitest.dev/api/vi#vi-userealtimers).
+**Undoes fake timers after tests.** Pass `toFake: ['setTimeout']` to `useFakeTimers()` to fake fewer APIs; the reset runs after each test. See [`useRealTimers`](https://vitest.dev/api/vi#vi-userealtimers).

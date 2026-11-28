@@ -7,6 +7,7 @@ weight: -1
 authors:
   - github: ZackNeyland
 last_verified_with: "Android SDK Platform-Tools 37.0.3."
+created_at: 2018-03-06
 updated: 2026-11-14
 tier: t3
 intro: |

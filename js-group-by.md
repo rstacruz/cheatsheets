@@ -7,6 +7,7 @@ category: JavaScript
 layout: snippet
 tier: t3
 last_verified_with: "Node.js 26.13.1."
+created_at: 2026-11-28
 updated: 2026-11-28
 intro: |
   Group items into objects with `Object.groupBy`, or into a `Map` when keys are not strings.
@@ -41,7 +42,7 @@ byTeam.A.map(p => p.name)
 ```
 <!-- {: data-highlight="Object.groupBy"} -->
 
-**Groups items under their property values.** `Object.groupBy` returns arrays of matching items; see [Object.groupBy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy).
+**Groups by property.** Items are grouped under their property values. `Object.groupBy` returns arrays of matching items; see [Object.groupBy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy).
 
 ### Count by a property
 <!-- {: .-snippet} -->
@@ -63,7 +64,7 @@ Object.fromEntries(counts)
 ```
 <!-- {: data-highlight="counts.set"} -->
 
-**Counts items by key with `Map`.** Use `?? 0` to start a new counter; see [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
+**Counts by property.** It counts items by key with `Map`. Use `?? 0` to start a new counter; see [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
 
 ### Non-string keys
 <!-- {: .-snippet} -->

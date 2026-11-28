@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: globe }
 category: Browser APIs
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: timeZone option
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone
@@ -32,7 +33,7 @@ new Intl.DateTimeFormat('en-US', {
 ```
 <!-- {: .-wrap data-highlight="timeZone: 'Asia/Tokyo'"} -->
 
-**Prints the same instant as wall-clock time in Tokyo.** `timeZone` takes an IANA zone name and never changes the underlying `Date`; see [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).
+**Prints Tokyo wall time.** It shows the same instant in Tokyo; `timeZone` takes an IANA zone name and never changes the underlying `Date`. See [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).
 
 ### Read the visitor's zone
 <!-- {: .-snippet} -->
@@ -57,7 +58,7 @@ new Intl.DateTimeFormat('en-US', {
 ```
 <!-- {: .-wrap data-highlight="timeZoneName: 'shortOffset'"} -->
 
-**Appends the offset instead of a region name.** `'short'` uses an abbreviation when the zone has one; `'longGeneric'` drops daylight saving; see [timeZoneName](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezonename).
+**Appends the offset.** It adds an offset rather than a region name; `'short'` uses an abbreviation when the zone has one, while `'longGeneric'` drops daylight saving. See [timeZoneName](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezonename).
 
 ### Catch an unknown zone
 <!-- {: .-snippet} -->
@@ -73,4 +74,4 @@ try {
 ```
 <!-- {: .-wrap data-highlight="catch"} -->
 
-**An unknown zone throws when the formatter is built.** Membership in `Intl.supportedValuesOf('timeZone')` is not a substitute: V8 leaves out `UTC` and every alias such as `US/Pacific`; see [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).
+**Unknown zones throw.** The error comes when the formatter is built; membership in `Intl.supportedValuesOf('timeZone')` is not a substitute, since V8 leaves out `UTC` and aliases such as `US/Pacific`. See [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).

@@ -4,6 +4,7 @@ subtitle: View helper reference
 logo: { set: icon-park-outline, name: tool }
 category: Rails
 last_verified_with: "Rails 8.1.4.1."
+created_at: 2012-10-11
 updated: 2026-11-24
 tier: t3
 intro: |

@@ -5,7 +5,8 @@ subtitle: Sort sidebar links
 logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 last_verified_with: "Starlight 0.43.2, Astro 7.4.13."
 links:
   - title: Sidebar navigation
@@ -42,7 +43,7 @@ sidebar: [
 ```
 <!-- {: data-highlight="guides/install"} -->
 
-**Lists links in the order written.** Slugs must match files under `src/content/docs/`; a stale slug fails the build; see [sidebar](https://starlight.astro.build/guides/sidebar/).
+**Lists links by hand,** in the order written. Slugs must match files under `src/content/docs/`; a stale slug fails the build; See [sidebar](https://starlight.astro.build/guides/sidebar/).
 
 ### Collapse a group
 <!-- {: .-snippet} -->

@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: sort }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.Collator
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator
@@ -26,7 +27,7 @@ links:
 ```
 <!-- {: data-highlight="localeCompare"} -->
 
-**Reads best for a single comparison.** It applies the same collation rules without reusing a collator instance; see [localeCompare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
+**Reads best for one comparison.** It applies the same collation rules without reusing a collator instance. See [localeCompare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
 
 ### Reuse a collator
 <!-- {: .-snippet} -->
@@ -42,7 +43,7 @@ list.toSorted(collator.compare)
 ```
 <!-- {: data-highlight="toSorted(collator.compare)"} -->
 
-**Builds one collator for repeated sorts.** A collator avoids constructing options inside every comparison; see [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare).
+**Builds one reusable collator.** A collator avoids constructing options inside every comparison during repeated sorts. See [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare).
 
 ### Pass the same options
 <!-- {: .-snippet} -->

@@ -7,7 +7,8 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: git-stash manual
     url: https://git-scm.com/docs/git-stash
@@ -26,7 +27,7 @@ git stash show
 ```
 <!-- {: data-highlight="git stash show"} -->
 
-**Prints a diffstat for the newest stash.** No patch content is shown; see [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
+**Prints a diffstat.** It summarizes the newest stash, and no patch content is shown. See [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
 
 ### Full patch
 <!-- {: .-snippet} -->
@@ -36,7 +37,7 @@ git stash show -p
 ```
 <!-- {: data-highlight="-p"} -->
 
-**Prints the complete diff without applying it.** See [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
+**Prints the complete diff.** It shows the patch without applying it. See [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
 
 ### Specific stash
 <!-- {: .-snippet} -->
@@ -56,4 +57,4 @@ git stash show -p -u
 ```
 <!-- {: data-highlight="-u"} -->
 
-**Includes untracked files saved with `-u`.** Plain `show` leaves them out; see [--include-untracked](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt---include-untracked).
+**Includes untracked files.** They must be saved with `-u`; plain `show` leaves them out. See [--include-untracked](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt---include-untracked).

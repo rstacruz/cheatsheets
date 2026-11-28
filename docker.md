@@ -23,6 +23,7 @@ fragments:
   - "docker rmi"
   - "docker system df"
 tags: [Featured]
+created_at: 2013-08-24
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 keywords:

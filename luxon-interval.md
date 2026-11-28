@@ -6,7 +6,8 @@ logo: { src: /assets/logos/luxon.svg }
 category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Luxon intervals
     url: https://moment.github.io/luxon/#/tour?id=intervals
@@ -31,7 +32,7 @@ Interval.fromDateTimes(start, end).toISODate()
 ```
 <!-- {: data-highlight="Interval.fromDateTimes"} -->
 
-**Builds an interval from two DateTimes.** Reversed endpoints produce an invalid interval; see [Intervals](https://moment.github.io/luxon/#/tour?id=intervals).
+**Builds an interval.** Pass two DateTimes; reversed endpoints produce an invalid interval; See [Intervals](https://moment.github.io/luxon/#/tour?id=intervals).
 
 ### Measure
 <!-- {: .-snippet} -->
@@ -45,7 +46,7 @@ range.count('days')     // 15
 ```
 <!-- {: data-highlight="count('days')"} -->
 
-**`length()` is elapsed time; `count()` counts calendar units.** This range touches 15 days; see [length](https://moment.github.io/luxon/api-docs/index.html).
+**`length()` measures elapsed time.** `count()` counts calendar units; this range touches 15 days; See [length](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Split into weeks
 <!-- {: .-snippet} -->
@@ -100,4 +101,4 @@ range.intersection(next).toISODate()
 ```
 <!-- {: data-highlight="overlaps"} -->
 
-**Tests whether two ranges share time.** `intersection()` returns the overlap; see [overlaps](https://moment.github.io/luxon/api-docs/index.html).
+**Tests whether ranges overlap.** `intersection()` returns the overlap; See [overlaps](https://moment.github.io/luxon/api-docs/index.html).

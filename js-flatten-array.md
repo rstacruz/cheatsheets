@@ -7,6 +7,7 @@ category: JavaScript
 layout: snippet
 tier: t3
 last_verified_with: "Node.js 26.13.1."
+created_at: 2026-11-28
 updated: 2026-11-28
 intro: |
   `Array.prototype.flat()` flattens nested arrays; pass a depth or `Infinity` for all levels.
@@ -32,7 +33,7 @@ nested.flat()
 ```
 <!-- {: data-highlight=".flat()"} -->
 
-**Joins nested arrays one level deep.** `flat()` returns a new array and leaves the source unchanged; see [Array.prototype.flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat).
+**Flattens one level.** `flat()` returns a new array and leaves the source unchanged. See [Array.prototype.flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat).
 
 ### All levels
 <!-- {: .-snippet} -->

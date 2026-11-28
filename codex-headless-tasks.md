@@ -6,6 +6,7 @@ logo: { src: /assets/logos/codex.svg, mono: true }
 category: Agents
 layout: snippet
 last_verified_with: "codex-cli 0.171.0."
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 tier: t1

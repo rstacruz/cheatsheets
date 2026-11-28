@@ -7,6 +7,7 @@ category: JavaScript testing
 layout: snippet
 tier: t3
 last_verified_with: "Playwright 1.65.1."
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: Network mocking
@@ -28,7 +29,7 @@ await page.route('**/api/user', route => (
 ```
 <!-- {: data-highlight="route.fulfill("} -->
 
-**Answers the request without calling the server.** See [network mocking](https://playwright.dev/docs/network#network-mocking).
+**Answers a request directly.** The server is never called. See [network mocking](https://playwright.dev/docs/network#network-mocking).
 
 ### Block requests
 <!-- {: .-snippet} -->
@@ -40,7 +41,7 @@ await page.route('**/*.{png,jpg}', route => (
 ```
 <!-- {: data-highlight="route.abort("} -->
 
-**Fails matching requests so they never load.** See [abort requests](https://playwright.dev/docs/network#abort-requests).
+**Fails matching requests.** Matching requests never load. See [abort requests](https://playwright.dev/docs/network#abort-requests).
 
 ### Modify a request
 <!-- {: .-snippet} -->
@@ -54,7 +55,7 @@ await page.route('**/*', async route => {
 ```
 <!-- {: data-highlight="route.continue("} -->
 
-**Changes the request headers with `route.continue()`.** See [modify requests](https://playwright.dev/docs/network#modify-requests).
+**Changes request headers.** `route.continue()` sends the modified headers. See [modify requests](https://playwright.dev/docs/network#modify-requests).
 
 ### Modify a response
 <!-- {: .-snippet} -->
@@ -71,7 +72,7 @@ await page.route('**/api/user', async route => {
 ```
 <!-- {: data-highlight="route.fetch("} -->
 
-**Fetches the real response before rewriting its body.** See [modify responses](https://playwright.dev/docs/network#modify-responses).
+**Rewrites a response body.** Fetch the real response first, then replace its body. See [modify responses](https://playwright.dev/docs/network#modify-responses).
 
 ### Wait for a response
 <!-- {: .-snippet} -->
@@ -88,4 +89,4 @@ await pending
 ```
 <!-- {: data-highlight="waitForResponse("} -->
 
-**Starts waiting before the click that triggers the request.** See [network events](https://playwright.dev/docs/network#network-events).
+**Starts waiting early.** Set up the promise before the click that triggers the request. See [network events](https://playwright.dev/docs/network#network-events).

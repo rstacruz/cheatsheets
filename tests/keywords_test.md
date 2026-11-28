@@ -1,6 +1,7 @@
 ---
 title: Intro test
 category: Hidden
+created_at: 2020-07-05
 updated: 2020-07-05
 keywords:
   - Variables

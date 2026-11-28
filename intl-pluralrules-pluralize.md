@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Intl.PluralRules select()
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select
@@ -31,7 +32,7 @@ forms[pr.select(3)] // → 'items'
 ```
 <!-- {: data-highlight="forms[pr.select(1)]"} -->
 
-**Picks a word form from the category.** For English, `select()` returns `one` or `other`; use it as the map key. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
+**Picks a word form.** The category is the map key; for English, `select()` returns `one` or `other`. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
 
 ### Wrap the lookup
 <!-- {: .-snippet} -->
@@ -50,7 +51,7 @@ plural(2, { one: 'day', other: 'days' })
 ```
 <!-- {: data-highlight="plural"} -->
 
-**Wraps the lookup in a helper.** Pass one form map per noun, with every category the locale uses. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
+**Wraps the lookup.** A helper takes one form map per noun, with every category the locale uses. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
 
 ### Fall back to other
 <!-- {: .-snippet} -->

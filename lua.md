@@ -4,6 +4,7 @@ category: Others
 subtitle: Lightweight scripting language
 logo: { src: /assets/logos/lua.svg, mono: true }
 last_verified_with: "Lua 5.1.5, Lua 5.4.9."
+created_at: 2012-07-03
 updated: 2026-11-25
 tier: t3
 intro: |

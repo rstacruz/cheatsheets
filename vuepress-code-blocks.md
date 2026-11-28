@@ -6,7 +6,8 @@ logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/theme-default 2.0.0-rc.142."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Markdown code blocks
     url: https://v2.vuepress.vuejs.org/guide/markdown.html#code-blocks
@@ -27,7 +28,7 @@ export default {
 ````
 <!-- {: data-highlight='title="config.ts"'} -->
 
-**Shows a filename above the code.** The title is parsed from the fence's info string, after the language. See [code title](https://v2.vuepress.vuejs.org/guide/markdown.html#code-title).
+**Shows a code title.** A filename appears above the code, parsed from the fence's info string after the language. See [code title](https://v2.vuepress.vuejs.org/guide/markdown.html#code-title).
 
 ### Highlight lines
 <!-- {: .-snippet} -->
@@ -65,4 +66,4 @@ const second = 11
 ```
 <!-- {: data-highlight="@[code"} -->
 
-**Pulls a file into the page.** The range picks lines and `ts{2}` highlights line 2 of the imported block; the path is relative to the page. See [import code](https://v2.vuepress.vuejs.org/guide/markdown.html#import-code-blocks).
+**Imports a file.** The range picks lines and `ts{2}` highlights line 2 of the imported block; the path is relative to the page. See [import code](https://v2.vuepress.vuejs.org/guide/markdown.html#import-code-blocks).

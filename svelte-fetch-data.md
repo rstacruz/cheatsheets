@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "Svelte 5.59.2."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: $effect
     url: https://svelte.dev/docs/svelte/$effect
@@ -98,7 +99,7 @@ links:
 ```
 <!-- {: data-highlight="ctrl.abort()"} -->
 
-**Aborts the previous request when `query` changes.** Each run creates its own controller, and the cleanup cancels stale loads; see [Effect cleanup](https://svelte.dev/docs/svelte/$effect#Understanding-lifecycle).
+**Aborts the previous request.** It happens when `query` changes: each run creates its own controller, and the cleanup cancels stale loads. See [Effect cleanup](https://svelte.dev/docs/svelte/$effect#Understanding-lifecycle).
 
 ### Render a promise with an await block
 <!-- {: .-snippet} -->
@@ -119,4 +120,4 @@ links:
 ```
 <!-- {: data-highlight="{#await promise}"} -->
 
-**Branches on the promise's state in markup.** A new `userId` produces a new promise and restarts the block; see [await blocks](https://svelte.dev/docs/svelte/await).
+**Branches on promise state.** It happens in markup; a new `userId` produces a new promise and restarts the block. See [await blocks](https://svelte.dev/docs/svelte/await).

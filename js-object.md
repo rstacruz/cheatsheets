@@ -4,6 +4,7 @@ subtitle: Key-value object reference
 logo: { set: icon-park-outline, name: data-all }
 category: JavaScript
 weight: -3
+created_at: 2026-10-04
 updated: 2026-11-25
 last_verified_with: "ECMAScript 2026."
 tier: t3

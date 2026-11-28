@@ -7,7 +7,8 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: git-stash manual
     url: https://git-scm.com/docs/git-stash
@@ -36,7 +37,7 @@ git fsck --lost-found
 ```
 <!-- {: data-highlight="git fsck --lost-found"} -->
 
-**Writes dangling object names to `.git/lost-found/`.** Commit names land under `.git/lost-found/commit/<sha>`, but `git gc` can still prune the object; run `git stash store <sha>` to keep it. See [git fsck](https://git-scm.com/docs/git-fsck).
+**Writes lost names.** Dangling object names go to `.git/lost-found/`. Commit names land under `.git/lost-found/commit/<sha>`, but `git gc` can still prune the object; run `git stash store <sha>` to keep it. See [git fsck](https://git-scm.com/docs/git-fsck).
 
 ### Identify the stash
 <!-- {: .-snippet} -->

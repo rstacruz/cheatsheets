@@ -3,6 +3,7 @@ title: Splunk
 subtitle: Machine data search platform
 logo: { src: /assets/logos/splunk.svg, mono: true }
 category: Devops
+created_at: 2026-11-15
 updated: 2026-11-26
 keywords:
   - Splunk SPL

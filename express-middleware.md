@@ -5,7 +5,8 @@ subtitle: Functions that run before routes
 logo: { src: /assets/logos/express.svg, mono: true }
 category: Node.js libraries
 layout: snippet
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 last_verified_with: "Express 5.3.0, Node 26.13.1."
 tier: t3
 keywords: [express middleware, express auth middleware, express next]
@@ -58,7 +59,7 @@ app.get('/admin', auth, (req, res) => {
 ```
 <!-- {: data-highlight="auth"} -->
 
-**Sends a 401 unless the request carries an `authorization` header.** Pass it as a route handler, or mount it with `app.use('/admin', auth)`. See [using middleware](https://expressjs.com/en/5x/guide/using-middleware.html).
+**Sends a 401 without authorization.** The request needs an `authorization` header; pass this as a route handler, or mount it with `app.use('/admin', auth)`. See [using middleware](https://expressjs.com/en/5x/guide/using-middleware.html).
 
 ### Order of execution
 <!-- {: .-snippet} -->

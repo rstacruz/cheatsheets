@@ -4,6 +4,7 @@ subtitle: Filter and transform text streams
 logo: { set: icon-park-outline, name: text }
 category: Shell
 tier: t2
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-23
 last_verified_with: "GNU coreutils 9.12 (sort, uniq, cut, tr, tee)."

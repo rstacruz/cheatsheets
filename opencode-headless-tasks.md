@@ -6,6 +6,7 @@ logo: { src: /assets/logos/opencode.svg, mono: true }
 category: Agents
 layout: snippet
 last_verified_with: "opencode 2.4.1."
+created_at: 2026-11-23
 updated: 2026-11-23
 last_verified_at: 2026-11-26
 tier: t1

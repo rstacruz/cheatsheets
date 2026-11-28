@@ -4,6 +4,7 @@ subtitle: Rack testing helpers
 logo: { set: icon-park-outline, name: test-tube }
 category: Ruby libraries
 last_verified_with: "rack-test 2.3.0."
+created_at: 2015-10-15
 updated: 2026-11-24
 tier: t3
 intro: |

@@ -4,6 +4,7 @@ subtitle: Locale-aware duration formatter
 logo: { set: icon-park-outline, name: stopwatch }
 category: Internationalization
 tier: t2
+created_at: 2026-11-18
 updated: 2026-11-18
 last_verified_at: 2026-11-18
 last_verified_with: "Node 26 (ICU)."

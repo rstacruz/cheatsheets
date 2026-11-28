@@ -12,6 +12,7 @@ links:
     url: https://github.com/ruby/rake
 tier: t3
 last_verified_with: "Rake 13.4.2."
+created_at: 2014-09-29
 updated: 2026-11-26
 ---
 

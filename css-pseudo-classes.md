@@ -6,7 +6,8 @@ logo: { src: /assets/logos/css.svg, mono: true }
 category: CSS
 layout: snippet
 last_verified_with: "Selectors Level 4."
-updated: 2026-11-24
+created_at: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: MDN pseudo-classes
@@ -32,7 +33,7 @@ a:focus-visible {
 ```
 <!-- {: data-highlight=":focus-visible"} -->
 
-**Adds a focus ring for keyboard users.** `:focus-visible` matches when the browser wants a visible focus ring; mouse clicks on links and buttons do not trigger it; see [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes).
+**Adds a focus ring.** `:focus-visible` matches when the browser wants a visible ring for keyboard users; mouse clicks on links and buttons do not trigger it. See [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes).
 
 ### First and last child
 <!-- {: .-snippet} -->
@@ -48,7 +49,7 @@ li:last-child {
 ```
 <!-- {: data-highlight=":first-child; :last-child"} -->
 
-**Removes outer margin on the first and last item.** Both match only when the element is the first or last child of its parent; see [:first-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child).
+**Removes outer margins.** The first and last items match only when they are the first or last child of their parent. See [:first-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child).
 
 ### Odd rows
 <!-- {: .-snippet} -->
@@ -72,7 +73,7 @@ input:user-invalid {
 ```
 <!-- {: data-highlight=":user-invalid"} -->
 
-**Styles invalid fields once the user interacts.** `:user-invalid` matches only after the user edits or submits the form, so untouched fields are not marked invalid on load; see [:user-invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid).
+**Styles invalid fields.** `:user-invalid` matches only after the user edits or submits the form, so untouched fields are not marked invalid on load. See [:user-invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid).
 
 ### Parent selector
 <!-- {: .-snippet} -->
@@ -84,7 +85,7 @@ input:user-invalid {
 ```
 <!-- {: data-highlight=":has(img)"} -->
 
-**Styles a parent based on its children.** `:has()` takes a relative selector, so `:has(img)` matches an element containing an image; see [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has).
+**Styles a parent.** `:has()` takes a relative selector based on children, so `:has(img)` matches an element containing an image. See [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has).
 
 ### Zero specificity
 <!-- {: .-snippet} -->

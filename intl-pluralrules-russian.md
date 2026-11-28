@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: translate }
 category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: CLDR plural rules
     url: https://cldr.unicode.org/index/cldr-spec/plural-rules
@@ -63,4 +64,4 @@ ru.select(0) // → 'many'
 ```
 <!-- {: data-highlight="ru.select(0)"} -->
 
-**Uses the `many` form for zero.** Russian says `0 товаров`, not `0 товар`. See [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules).
+**Uses `many` for zero.** Russian says `0 товаров`, not `0 товар`. See [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules).

@@ -1,5 +1,6 @@
 ---
 title: Make for assets
+created_at: 2014-07-15
 subtitle: Asset compilation recipes
 tags: [Archived]
 archived: This sheet may be listing practices that are outdated.

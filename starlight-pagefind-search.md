@@ -5,7 +5,8 @@ subtitle: Tune Pagefind
 logo: { src: /assets/logos/astro.svg }
 category: JavaScript libraries
 layout: snippet
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 last_verified_with: "Starlight 0.43.2, Astro 7.4.13."
 links:
   - title: Site search
@@ -27,7 +28,7 @@ starlight({
 ```
 <!-- {: data-highlight="pagefind: false"} -->
 
-**Removes the search box and the index.** Starlight indexes the site with Pagefind at build time, so nothing extra is needed to keep the default; see [site search](https://starlight.astro.build/guides/site-search/).
+**Disables search.** It removes the search box and the index. Starlight indexes the site with Pagefind at build time, so nothing extra is needed to keep the default; see [site search](https://starlight.astro.build/guides/site-search/).
 
 ### Exclude a block from the index
 <!-- {: .-snippet} -->

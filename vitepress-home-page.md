@@ -7,7 +7,8 @@ category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Home page
     url: https://vitepress.dev/reference/default-theme-home-page
@@ -39,7 +40,7 @@ hero:
 ```
 <!-- {: data-highlight="layout: home"} -->
 
-**Turns `index.md` into a landing page.** `name` and `text` form the headline, and each action becomes a button. See [home page](https://vitepress.dev/reference/default-theme-home-page).
+**Builds a landing page.** `index.md` is turned into one. `name` and `text` form the headline, and each action becomes a button. See [home page](https://vitepress.dev/reference/default-theme-home-page).
 
 ### Add feature cards
 <!-- {: .-snippet} -->
@@ -55,7 +56,7 @@ features:
 ```
 <!-- {: data-highlight="features:"} -->
 
-**Renders a card grid below the hero.** Each item takes a `title` and one line of `details`; `icon` accepts an emoji. See [home page features](https://vitepress.dev/reference/default-theme-home-page#features-section).
+**Renders feature cards.** A card grid appears below the hero. Each item takes a `title` and one line of `details`; `icon` accepts an emoji. See [home page features](https://vitepress.dev/reference/default-theme-home-page#features-section).
 
 ### Use a hero image
 <!-- {: .-snippet} -->
@@ -68,7 +69,7 @@ hero:
 ```
 <!-- {: data-highlight="image:"} -->
 
-**Shows a screenshot beside the headline.** Files in `docs/public` are served from the site root, so `/hero.png` needs no import. See [hero image](https://vitepress.dev/reference/default-theme-home-page#hero-section).
+**Shows a hero image.** The screenshot sits beside the headline. Files in `docs/public` are served from the site root, so `/hero.png` needs no import. See [hero image](https://vitepress.dev/reference/default-theme-home-page#hero-section).
 
 ### Add a secondary action
 <!-- {: .-snippet} -->
@@ -84,4 +85,4 @@ actions:
 ```
 <!-- {: data-highlight="theme: alt"} -->
 
-**Mixes a primary and secondary button.** `brand` is filled and `alt` is quieter; external links work in either. See [hero actions](https://vitepress.dev/reference/default-theme-home-page#hero-section).
+**Adds a secondary action.** It mixes a primary and secondary button. `brand` is filled and `alt` is quieter; external links work in either. See [hero actions](https://vitepress.dev/reference/default-theme-home-page#hero-section).

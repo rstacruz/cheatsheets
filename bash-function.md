@@ -6,7 +6,8 @@ logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-24
+created_at: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash shell functions
@@ -36,7 +37,7 @@ greet "world"
 Hello, world
 ```
 
-**Defines a function and calls it by name.** The body runs in the current shell, so it can change variables and `cd`. See [shell functions](https://www.gnu.org/software/bash/manual/html_node/Shell-Functions.html).
+**Defines and calls a function.** The body runs in the current shell, so it can change variables and `cd`. See [shell functions](https://www.gnu.org/software/bash/manual/html_node/Shell-Functions.html).
 
 ### Function keyword
 <!-- {: .-snippet} -->
@@ -48,7 +49,7 @@ function greet {
 ```
 <!-- {: data-highlight="function"} -->
 
-**Uses the `function` keyword instead of parentheses.** This is a Bash extension; the `greet()` form also works in POSIX shells. See [shell functions](https://www.gnu.org/software/bash/manual/html_node/Shell-Functions.html).
+**Uses the `function` keyword.** It replaces parentheses; this is a Bash extension, and the `greet()` form also works in POSIX shells. See [shell functions](https://www.gnu.org/software/bash/manual/html_node/Shell-Functions.html).
 
 ### Arguments
 <!-- {: .-snippet} -->
@@ -73,7 +74,7 @@ one
 two
 ```
 
-**Reads positional parameters inside the body.** `$1` and `$2` are the arguments, `$#` is the count, and `"$@"` expands to all of them. See [positional parameters](https://www.gnu.org/software/bash/manual/html_node/Positional-Parameters.html).
+**Reads positional parameters.** Inside the body, `$1` and `$2` are the arguments, `$#` is the count, and `"$@"` expands to all of them. See [positional parameters](https://www.gnu.org/software/bash/manual/html_node/Positional-Parameters.html).
 
 ### Local variables
 <!-- {: .-snippet} -->
@@ -86,7 +87,7 @@ greet() {
 ```
 <!-- {: data-highlight="local"} -->
 
-**Scopes a variable to the function.** Without `local`, the variable leaks into the caller's shell after the call. See [local](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).
+**Scopes a variable.** Without `local`, it leaks into the caller's shell after the call. See [local](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).
 
 ### Exit status
 <!-- {: .-snippet} -->
@@ -99,4 +100,4 @@ is_dir() {
 ```
 <!-- {: data-highlight="return 1"} -->
 
-**Returns a status code to the caller.** `return 1` stops early; without it the function reports the status of its last command. See [return](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).
+**Returns a status code.** `return 1` stops early; without it the function reports its last command's status. See [return](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).

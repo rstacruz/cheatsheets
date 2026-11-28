@@ -4,6 +4,7 @@ subtitle: Editor config format
 logo: { src: /assets/logos/editorconfig.svg, mono: true }
 prism_languages: [ini]
 weight: -1
+created_at: 2014-09-24
 updated: 2026-11-23
 tier: t3
 last_verified_with: "EditorConfig spec 0.17.2."

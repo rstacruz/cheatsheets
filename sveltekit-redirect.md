@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: redirect()
     url: https://svelte.dev/docs/kit/@sveltejs-kit#redirect
@@ -29,7 +30,7 @@ export function load() {
 ```
 <!-- {: data-highlight="redirect(308"} -->
 
-**Sends a permanent redirect before rendering.** Use `307` to keep the request method and `303` to switch to a GET; see [Redirects](https://svelte.dev/docs/kit/load#Redirects).
+**Redirects before rendering.** Throw a permanent redirect from a load; use `307` to keep the request method and `303` to switch to a GET. See [Redirects](https://svelte.dev/docs/kit/load#Redirects).
 
 ### Redirect after a form
 <!-- {: .-snippet} -->
@@ -39,7 +40,7 @@ redirect(303, '/admin')
 ```
 <!-- {: data-highlight="redirect(303"} -->
 
-**Turns a POST into a GET navigation.** Call it at the end of a successful action; see [Redirects](https://svelte.dev/docs/kit/form-actions#Anatomy-of-an-action-Redirects).
+**Turns POST into GET.** The redirect changes a form's POST into a GET navigation; call it at the end of a successful action. See [Redirects](https://svelte.dev/docs/kit/form-actions#Anatomy-of-an-action-Redirects).
 
 ### Redirect to another site
 <!-- {: .-snippet} -->
@@ -51,7 +52,7 @@ redirect(303, 'https://svelte.dev', {
 ```
 <!-- {: data-highlight="external: true"} -->
 
-**Requires explicit permission for external URLs.** Pass `true`, or an allowlist of origins; see [redirect()](https://svelte.dev/docs/kit/@sveltejs-kit#redirect).
+**Allows external URLs explicitly.** Redirecting to another site needs permission: pass `true`, or an allowlist of origins. See [redirect()](https://svelte.dev/docs/kit/@sveltejs-kit#redirect).
 
 ### Guard a route in a hook
 <!-- {: .-snippet} -->
@@ -75,4 +76,4 @@ await goto('/dashboard')
 ```
 <!-- {: data-highlight="goto('/dashboard')"} -->
 
-**Navigates without a full page load.** Use `goto()` in the browser; a load or action should use `redirect()`; see [$app/navigation](https://svelte.dev/docs/kit/$app-navigation).
+**Navigates client-side.** There is no full page load: use `goto()` in the browser, while a load or action should use `redirect()`. See [$app/navigation](https://svelte.dev/docs/kit/$app-navigation).

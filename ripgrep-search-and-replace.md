@@ -6,6 +6,7 @@ logo: { set: icon-park-outline, name: search }
 category: CLI
 layout: snippet
 last_verified_with: "ripgrep 15.1.0."
+created_at: 2026-11-23
 updated: 2026-11-23
 links:
   - title: ripgrep guide

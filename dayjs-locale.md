@@ -6,7 +6,8 @@ logo: { set: icon-park-outline, name: time }
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Day.js i18n
     url: https://day.js.org/docs/en/i18n/i18n
@@ -27,7 +28,7 @@ dayjs.locale('fr')
 ```
 <!-- {: data-highlight="'dayjs/locale/fr.js'"} -->
 
-**Registers French as the global default.** Only English ships in core, so each locale is a separate file; see [Loading locale](https://day.js.org/docs/en/i18n/loading-into-nodejs).
+**Registers a global locale.** French becomes the default; only English ships in core, so each locale is a separate file. See [Loading locale](https://day.js.org/docs/en/i18n/loading-into-nodejs).
 
 ### Format with the locale
 <!-- {: .-snippet} -->
@@ -40,7 +41,7 @@ dayjs('2014-06-09').format('MMMM dddd')
 ```
 <!-- {: data-highlight="'MMMM dddd'"} -->
 
-**Uses the active locale for names.** After `dayjs.locale('fr')`, new instances format in French; see [i18n](https://day.js.org/docs/en/i18n/i18n).
+**Uses the active locale.** Names and months follow the locale: after `dayjs.locale('fr')`, new instances format in French. See [i18n](https://day.js.org/docs/en/i18n/i18n).
 
 ### One instance only
 <!-- {: .-snippet} -->
@@ -52,7 +53,7 @@ dayjs('2014-06-09').locale('fr')
 ```
 <!-- {: data-highlight=".locale('fr')"} -->
 
-**Switches the locale for one instance.** The global default stays as it was; see [Locale](https://day.js.org/docs/en/i18n/i18n).
+**Switches one instance.** The locale applies only to that instance; the global default stays as it was. See [Locale](https://day.js.org/docs/en/i18n/i18n).
 
 ### Reset the default
 <!-- {: .-snippet} -->
@@ -91,4 +92,4 @@ import 'dayjs/locale/fr.js'
 ```
 <!-- {: data-highlight="plugin/utc.js"} -->
 
-**Keeps the `.js` extension in Node ESM.** Extensionless subpaths fail outside a bundler; see [Loading into Node.js](https://day.js.org/docs/en/i18n/loading-into-nodejs).
+**Keep the `.js` extension.** Node's ESM loader needs it for locale subpaths, which fail without an extension outside a bundler. See [Loading into Node.js](https://day.js.org/docs/en/i18n/loading-into-nodejs).

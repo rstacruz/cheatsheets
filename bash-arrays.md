@@ -6,7 +6,8 @@ logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-24
+created_at: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash arrays
@@ -39,7 +40,7 @@ echo "${#fruits[@]}"
 ```
 <!-- {: data-highlight='${fruits[0]}; ${#fruits[@]}'} -->
 
-**Reads an element and the array size.** Indices start at `0`, and `${#fruits[@]}` is the number of elements. See [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
+**Reads an element and size,** of the array. Indices start at `0`, and `${#fruits[@]}` is the number of elements. See [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
 
 ### Append
 <!-- {: .-snippet} -->
@@ -49,7 +50,7 @@ fruits+=("date")
 ```
 <!-- {: data-highlight="+="} -->
 
-**Adds an element to the end.** `+=` in an array context appends rather than concatenating strings. See [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
+**Adds an element,** to the end. `+=` in an array context appends rather than concatenating strings. See [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
 
 ### Slice
 <!-- {: .-snippet} -->
@@ -71,4 +72,4 @@ echo "${colors[red]}"
 ```
 <!-- {: data-highlight="declare -A"} -->
 
-**Creates an array keyed by string.** `declare -A` enables string keys; without it, subscripts are arithmetic. See [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
+**Creates a keyed array,** with string keys. `declare -A` enables string keys; without it, subscripts are arithmetic. See [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).

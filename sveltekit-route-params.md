@@ -6,7 +6,8 @@ logo: { src: /assets/logos/svelte.svg }
 category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."
-updated: 2026-11-26
+created_at: 2026-11-26
+updated: 2026-11-28
 links:
   - title: Routing
     url: https://svelte.dev/docs/kit/routing
@@ -29,7 +30,7 @@ export function load({ params }) {
 ```
 <!-- {: data-highlight="params.slug"} -->
 
-**Maps the folder name to a param.** `/blog/hello` gives `slug: 'hello'`; see [params](https://svelte.dev/docs/kit/load#Using-URL-data-params).
+**Maps folder names to params.** The folder name becomes a param. `/blog/hello` gives `slug: 'hello'`; see [params](https://svelte.dev/docs/kit/load#Using-URL-data-params).
 
 ### Make a param optional
 <!-- {: .-snippet} -->
@@ -77,7 +78,7 @@ export function load({ params }) {
 }
 ```
 
-**Rejects URLs that do not match.** The matcher's return value becomes the param, so `id` is a number; see [Matching](https://svelte.dev/docs/kit/advanced-routing#Matching).
+**Rejects bad URLs.** URLs that do not match are rejected. The matcher's return value becomes the param, so `id` is a number; see [Matching](https://svelte.dev/docs/kit/advanced-routing#Matching).
 
 ### Read search params
 <!-- {: .-snippet} -->

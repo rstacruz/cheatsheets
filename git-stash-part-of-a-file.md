@@ -7,7 +7,8 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: git-stash manual
     url: https://git-scm.com/docs/git-stash
@@ -46,7 +47,7 @@ git stash show -p
 ```
 <!-- {: data-highlight="git stash show -p"} -->
 
-**Prints only the hunks you picked.** Check the patch before restoring; see [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
+**Prints only picked hunks.** Check the patch before restoring. See [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
 
 ### Restore it
 <!-- {: .-snippet} -->

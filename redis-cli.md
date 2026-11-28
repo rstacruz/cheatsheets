@@ -6,7 +6,8 @@ logo: { src: /assets/logos/redis.svg }
 category: Databases
 layout: snippet
 last_verified_with: "redis-cli 8.10.3."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Redis cheatsheet
@@ -27,7 +28,7 @@ redis-cli
 PONG
 ```
 
-**Opens an interactive session until Ctrl-D or `exit`.** See [redis-cli](https://redis.io/docs/latest/develop/tools/cli/).
+**Opens an interactive session.** It runs until Ctrl-D or `exit`. See [redis-cli](https://redis.io/docs/latest/develop/tools/cli/).
 
 ### Run one command
 <!-- {: .-snippet} -->
@@ -44,7 +45,7 @@ redis-cli GET user:1
 ```
 <!-- {: data-highlight="redis-cli"} -->
 
-**Runs a command and returns to the shell.** Output examples assume an interactive terminal. See [redis-cli](https://redis.io/docs/latest/develop/tools/cli/).
+**Runs a command.** Control returns to the shell afterward. Output examples assume an interactive terminal. See [redis-cli](https://redis.io/docs/latest/develop/tools/cli/).
 
 ### Connect to a host
 <!-- {: .-snippet} -->
@@ -55,7 +56,7 @@ redis-cli -u redis://localhost:6379/2 PING
 ```
 <!-- {: data-highlight="-h; -p; -u"} -->
 
-**Connects to a remote server or a full URI.** The URI can select a database. See [redis-cli options](https://redis.io/docs/latest/develop/tools/cli/).
+**Connects to a host.** Use `-h` for a remote server or `-u` for a full URI. The URI can select a database. See [redis-cli options](https://redis.io/docs/latest/develop/tools/cli/).
 
 ### Authenticate
 <!-- {: .-snippet} -->
@@ -65,7 +66,7 @@ REDISCLI_AUTH=secret redis-cli PING
 ```
 <!-- {: data-highlight="REDISCLI_AUTH"} -->
 
-**Passes a password without exposing it as an argument.** The `-a` flag is visible in the process list. See [redis-cli authentication](https://redis.io/docs/latest/develop/tools/cli/).
+**Passes a password securely.** Using the environment variable avoids exposing it as an argument; the `-a` flag is visible in the process list. See [redis-cli authentication](https://redis.io/docs/latest/develop/tools/cli/).
 
 ### Select a database
 <!-- {: .-snippet} -->
@@ -75,5 +76,5 @@ redis-cli -n 2 DBSIZE
 ```
 <!-- {: data-highlight="-n 2"} -->
 
-**Runs the command against database index 2.** Indices start at 0. See [redis-cli options](https://redis.io/docs/latest/develop/tools/cli/).
+**Selects database 2.** The command runs against database index 2. Indices start at 0. See [redis-cli options](https://redis.io/docs/latest/develop/tools/cli/).
 

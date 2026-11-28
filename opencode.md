@@ -3,6 +3,7 @@ title: OpenCode
 subtitle: Open-source coding agent
 logo: { src: /assets/logos/opencode.svg, mono: true }
 category: Agents
+created_at: 2026-11-14
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "OpenCode 2.4.2 docs, 2.3.2 runtime."

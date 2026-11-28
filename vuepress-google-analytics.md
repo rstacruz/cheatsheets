@@ -6,7 +6,8 @@ logo: { src: /assets/logos/vue.svg }
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/plugin-google-analytics 2.0.0-rc.142."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: Google Analytics plugin
     url: https://ecosystem.vuejs.press/plugins/analytics/google-analytics.html
@@ -46,4 +47,4 @@ export default {
 ```
 <!-- {: data-highlight="G-XXXXXXXXXX"} -->
 
-**Loads `gtag.js` with your GA4 ID.** Use a `G-` measurement ID, not the old `UA-` tracking ID; `debug: true` sends events to DebugView. See [usage](https://ecosystem.vuejs.press/plugins/analytics/google-analytics.html#usage).
+**Loads `gtag.js`,** with your GA4 ID. Use a `G-` measurement ID, not the old `UA-` tracking ID; `debug: true` sends events to DebugView. See [usage](https://ecosystem.vuejs.press/plugins/analytics/google-analytics.html#usage).

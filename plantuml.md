@@ -10,6 +10,7 @@ links:
     url: https://plantuml.com/
 tier: t3
 last_verified_with: "PlantUML 1.2026.10."
+created_at: 2014-02-25
 updated: 2026-11-25
 ---
 

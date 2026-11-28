@@ -6,7 +6,8 @@ logo: { src: /assets/logos/bash.svg }
 category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
-updated: 2026-11-24
+created_at: 2026-11-24
+updated: 2026-11-28
 tier: t3
 links:
   - title: Bash redirections
@@ -24,7 +25,7 @@ ls /missing > all.log 2>&1
 ```
 <!-- {: data-highlight="2>&1"} -->
 
-**Captures both streams in one file.** Order matters: `2>&1` copies the current stdout, so redirect stdout first. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
+**Captures both streams.** Redirect both into one file; order matters: `2>&1` copies the current stdout, so redirect stdout first. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
 
 ### Errors to a file
 <!-- {: .-snippet} -->
@@ -34,7 +35,7 @@ ls /missing 2> errors.log
 ```
 <!-- {: data-highlight="2>"} -->
 
-**Sends only stderr to a file.** `2` is the stderr descriptor, so stdout still prints to the terminal. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
+**Sends stderr to a file.** Stdout still prints to the terminal: `2` is the stderr descriptor. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
 
 ### Bash shorthand
 <!-- {: .-snippet} -->
@@ -45,7 +46,7 @@ ls /missing &>> all.log
 ```
 <!-- {: data-highlight="&>; &>>"} -->
 
-**Redirects both streams in one step.** `&>` truncates and `&>>` appends; both are Bash extensions. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
+**Redirects both streams.** `&>` truncates and `&>>` appends; both are Bash extensions that do it in one step. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
 
 ### Whole script
 <!-- {: .-snippet} -->
@@ -55,4 +56,4 @@ exec 2> errors.log
 ```
 <!-- {: data-highlight="exec 2>"} -->
 
-**Redirects stderr for everything that follows.** A redirection-only `exec` changes the shell's own descriptors. See [exec](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).
+**Redirects later stderr.** A redirection-only `exec` changes the shell's own descriptors, so it applies to everything that follows. See [exec](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).

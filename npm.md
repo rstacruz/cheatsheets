@@ -4,6 +4,7 @@ subtitle: Node.js package manager
 logo: { src: /assets/logos/npm.svg }
 category: Package managers
 weight: -1
+created_at: 2013-06-20
 updated: 2026-11-28
 last_verified_at: 2026-11-28
 last_verified_with: "npm 12.2.3."

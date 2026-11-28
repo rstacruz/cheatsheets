@@ -7,7 +7,8 @@ category: Databases
 layout: snippet
 tier: t3
 last_verified_with: "SQLite 3.54.0."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 links:
   - title: SQLite SELECT
     url: https://sqlite.org/lang_select.html
@@ -62,7 +63,7 @@ Ada|Hello|Nice
 Ada|Again|Thanks
 ```
 
-**Chains joins through the middle table.** Each `JOIN` can read the tables above it; see [SELECT](https://sqlite.org/lang_select.html).
+**Chains the joins.** It joins three tables through the middle one; each `JOIN` can read the tables above it. See [SELECT](https://sqlite.org/lang_select.html).
 
 ### Keep unmatched rows
 <!-- {: .-snippet} -->

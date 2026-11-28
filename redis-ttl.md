@@ -6,7 +6,8 @@ logo: { src: /assets/logos/redis.svg }
 category: Databases
 layout: snippet
 last_verified_with: "Redis 8.10.3."
-updated: 2026-11-27
+created_at: 2026-11-27
+updated: 2026-11-28
 tier: t3
 links:
   - title: Redis cheatsheet
@@ -27,7 +28,7 @@ SET session:1 token EX 60
 ```
 <!-- {: data-highlight="EX 60"} -->
 
-**Sets expiry in seconds while creating the key.** Use `PX 5000` for milliseconds. See [SET](https://redis.io/docs/latest/commands/set/).
+**Sets expiry on write.** It uses seconds while creating the key; use `PX 5000` for milliseconds. See [SET](https://redis.io/docs/latest/commands/set/).
 
 ### Add a TTL later
 <!-- {: .-snippet} -->
@@ -38,7 +39,7 @@ EXPIRE session:1 300
 ```
 <!-- {: data-highlight="EXPIRE"} -->
 
-**Sets a timeout on an existing key.** It returns 0 when the key is missing. See [EXPIRE](https://redis.io/docs/latest/commands/expire/).
+**Sets a timeout later.** It applies to an existing key and returns 0 when the key is missing. See [EXPIRE](https://redis.io/docs/latest/commands/expire/).
 
 ### Use milliseconds
 <!-- {: .-snippet} -->
@@ -60,7 +61,7 @@ TTL session:1
 ```
 <!-- {: data-highlight="TTL"} -->
 
-**Returns seconds left, -1 with no expiry, or -2 for a missing key.** See [TTL](https://redis.io/docs/latest/commands/ttl/).
+**Checks time remaining.** It returns seconds left, -1 with no expiry, or -2 for a missing key. See [TTL](https://redis.io/docs/latest/commands/ttl/).
 
 ### Remove a TTL
 <!-- {: .-snippet} -->

@@ -33,6 +33,7 @@ test('links frontmatter', () => {
     bash: [
       '---',
       'title: Bash',
+      'created_at: 2020-01-01',
       'links:',
       '  - title: Docs',
       '    url: https://example.com/docs',
@@ -52,6 +53,7 @@ test('intro length cap', () => {
       bash: [
         '---',
         'title: Bash',
+        'created_at: 2020-01-01',
         `intro: ${intro}`,
         'links:',
         '  - title: Docs',
@@ -68,7 +70,14 @@ test('intro length cap', () => {
 test('intro requires a link', () => {
   expect(() =>
     mapGlobToPages({
-      bash: ['---', 'title: Bash', 'intro: Hello', '---', '# hi'].join('\n')
+      bash: [
+        '---',
+        'title: Bash',
+        'created_at: 2020-01-01',
+        'intro: Hello',
+        '---',
+        '# hi'
+      ].join('\n')
     })
   ).toThrow(/links/)
 })
@@ -78,6 +87,7 @@ test('links cap', () => {
     mapGlobToPages({
       bash: [
         '---',
+        'created_at: 2020-01-01',
         'title: Bash',
         'links:',
         ...Array.from(
@@ -97,6 +107,7 @@ test('deprecated frontmatter', () => {
   const result = mapGlobToPages({
     old: [
       '---',
+      'created_at: 2020-01-01',
       'title: Old',
       'deprecated: true',
       'deprecated_by: /new',
@@ -112,13 +123,20 @@ test('deprecated frontmatter', () => {
 describe('mapGlobToPages()', () => {
   test('basic scenario', () => {
     const result = mapGlobToPages({
-      bash: ['---', 'title: Bash', '---', '# hi'].join('\n')
+      bash: [
+        '---',
+        'title: Bash',
+        'created_at: 2020-01-01',
+        '---',
+        '# hi'
+      ].join('\n')
     })
 
     expect(result).toMatchInlineSnapshot(`
       {
         "bash": {
           "frontmatter": {
+            "created_at": 2020-01-01T00:00:00.000Z,
             "title": "Bash",
           },
           "markdown": "# hi",
@@ -130,13 +148,20 @@ describe('mapGlobToPages()', () => {
 
   test('parsing numbers', () => {
     const result = mapGlobToPages({
-      '101': ['---', 'title: 101', '---', '# hi'].join('\n')
+      '101': [
+        '---',
+        'title: 101',
+        'created_at: 2020-01-01',
+        '---',
+        '# hi'
+      ].join('\n')
     })
 
     expect(result).toMatchInlineSnapshot(`
       {
         "101": {
           "frontmatter": {
+            "created_at": 2020-01-01T00:00:00.000Z,
             "title": "101",
           },
           "markdown": "# hi",
@@ -150,6 +175,7 @@ describe('mapGlobToPages()', () => {
     const result = mapGlobToPages({
       '101': [
         '---',
+        'created_at: 2020-01-01',
         'title: 101',
         'description: Custom description',
         '---',
@@ -161,6 +187,7 @@ describe('mapGlobToPages()', () => {
       {
         "101": {
           "frontmatter": {
+            "created_at": 2020-01-01T00:00:00.000Z,
             "description": "Custom description",
             "title": "101",
           },
@@ -174,7 +201,13 @@ describe('mapGlobToPages()', () => {
   test('invalid type', () => {
     expect(() => {
       mapGlobToPages({
-        '101': ['---', 'title: false', '---', '# hi'].join('\n')
+        '101': [
+          '---',
+          'title: false',
+          'created_at: 2020-01-01',
+          '---',
+          '# hi'
+        ].join('\n')
       })
     }).toThrowErrorMatchingInlineSnapshot(
       `[FrontmatterValidationError: Zod validation error: '101' {"title":["Invalid input"]}]`
@@ -183,13 +216,20 @@ describe('mapGlobToPages()', () => {
 
   test('missing frontmatter', () => {
     const result = mapGlobToPages({
-      '101': ['---', 'title: 101', '---', '# hi'].join('\n')
+      '101': [
+        '---',
+        'title: 101',
+        'created_at: 2020-01-01',
+        '---',
+        '# hi'
+      ].join('\n')
     })
 
     expect(result).toMatchInlineSnapshot(`
       {
         "101": {
           "frontmatter": {
+            "created_at": 2020-01-01T00:00:00.000Z,
             "title": "101",
           },
           "markdown": "# hi",

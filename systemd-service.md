@@ -7,6 +7,7 @@ category: Linux
 layout: snippet
 tier: t3
 last_verified_with: "systemd 262."
+created_at: 2026-11-28
 updated: 2026-11-28
 links:
   - title: systemd.service(5)
@@ -49,7 +50,7 @@ sudo systemctl enable --now hello.service
 ```
 <!-- {: data-highlight="enable --now"} -->
 
-**Enables the service at boot and starts it now.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Enables and starts.** The service is enabled at boot and started now. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### Reload after edits
 <!-- {: .-snippet} -->
@@ -84,7 +85,7 @@ journalctl -u hello.service -n 20 --no-pager
 ```
 <!-- {: data-highlight="journalctl"} -->
 
-**Shows whether the service is running and why it failed.** See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
+**Checks service status.** It shows whether the service is running and why it failed. See [systemctl(1)](https://man7.org/linux/man-pages/man1/systemctl.1.html).
 
 ### Override a package unit
 <!-- {: .-snippet} -->
@@ -94,4 +95,4 @@ sudo systemctl edit nginx.service
 ```
 <!-- {: data-highlight="systemctl edit"} -->
 
-**Creates a drop-in without touching the package unit.** The file lands in `/etc/systemd/system/nginx.service.d/`; see [systemd.unit(5)](https://man7.org/linux/man-pages/man5/systemd.unit.5.html).
+**Creates a drop-in.** The package unit stays untouched. The file lands in `/etc/systemd/system/nginx.service.d/`; see [systemd.unit(5)](https://man7.org/linux/man-pages/man5/systemd.unit.5.html).

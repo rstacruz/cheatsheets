@@ -12,6 +12,7 @@ links:
     url: https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html
 tier: t3
 last_verified_with: "Rails 8.1.4.1."
+created_at: 2012-03-16
 updated: 2026-11-26
 ---
 

@@ -5,6 +5,7 @@ description: "pm2 commands: list, describe, restart, logs, stop and delete. Proc
 subtitle: Node.js process manager
 logo: { src: /assets/logos/pm2.svg, mono: true }
 category: Node.js libraries
+created_at: 2017-10-31
 updated: 2026-11-18
 last_verified_at: 2026-11-18
 last_verified_with: "PM2 7.1.2."
